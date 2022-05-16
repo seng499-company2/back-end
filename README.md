@@ -17,7 +17,8 @@ To run it local use the command
 ```
 python manage.py runserver
 ```
-Then go to http://localhost:8000/api/v1/world/ to hit an API endpoint. 
+Then go to [http://localhost:8000/api/v1/world/](http://localhost:8000/api/v1/world/) to hit an API endpoint. If successfully running, it should return three worlds.  
+
 Use Ctrl C to stop.
 
 ## Docker
@@ -38,6 +39,9 @@ python manage.py test
 ```
 It will run the tests and notify you of any failures. 
 
+# Development
+Here are some development tips and tricks. 
+
 ## <a name="venv"></a> Virtual Environment 
 To help isolate dependencies, it is recommended to first create a virtual environment before running the application.
 
@@ -56,6 +60,21 @@ pip install -r requirements.txt
 In the future, make sure to activate this in order to run the application. 
 
 To stop the virtual environment, just run `deactivate` in your terminal. 
+
+## Database Migrations
+When developing, if you create any new models you need to add them to the database. 
+
+First you need to tell django that you made some changes to the models and you would like the changes to be stored as a migration. 
+To do this run: 
+```
+ python manage.py makemigrations <app_name>
+```
+Now create those model tables in the database:
+```
+python manage.py migrate
+```
+This will take all the migrations that haven't been applied and runs them against your db. 
+
 
 ## Useful Links
 This initial repo was created using the following links:
