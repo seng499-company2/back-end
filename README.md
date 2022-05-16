@@ -13,11 +13,8 @@ source ./django_env/bin/activate
 ```
 Once running the virtual env, install the dependencies once. 
 ```
-pip install django
-
-pip install django_rest_framework
+pip install -r requirements.txt
 ```
-
 In the future, make sure to activate this in order to run the application. 
 
 To stop the virtual environment, just run `deactivate` in your terminal. 
