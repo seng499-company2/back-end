@@ -53,6 +53,15 @@ python -m venv django_env
 # Activate virtual env
 source ./django_env/bin/activate
 ```
+To achieve the above steps in Windows, run the following after installing `virtualenv`:
+```
+# Create virtual env
+virtualenv --python C:\Path\To\Python\python.exe django_env
+
+# Activate virtual env
+.\django_env\Scripts\activate
+```
+
 Once running the virtual env, install the dependencies once. 
 ```
 pip install -r requirements.txt
