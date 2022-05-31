@@ -17,9 +17,6 @@ jobs:
         uses: actions/setup-python@v3
         with:
           python-version: ${{ matrix.python-version }}
-      - name: Docker Compose up ✔️
-        run: |
-          docker-compose up
       - name: Run Tests 🧪
         run: |
           docker-compose run web python manage.py test
