@@ -9,7 +9,7 @@ hello_world is an example Django application within Scheduler that needs to be r
 
 This application uses Django 4.0, which requires Python >=3.8.
 
-This application uses PostgreSQL; to run migrations, run `docker-compose exec web python manage.py migrate`
+This application uses PostgreSQL; to run migrations, run `docker-compose run web python manage.py migrate`
 
 ## Docker
 
@@ -25,12 +25,12 @@ Then go to [http://localhost:8000/api/v1/world/](http://localhost:8000/api/v1/wo
 
 ## Testing
 
-To test the application, first ensure that the app is running see [docker](##Docker), and also make sure the are tests within the corresponding app and the app - see hello_world.test for an example.
+To test the application, first ensure that the app is running see [docker](Docker), and also make sure the are tests within the corresponding app and the app - see hello_world.test for an example.
 
 Then within the root folder, run the command
 
 ```
-python manage.py test
+docker-compose run web python manage.py test
 ```
 
 It will run the tests and notify you of any failures.
@@ -47,13 +47,13 @@ First you need to tell django that you made some changes to the models and you w
 To do this run:
 
 ```
- python manage.py makemigrations <app_name>
+docker-compose run web python manage.py makemigrations
 ```
 
 Now create those model tables in the database:
 
 ```
-python manage.py migrate
+docker-compose run web python manage.py migrate
 ```
 
 This will take all the migrations that haven't been applied and runs them against your db.
