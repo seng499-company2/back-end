@@ -21,11 +21,11 @@ To build and run the application, from the root directory run
 docker-compose up
 ```
 
-Then go to [http://localhost:8000/api/v1/world/](http://localhost:8000/api/v1/world/) to hit an API endpoint
+Then go to [http://localhost:8000/](http://localhost:8000/) to see the Django app up and running. 
 
 ## Testing
 
-To test the application, first ensure that the app is running see [docker](Docker), and also make sure the are tests within the corresponding app and the app - see hello_world.test for an example.
+To test the application, ensure that the app is running see [docker](Docker). Then open up a new terminal. 
 
 Then within the root folder, run the command
 
@@ -34,6 +34,12 @@ docker-compose run web python manage.py test
 ```
 
 It will run the tests and notify you of any failures.
+
+To run a specific app's test cases, use the command
+
+```
+docker-compose run web python manage.py test <app_name>
+```
 
 # Development
 
