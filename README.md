@@ -18,7 +18,7 @@ To run the application, first make sure you have [docker](https://docs.docker.co
 To build and run the application, from the root directory run
 
 ```
-docker-compose up
+docker-compose up --build
 ```
 
 Then go to [http://localhost:8000/api/v1/world/](http://localhost:8000/api/v1/world/) to hit an API endpoint
