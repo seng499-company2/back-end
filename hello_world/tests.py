@@ -20,16 +20,17 @@ class BaseViewTest(APITestCase):
         self.create_world("Earth", 5)
         self.create_world("Neptune", 23)
 
-class GetAllWorldsTest(BaseViewTest):
+class GetWorldsTest(BaseViewTest):
 
     def test_get_all_world(self):
         """
         This test ensures that all worlds added in the setUp method
-        exist when we make a GET request to the songs/ endpoint
+        exist when we make a GET request to the worlds/ endpoint
         """
-        # hit the API endpoint
+        # hit the API endpoint 
+        # this reverse url is based on the queryset attribute of the view (see https://www.django-rest-framework.org/api-guide/routers/ for info)
         response = self.client.get(
-            reverse("worlds", kwargs={"version": "v1"})
+            reverse("world-list", kwargs={"version": "v1"})
         )
         # fetch the data from db
         expected = World.objects.all()
