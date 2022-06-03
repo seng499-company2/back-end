@@ -23,8 +23,7 @@ docker-compose up --build   //Add -d flag to run the containers in the backgroun
 
 Now in a separate terminal, apply any missing migrations using the command. The scheduler_service will say `You have # unapplied migration(s)` when starting the docker container if you are missing them.
 ```
-docker-compose run web python manage.py migrate
-
+docker-compose exec web python manage.py migrate
 ```
 
 Then go to [http://localhost:8000/](http://localhost:8000/) to see the Django app up and running. 
@@ -43,7 +42,7 @@ To test the application, ensure that the app is running with [docker](Docker). T
 Then within the root folder, run the command
 
 ```
-docker-compose run web python manage.py test
+docker-compose exec web python manage.py test
 ```
 
 It will run the tests and notify you of any failures.
@@ -51,7 +50,7 @@ It will run the tests and notify you of any failures.
 To run a specific app's test cases, use the command
 
 ```
-docker-compose run web python manage.py test <app_name>
+docker-compose exec web python manage.py test <app_name>
 ```
 
 # Development
@@ -67,13 +66,13 @@ First you need to tell Django that you made some changes to the models and you w
 To do this, ensure that the application and db are running in [docker](Docker) and in a terminal use the following command:
 
 ```
-docker-compose run web python manage.py makemigrations
+docker-compose exec web python manage.py makemigrations
 ```
 
 Now create those model tables in the database:
 
 ```
-docker-compose run web python manage.py migrate
+docker-compose exec web python manage.py migrate
 ```
 
 This will take all the migrations that haven't been applied and runs them against your db.
