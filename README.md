@@ -24,6 +24,7 @@ docker-compose up --build   //Add -d flag to run the containers in the backgroun
 Now in a separate terminal, apply any missing migrations using the command. The scheduler_service will say `You have # unapplied migration(s)` when starting the docker container if you are missing them.
 ```
 docker-compose run web python manage.py migrate
+
 ```
 
 Then go to [http://localhost:8000/](http://localhost:8000/) to see the Django app up and running. 
