@@ -29,7 +29,7 @@ class GetAllWorldsTest(BaseViewTest):
         """
         # hit the API endpoint
         response = self.client.get(
-            reverse("world-all", kwargs={"version": "v1"})
+            reverse("worlds", kwargs={"version": "v1"})
         )
         # fetch the data from db
         expected = World.objects.all()

@@ -1,7 +1,11 @@
-from django.urls import path
-from .views import ListWorldView
+from django.urls import path, include
+from rest_framework import routers
+from .views import WorldViewSet
 
+
+router = routers.SimpleRouter()
+router.register('worlds', WorldViewSet)
 
 urlpatterns = [
-    path('world/', ListWorldView.as_view(), name="world-all")
+    path('', include(router.urls)),
 ]

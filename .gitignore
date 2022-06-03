@@ -1,2 +1,5 @@
 django_env/
 __pycache__/
+data/
+.DS_STORE
+.idea/
