@@ -39,7 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',   # add for DRF
-    'hello_world',      # add hello world app
+    'users',            # Add our apps
+    'preferences',
+    'courses',
+    'schedule',
 ]
 
 MIDDLEWARE = [
