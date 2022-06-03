@@ -4,7 +4,7 @@ Company 2's back-end system
 
 # Running the application
 
-This is a Django application, where where Scheduler is considered the main project. It is broken up into 4 apps:
+This is a Django application, where Scheduler is considered the main project. It is broken up into 4 apps:
 * Users
 * Courses
 * Preferences
