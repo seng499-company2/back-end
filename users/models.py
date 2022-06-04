@@ -11,7 +11,7 @@ class AppUser(models.Model):
     class TeachingType(models.TextChoices):
         TEACHING_PROF = 'TP', _('Teaching Prof')
         RESEARCH_PROF = 'RP', _('Research Prof')
-        ADMINISTRATOR = 'AD', _('Administrator')
+        OTHER = 'OT', _('Other')
 
     #id added automatically by Django - defaults to Primary Key
 
@@ -31,11 +31,11 @@ class AppUser(models.Model):
 
 #methods use Django signals to create/update AppUser instances when auth.User instances are created/updated
 @receiver(post_save, sender=User)
-def create_user_profile(sender, instance, created, **kwargs):
+def create_app_user(sender, instance, created, **kwargs):
     if created:
         AppUser.objects.create(user=instance)
 
 @receiver(post_save, sender=User)
-def save_user_profile(sender, instance, **kwargs):
+def save_app_user(sender, instance, **kwargs):
     instance.profile.save()
 
