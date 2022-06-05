@@ -1,3 +1,10 @@
 from django.urls import include, path
 
-# Define your urls here.
+from . import views
+
+urlpatterns = [
+    #/users
+    path('', views.index, name='index'),
+    #/users/{professor-id}
+    path('<int:professor_id>/', views.professor, name='professor')
+]
