@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-!5i(a65in7i4+6y%^64a%3=&=d#pi(g_+7ec3+_%hcc&0yu_5c
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0']
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost']
 
 
 # Application definition
@@ -39,7 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',   # add for DRF
-    'hello_world',      # add hello world app
+    'users',            # Add our apps
+    'preferences',
+    'courses',
+    'schedule',
 ]
 
 MIDDLEWARE = [
