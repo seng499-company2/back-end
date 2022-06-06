@@ -4,22 +4,22 @@ from rest_framework.views import APIView
 from rest_framework import status
 
 from .models import AppUser
-from .serializers import ProfessorsListSerializer, ProfessorSerializer
+from .serializers import AppUserSerializer
 
 class ProfessorsList(APIView):
     """
     Administrator User Management: List all professors, or create a new professor record.
     """
     #(Admin) return all profs within the system.
-    def get(request):
-        #get all AppUser objects **may have to also fetch User parent class + concatenate fields**
-        profs_list = AppUser.objects.all()
-        serializer = ProfessorsListSerializer(profs_list, many=True)
+    def get(self, request):
+        #get all non-admin AppUsers **may have to also fetch User parent class + concatenate fields**
+        profs_list = AppUser.objects.filter(user__is_superuser=False)
+        serializer = AppUserSerializer(profs_list, many=True)
         return HttpResponse(serializer.data)
 
     #(Admin) create a new professor record.
     def post(self, request, format=None):
-        serializer = ProfessorsListSerializer(data=request.data)
+        serializer = AppUserSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return HttpResponse(serializer.data, status=status.HTTP_201_CREATED)
