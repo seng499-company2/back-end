@@ -1,10 +1,11 @@
 from django.db import models
 from django.contrib.auth.models import User
+
 from django.utils.translation import gettext_lazy as _
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
-# Model for the database representation of an AppUser (subclass of django.contrib.auth.models.User).
+# Model for the database representation of an AppUser (attribute: django.contrib.auth.models.User).
 
 class AppUser(models.Model):
 
@@ -24,7 +25,7 @@ class AppUser(models.Model):
         User,
         on_delete=models.CASCADE,
         primary_key=True
-        )
+    )
     prof_type = models.CharField(
         max_length=2,
         choices=TeachingType.choices,
@@ -35,7 +36,7 @@ class AppUser(models.Model):
         managed = True  #auto creates tables
         db_table = 'appuser'
 
-#methods use Django signals to create/update AppUser instances when auth.User instances are created/updated
+'''#methods use Django signals to create/update AppUser instances when auth.User instances are created/updated
 @receiver(post_save, sender=User)
 def create_app_user(sender, instance, created, **kwargs):
     if created:
@@ -44,5 +45,4 @@ def create_app_user(sender, instance, created, **kwargs):
 
 @receiver(post_save, sender=User)
 def update_app_user(sender, instance, **kwargs):
-    instance.appuser.save()
-
+    instance.appuser.save()'''
