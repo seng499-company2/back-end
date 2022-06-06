@@ -4,12 +4,26 @@ from rest_framework import viewsets
 from django.contrib.auth.models import User
 from .models import AppUser
 
+#User superclass serializer
+class UserSerializer(serializers.ModelSerializer):
+    username = serializers.CharField(required=True)
+    password = serializers.CharField(required=True)
+    first_name = serializers.CharField(required=True)
+    last_name = serializers.CharField(required=True)
+    email = serializers.CharField()
+    is_superuser = serializers.BooleanField(default=False)
+    class Meta:
+        model = User
+        fields = ('username', 'password', 'first_name', 'last_name', 'email', 'is_superuser')
+
+
+#main AppUser serializer - User object is nested
 class AppUserSerializer(serializers.ModelSerializer):
-    user_id = serializers.IntegerField(read_only=True)
+    user = UserSerializer()
     prof_type = serializers.ChoiceField(choices=AppUser.TeachingType, default=AppUser.TeachingType.TEACHING_PROF)
     class Meta: 
         model = AppUser 
-        fields = ('user_id', 'prof_type', 'username', 'password', 'first_name', 'last_name' 'email', 'is_superuser')
+        fields = ('user', 'prof_type')
 
     def create(self, validated_data):
         """
@@ -46,10 +60,3 @@ class AppUserSerializer(serializers.ModelSerializer):
             setattr(instance, attr, value)
         instance.save()
         return instance
-        '''instance.title = validated_data.get('title', instance.title)
-        instance.code = validated_data.get('code', instance.code)
-        instance.linenos = validated_data.get('linenos', instance.linenos)
-        instance.language = validated_data.get('language', instance.language)
-        instance.style = validated_data.get('style', instance.style)
-        instance.save()
-        return instance'''
