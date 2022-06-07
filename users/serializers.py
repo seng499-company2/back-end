@@ -10,7 +10,7 @@ class UserSerializer(serializers.ModelSerializer):
     password = serializers.CharField(required=True)
     first_name = serializers.CharField(required=True)
     last_name = serializers.CharField(required=True)
-    email = serializers.CharField()
+    email = serializers.EmailField()
     is_superuser = serializers.BooleanField(default=False)
     class Meta:
         model = User
@@ -25,6 +25,7 @@ class AppUserSerializer(serializers.ModelSerializer):
         model = AppUser 
         fields = ('user', 'prof_type')
 
+    #overrides default create
     def create(self, validated_data):
         """
         Create and return a new AppUser instance, given the validated data.
@@ -36,6 +37,7 @@ class AppUserSerializer(serializers.ModelSerializer):
         email = validated_data.pop('email')
         is_superuser = validated_data.pop('is_superuser')
 
+        #.create_user automatically hashes the password field
         user = User.objects.create_user(
             username=username,
             password=password,
@@ -47,6 +49,7 @@ class AppUserSerializer(serializers.ModelSerializer):
         appUser = AppUser.objects.create(user=user, **validated_data)
         return appUser
 
+    #overrides default update
     def update(self, instance, validated_data):
         """
         Update and return an existing AppUser instance, given the validated data.

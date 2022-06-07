@@ -49,7 +49,7 @@ class AppUserSerializerTest(TestCase):
     #FIX
     def test_user_contains_expected_fields(self):
         data = self.serializer.data
-        self.assertEqual(set(data.user.keys()), set([
+        self.assertEqual(set(data['user'].keys()), set([
             'username',
             'password',
             'first_name',
