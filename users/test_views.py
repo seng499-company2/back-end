@@ -1,14 +1,13 @@
 from django.test import TestCase    #**tests that interact with database require subclassing of this class**
-
-from django.contrib.auth.models import User
 from .models import AppUser
-from .serializers import AppUserSerializer
+from .views import ProfessorsList
+from .views import Professor
 
-#Serializer Testing
-class AppUserSerializerTest(TestCase):
+
+class TestProfessorsList(TestCase):
     @classmethod
     def setUp(self):
-        #build AppUser and AppUserSerializer instances
+        # build AppUser and AppUserSerializer instances
         self.user_attributes = {
             'username': 'johnd1',
             'password': 'securepass2',
@@ -23,9 +22,9 @@ class AppUserSerializerTest(TestCase):
             'user': self.user,
             'prof_type': AppUser.TeachingType.TEACHING_PROF
         }
-        #default data for the serializer, if needed
+        # default data for the serializer, if needed
         self.default_serializer_data = {
-            'user':{
+            'user': {
                 'username': 'abcdef',
                 'password': '123',
                 'first_name': 'Abc',
@@ -39,30 +38,5 @@ class AppUserSerializerTest(TestCase):
         self.app_user = AppUser.objects.create(**self.app_user_attributes)
         self.serializer = AppUserSerializer(instance=self.app_user)
 
-
-    def test_contains_expected_fields(self):
-        data = self.serializer.data
-        self.assertEqual(set(data.keys()), set([
-            'user',
-            'prof_type']))
-
-    #FIX
-    # def test_user_contains_expected_fields(self):
-    #     data = self.serializer.data
-    #     self.assertEqual(set(data.user.keys()), set([
-    #         'username',
-    #         'password',
-    #         'first_name',
-    #         'last_name',
-    #         'email',
-    #         'is_superuser']))
-
-
-    def test_username_field_content(self):
-        data = self.serializer.data
-        self.assertEqual(data['user']['username'], self.app_user_attributes['user'].username)
-
-
-    def test_prof_type_field_content(self):
-        data = self.serializer.data
-        self.assertEqual(data['prof_type'], self.app_user_attributes['prof_type'])
+    def test_post(self):
+        self.fail()
