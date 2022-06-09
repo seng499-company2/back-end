@@ -1,4 +1,4 @@
-from django.test import TestCase    #**tests that interact with database require subclassing of this class**
+from django.test import TestCase    #**tests that interact with a database require subclassing of this class**
 
 from django.contrib.auth.models import User
 from .models import AppUser
@@ -21,7 +21,7 @@ class AppUserSerializerTest(TestCase):
 
         self.app_user_attributes = {
             'user': self.user,
-            'prof_type': AppUser.TeachingType.TEACHING_PROF
+            'prof_type': 'RP'
         }
         #default data for the serializer, if needed
         self.default_serializer_data = {
@@ -33,7 +33,7 @@ class AppUserSerializerTest(TestCase):
                 'email': 'abc@uvic.ca',
                 'is_superuser': False
             },
-            'prof_type': AppUser.TeachingType.TEACHING_PROF
+            'prof_type': 'TP'
         }
 
         self.app_user = AppUser.objects.create(**self.app_user_attributes)
@@ -46,7 +46,7 @@ class AppUserSerializerTest(TestCase):
             'user',
             'prof_type']))
 
-    #FIX
+
     def test_user_contains_expected_fields(self):
         data = self.serializer.data
         self.assertEqual(set(data['user'].keys()), set([
@@ -66,3 +66,5 @@ class AppUserSerializerTest(TestCase):
     def test_prof_type_field_content(self):
         data = self.serializer.data
         self.assertEqual(data['prof_type'], self.app_user_attributes['prof_type'])
+
+        

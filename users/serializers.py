@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from rest_framework import viewsets
+from django.core.exceptions import ValidationError
 
 from django.contrib.auth.models import User
 from .models import AppUser
@@ -37,16 +38,21 @@ class AppUserSerializer(serializers.ModelSerializer):
         email = validated_data.pop('email')
         is_superuser = validated_data.pop('is_superuser')
 
-        #.create_user automatically hashes the password field
-        user = User.objects.create_user(
-            username=username,
-            password=password,
-            first_name=first_name,
-            last_name=last_name,
-            email=email,
-            is_superuser=is_superuser
-            )
-        appUser = AppUser.objects.create(user=user, **validated_data)
+        #.create_user() automatically hashes the password field
+        try:
+            user = User.objects.create_user(
+                username=username,
+                password=password,
+                first_name=first_name,
+                last_name=last_name,
+                email=email,
+                is_superuser=is_superuser
+                )
+            appUser = AppUser.objects.create(user=user, **validated_data)
+        
+        #raising a JSON-like exception
+        except ValidationError:
+            raise serializers.ValidationError({"error": "Invalid input!"})
         return appUser
 
     #overrides default update
