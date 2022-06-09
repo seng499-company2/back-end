@@ -67,4 +67,19 @@ class AppUserSerializerTest(TestCase):
         data = self.serializer.data
         self.assertEqual(data['prof_type'], self.app_user_attributes['prof_type'])
 
+    
+    def test_valid_deserialization(self):
+        serialized_data = {
+            'user':{
+                'username': 'abcdef',
+                'password': '123',
+                'first_name': 'Abc',
+                'last_name': 'Def',
+                'email': 'abc@uvic.ca',
+                'is_superuser': False
+            },
+            'prof_type': 'TP'
+        }
+        serializer = AppUserSerializer(data=serialized_data)
+        self.assertTrue(serializer.is_valid())
         
