@@ -31,23 +31,11 @@ class AppUserSerializer(serializers.ModelSerializer):
         """
         Create and return a new AppUser instance, given the validated data.
         """
-        username = validated_data.pop('username')
-        password = validated_data.pop('password')
-        first_name = validated_data.pop('first_name')
-        last_name = validated_data.pop('last_name')
-        email = validated_data.pop('email')
-        is_superuser = validated_data.pop('is_superuser')
+        user_data = validated_data.pop('user')
 
         #.create_user() automatically hashes the password field
         try:
-            user = User.objects.create_user(
-                username=username,
-                password=password,
-                first_name=first_name,
-                last_name=last_name,
-                email=email,
-                is_superuser=is_superuser
-                )
+            user = User.objects.create_user(**user_data)
             appUser = AppUser.objects.create(user=user, **validated_data)
         
         #raising a JSON-like exception
@@ -61,11 +49,10 @@ class AppUserSerializer(serializers.ModelSerializer):
         Update and return an existing AppUser instance, given the validated data.
         """
         #update the User
-        user_data = validated_data.pop('user', None)
-        for attr, value in user_data.items():
-            setattr(instance.user, attr, value)
+        user_data = validated_data.pop('user', {})
+        user_serializer = UserSerializer(instance.user, data=user_data, partial=True)
+        user_serializer.is_valid(raise_exception=True)
+        user_serializer.update(instance.user, user_data)
         #then update AppUser
-        for attr, value in validated_data.items():
-            setattr(instance, attr, value)
-        instance.save()
+        super(AppUserSerializer, self).update(instance, validated_data)
         return instance
