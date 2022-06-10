@@ -30,7 +30,7 @@ Then go to [http://localhost:8000/](http://localhost:8000/) to see the Django ap
 
 To stop the docker containers either use `ctrl c` if not running in detached mode or use the command
 ```
-docker-compose down
+docker-compose down # Add -v flag to remove the volumes along with the containers
 ```
 
 When developing the app, if you add or modify models, you will have to apply them to the database. See the [Database Migrations](#database-migrations) sections for more information. 
@@ -76,6 +76,12 @@ docker-compose exec web python manage.py migrate
 ```
 
 This will take all the migrations that haven't been applied and runs them against your db.
+
+## Running production
+To run the production docker file, use the command:
+```
+docker-compose -f docker-compose.prod.yml up --build -d
+```
 
 ## Useful Links
 
