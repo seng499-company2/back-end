@@ -1,4 +1,7 @@
 from django.test import TestCase    #**tests that interact with database require subclassing of this class**
+from django.contrib.auth.models import User
+from .models import AppUser
+from .serializers import AppUserSerializer
 from .models import AppUser
 from .views import ProfessorsList
 from .views import Professor

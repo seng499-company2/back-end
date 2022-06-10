@@ -6,18 +6,20 @@ from rest_framework import status
 from .models import AppUser
 from .serializers import AppUserSerializer
 
+
 class ProfessorsList(APIView):
     """
     Administrator User Management: List all professors, or create a new professor record.
     """
-    #(Admin) return all profs within the system.
+
+    # (Admin) return all profs within the system.
     def get(self, request):
-        #get all non-admin AppUsers **may have to also fetch User parent class + concatenate fields**
+        # get all non-admin AppUsers **may have to also fetch User parent class + concatenate fields**
         profs_list = AppUser.objects.filter(user__is_superuser=False)
         serializer = AppUserSerializer(profs_list, many=True)
         return HttpResponse(serializer.data)
 
-    #(Admin) create a new professor record.
+    # (Admin) create a new professor record.
     def post(self, request, format=None):
         serializer = AppUserSerializer(data=request.data)
         if serializer.is_valid():
@@ -30,7 +32,8 @@ class Professor(APIView):
     """
     Administrator User Management: Update or delete a single professor record.
     """
-    #(Admin) update an existing user/professor record.
+
+    # (Admin) update an existing user/professor record.
     def post(self, request, pk, format=None):
         prof = self.get_object(pk)
         serializer = ProfessorSerializer(prof, data=request.data)
@@ -39,7 +42,7 @@ class Professor(APIView):
             return HttpResponse(serializer.data)
         return HttpResponse(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    #delete an existing user/professor record.
+    # delete an existing user/professor record.
     def delete(self, request, pk, format=None):
         prof = self.get_object(pk)
         prof.delete()
