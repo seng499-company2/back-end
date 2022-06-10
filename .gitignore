@@ -1,4 +1,4 @@
 django_env/
 __pycache__/
 data/
-.env*
+.env.*
