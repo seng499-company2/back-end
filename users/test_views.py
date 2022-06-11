@@ -6,6 +6,7 @@ from .views import ProfessorsList
 from .views import Professor
 from rest_framework import status
 from rest_framework.test import APIRequestFactory
+from django.http import HttpResponse
 
 
 class TestProfessorsList(TestCase):
@@ -43,30 +44,41 @@ class TestProfessorsList(TestCase):
         self.serializer = AppUserSerializer(instance=self.app_user)
 
     @classmethod
-    def post_default_user(self):
-        request_factory = APIRequestFactory()
-        request = request_factory.post('/users/prof-id', data=self.default_serializer_data, format='json')
-        return ProfessorsList().post(request)
+    def save_default_user(self):
+        serializer = AppUserSerializer(data=self.default_serializer_data)
+        if serializer.is_valid():
+            serializer.save()
 
     def test_prof_update_POST(self):
-        self.post_default_user()
+        self.save_default_user()
         request_factory = APIRequestFactory()
-        request = request_factory.post('/users/prof-id', data=self.default_serializer_data, format='json')
-        response = Professor().post(request, requested_pk=1)
-        self.assertTrue(response is not None)
-        self.assertEqual(status.HTTP_201_CREATED, response.status_code)
+        request = request_factory.post('/users/abcdef', data=self.default_serializer_data, format='json')
+        response = Professor().post(request, requested_pk='abcdef')
+        self.assertIsNotNone(response)
+        self.assertEqual(status.HTTP_200_OK, response.status_code)
 
     def test_prof_createion_POST(self):
-        response = self.post_default_user()
-        self.assertTrue(response is not None)
+        request_factory = APIRequestFactory()
+        request = request_factory.post('/users/', data=self.default_serializer_data, format='json')
+        response = ProfessorsList().post(request)
+        self.assertIsNotNone(response)
         self.assertEqual(status.HTTP_201_CREATED, response.status_code)
 
     def test_prof_list_GET(self):
-        self.post_default_user()
+        self.save_default_user()
         request_factory = APIRequestFactory()
         request = request_factory.get('/users/')
-        response = ProfessorsList().get(request)
-        self.assertTrue(response is not None)
+        response: HttpResponse = ProfessorsList().get(request)
+        self.assertIsNotNone(response)
         self.assertEqual(status.HTTP_200_OK, response.status_code)
-        print(response)
-        # TODO: Validate data
+        self.maxDiff = None
+        self.assertContains(response, "\"user\": {\"username\": \"johnd1\"")
+        self.assertContains(response, "\"user\": {\"username\": \"abcdef\"")
+
+    def test_prof_DELETE(self):
+        self.save_default_user()
+        request_factory = APIRequestFactory()
+        request = request_factory.delete('/users/abcdef')
+        response = Professor().delete(request, requested_pk='abcdef')
+        self.assertIsNotNone(response)
+        self.assertEqual(status.HTTP_204_NO_CONTENT, response.status_code)
