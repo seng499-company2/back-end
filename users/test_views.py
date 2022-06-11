@@ -1,11 +1,9 @@
-from django.test import TestCase    #**tests that interact with database require subclassing of this class**
+from django.test import TestCase  # **tests that interact with database require subclassing of this class**
 from django.contrib.auth.models import User
-from .models import AppUser
 from .serializers import AppUserSerializer
 from .models import AppUser
 from .views import ProfessorsList
 from .views import Professor
-from django.http import HttpRequest
 from rest_framework import status
 from rest_framework.test import APIRequestFactory
 
@@ -44,17 +42,31 @@ class TestProfessorsList(TestCase):
         self.app_user = AppUser.objects.create(**self.app_user_attributes)
         self.serializer = AppUserSerializer(instance=self.app_user)
 
-    def test_prof_POST(self):
+    @classmethod
+    def post_default_user(self):
         request_factory = APIRequestFactory()
-        request = request_factory.post('/users/001')
-        pass
-    #     TODO
+        request = request_factory.post('/users/prof-id', data=self.default_serializer_data, format='json')
+        return ProfessorsList().post(request)
+
+    def test_prof_update_POST(self):
+        self.post_default_user()
+        request_factory = APIRequestFactory()
+        request = request_factory.post('/users/prof-id', data=self.default_serializer_data, format='json')
+        response = Professor().post(request, requested_pk=1)
+        self.assertTrue(response is not None)
+        self.assertEqual(status.HTTP_201_CREATED, response.status_code)
+
+    def test_prof_createion_POST(self):
+        response = self.post_default_user()
+        self.assertTrue(response is not None)
+        self.assertEqual(status.HTTP_201_CREATED, response.status_code)
 
     def test_prof_list_GET(self):
+        self.post_default_user()
         request_factory = APIRequestFactory()
         request = request_factory.get('/users/')
         response = ProfessorsList().get(request)
         self.assertTrue(response is not None)
         self.assertEqual(status.HTTP_200_OK, response.status_code)
-        print(response.items())
-
+        print(response)
+        # TODO: Validate data

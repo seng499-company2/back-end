@@ -35,7 +35,6 @@ class ProfessorsList(APIView):
         if serializer.is_valid():
             serializer.save()
             return HttpResponse(serializer.data, status=status.HTTP_201_CREATED)
-        print("ERROR: " + str(serializer.errors))
         return HttpResponse(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
@@ -45,18 +44,32 @@ class Professor(APIView):
     """
 
     # (Admin) update an existing user/professor record.
-    def post(self, request, pk, format=None):
-        prof = self.get_object(pk)
-        # serializer = ProfessorSerializer(prof, data=request.data)
-        # if serializer.is_valid():
-        #     serializer.save()
-        #     return HttpResponse(serializer.data)
-        # return HttpResponse(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    def post(self, request: HttpRequest, requested_pk, format=None) -> HttpResponse:
+        if request.method != "POST":
+            return HttpResponse(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+        # TODO: Check for admin in request
+
+        prof = AppUser.objects.get(pk=requested_pk)
+        if prof is None or not isinstance(prof, AppUser):
+            return HttpResponse(status=status.HTTP_404_NOT_FOUND)
+        request_data = JSONParser().parse(request)
+        serializer = AppUserSerializer(prof, data=request_data)
+        if serializer.is_valid():
+            serializer.update(prof, serializer.validated_data)
+            return HttpResponse(serializer.data, status=status.HTTP_201_CREATED)
+        return HttpResponse(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     # delete an existing user/professor record.
-    def delete(self, request, pk, format=None):
-        prof = self.get_object(pk)
-        prof.delete()
+    def delete(self, request: HttpRequest, requested_pk, format=None):
+        if request.method != "DELETE":
+            return HttpResponse(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+        # TODO: Check for admin in request
+
+        # prof = AppUser.objects.filter(username=)
+        # if prof is None:
+
         return HttpResponse(status=status.HTTP_204_NO_CONTENT)
 
     '''#(Admin) add a new professor record.
