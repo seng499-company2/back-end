@@ -1,4 +1,4 @@
-from django.test import TestCase    #**tests that interact with database require subclassing of this class**
+from django.test import TestCase    #**tests that interact with a database require subclassing of this class**
 
 from django.contrib.auth.models import User
 from .models import AppUser
@@ -21,7 +21,7 @@ class AppUserSerializerTest(TestCase):
 
         self.app_user_attributes = {
             'user': self.user,
-            'prof_type': AppUser.TeachingType.TEACHING_PROF
+            'prof_type': 'RP'
         }
         #default data for the serializer, if needed
         self.default_serializer_data = {
@@ -33,9 +33,10 @@ class AppUserSerializerTest(TestCase):
                 'email': 'abc@uvic.ca',
                 'is_superuser': False
             },
-            'prof_type': AppUser.TeachingType.TEACHING_PROF
+            'prof_type': 'TP'
         }
 
+        #serialize into an AppUser object
         self.app_user = AppUser.objects.create(**self.app_user_attributes)
         self.serializer = AppUserSerializer(instance=self.app_user)
 
@@ -46,10 +47,10 @@ class AppUserSerializerTest(TestCase):
             'user',
             'prof_type']))
 
-    #FIX
+
     def test_user_contains_expected_fields(self):
         data = self.serializer.data
-        self.assertEqual(set(data.user.keys()), set([
+        self.assertEqual(set(data['user'].keys()), set([
             'username',
             'password',
             'first_name',
@@ -66,3 +67,81 @@ class AppUserSerializerTest(TestCase):
     def test_prof_type_field_content(self):
         data = self.serializer.data
         self.assertEqual(data['prof_type'], self.app_user_attributes['prof_type'])
+
+    
+    def test_valid_deserialization(self):
+        serialized_data = {
+            'user':{
+                'username': 'abcdef',
+                'password': '123',
+                'first_name': 'Abc',
+                'last_name': 'Def',
+                'email': 'abc@uvic.ca',
+                'is_superuser': False
+            },
+            'prof_type': 'TP'
+        }
+        serializer = AppUserSerializer(data=serialized_data)
+        self.assertTrue(serializer.is_valid())
+
+    
+    def test_create_appuser_obj(self):
+        serialized_data = {
+            'user':{
+                'username': 'abcdef',
+                'password': '123',
+                'first_name': 'Abc',
+                'last_name': 'Def',
+                'email': 'abc@uvic.ca',
+                'is_superuser': False
+            },
+            'prof_type': 'TP'
+        }
+        serializer = AppUserSerializer(data=serialized_data)
+        self.assertTrue(serializer.is_valid())
+
+        #use the serializer to create an AppUser record, then assert it has been committed to DB
+        app_user_obj = serializer.save()
+        self.assertIsNotNone(app_user_obj.pk)
+
+    
+    def test_update_appuser_obj(self):
+        serialized_data = {
+            'user':{
+                'username': 'abcdef',
+                'password': '123',
+                'first_name': 'Abc',
+                'last_name': 'Def',
+                'email': 'abc@uvic.ca',
+                'is_superuser': False
+            },
+            'prof_type': 'TP'
+        }
+        serializer = AppUserSerializer(data=serialized_data)
+        self.assertTrue(serializer.is_valid())
+
+        #use the serializer to create an AppUser record
+        app_user_obj = serializer.save()
+        obj_key = app_user_obj.pk
+        
+        #now, update the AppUser record order by referencing an existing instance
+        updated_serialized_data = {
+            'user':{
+                'username': 'ghijkl',   #updated field
+                'password': '123',
+                'first_name': 'Abc',
+                'last_name': 'Def',
+                'email': 'abc@uvic.ca',
+                'is_superuser': False
+            },
+            'prof_type': 'RP'   #updated field
+        }
+        serializer = AppUserSerializer(instance=app_user_obj, data=updated_serialized_data)
+        self.assertTrue(serializer.is_valid())
+        updated_app_user = serializer.save()
+        updated_obj_key = updated_app_user.pk
+
+        #assert that the same instance was updated, and updated as expected
+        self.assertEquals(updated_obj_key, obj_key)
+        self.assertEquals(AppUser.objects.get(pk=obj_key).user.username, updated_serialized_data['user']['username'])
+        self.assertEquals(AppUser.objects.get(pk=obj_key).prof_type, updated_serialized_data['prof_type'])
