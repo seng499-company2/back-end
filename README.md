@@ -27,13 +27,12 @@ docker-compose exec web python manage.py migrate
 ```
 
 Then go to [http://localhost:8000/](http://localhost:8000/) to see the Django app up and running. 
-
 To stop the docker containers either use `ctrl c` if not running in detached mode or use the command
 ```
-docker-compose down
+docker-compose down # Add -v flag to remove the volumes along with the containers
 ```
 
-When developing the app, if you add or modify models, you will have to apply them to the database. See the [Database Migrations](#database-migrations) sections for more information. 
+When developing the app, if you add or modify models, you will have to apply them to the database. See the [Database Migrations](#database-migrations) sections for more information. If you have the admin user created as well, you can hit the admin endpoint through [http://localhost:8000/admin](http://localhost:8000/admin) to view users, groups and any registered models you've created. More information found in [admin endpoint](#admin-endpoint).
 
 ## Testing
 
@@ -92,6 +91,23 @@ psql -h localhost -U postgres
 ```
 
 From here, a connection should be established to the database, and standard PostgreSQL commands should function correctly.
+
+## Admin Endpoint
+Django created a useful admin interface where you can manage the data in the application. It can be reached by the admin endpoint `(/admin/)` which allows you view your data and modify it as needed.
+
+To access this interface create an admin user in the database. This can be done with the command:
+```
+docker-compose exec web python manage.py createsuperuser --email admin@example.com --username admin
+```
+Please remember the password as you will use it to login. 
+
+To view data from the admin interface, it needs to be registered within the app's admin file. Please check out the [Django Documentation](https://docs.djangoproject.com/en/4.0/intro/tutorial02/#introducing-the-django-admin) for an example and more information. Once it is setup, go to [http://localhost:8000/admin](http://localhost:8000/admin) to access it. 
+
+## Running production
+To run the production docker file, make sure you have the proper environment files set up. Then use the command:
+```
+docker-compose -f docker-compose.prod.yml up --build -d
+```
 
 ## Useful Links
 
