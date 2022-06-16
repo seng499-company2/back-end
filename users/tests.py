@@ -1,8 +1,9 @@
-from django.test import TestCase    #**tests that interact with a database require subclassing of this class**
+from django.test import TestCase, RequestFactory    #**tests that interact with a database require subclassing of this class**
 
 from django.contrib.auth.models import User
 from .models import AppUser
 from .serializers import AppUserSerializer
+from .permissions import IsAdmin
 
 #Serializer Testing
 class AppUserSerializerTest(TestCase):
@@ -153,3 +154,32 @@ class AppUserSerializerTest(TestCase):
         self.assertEquals(updated_obj_key, obj_key)
         self.assertEquals(AppUser.objects.get(pk=obj_key).user.username, updated_serialized_data['user']['username'])
         self.assertEquals(AppUser.objects.get(pk=obj_key).prof_type, updated_serialized_data['prof_type'])
+        
+        
+
+class UserPermissions(TestCase):
+    def setUp(self):
+        self.admin_user = User.objects.create(username='foo', is_superuser=True)
+        self.non_admin_user = User.objects.create(username='bar')
+        self.factory = RequestFactory()
+
+    def test_admin_user_returns_true(self):
+        request = self.factory.delete('/')
+        request.user = self.admin_user
+
+        permission_check = IsAdmin()
+
+        permission = permission_check.has_permission(request, None)
+
+        self.assertTrue(permission)
+    
+    def test_non_admin_user_returns_false(self):
+        request = self.factory.delete('/')
+        request.user = self.non_admin_user
+
+        permission_check = IsAdmin()
+
+        permission = permission_check.has_permission(request, None)
+
+        self.assertFalse(permission)
+        

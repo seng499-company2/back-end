@@ -1,15 +1,20 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from rest_framework.views import APIView
+from rest_framework.permissions import IsAuthenticated
 from rest_framework import status
 
 from .models import AppUser
 from .serializers import AppUserSerializer
+from .permissions import IsAdmin
 
 class ProfessorsList(APIView):
     """
     Administrator User Management: List all professors, or create a new professor record.
     """
+    
+    permission_classes = [IsAdmin, IsAuthenticated]
+    
     #(Admin) return all profs within the system.
     def get(self, request):
         #get all non-admin AppUsers **may have to also fetch User parent class + concatenate fields**
@@ -30,6 +35,9 @@ class Professor(APIView):
     """
     Administrator User Management: Update or delete a single professor record.
     """
+    
+    permission_classes = [IsAdmin, IsAuthenticated]
+    
     #(Admin) update an existing user/professor record.
     def post(self, request, pk, format=None):
         prof = self.get_object(pk)
