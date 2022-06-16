@@ -22,9 +22,11 @@ class UserSerializer(serializers.ModelSerializer):
 class AppUserSerializer(serializers.ModelSerializer):
     user = UserSerializer()
     prof_type = serializers.ChoiceField(choices=AppUser.TeachingType, default=AppUser.TeachingType.TEACHING_PROF)
+    is_peng = serializers.BooleanField(default=False)
+
     class Meta: 
         model = AppUser 
-        fields = ('user', 'prof_type')
+        fields = ('user', 'prof_type', 'is_peng')
 
     #overrides default create
     def create(self, validated_data):
