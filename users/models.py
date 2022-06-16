@@ -31,6 +31,7 @@ class AppUser(models.Model):
         choices=TeachingType.choices,
         default=TeachingType.TEACHING_PROF,
     )
+    is_peng = models.BooleanField(default=False)
 
     class Meta:
         managed = True  #auto creates tables
