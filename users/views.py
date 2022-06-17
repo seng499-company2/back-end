@@ -1,4 +1,3 @@
-from ast import Is
 import json
 
 from django.http import HttpResponse
