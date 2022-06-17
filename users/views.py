@@ -52,12 +52,12 @@ class Professor(APIView):
     permission_classes = [IsAdmin, IsAuthenticated]
 
     # (Admin) update an existing user/professor record.
-    def post(self, request: HttpRequest, requested_pk: str, format=None) -> HttpResponse:
+    def post(self, request: HttpRequest, professor_id: str, format=None) -> HttpResponse:
         if request.method != "POST":
             return HttpResponse(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
         try:
-            prof = AppUser.objects.get(user__username=requested_pk)
+            prof = AppUser.objects.get(user__username=professor_id)
             if prof is None or not isinstance(prof, AppUser):
                 return HttpResponse(status=status.HTTP_404_NOT_FOUND)
         except users.models.AppUser.DoesNotExist:
@@ -70,11 +70,11 @@ class Professor(APIView):
         return HttpResponse(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     # delete an existing user/professor record.
-    def delete(self, request: HttpRequest, requested_pk: str, format=None) -> HttpResponse:
+    def delete(self, request: HttpRequest, professor_id: str, format=None) -> HttpResponse:
         if request.method != "DELETE":
             return HttpResponse(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
         try:
-            prof = AppUser.objects.get(user__username=requested_pk)
+            prof = AppUser.objects.get(user__username=professor_id)
         except users.models.AppUser.DoesNotExist:
             return HttpResponse(status=status.HTTP_404_NOT_FOUND)
         prof.delete()

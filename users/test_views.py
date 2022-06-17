@@ -55,7 +55,7 @@ class TestProfessorsList(TestCase):
         request_factory = APIRequestFactory()
         request = request_factory.post('/users/abcdef', data=self.default_serializer_data, format='json')
         request.user = User.objects.create_user("admin", is_superuser=True)
-        response = Professor().post(request, requested_pk='abcdef')
+        response = Professor().post(request, professor_id='abcdef')
         self.assertIsNotNone(response)
         self.assertEqual(status.HTTP_200_OK, response.status_code)
 
@@ -84,7 +84,7 @@ class TestProfessorsList(TestCase):
         request = request_factory.delete('/users/abcdef')
         request.user = User.objects.create_user("admin", is_superuser=True)
         self.save_default_user()
-        response = Professor().delete(request, requested_pk='abcdef')
+        response = Professor().delete(request, professor_id='abcdef')
         self.assertIsNotNone(response)
         self.assertEqual(status.HTTP_204_NO_CONTENT, response.status_code)
 
@@ -93,7 +93,7 @@ class TestProfessorsList(TestCase):
         request = request_factory.delete('/users/doesNotExist')
         self.save_default_user()
         request.user = User.objects.create_user("admin", is_superuser=True)
-        response = Professor().delete(request, requested_pk='doesNotExist')
+        response = Professor().delete(request, professor_id='doesNotExist')
         self.assertIsNotNone(response)
         self.assertEqual(status.HTTP_404_NOT_FOUND, response.status_code)
     
