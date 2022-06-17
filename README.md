@@ -81,8 +81,8 @@ This will take all the migrations that haven't been applied and runs them agains
 For development purposes, The PostgreSQL can be connected to via its Docker container shell, to view database contents or metadata. To get a bash shell, run:
 
 ```
-docker exec -it back-end_db_1 /bin/bash
-```
+`docker exec -it back-end-db-1 /bin/bash
+````
 
 Then, from the root directory of the shell, run the following command to connect to the database:
 
