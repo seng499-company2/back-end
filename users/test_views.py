@@ -2,11 +2,12 @@ from django.test import TestCase  # **tests that interact with database require 
 from django.contrib.auth.models import User
 from .serializers import AppUserSerializer
 from .models import AppUser
-from .views import ProfessorsList, get_auth_errors
+from .views import ProfessorsList
 from .views import Professor
 from rest_framework import status
-from rest_framework.test import APIRequestFactory
+from rest_framework.test import APIRequestFactory, APIClient
 from django.http import HttpResponse
+from rest_framework_simplejwt.tokens import SlidingToken
 
 
 class TestProfessorsList(TestCase):
@@ -54,7 +55,7 @@ class TestProfessorsList(TestCase):
         request_factory = APIRequestFactory()
         request = request_factory.post('/users/abcdef', data=self.default_serializer_data, format='json')
         request.user = User.objects.create_user("admin", is_superuser=True)
-        response = Professor().post(request, requested_pk='abcdef')
+        response = Professor().post(request, professor_id='abcdef')
         self.assertIsNotNone(response)
         self.assertEqual(status.HTTP_200_OK, response.status_code)
 
@@ -83,7 +84,7 @@ class TestProfessorsList(TestCase):
         request = request_factory.delete('/users/abcdef')
         request.user = User.objects.create_user("admin", is_superuser=True)
         self.save_default_user()
-        response = Professor().delete(request, requested_pk='abcdef')
+        response = Professor().delete(request, professor_id='abcdef')
         self.assertIsNotNone(response)
         self.assertEqual(status.HTTP_204_NO_CONTENT, response.status_code)
 
@@ -92,36 +93,78 @@ class TestProfessorsList(TestCase):
         request = request_factory.delete('/users/doesNotExist')
         self.save_default_user()
         request.user = User.objects.create_user("admin", is_superuser=True)
-        response = Professor().delete(request, requested_pk='doesNotExist')
+        response = Professor().delete(request, professor_id='doesNotExist')
         self.assertIsNotNone(response)
         self.assertEqual(status.HTTP_404_NOT_FOUND, response.status_code)
-
-    def test_get_auth_errors_not_superuser(self):
-        request_factory = APIRequestFactory()
-        request = request_factory.delete('/users/abcdef')
-        request.user = User.objects.create_user("not_superuser", is_superuser=False)
-        auth_error = get_auth_errors(request)
-        self.assertIsNotNone(auth_error)
-        self.assertEqual(status.HTTP_401_UNAUTHORIZED, auth_error.status_code)
-
-    def test_get_auth_errors_User(self):
-        request_factory = APIRequestFactory()
-        request = request_factory.delete('/users/abcdef')
-        request.user = User.objects.create_user("admin", is_superuser=True)
-        auth_error = get_auth_errors(request)
-        self.assertIsNone(auth_error)
-
-    def test_get_auth_errors_AppUser(self):
-        request_factory = APIRequestFactory()
-        request = request_factory.delete('/users/abcdef')
-        user = User.objects.create_user("admin", is_superuser=True)
-        request.user = AppUser.objects.create(user=user)
-        auth_error = get_auth_errors(request)
-        self.assertIsNone(auth_error)
-
+    
+    """
+    Test View Permissions
+    """
+    def test_admin_superuser_view_access(self):
+        self.save_default_user()
+        user = User.objects.create_user(username='admin', email='admin@test.com', password='admin', is_superuser=True)
+        client = APIClient()
+        token = SlidingToken.for_user(user)
+        client.credentials(HTTP_AUTHORIZATION=f'Bearer {token}')
+        response = client.get('/api/users/', format='json')
+        self.assertIsNotNone(response)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertContains(response, "\"user\": {\"username\": \"johnd1\"")
+        self.assertContains(response, "\"user\": {\"username\": \"abcdef\"")
+    
+    def test_get_admin_errors_not_superuser(self):
+        user = User.objects.create_user(username='non-admin', email='noadmin@test.com', password='nope', is_superuser=False)
+        client = APIClient()
+        token = SlidingToken.for_user(user)
+        client.credentials(HTTP_AUTHORIZATION=f'Bearer {token}')
+        response = client.get('/api/users/', format='json')
+        self.assertIsNotNone(response)
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+        
+    def test_get_auth_errors_not_bearer_token(self):
+        user = User.objects.create_user(username='non-admin', email='noadmin@test.com', password='nope', is_superuser=False)
+        client = APIClient()
+        token = SlidingToken.for_user(user)
+        client.credentials(HTTP_AUTHORIZATION=f'Token {token}')
+        response = client.get('/api/users/', format='json')
+        self.assertIsNotNone(response)
+        self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
+        
     def test_get_auth_errors_no_user(self):
-        request_factory = APIRequestFactory()
-        request = request_factory.delete('/users/abcdef')
-        auth_error = get_auth_errors(request)
-        self.assertIsNotNone(auth_error)
-        self.assertEqual(status.HTTP_500_INTERNAL_SERVER_ERROR, auth_error.status_code)
+        client = APIClient()
+        response = client.get('/api/users/', format='json')
+        self.assertIsNotNone(response)
+        self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
+
+class TestTokenLogin(TestCase):
+    @classmethod
+    def setUp(self):
+        self.client = APIClient()
+        
+    def test_login_token_superuser(self):
+        User.objects.create_user(username='admin', email='admin@test.com', password='admin', is_superuser=True)
+        response = self.client.post('/api/login/', {'username':'admin', 'password':'admin'}, format='json')
+        self.assertIsNotNone(response)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertTrue('token' in response.data)
+    
+    def test_login_token_non_superuser(self):
+        User.objects.create_user(username='nonadmin', email='nonadmin@test.com', password='nonadmin', is_superuser=False)
+        response = self.client.post('/api/login/', {'username':'nonadmin', 'password':'nonadmin'}, format='json')
+        self.assertIsNotNone(response)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertTrue('token' in response.data)
+    
+    def test_get_auth_errors_invalid_password(self):
+        User.objects.create_user(username='admin', email='admin@test.com', password='admin', is_superuser=True)
+        response = self.client.post('/api/login/', {'username':'admin', 'password':'pass'}, format='json')
+        self.assertIsNotNone(response)
+        self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
+        self.assertFalse('token' in response.data)
+    
+    def test_get_auth_errors_invalid_data(self):
+        User.objects.create_user(username='admin', email='admin@test.com', password='admin', is_superuser=True)
+        response = self.client.post('/api/login/', {'usernameee':'admin', 'password':'admin'}, format='json')
+        self.assertIsNotNone(response)
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+        self.assertFalse('token' in response.data)

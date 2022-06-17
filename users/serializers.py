@@ -17,6 +17,17 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = ('username', 'password', 'first_name', 'last_name', 'email', 'is_superuser')
 
+    #overrides default update
+    def update(self, instance, validated_data):
+        for attr, value in validated_data.items():
+            #hash the password field
+            if attr == 'password':
+                instance.set_password(value)
+            else:
+                setattr(instance, attr, value)
+        instance.save()
+        return instance
+
 
 #main AppUser serializer - User object is nested
 class AppUserSerializer(serializers.ModelSerializer):
