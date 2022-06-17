@@ -10,4 +10,4 @@ class IsAdmin(permissions.BasePermission):
         return request.user and request.user.is_superuser
 
     def has_object_permission(self, request, view, obj):
-        return request.user.is_superuser or obj.user.id == request.user.id
+        return request.user and request.user.is_superuser

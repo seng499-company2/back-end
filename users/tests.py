@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from .models import AppUser
 from .serializers import AppUserSerializer
 from .permissions import IsAdmin
+from .views import Professor
 
 #Serializer Testing
 class AppUserSerializerTest(TestCase):
@@ -158,28 +159,32 @@ class AppUserSerializerTest(TestCase):
         
 
 class UserPermissions(TestCase):
+    """ Test Permissions
+        IsAdmin should return true only if user is superadmin
+    """
+    @classmethod
     def setUp(self):
-        self.admin_user = User.objects.create(username='foo', is_superuser=True)
-        self.non_admin_user = User.objects.create(username='bar')
+        self.admin_user = User.objects.create(username='admin', is_superuser=True, id='1')
+        self.non_admin_user = User.objects.create(username='prof', is_superuser=False, id='12')
         self.factory = RequestFactory()
+        self.view = Professor.as_view()
 
-    def test_admin_user_returns_true(self):
-        request = self.factory.delete('/')
+    def test_admin_user_permissions(self):
+        request = self.factory.delete('/users/abcdef')
         request.user = self.admin_user
-
         permission_check = IsAdmin()
-
         permission = permission_check.has_permission(request, None)
-
         self.assertTrue(permission)
+        obj_permissions = permission_check.has_object_permission(request, self.view, self.admin_user)
+        self.assertTrue(obj_permissions)
     
-    def test_non_admin_user_returns_false(self):
-        request = self.factory.delete('/')
+    def test_non_admin_user_permissions(self):
+        request = self.factory.delete('/users/abcdef')
         request.user = self.non_admin_user
-
         permission_check = IsAdmin()
-
         permission = permission_check.has_permission(request, None)
-
         self.assertFalse(permission)
+        obj_permissions = permission_check.has_object_permission(request, self.view, self.non_admin_user)
+        self.assertFalse(obj_permissions)
+        
         
