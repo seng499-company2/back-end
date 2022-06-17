@@ -141,9 +141,16 @@ class TestTokenLogin(TestCase):
     def setUp(self):
         self.client = APIClient()
         
-    def test_login_token(self):
+    def test_login_token_superuser(self):
         User.objects.create_user(username='admin', email='admin@test.com', password='admin', is_superuser=True)
         response = self.client.post('/api/login/', {'username':'admin', 'password':'admin'}, format='json')
+        self.assertIsNotNone(response)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertTrue('token' in response.data)
+    
+    def test_login_token_non_superuser(self):
+        User.objects.create_user(username='nonadmin', email='nonadmin@test.com', password='nonadmin', is_superuser=False)
+        response = self.client.post('/api/login/', {'username':'nonadmin', 'password':'nonadmin'}, format='json')
         self.assertIsNotNone(response)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertTrue('token' in response.data)
