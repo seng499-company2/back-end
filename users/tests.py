@@ -160,7 +160,7 @@ class AppUserSerializerTest(TestCase):
 
 class UserPermissions(TestCase):
     """ Test Permissions
-        IsAdmin should return true only if user is superadmin
+        IsAdmin should return true only if user is superuser
     """
     @classmethod
     def setUp(self):
