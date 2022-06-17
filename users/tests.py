@@ -155,6 +155,50 @@ class AppUserSerializerTest(TestCase):
         self.assertEquals(updated_obj_key, obj_key)
         self.assertEquals(AppUser.objects.get(pk=obj_key).user.username, updated_serialized_data['user']['username'])
         self.assertEquals(AppUser.objects.get(pk=obj_key).prof_type, updated_serialized_data['prof_type'])
+
+
+    def test_updated_appuser_password_hash(self):
+        serialized_data = {
+            'user':{
+                'username': 'abcdef',
+                'password': '123',
+                'first_name': 'Abc',
+                'last_name': 'Def',
+                'email': 'abc@uvic.ca',
+                'is_superuser': False
+            },
+            'prof_type': 'TP',
+            'is_peng': True
+        }
+        serializer = AppUserSerializer(data=serialized_data)
+        self.assertTrue(serializer.is_valid())
+
+        #use the serializer to create an AppUser record
+        app_user_obj = serializer.save()
+        obj_key = app_user_obj.pk
+        
+        #now, update the AppUser record order by referencing an existing instance
+        updated_serialized_data = {
+            'user':{
+                'username': 'abcdef',   
+                'password': 'newpass!',  #only updated field
+                'first_name': 'Abc',
+                'last_name': 'Def',
+                'email': 'abc@uvic.ca',
+                'is_superuser': False
+            },
+            'prof_type': 'TP',
+            'is_peng': True
+        }
+        serializer = AppUserSerializer(instance=app_user_obj, data=updated_serialized_data)
+        self.assertTrue(serializer.is_valid())
+        updated_app_user = serializer.save()
+        updated_obj_key = updated_app_user.pk
+
+        #assert that the same instance was updated, and updated as expected
+        self.assertEquals(updated_obj_key, obj_key)
+        #check that the password is now associated and correctly hashed
+        self.assertTrue(AppUser.objects.get(pk=obj_key).user.check_password('newpass!'))
         
         
 
