@@ -3,7 +3,7 @@ from rest_framework import permissions;
 
 class IsAdmin(permissions.BasePermission):
     """
-    Check if user has is_superadmin flag set to give admin permissions
+    Check if user has is_superuser flag set to give admin permissions
     """
 
     def has_permission(self, request, view):
