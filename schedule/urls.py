@@ -6,14 +6,18 @@ from rest_framework_simplejwt.views import (
 from . import views
 
 urlpatterns = [
+    # GET / schedule / files / {scheduleId}
+    # Example: http://localhost:8000/schedule/files/schedule_id/2
+    path('files/<str:schedule_id>/<int:company_alg>', views.ScheduleFile.as_view()),
+
     # GET / schedule / {year - semester}
-    path('/schedule/<int:year>-<str:semester>-<int:company>', views.Schedule.as_view()),
+    # TODO: Test
+    path('<int:year>/<str:semester>/<int:company_alg>', views.Schedule.as_view()),
 
     # POST / schedule / {scheduleId} / {courseId}
-    path('/schedule/<str:schedule_id>/<str:course_id>-<int:company_alg>', views.Schedule.as_view()),
+    # Example: http://localhost:8000/schedule/2022/schedule_id/2
+    path('<str:schedule_id>/<str:course_id>/<int:company_alg>', views.Schedule.as_view()),
 
-    # GET / schedules / files / {scheduleId}
-    path('/schedule/files/<str:schedule_id>-<int:company_alg>', views.Schedule.as_view()),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
