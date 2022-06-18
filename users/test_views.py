@@ -136,6 +136,7 @@ class TestProfessorsList(TestCase):
         self.assertIsNotNone(response)
         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
 
+
 class TestTokenLogin(TestCase):
     @classmethod
     def setUp(self):
