@@ -76,6 +76,22 @@ docker-compose exec web python manage.py migrate
 
 This will take all the migrations that haven't been applied and runs them against your db.
 
+## Shelling Into to the Database
+
+For development purposes, The PostgreSQL can be connected to via its Docker container shell, to view database contents or metadata. To get a bash shell, run:
+
+```
+docker exec -it back-end_db_1 /bin/bash
+```
+
+Then, from the root directory of the shell, run the following command to connect to the database:
+
+```
+psql -h localhost -U postgres
+```
+
+From here, a connection should be established to the database, and standard PostgreSQL commands should function correctly.
+
 ## Admin Endpoint
 Django created a useful admin interface where you can manage the data in the application. It can be reached by the admin endpoint `(/admin/)` which allows you view your data and modify it as needed.
 
