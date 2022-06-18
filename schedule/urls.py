@@ -11,11 +11,11 @@ urlpatterns = [
     path('files/<str:schedule_id>/<int:company_alg>', views.ScheduleFile.as_view()),
 
     # GET / schedule / {year - semester}
-    # TODO: Test
+    # Example: http://localhost:8000/schedule/2022/FALL/2
     path('<int:year>/<str:semester>/<int:company_alg>', views.Schedule.as_view()),
 
     # POST / schedule / {scheduleId} / {courseId}
-    # Example: http://localhost:8000/schedule/2022/schedule_id/2
+    # Example: http://localhost:8000/schedule/schedule_id/course_id/2
     path('<str:schedule_id>/<str:course_id>/<int:company_alg>', views.Schedule.as_view()),
 
 ]
