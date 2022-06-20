@@ -1,8 +1,6 @@
 from django.test import TestCase
 from rest_framework import status
-from rest_framework.test import APIRequestFactory, APIClient
-from schedule.views import Schedule
-from schedule.views import ScheduleFile
+from rest_framework.test import APIClient
 from rest_framework_simplejwt.tokens import SlidingToken
 from django.contrib.auth.models import User
 
