@@ -19,8 +19,8 @@ class Preferences(models.Model):
         primary_key=True
     )
     is_submitted = models.BooleanField(default=False)
-    unavailable_sem1 = models.CharField(max_length=7, blank=True, default='')   #'YYYY-MM'
-    unavailable_sem2 = models.CharField(max_length=7, blank=True, default='')   #'YYYY-MM'
+    is_unavailable_sem1 = models.BooleanField(default=False)
+    is_unavailable_sem2 = models.BooleanField(default=False)
     num_relief_courses = models.PositiveIntegerField(default=0)
     taking_sabbatical = models.BooleanField(default=False)
     sabbatical_length = models.CharField(
@@ -29,9 +29,9 @@ class Preferences(models.Model):
         default=SabbaticalLength.NONE
     )
     sabbatical_start_month = models.PositiveIntegerField(default=0)
-    preferred_hours = models.TextField(blank=True)        #holds stringified JSON object
-    teaching_willingness = models.TextField(blank=True)   #holds stringified JSON object
-    teaching_difficulty = models.TextField(blank=True)
+    preferred_hours = models.JSONField()
+    teaching_willingness = models.JSONField()
+    teaching_difficulty = models.JSONField()
     wants_topics_course = models.BooleanField(default=False)
     topics_course_id = models.CharField(max_length=20, blank=True, default='')
     topics_course_name = models.CharField(max_length=255, blank=True, default='')
@@ -39,3 +39,4 @@ class Preferences(models.Model):
     class Meta:
         managed = True  #auto creates tables
         db_table = 'preferences'
+        
