@@ -1,34 +1,35 @@
 from django.test import TestCase
 from rest_framework import status
 from rest_framework.test import APIRequestFactory, APIClient
-from django.http import HttpResponse
-from django.http import HttpRequest
 from schedule.views import Schedule
 from schedule.views import ScheduleFile
+from rest_framework_simplejwt.tokens import SlidingToken
+from django.contrib.auth.models import User
 
 
 class ViewTest(TestCase):
 
+    @classmethod
+    def setUp(self):
+        user = User.objects.create_user(username='non-admin', email='noadmin@test.com', password='nope', is_superuser=False)
+        self.client: APIClient = APIClient()
+        token = SlidingToken.for_user(user)
+        self.client.credentials(HTTP_AUTHORIZATION=f'Bearer {token}')
+
     def test_GET(self):
-        request_factory = APIRequestFactory()
-        request: HttpRequest = request_factory.get('/api/schedule/', )
-        response: HttpResponse = Schedule().get(request, 2023, "FALL", 2)
+        response = self.client.get('/schedule/2022/FALL/2', format='json')
         self.assertIsNotNone(response)
         self.assertEquals(status.HTTP_200_OK, response.status_code)
         self.assertContains(response, "GENERATED SCHEDULE FROM COMPANY 2 ALGORITHM")
 
     def test_POST(self):
-        request_factory = APIRequestFactory()
-        request: HttpRequest = request_factory.post('/api/schedule/', )
-        response: HttpResponse = Schedule().post(request, "sched_id_1", "course_id_1", 2)
+        response = self.client.post('/schedule/schedule_id/course_id/2', format='json')
         self.assertIsNotNone(response)
         self.assertEquals(status.HTTP_200_OK, response.status_code)
         self.assertContains(response, "GENERATED SCHEDULE FROM COMPANY 2 ALGORITHM")
 
     def test_GET_from_scheduleId(self):
-        request_factory = APIRequestFactory()
-        request: HttpRequest = request_factory.get('/api/schedule/', )
-        response: HttpResponse = ScheduleFile().get(request, "sched_id_1", 2)
+        response = self.client.get('/schedule/files/schedule_id/2', format='json')
         self.assertIsNotNone(response)
         self.assertEquals(status.HTTP_200_OK, response.status_code)
         self.assertContains(response, "GENERATED SCHEDULE FROM COMPANY 2 ALGORITHM")
