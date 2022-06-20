@@ -4,7 +4,7 @@ from users.models import AppUser
 
 # Create your models here.
 
-#Base Model
+#Front-End Base Model
 
 class Course(models.Model):
     course_code = models.CharField(max_length=7)
