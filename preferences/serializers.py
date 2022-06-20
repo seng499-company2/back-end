@@ -9,8 +9,8 @@ from .models import Preferences
 class PreferencesSerializer(serializers.ModelSerializer):
     professor = serializers.CharField(required=True, source='professor.user.username')
     is_submitted = serializers.BooleanField(default=False)
-    unavailable_sem1 = serializers.CharField(max_length=7, default='')
-    unavailable_sem2 = serializers.CharField(max_length=7, default='')
+    is_unavailable_sem1 = serializers.BooleanField(default=False)
+    is_unavailable_sem2 = serializers.BooleanField(default=False)
     num_relief_courses = serializers.IntegerField(max_value=None, min_value=0)
     taking_sabbatical = serializers.BooleanField(default=False)
     sabbatical_length = serializers.ChoiceField(
@@ -18,16 +18,16 @@ class PreferencesSerializer(serializers.ModelSerializer):
         default=Preferences.SabbaticalLength.NONE
     )
     sabbatical_start_month = serializers.IntegerField(max_value=None, min_value=0)
-    preferred_hours = serializers.CharField()  
-    teaching_willingness = serializers.CharField()
-    teaching_difficulty = serializers.CharField()
+    preferred_hours = serializers.JSONField()
+    teaching_willingness = serializers.JSONField()
+    teaching_difficulty = serializers.JSONField()
     wants_topics_course = serializers.BooleanField(default=False)
     topics_course_id = serializers.CharField(max_length=20, default='')
     topics_course_name = serializers.CharField(max_length=255, default='')
     class Meta:
         model = Preferences
         fields = (
-            'professor', 'is_submitted', 'unavailable_sem1', 'unavailable_sem2', 'num_relief_courses',
+            'professor', 'is_submitted', 'is_unavailable_sem1', 'is_unavailable_sem2', 'num_relief_courses',
             'taking_sabbatical', 'sabbatical_length', 'sabbatical_start_month', 'preferred_hours',
             'teaching_willingness', 'teaching_difficulty', 'wants_topics_course', 'topics_course_id',
             'topics_course_name'
