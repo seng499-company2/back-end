@@ -1,6 +1,29 @@
 from django.db import models
 
-# Create your models here.
+"""
+    _    _                  _ _   _                   
+   / \  | | __ _  ___  _ __(_) |_| |__  _ __ ___  ___ 
+  / _ \ | |/ _` |/ _ \| '__| | __| '_ \| '_ ` _ \/ __|
+ / ___ \| | (_| | (_) | |  | | |_| | | | | | | | \__ \
+/_/   \_\_|\__, |\___/|_|  |_|\__|_| |_|_| |_| |_|___/
+           |___/                                      
+                 __                                         _       _        
+ _ __  _ __ ___ / _| ___ _ __ ___ _ __   ___ ___  ___    __| | __ _| |_ __ _ 
+| '_ \| '__/ _ \ |_ / _ \ '__/ _ \ '_ \ / __/ _ \/ __|  / _` |/ _` | __/ _` |
+| |_) | | |  __/  _|  __/ | |  __/ | | | (_|  __/\__ \ | (_| | (_| | || (_| |
+| .__/|_|  \___|_|  \___|_|  \___|_| |_|\___\___||___/  \__,_|\__,_|\__\__,_|
+|_|                                                                          
+                     _      _ 
+ _ __ ___   ___   __| | ___| |
+| '_ ` _ \ / _ \ / _` |/ _ \ |
+| | | | | | (_) | (_| |  __/ |
+|_| |_| |_|\___/ \__,_|\___|_|
+
+
+This is a work in progress, it is a proposal for how to store the data that algorithm 1 needs in a 
+format that algorithm 1 can ingest. 
+
+"""
 from users.models import AppUser, TeachingType
 from django.utils.translation import gettext_lazy as _
 from courses.models import Course
