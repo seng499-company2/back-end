@@ -17,6 +17,17 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = ('username', 'password', 'first_name', 'last_name', 'email', 'is_superuser')
 
+    #overrides default update
+    def update(self, instance, validated_data):
+        for attr, value in validated_data.items():
+            #hash the password field
+            if attr == 'password':
+                instance.set_password(value)
+            else:
+                setattr(instance, attr, value)
+        instance.save()
+        return instance
+
 
 #main AppUser serializer - User object is nested
 class AppUserSerializer(serializers.ModelSerializer):
@@ -24,8 +35,8 @@ class AppUserSerializer(serializers.ModelSerializer):
     prof_type = serializers.ChoiceField(choices=AppUser.TeachingType, default=AppUser.TeachingType.TEACHING_PROF)
     is_peng = serializers.BooleanField(default=False)
 
-    class Meta: 
-        model = AppUser 
+    class Meta:
+        model = AppUser
         fields = ('user', 'prof_type', 'is_peng')
 
     #overrides default create
@@ -39,7 +50,7 @@ class AppUserSerializer(serializers.ModelSerializer):
         try:
             user = User.objects.create_user(**user_data)
             appUser = AppUser.objects.create(user=user, **validated_data)
-        
+
         #raising a JSON-like exception
         except ValidationError:
             raise serializers.ValidationError({"error": "Invalid input!"})

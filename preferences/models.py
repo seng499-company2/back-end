@@ -6,7 +6,6 @@ from django.utils.translation import gettext_lazy as _
 from courses.models import Course
 
 
-
 class Semester(models.TextChoices):
     SPRING = 'SPRING', _('Spring Semester')
     SUMMER = 'SUMMER', _('Summer Semester')
