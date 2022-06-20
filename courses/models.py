@@ -14,7 +14,7 @@ class Course(models.Model):
     summer_offering = models.BooleanField()
     PENG_required = models.BooleanField()
 
-        class Meta:
+    class Meta:
         managed = True  #auto creates tables
         db_table = 'Courses'
 
