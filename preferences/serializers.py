@@ -31,4 +31,9 @@ class PreferencesSerializer(serializers.ModelSerializer):
             'taking_sabbatical', 'sabbatical_length', 'sabbatical_start_month', 'preferred_hours',
             'teaching_willingness', 'teaching_difficulty', 'wants_topics_course', 'topics_course_id',
             'topics_course_name'
+<<<<<<< HEAD
         )
+=======
+        )
+    
+>>>>>>> main
