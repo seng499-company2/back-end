@@ -38,9 +38,4 @@ class Preferences(models.Model):
 
     class Meta:
         managed = True  #auto creates tables
-<<<<<<< HEAD
         db_table = 'preferences'
-=======
-        db_table = 'preferences'
-        
->>>>>>> main
