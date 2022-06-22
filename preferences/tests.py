@@ -81,12 +81,6 @@ class PreferencesSerializerTest(TestCase):
         self.assertIsInstance(data['professor'], str)
 
 
-    '''def test_get_appuser_obj(self):
-        data = self.serializer.data
-        prof_obj = AppUser.objects.get(user__username="johnd1")
-        print(prof_obj.user.username)'''
-
-
     def test_valid_deserialization(self):
         serialized_data = {
             "professor": "johnd1",
