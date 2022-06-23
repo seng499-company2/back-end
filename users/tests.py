@@ -24,7 +24,8 @@ class AppUserSerializerTest(TestCase):
         self.app_user_attributes = {
             'user': self.user,
             'prof_type': 'RP',
-            'is_peng': True
+            'is_peng': True,
+            'is_form_submitted': False
         }
         #default data for the serializer, if needed
         self.default_serializer_data = {
@@ -37,7 +38,8 @@ class AppUserSerializerTest(TestCase):
                 'is_superuser': False
             },
             'prof_type': 'TP',
-            'is_peng': True
+            'is_peng': True,
+            'is_form_submitted': False
         }
 
         #serialize into an AppUser object
@@ -50,7 +52,8 @@ class AppUserSerializerTest(TestCase):
         self.assertEqual(set(data.keys()), set([
             'user',
             'prof_type',
-            'is_peng']))
+            'is_peng',
+            'is_form_submitted']))
 
 
     def test_user_contains_expected_fields(self):
@@ -73,6 +76,7 @@ class AppUserSerializerTest(TestCase):
         data = self.serializer.data
         self.assertEqual(data['prof_type'], self.app_user_attributes['prof_type'])
         self.assertEqual(data['is_peng'], self.app_user_attributes['is_peng'])
+        self.assertEqual(data['is_form_submitted'], self.app_user_attributes['is_form_submitted'])
 
     
     def test_valid_deserialization(self):
@@ -86,7 +90,8 @@ class AppUserSerializerTest(TestCase):
                 'is_superuser': False
             },
             'prof_type': 'TP',
-            'is_peng': True
+            'is_peng': True,
+            'is_form_submitted': False
         }
         serializer = AppUserSerializer(data=serialized_data)
         self.assertTrue(serializer.is_valid())
@@ -103,7 +108,8 @@ class AppUserSerializerTest(TestCase):
                 'is_superuser': False
             },
             'prof_type': 'TP',
-            'is_peng': True
+            'is_peng': True,
+            'is_form_submitted': False
         }
         serializer = AppUserSerializer(data=serialized_data)
         self.assertTrue(serializer.is_valid())
@@ -124,7 +130,8 @@ class AppUserSerializerTest(TestCase):
                 'is_superuser': False
             },
             'prof_type': 'TP',
-            'is_peng': True
+            'is_peng': True,
+            'is_form_submitted': False,
         }
         serializer = AppUserSerializer(data=serialized_data)
         self.assertTrue(serializer.is_valid())
@@ -144,7 +151,8 @@ class AppUserSerializerTest(TestCase):
                 'is_superuser': False
             },
             'prof_type': 'RP',   #updated field
-            'is_peng': True
+            'is_peng': True,
+            'is_form_submitted': True
         }
         serializer = AppUserSerializer(instance=app_user_obj, data=updated_serialized_data)
         self.assertTrue(serializer.is_valid())
@@ -155,6 +163,9 @@ class AppUserSerializerTest(TestCase):
         self.assertEquals(updated_obj_key, obj_key)
         self.assertEquals(AppUser.objects.get(pk=obj_key).user.username, updated_serialized_data['user']['username'])
         self.assertEquals(AppUser.objects.get(pk=obj_key).prof_type, updated_serialized_data['prof_type'])
+        self.assertEquals(AppUser.objects.get(pk=obj_key).is_peng, updated_serialized_data['is_peng'])
+        self.assertEquals(AppUser.objects.get(pk=obj_key).is_form_submitted, updated_serialized_data['is_form_submitted'])
+
 
 
     def test_updated_appuser_password_hash(self):
@@ -168,7 +179,8 @@ class AppUserSerializerTest(TestCase):
                 'is_superuser': False
             },
             'prof_type': 'TP',
-            'is_peng': True
+            'is_peng': True,
+            'is_form_submitted': False
         }
         serializer = AppUserSerializer(data=serialized_data)
         self.assertTrue(serializer.is_valid())
@@ -188,7 +200,8 @@ class AppUserSerializerTest(TestCase):
                 'is_superuser': False
             },
             'prof_type': 'TP',
-            'is_peng': True
+            'is_peng': True,
+            'is_form_submitted': False
         }
         serializer = AppUserSerializer(instance=app_user_obj, data=updated_serialized_data)
         self.assertTrue(serializer.is_valid())

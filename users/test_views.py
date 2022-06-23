@@ -38,7 +38,9 @@ class TestProfessorsList(TestCase):
                 'email': 'abc@uvic.ca',
                 'is_superuser': False
             },
-            'prof_type': AppUser.TeachingType.TEACHING_PROF
+            'prof_type': AppUser.TeachingType.TEACHING_PROF,
+            'is_peng': False,
+            'is_form_submitted': False,
         }
 
         self.app_user = AppUser.objects.create(**self.app_user_attributes)
