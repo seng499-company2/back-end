@@ -31,7 +31,7 @@ class PreferencesRecord(APIView):
                 return HttpResponse(status=status.HTTP_404_NOT_FOUND)
         except preferences.models.Preferences.DoesNotExist:
             return HttpResponse(status=status.HTTP_404_NOT_FOUND)
-        serializer = PreferencesSerializer(preferences_record)                      #TODO: mock or build the serializer
+        serializer = PreferencesSerializer(preferences_record)
         return HttpResponse(json.dumps(serializer.data), status=status.HTTP_200_OK)
 
     # (Admin) update the unique Preferences record for a professor.
@@ -46,7 +46,7 @@ class PreferencesRecord(APIView):
         except preferences.models.Preferences.DoesNotExist:
             return HttpResponse(status=status.HTTP_404_NOT_FOUND)
         request_data = JSONParser().parse(request)
-        serializer = PreferencesSerializer(preferences_record, data=request_data)   #TODO: mock or build the serializer
+        serializer = PreferencesSerializer(preferences_record, data=request_data)
         if serializer.is_valid():
             serializer.update(preferences_record, serializer.validated_data)
             return HttpResponse(json.dumps(serializer.data), status=status.HTTP_200_OK)
