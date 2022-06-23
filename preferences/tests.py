@@ -295,6 +295,17 @@ class AdminSidePreferencesRecordViewTest(TestCase):
         self.assertEqual(status.HTTP_200_OK, response.status_code)
         self.assertContains(response, "{\"professor\": \"johnd1\", \"is_submitted\": true")
 
+
+    def test_preferences_record_GET__not_found(self):
+        #non-existing user
+        request_factory = APIRequestFactory()
+        request = request_factory.get('/preferences/notauser/')
+        request.user = User.objects.create_user("admin", is_superuser=True)
+        response: HttpResponse = PreferencesRecord().get(request, professor_id='notauser')
+        self.assertIsNotNone(response)
+        self.assertEqual(status.HTTP_404_NOT_FOUND, response.status_code)
+
+
     def test_preferences_record_update_POST(self):
         #self.save_preferences_record()
         #update some fields
@@ -308,3 +319,26 @@ class AdminSidePreferencesRecordViewTest(TestCase):
         response = PreferencesRecord().post(request, professor_id='johnd1')
         self.assertIsNotNone(response)
         self.assertEqual(status.HTTP_200_OK, response.status_code)
+        
+
+    def test_preferences_record_update_POST__not_found(self):
+        #non-existing user
+        request_factory = APIRequestFactory()
+        request = request_factory.post('/preferences/notauser/', data=self.default_serializer_data, format='json')
+        request.user = User.objects.create_user('admin', is_superuser=True)
+        response = PreferencesRecord().post(request, professor_id='notauser')
+        self.assertIsNotNone(response)
+        self.assertEqual(status.HTTP_404_NOT_FOUND, response.status_code)
+
+
+    def test_preferences_record_update_POST__bad_request(self):
+        #modify the Preferences data to have some invalid fields
+        self.default_serializer_data['sabbatical_start_month'] = -5
+        self.default_serializer_data['sabbatical_length'] = 'Six'
+
+        request_factory = APIRequestFactory()
+        request = request_factory.post('/preferences/johnd1/', data=self.default_serializer_data, format='json')
+        request.user = User.objects.create_user('admin', is_superuser=True)
+        response = PreferencesRecord().post(request, professor_id='johnd1')
+        self.assertIsNotNone(response)
+        self.assertEqual(status.HTTP_400_BAD_REQUEST, response.status_code)
