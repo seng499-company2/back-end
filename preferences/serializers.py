@@ -3,7 +3,6 @@ from rest_framework import viewsets
 from django.core.exceptions import ValidationError
 
 import users
-from users.serializers import AppUserSerializer #TODO: may not need the entire nested object: logic could handle just referencing username?
 from users.models import AppUser
 from .models import Preferences
 
