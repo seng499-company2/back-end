@@ -230,4 +230,5 @@ class UserPermissions(TestCase):
         self.assertFalse(permission)
         obj_permissions = permission_check.has_object_permission(request, self.view, self.non_admin_user)
         self.assertFalse(obj_permissions)
-
+        
+        
