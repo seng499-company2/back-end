@@ -60,11 +60,12 @@ class AppUserSerializerTest(TestCase):
         data = self.serializer.data
         self.assertEqual(set(data['user'].keys()), set([
             'username',
-            'password',
             'first_name',
             'last_name',
             'email',
             'is_superuser']))
+        self.assertNotIn(set(data['user'].keys()), set([
+            'password']))
 
 
     def test_username_field_content(self):
@@ -152,7 +153,7 @@ class AppUserSerializerTest(TestCase):
             },
             'prof_type': 'RP',   #updated field
             'is_peng': True,
-            'is_form_submitted': True
+            'is_form_submitted': True   #updated field
         }
         serializer = AppUserSerializer(instance=app_user_obj, data=updated_serialized_data)
         self.assertTrue(serializer.is_valid())
@@ -163,9 +164,7 @@ class AppUserSerializerTest(TestCase):
         self.assertEquals(updated_obj_key, obj_key)
         self.assertEquals(AppUser.objects.get(pk=obj_key).user.username, updated_serialized_data['user']['username'])
         self.assertEquals(AppUser.objects.get(pk=obj_key).prof_type, updated_serialized_data['prof_type'])
-        self.assertEquals(AppUser.objects.get(pk=obj_key).is_peng, updated_serialized_data['is_peng'])
         self.assertEquals(AppUser.objects.get(pk=obj_key).is_form_submitted, updated_serialized_data['is_form_submitted'])
-
 
 
     def test_updated_appuser_password_hash(self):

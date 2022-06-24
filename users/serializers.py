@@ -8,7 +8,6 @@ from .models import AppUser
 #User superclass serializer
 class UserSerializer(serializers.ModelSerializer):
     username = serializers.CharField(required=True)
-    password = serializers.CharField(required=True)
     first_name = serializers.CharField(required=True)
     last_name = serializers.CharField(required=True)
     email = serializers.EmailField()
@@ -16,6 +15,7 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('username', 'password', 'first_name', 'last_name', 'email', 'is_superuser')
+        extra_kwargs = {'password': {'write_only': True}}
 
     #overrides default update
     def update(self, instance, validated_data):
