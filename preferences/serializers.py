@@ -2,8 +2,10 @@ from rest_framework import serializers
 from rest_framework import viewsets
 from django.core.exceptions import ValidationError
 
-from users.serializers import AppUserSerializer #TODO: may not need the entire nested object: logic could handle just referencing username?
+import users
+from users.models import AppUser
 from .models import Preferences
+
 
 #main Preferences serializer
 class PreferencesSerializer(serializers.ModelSerializer):
@@ -33,3 +35,42 @@ class PreferencesSerializer(serializers.ModelSerializer):
             'topics_course_name'
         )
     
+    #overrides default create
+    def create(self, validated_data):
+        """
+        Create and return a new Preferences instance, given the validated data.
+        """
+        prof_username_json = validated_data.pop('professor')
+        prof_username = prof_username_json['user']['username']
+
+        #get the associated professor object (AppUser) to build a Preferences record
+        try:
+            prof_obj = AppUser.objects.get(user__username=prof_username)
+            preferences_record = Preferences.objects.create(professor=prof_obj, **validated_data)
+        
+        #raising a JSON-like exceptions
+        except ValidationError:
+            raise serializers.ValidationError({"error": "Invalid input!"})
+        except users.models.AppUser.DoesNotExist:
+            raise serializers.ValidationError({"error": "The associated professor object does not exist!"})
+        return preferences_record
+
+    #overrides default update
+    def update(self, instance, validated_data):
+        """
+        Update and return an existing Preferences instance, given the validated data.
+        Professor field is stored in the DB as an object; therefore the most recent AppUser object will be fetched and updated.
+        """
+        prof_username_json = validated_data.pop('professor')
+        prof_username = prof_username_json['user']['username']
+
+        #get the most recent Professor object to update the Preferences record
+        try:
+            prof_obj = AppUser.objects.get(user__username=prof_username)
+        except users.models.AppUser.DoesNotExist:
+            raise serializers.ValidationError({"error": "The associated professor object does not exist!"})
+
+        #serialize the remaining data - professor shouldn't need to be serialized as it is an object
+        instance.professor = prof_obj
+        super().update(instance, validated_data)
+        return instance
