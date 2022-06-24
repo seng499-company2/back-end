@@ -8,13 +8,12 @@ from django.dispatch import receiver
 # Model for the database representation of an AppUser (attribute: django.contrib.auth.models.User).
 
 
-class TeachingType(models.TextChoices):
-    TEACHING_PROF = 'TP', _('Teaching Prof')
-    RESEARCH_PROF = 'RP', _('Research Prof')
-    OTHER = 'OT', _('Other')
-
-
 class AppUser(models.Model):
+
+    class TeachingType(models.TextChoices):
+        TEACHING_PROF = 'TP', _('Teaching Prof')
+        RESEARCH_PROF = 'RP', _('Research Prof')
+        OTHER = 'OT', _('Other')
 
 
     #user: contains fields

@@ -342,3 +342,21 @@ class AdminSidePreferencesRecordViewTest(TestCase):
         response = PreferencesRecord().post(request, professor_id='johnd1')
         self.assertIsNotNone(response)
         self.assertEqual(status.HTTP_400_BAD_REQUEST, response.status_code)
+
+
+class UserSidePreferencesRecordViewTest(TestCase):
+
+    @classmethod
+    def get_nonadmin_API_client(self): 
+        user = User.objects.create_user(username='admin', email='admin@test.com', password='admin', is_superuser=False)
+        client = APIClient()
+        token = SlidingToken.for_user(user)
+        client.credentials(HTTP_AUTHORIZATION=f'Bearer {token}')
+        client.login() # idk if I need that
+        return client
+        
+
+
+    def test_GET_happy_path(self): 
+        client = self.get_nonadmin_API_client()
+        pass

@@ -52,3 +52,15 @@ class PreferencesRecord(APIView):
             return HttpResponse(json.dumps(serializer.data), status=status.HTTP_200_OK)
         return HttpResponse(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         
+
+class PreferencesView(APIView): 
+
+    permission_classes = [IsAuthenticated]
+
+    # GET api/preferences
+    def get(self, request: HttpRequest) -> HttpResponse: 
+        return HttpResponse()
+
+    # POST api/preferences
+    def post(self, request: HttpRequest) -> HttpResponse: 
+        return HttpResponse()
