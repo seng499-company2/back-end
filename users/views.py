@@ -80,7 +80,11 @@ class Professor(APIView):
         return HttpResponse(status=status.HTTP_204_NO_CONTENT)
     
 
-class AppUsers(APIView):
+class UserDetail(APIView):
+    """
+    All User Management: Retrieve logged in user's information.
+    """
+    
     permission_classes = [IsAuthenticated]
     
     def get(self, request):

@@ -9,7 +9,7 @@ urlpatterns = [
     #/users/{professor-id}
     path('users/<str:professor_id>/', views.Professor.as_view()),
     #/user
-    path('user/', views.AppUsers.as_view()),
+    path('user/', views.UserDetail.as_view()),
     path('login/', TokenObtainSlidingView.as_view(), name='token_obtain'),
 ]
 
