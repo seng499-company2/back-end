@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 from django.utils.translation import gettext_lazy as _
-from django.db.models.signals import post_save
+from django.db.models.signals import post_delete
 from django.dispatch import receiver
 
 # Model for the database representation of an AppUser (attribute: django.contrib.auth.models.User).
@@ -38,6 +38,11 @@ class AppUser(models.Model):
         managed = True  #auto creates tables
         db_table = 'appuser'
 
+# Use Django signals to delete User instance when AppUser is deleted. Based on: https://stackoverflow.com/a/12754229
+@receiver(post_delete, sender=AppUser)
+def delete_code_constraint_with_question(sender, instance, **kwargs):
+    instance.user.delete()
+    
 '''#methods use Django signals to create/update AppUser instances when auth.User instances are created/updated
 @receiver(post_save, sender=User)
 def create_app_user(sender, instance, created, **kwargs):
