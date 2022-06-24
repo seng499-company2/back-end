@@ -39,4 +39,3 @@ class Preferences(models.Model):
     class Meta:
         managed = True  #auto creates tables
         db_table = 'preferences'
-        
