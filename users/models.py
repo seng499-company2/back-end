@@ -40,7 +40,7 @@ class AppUser(models.Model):
 
 # Use Django signals to delete User instance when AppUser is deleted. Based on: https://stackoverflow.com/a/12754229
 @receiver(post_delete, sender=AppUser)
-def delete_code_constraint_with_question(sender, instance, **kwargs):
+def post_delete_user(sender, instance, **kwargs):
     instance.user.delete()
     
 '''#methods use Django signals to create/update AppUser instances when auth.User instances are created/updated
