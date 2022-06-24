@@ -73,8 +73,4 @@ class PreferencesSerializer(serializers.ModelSerializer):
         #serialize the remaining data - professor shouldn't need to be serialized as it is an object
         instance.professor = prof_obj
         super().update(instance, validated_data)
-<<<<<<< HEAD
         return instance
-=======
-        return instance
->>>>>>> main
