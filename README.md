@@ -113,9 +113,12 @@ To access this interface create an admin user in the database. This can be done 
 ```
 docker-compose exec web python manage.py createsuperuser --email admin@example.com --username admin
 ```
-Please remember the password as you will use it to login. 
+It will ask you to insert a password. Please remember the password as you will use it to login. 
 
 To view data from the admin interface, it needs to be registered within the app's admin file. Please check out the [Django Documentation](https://docs.djangoproject.com/en/4.0/intro/tutorial02/#introducing-the-django-admin) for an example and more information. Once it is setup, go to [http://localhost:8000/admin](http://localhost:8000/admin) to access it. 
+
+### Please Note
+If you intend to use this admin user for testing purposes, please create the an associated App User for it or else you may run into issues. This can be done in the admin interface by adding a new App User and selecting `admin` as the user. 
 
 ## Running production
 To run the production docker file, make sure you have the proper environment files set up. Then use the command:
