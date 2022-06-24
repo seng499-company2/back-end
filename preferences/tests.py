@@ -203,7 +203,6 @@ class PreferencesSerializerTest(TestCase):
         self.assertEquals(updated_obj_key, obj_key)
         self.assertEquals(Preferences.objects.get(pk=obj_key).is_submitted, updated_serialized_data['is_submitted'])
         self.assertEquals(Preferences.objects.get(pk=obj_key).sabbatical_length, updated_serialized_data['sabbatical_length'])
-<<<<<<< HEAD
         self.assertEquals(Preferences.objects.get(pk=obj_key).preferred_hours, updated_serialized_data['preferred_hours'])
 
 
@@ -343,6 +342,3 @@ class AdminSidePreferencesRecordViewTest(TestCase):
         response = PreferencesRecord().post(request, professor_id='johnd1')
         self.assertIsNotNone(response)
         self.assertEqual(status.HTTP_400_BAD_REQUEST, response.status_code)
-=======
-        self.assertEquals(Preferences.objects.get(pk=obj_key).preferred_hours, updated_serialized_data['preferred_hours'])
->>>>>>> main
