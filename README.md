@@ -52,6 +52,14 @@ To run a specific app's test cases, use the command
 docker-compose exec web python manage.py test <app_name>
 ```
 
+OR alternatively, on Unix-like systems: 
+
+```
+$ ./test.sh
+```  
+
+will bring up all docker containers, run the tests, and teardown the docker containers. 
+
 # Development
 
 Since the app has been containerized, any changes that you make will be picked up by docker as long as the app is running. 
@@ -81,7 +89,7 @@ This will take all the migrations that haven't been applied and runs them agains
 For development purposes, The PostgreSQL can be connected to via its Docker container shell, to view database contents or metadata. To get a bash shell, run:
 
 ```
-docker exec -it back-end_db_1 /bin/bash
+docker exec -it back-end-db-1 /bin/bash
 ```
 
 Then, from the root directory of the shell, run the following command to connect to the database:

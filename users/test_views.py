@@ -45,6 +45,15 @@ class TestProfessorsList(TestCase):
         self.serializer = AppUserSerializer(instance=self.app_user)
 
     @classmethod
+    def get_APIClient(self):
+        user = User.objects.create_user(username='admin', email='admin@test.com', password='admin', is_superuser=True)
+        client = APIClient()
+        token = SlidingToken.for_user(user)
+        client.credentials(HTTP_AUTHORIZATION=f'Bearer {token}')
+        return client
+
+
+    @classmethod
     def save_default_user(self):
         serializer = AppUserSerializer(data=self.default_serializer_data)
         if serializer.is_valid():
@@ -52,27 +61,18 @@ class TestProfessorsList(TestCase):
 
     def test_prof_update_POST(self):
         self.save_default_user()
-        request_factory = APIRequestFactory()
-        request = request_factory.post('/users/abcdef', data=self.default_serializer_data, format='json')
-        request.user = User.objects.create_user("admin", is_superuser=True)
-        response = Professor().post(request, professor_id='abcdef')
+        response = self.get_APIClient().post('/api/users/abcdef/', data=self.default_serializer_data, format='json')
         self.assertIsNotNone(response)
         self.assertEqual(status.HTTP_200_OK, response.status_code)
 
     def test_prof_creation_POST(self):
-        request_factory = APIRequestFactory()
-        request = request_factory.post('/users/', data=self.default_serializer_data, format='json')
-        request.user = User.objects.create_user("admin", is_superuser=True)
-        response = ProfessorsList().post(request)
+        response = self.get_APIClient().post('/api/users/', data=self.default_serializer_data, format='json')
         self.assertIsNotNone(response)
         self.assertEqual(status.HTTP_201_CREATED, response.status_code)
 
     def test_prof_list_GET(self):
         self.save_default_user()
-        request_factory = APIRequestFactory()
-        request = request_factory.get('/users/')
-        request.user = User.objects.create_user("admin", is_superuser=True)
-        response: HttpResponse = ProfessorsList().get(request)
+        response = self.get_APIClient().get('/api/users/', format='json')
         self.assertIsNotNone(response)
         self.assertEqual(status.HTTP_200_OK, response.status_code)
         self.maxDiff = None
@@ -80,20 +80,13 @@ class TestProfessorsList(TestCase):
         self.assertContains(response, "\"user\": {\"username\": \"abcdef\"")
 
     def test_prof_DELETE(self):
-        request_factory = APIRequestFactory()
-        request = request_factory.delete('/users/abcdef')
-        request.user = User.objects.create_user("admin", is_superuser=True)
         self.save_default_user()
-        response = Professor().delete(request, professor_id='abcdef')
+        response = self.get_APIClient().delete('/api/users/abcdef/')
         self.assertIsNotNone(response)
         self.assertEqual(status.HTTP_204_NO_CONTENT, response.status_code)
 
     def test_prof_DELETE__not_found(self):
-        request_factory = APIRequestFactory()
-        request = request_factory.delete('/users/doesNotExist')
-        self.save_default_user()
-        request.user = User.objects.create_user("admin", is_superuser=True)
-        response = Professor().delete(request, professor_id='doesNotExist')
+        response = self.get_APIClient().delete('/api/users/user-does-not-exist/')
         self.assertIsNotNone(response)
         self.assertEqual(status.HTTP_404_NOT_FOUND, response.status_code)
     
@@ -102,13 +95,9 @@ class TestProfessorsList(TestCase):
     """
     def test_admin_superuser_view_access(self):
         self.save_default_user()
-        user = User.objects.create_user(username='admin', email='admin@test.com', password='admin', is_superuser=True)
-        client = APIClient()
-        token = SlidingToken.for_user(user)
-        client.credentials(HTTP_AUTHORIZATION=f'Bearer {token}')
-        response = client.get('/api/users/', format='json')
+        response = self.get_APIClient().get('/api/users/', format='json')
         self.assertIsNotNone(response)
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(status.HTTP_200_OK, response.status_code)
         self.assertContains(response, "\"user\": {\"username\": \"johnd1\"")
         self.assertContains(response, "\"user\": {\"username\": \"abcdef\"")
     
