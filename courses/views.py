@@ -2,7 +2,6 @@ from django.shortcuts import render
 from .models import Course
 from .serializers import CourseSerializer
 from django.http import HttpResponse
-from django.http import HTTP_400_BAD_REQUEST
 from rest_framework.views import APIView
 
 
