@@ -63,7 +63,15 @@ class PreferencesView(APIView):
         if "GET" != request.method: 
             return HttpResponse(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
         user : AppUser = request.user 
-        return HttpResponse(status=status.HTTP_200_OK)
+        professor_id = request.user.username
+        try:
+            preferences_model = Preferences.objects.get(professor__user__username=professor_id)
+            if preferences_model is None or not isinstance(preferences_model, Preferences):
+                return HttpResponse(status=status.HTTP_404_NOT_FOUND)
+            serializer = PreferencesSerializer(preferences_model)
+            return HttpResponse(json.dumps(serializer.data), status=status.HTTP_200_OK)
+        except preferences.models.Preferences.DoesNotExist:
+            return HttpResponse(status=status.HTTP_404_NOT_FOUND)
 
 
     def save_preferences(self, request_data) -> HttpResponse: 

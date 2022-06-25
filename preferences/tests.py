@@ -446,13 +446,14 @@ class UserSidePreferencesRecordViewTest(TestCase):
         response: HTTPResponse = client.post("/api/preferences/", data=self.default_serializer_data, format='json')
         return response
 
-    def test_GET_happy_path(self): 
+    def test_GET_not_found(self): 
         client = self.get_nonadmin_API_client()
         response: HTTPResponse = client.get("/api/preferences/")
         self.assertIsNotNone(response)
-        self.assertEquals(status.HTTP_200_OK, response.status_code)
+        self.assertEquals(status.HTTP_404_NOT_FOUND, response.status_code)
 
     def test_GET_happy_path(self): 
+        self.post_default_user()
         client = self.get_nonadmin_API_client()
         response: HTTPResponse = client.get("/api/preferences/")
         self.assertIsNotNone(response)
