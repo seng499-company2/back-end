@@ -345,18 +345,134 @@ class AdminSidePreferencesRecordViewTest(TestCase):
 
 
 class UserSidePreferencesRecordViewTest(TestCase):
+    @classmethod
+    def setUp(self): 
+        #build AppUser instance
+        self.user_attributes = {
+            'username': 'johnd1',
+            'password': 'securepass2',
+            'first_name': 'John',
+            'last_name': 'Doe',
+            'email': 'johnd123@uvic.ca',
+            'is_superuser': False
+        }
+        self.user = User.objects.create_user(**self.user_attributes)
+
+        self.app_user_attributes = {
+            'user': self.user,
+            'prof_type': 'RP',
+            'is_peng': True
+        }
+        self.app_user = AppUser.objects.create(**self.app_user_attributes)
+        self.app_user_serializer = AppUserSerializer(instance=self.app_user)
+
+        #create associated Preferences record
+        self.preferences_attributes = {
+            "professor": self.app_user,
+            "is_submitted": True,
+            "is_unavailable_sem1": False,
+            "is_unavailable_sem2": True,
+            "num_relief_courses": 1,
+            "taking_sabbatical": True,
+            "sabbatical_length": "FULL",
+            "sabbatical_start_month": 1,
+            "preferred_hours": [
+                {"Mon": "8am-9am"},
+                {"Thu": "1pm-2pm"}
+            ],
+            "teaching_willingness": {
+                "CSC226": "Very Willing"
+            },
+            "teaching_difficulty": {
+                "CSC226": "Able"
+            },
+            "wants_topics_course": True,
+            "topics_course_id": "CSC485c",
+            "topics_course_name": "Data Management and Parallelization"
+        }
+
+        #provide some default Preferences data to be used as a request body
+        self.default_serializer_data = {
+            'professor': 'johnd1',
+            'is_submitted': True,
+            'is_unavailable_sem1': False,
+            'is_unavailable_sem2': True,
+            'num_relief_courses': 1,
+            'taking_sabbatical': True,
+            'sabbatical_length': 'FULL',
+            'sabbatical_start_month': 1,
+            'preferred_hours': [
+                {'Mon': '8am-9am'},
+                {'Thu': '1pm-2pm'}
+            ],
+            'teaching_willingness': {
+                'CSC226': 'Very Willing'
+            },
+            'teaching_difficulty': {
+                'CSC226': 'Able'
+            },
+            'wants_topics_course': True,
+            'topics_course_id': 'CSC485c',
+            'topics_course_name': 'Data Management and Parallelization'
+        }
+
+
+    @classmethod
+    def save_default_user(self):
+        serializer = AppUserSerializer(data=self.default_serializer_data)
+        if serializer.is_valid():
+            serializer.save()
 
     @classmethod
     def get_nonadmin_API_client(self): 
-        user = User.objects.create_user(username='admin', email='admin@test.com', password='admin', is_superuser=False)
+        user = self.user
         client = APIClient()
         token = SlidingToken.for_user(user)
         client.credentials(HTTP_AUTHORIZATION=f'Bearer {token}')
-        client.login() # idk if I need that
         return client
-        
 
+    @classmethod
+    def post_default_user(self) -> HttpResponse: 
+        client = self.get_nonadmin_API_client()
+        response: HTTPResponse = client.post("/api/preferences/", data=self.default_serializer_data, format='json')
+        return response
+        
+    @classmethod
+    def post_malicious(self) -> HttpResponse: 
+        user = User.objects.create_user(username='abcdef', email='abc@uvic.ca', password='123', is_superuser=False)
+        client = APIClient()
+        token = SlidingToken.for_user(user)
+        client.credentials(HTTP_AUTHORIZATION=f'Bearer {token}')
+        response: HTTPResponse = client.post("/api/preferences/", data=self.default_serializer_data, format='json')
+        return response
 
     def test_GET_happy_path(self): 
         client = self.get_nonadmin_API_client()
-        pass
+        response: HTTPResponse = client.get("/api/preferences/")
+        self.assertIsNotNone(response)
+        self.assertEquals(status.HTTP_200_OK, response.status_code)
+
+    def test_GET_happy_path(self): 
+        client = self.get_nonadmin_API_client()
+        response: HTTPResponse = client.get("/api/preferences/")
+        self.assertIsNotNone(response)
+        self.assertEquals(status.HTTP_200_OK, response.status_code)
+
+    def test_POST_create_preferences(self): 
+        response: HTTPResponse = self.post_default_user()
+        self.assertIsNotNone(response)
+        self.assertEqual(status.HTTP_201_CREATED, response.status_code)
+
+    def test_POST_update_preferences(self): 
+        response1 = self.post_default_user()
+        self.assertIsNotNone(response1)
+        self.assertEqual(status.HTTP_201_CREATED, response1.status_code)
+        response2 = self.post_default_user()
+        self.assertIsNotNone(response2)
+        self.assertEqual(status.HTTP_201_CREATED, response2.status_code)
+
+    def test_POST_malicious_request(self): 
+        response: HTTPResponse = self.post_malicious()
+        self.assertIsNotNone(response)
+        self.assertEquals(status.HTTP_401_UNAUTHORIZED, response.status_code)
+        
