@@ -36,9 +36,15 @@ class AppUserSerializer(serializers.ModelSerializer):
     is_peng = serializers.BooleanField(default=False)
     is_form_submitted = serializers.BooleanField(default=False)
 
+<<<<<<< HEAD
     class Meta: 
         model = AppUser 
         fields = ('user', 'prof_type', 'is_peng', 'is_form_submitted')
+=======
+    class Meta:
+        model = AppUser
+        fields = ('user', 'prof_type', 'is_peng')
+>>>>>>> 254126a34dc431ef336a9b92edf43c61de1701e2
 
     #overrides default create
     def create(self, validated_data):
@@ -51,7 +57,7 @@ class AppUserSerializer(serializers.ModelSerializer):
         try:
             user = User.objects.create_user(**user_data)
             appUser = AppUser.objects.create(user=user, **validated_data)
-        
+
         #raising a JSON-like exception
         except ValidationError:
             raise serializers.ValidationError({"error": "Invalid input!"})
