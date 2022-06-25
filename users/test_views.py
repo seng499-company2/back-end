@@ -94,7 +94,6 @@ class TestProfessorsList(TestCase):
         response = self.get_APIClient().delete('/api/users/user-does-not-exist/')
         self.assertIsNotNone(response)
         self.assertEqual(status.HTTP_404_NOT_FOUND, response.status_code)
-<<<<<<< HEAD
         
     def test_prof_DELETE__check_users(self):
         self.save_default_user()
@@ -129,9 +128,6 @@ class TestProfessorsList(TestCase):
         self.assertIsNotNone(response)
         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)    
     
-=======
-
->>>>>>> 254126a34dc431ef336a9b92edf43c61de1701e2
     """
     Test View Permissions
     """
