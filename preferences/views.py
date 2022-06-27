@@ -8,6 +8,8 @@ from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework import status
 
+from users.models import AppUser
+
 import preferences
 from .models import Preferences
 from .serializers import PreferencesSerializer
@@ -95,6 +97,11 @@ class PreferencesView(APIView):
             # requests without data or without an associated user are assumed not malicious
             return False
  
+    def update_user_form_saved(self, professor_id: str):
+            prof: AppUser = AppUser.objects.get(user__username=professor_id)
+            prof.is_form_submitted = True
+            prof.save()
+
     # POST api/preferences
     def post(self, request: HttpRequest) -> HttpResponse: 
         if "POST" != request.method: 
@@ -111,5 +118,13 @@ class PreferencesView(APIView):
             if preferences_model is None or not isinstance(preferences_model, Preferences):
                 return HttpResponse(status=status.HTTP_404_NOT_FOUND)
         except preferences.models.Preferences.DoesNotExist:
-            return self.save_preferences(request_data)
-        return self.update_preferences(request_data, preferences_model)
+            response = self.save_preferences(request_data)
+            # After saving preferences, update AppUser to reflect saved preferences form
+            self.update_user_form_saved(professor_id)
+            return response
+        response = self.update_preferences(request_data, preferences_model)
+        # After updating preferences, update AppUser to reflect saved preferences form
+        # Normally redundant(this happens when the form is first saved), 
+        # but if an admin creates the preferences object for the prof this is the endpoint they'll hit
+        self.update_user_form_saved(professor_id)
+        return response

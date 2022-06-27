@@ -361,7 +361,8 @@ class UserSidePreferencesRecordViewTest(TestCase):
         self.app_user_attributes = {
             'user': self.user,
             'prof_type': 'RP',
-            'is_peng': True
+            'is_peng': True,
+            'is_form_submitted': False
         }
         self.app_user = AppUser.objects.create(**self.app_user_attributes)
         self.app_user_serializer = AppUserSerializer(instance=self.app_user)
@@ -463,6 +464,9 @@ class UserSidePreferencesRecordViewTest(TestCase):
         response: HttpResponse = self.post_default_user()
         self.assertIsNotNone(response)
         self.assertEqual(status.HTTP_201_CREATED, response.status_code)
+        professor_id = self.user.username
+        prof: AppUser = AppUser.objects.get(user__username=professor_id)
+        self.assertTrue(prof.is_form_submitted)
 
     def test_POST_update_preferences(self): 
         response1 = self.post_default_user()
@@ -471,6 +475,9 @@ class UserSidePreferencesRecordViewTest(TestCase):
         response2 = self.post_default_user()
         self.assertIsNotNone(response2)
         self.assertEqual(status.HTTP_201_CREATED, response2.status_code)
+        professor_id = self.user.username
+        prof: AppUser = AppUser.objects.get(user__username=professor_id)
+        self.assertTrue(prof.is_form_submitted)
 
     def test_POST_malicious_request(self): 
         response: HttpResponse = self.post_malicious()
