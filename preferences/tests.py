@@ -290,7 +290,7 @@ class AdminSidePreferencesRecordViewTest(TestCase):
         request_factory = APIRequestFactory()
         request = request_factory.get('/preferences/johnd1/')
         request.user = User.objects.create_user("admin", is_superuser=True)
-        response: HttpResponse = PreferencesRecord().get(request, professor_id='johnd1')
+        response = PreferencesRecord().get(request, professor_id='johnd1')
         self.assertIsNotNone(response)
         self.assertEqual(status.HTTP_200_OK, response.status_code)
         self.assertContains(response, "{\"professor\": \"johnd1\", \"is_submitted\": true")
@@ -434,7 +434,7 @@ class UserSidePreferencesRecordViewTest(TestCase):
     @classmethod
     def post_default_user(self) -> HttpResponse: 
         client = self.get_nonadmin_API_client()
-        response: HTTPResponse = client.post("/api/preferences/", data=self.default_serializer_data, format='json')
+        response: HttpResponse = client.post("/api/preferences/", data=self.default_serializer_data, format='json')
         return response
         
     @classmethod
@@ -443,24 +443,24 @@ class UserSidePreferencesRecordViewTest(TestCase):
         client = APIClient()
         token = SlidingToken.for_user(user)
         client.credentials(HTTP_AUTHORIZATION=f'Bearer {token}')
-        response: HTTPResponse = client.post("/api/preferences/", data=self.default_serializer_data, format='json')
+        response: HttpResponse  = client.post("/api/preferences/", data=self.default_serializer_data, format='json')
         return response
 
     def test_GET_not_found(self): 
         client = self.get_nonadmin_API_client()
-        response: HTTPResponse = client.get("/api/preferences/")
+        response: HttpResponse = client.get("/api/preferences/")
         self.assertIsNotNone(response)
         self.assertEquals(status.HTTP_404_NOT_FOUND, response.status_code)
 
     def test_GET_happy_path(self): 
         self.post_default_user()
         client = self.get_nonadmin_API_client()
-        response: HTTPResponse = client.get("/api/preferences/")
+        response: HttpResponse = client.get("/api/preferences/")
         self.assertIsNotNone(response)
         self.assertEquals(status.HTTP_200_OK, response.status_code)
 
     def test_POST_create_preferences(self): 
-        response: HTTPResponse = self.post_default_user()
+        response: HttpResponse = self.post_default_user()
         self.assertIsNotNone(response)
         self.assertEqual(status.HTTP_201_CREATED, response.status_code)
 
@@ -473,7 +473,7 @@ class UserSidePreferencesRecordViewTest(TestCase):
         self.assertEqual(status.HTTP_201_CREATED, response2.status_code)
 
     def test_POST_malicious_request(self): 
-        response: HTTPResponse = self.post_malicious()
+        response: HttpResponse = self.post_malicious()
         self.assertIsNotNone(response)
         self.assertEquals(status.HTTP_401_UNAUTHORIZED, response.status_code)
         

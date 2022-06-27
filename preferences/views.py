@@ -62,7 +62,6 @@ class PreferencesView(APIView):
     def get(self, request: HttpRequest) -> HttpResponse: 
         if "GET" != request.method: 
             return HttpResponse(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-        user : AppUser = request.user 
         professor_id = request.user.username
         try:
             preferences_model = Preferences.objects.get(professor__user__username=professor_id)
