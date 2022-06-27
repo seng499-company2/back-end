@@ -1,0 +1,50 @@
+#Reference: https://github.com/actions/starter-workflows/blob/main/ci/django.yml
+name: AWS CD
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 4
+      matrix:
+        python-version: [3.9]
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Pull from main and deploy on EC2
+        env:
+          RDS_HOST: ${{ secrets.RDS_HOST }}
+          RDS_PASS: ${{ secrets.RDS_PASS }}
+          EC2_DNS: ${{ secrets.EC2_DNS }}
+          EC2_USER: ${{ secrets.EC2_USER }}
+          EC2_PASS: ${{ secrets.EC2_PASS }}
+          DJANGO_SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.EC2_DNS }}
+          username: ${{ secrets.EC2_USER }}
+          password: ${{ secrets.EC2_PASS }}
+          port: 22
+          envs: RDS_HOST,RDS_PASS,EC2_DNS,EC2_USER,EC2_PASS,DJANGO_SECRET_KEY
+          script: |
+            cd /home/ec2-user
+            sudo rm -rf back-end
+            git clone git@github.com:seng499-company2/back-end.git
+            cd back-end
+            touch .env.prod
+            echo DEBUG=True >> .env.prod
+            echo SECRET_KEY=$DJANGO_SECRET_KEY >> .env.prod
+            echo DJANGO_ALLOWED_HOSTS="'localhost 0.0.0.0 "$EC2_DNS"'" >> .env.prod
+            echo POSTGRES_DB=postgres >> .env.prod
+            echo POSTGRES_USER=postgres >> .env.prod
+            echo POSTGRES_PASSWORD=$RDS_PASS >> .env.prod
+            echo POSTGRES_HOST=$RDS_HOST >> .env.prod
+            echo POSTGRES_PORT=5432 >> .env.prod
+            rm -rf .env
+            docker kill $(docker ps -q)
+            docker rmi $(docker images -q) -f
+            yes | docker-compose -f docker-compose.prod.yml up --build -d
