@@ -290,7 +290,7 @@ class AdminSidePreferencesRecordViewTest(TestCase):
         request_factory = APIRequestFactory()
         request = request_factory.get('/preferences/johnd1/')
         request.user = User.objects.create_user("admin", is_superuser=True)
-        response = PreferencesRecord().get(request, professor_id='johnd1')
+        response: HttpResponse = PreferencesRecord().get(request, professor_id='johnd1')
         self.assertIsNotNone(response)
         self.assertEqual(status.HTTP_200_OK, response.status_code)
         self.assertContains(response, "{\"professor\": \"johnd1\", \"is_submitted\": true")
