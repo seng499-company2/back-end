@@ -6,7 +6,6 @@ from . import views
 
 
 urlpatterns = [
-    #/courses
     path('courses/', views.AllCoursesView.as_view()),
     path('course/<str:course_code>/', views.CourseView.as_view())
 ]

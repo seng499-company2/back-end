@@ -25,7 +25,7 @@ class AllCoursesView(APIView):
     def get(self, request):
         if request.method != "GET":
             return HttpResponse(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-        # get all non-admin AppUsers **may have to also fetch User parent class + concatenate fields**
+        
         serializer = CourseSerializer(Course.objects, many=True)
         return HttpResponse(json.dumps(serializer.data), status=status.HTTP_200_OK)
 
@@ -94,41 +94,3 @@ class CourseView(APIView):
             return HttpResponse(status=status.HTTP_404_NOT_FOUND)
         course.delete()
         return HttpResponse(status=status.HTTP_204_NO_CONTENT)
-
-
-# Create your views here.
-
-
-
-
-    # (Admin) return the unique Preferences record for a professor.
-    # def get(self, request: HttpRequest, professor_id: str):
-    #     if request.method != "GET":
-    #         return HttpResponse(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-
-    #     try:
-    #         preferences_record = Preferences.objects.get(professor__user__username=professor_id)
-    #         if preferences_record is None or not isinstance(preferences_record, Preferences):
-    #             return HttpResponse(status=status.HTTP_404_NOT_FOUND)
-    #     except preferences.models.Preferences.DoesNotExist:
-    #         return HttpResponse(status=status.HTTP_404_NOT_FOUND)
-    #     serializer = PreferencesSerializer(preferences_record)
-    #     return HttpResponse(json.dumps(serializer.data), status=status.HTTP_200_OK)
-
-    # # (Admin) update the unique Preferences record for a professor.
-    # def post(self, request: HttpRequest, professor_id: str, format=None) -> HttpResponse:
-    #     if request.method != "POST":
-    #         return HttpResponse(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-
-    #     try:
-    #         preferences_record = Preferences.objects.get(professor__user__username=professor_id)
-    #         if preferences_record is None or not isinstance(preferences_record, Preferences):
-    #             return HttpResponse(status=status.HTTP_404_NOT_FOUND)
-    #     except preferences.models.Preferences.DoesNotExist:
-    #         return HttpResponse(status=status.HTTP_404_NOT_FOUND)
-    #     request_data = JSONParser().parse(request)
-    #     serializer = PreferencesSerializer(preferences_record, data=request_data)
-    #     if serializer.is_valid():
-    #         serializer.update(preferences_record, serializer.validated_data)
-    #         return HttpResponse(json.dumps(serializer.data), status=status.HTTP_200_OK)
-    #     return HttpResponse(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

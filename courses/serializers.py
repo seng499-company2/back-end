@@ -22,7 +22,6 @@ class CourseSerializer(serializers.ModelSerializer):
         try:
             course = Course.objects.create(**validated_data)
         
-        #raising a JSON-like exceptions
         except ValidationError:
             raise serializers.ValidationError({"error": "invalid input"})
         except Course.models.DoesNotExist:
@@ -40,13 +39,13 @@ class CourseSerializer(serializers.ModelSerializer):
         print(course_code)
         print()
 
-        #get the most recent Professor object to update the Preferences record
+
         try:
             course_object = Course.objects.get(course_code=course_code)
         except Course.models.DoesNotExist:
             raise serializers.ValidationError({"error": "The associated professor object does not exist!"})
 
-        #serialize the remaining data - professor shouldn't need to be serialized as it is an object
+
         instance.course = course_object
         super().update(instance, validated_data)
         return instance
