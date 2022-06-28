@@ -55,23 +55,48 @@ class AppUserSerializerTest(TestCase):
         self.assertTrue(serializer.is_valid())
 
     
-    # def test_create_course_object(self):
-    #     serialized_data = {
-    #         "course_code": "SENG499",
-    #         "course_title": "Design Project 2",
-    #         "fall_offering": True,
-    #         "spring_offering": True,
-    #         "summer_offering": False,
-    #         "PENG_required": True
-    #     }
+    def test_create_course_object(self):
+        serialized_data = {
+            "course_id": "8f57d23b-789d-47d7-b9ab-91b5a68326a7",
+            "course_code": "SENG321",
+            "course_title": "Requirements Engineering",
+            "fall_offering": False,
+            "spring_offering": True,
+            "summer_offering": False,
+            "PENG_required": True
+        }
 
-    #     serializer = CourseSerializer(data=serialized_data)
-    #     self.assertTrue(serializer.is_valid())
+        serializer = CourseSerializer(data=serialized_data)
+        self.assertTrue(serializer.is_valid())
 
-    #     #use the serializer to create an AppUser record, then assert it has been committed to DB
-    #     course_object = serializer.create(**serialized_data)
-    #     self.assertIsNotNone(course_object.pk)
+       
+        course_object = serializer.save()
+        self.assertIsNotNone(course_object.pk)
 
     
+    
+    def test_update_course_object(self):
+        #fetch course object by course_code
+        course_object = Course.objects.get(course_code="SENG499")
+        obj_key = course_object.pk
 
-        
+        #update the Course order by referencing an existing instance
+        new_serialized_data = {
+            "course_id": "7f57d33b-789d-47d7-b9ab-91b5c68324a7",
+            "course_code": "SENG499",
+            "course_title": "Design Project 2 with daniella", #updated
+            "fall_offering": True,
+            "spring_offering": False, #updated
+            "summer_offering": False,
+            "PENG_required": True
+        }
+        serializer = CourseSerializer(instance=course_object, data=new_serialized_data)
+        self.assertTrue(serializer.is_valid())
+        new_course_object = serializer.save()
+        updated_obj_key = new_course_object.pk
+
+        #assert that the same instance was updated, and updated as expected
+        # self.assertEquals(updated_obj_key, obj_key)
+        self.assertEquals(Course.objects.get(pk=obj_key).course_title, new_serialized_data['course_title'])
+        self.assertEquals(Course.objects.get(pk=obj_key).spring_offering, new_serialized_data['spring_offering'])
+    
