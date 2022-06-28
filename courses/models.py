@@ -1,4 +1,8 @@
+import uuid
+
+
 from django.db import models
+
 
 from users.models import AppUser
 
@@ -7,6 +11,7 @@ from users.models import AppUser
 #Front-End Base Model
 
 class Course(models.Model):
+    course_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     course_code = models.CharField(max_length=7)
     course_title = models.TextField(blank=False)
     fall_offering = models.BooleanField()
