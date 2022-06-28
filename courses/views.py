@@ -10,29 +10,39 @@ from django.http import HttpRequest
 from rest_framework.views import APIView
 from rest_framework import status
 
+from .permissions import IsAdmin
+from rest_framework.permissions import IsAuthenticated
+
+
+
 
 
 
 class AllCoursesView(APIView):
 
+    permission_classes = [IsAdmin, IsAuthenticated]
+
     def get(self, request):
-            if request.method != "GET":
-                return HttpResponse(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-            # get all non-admin AppUsers **may have to also fetch User parent class + concatenate fields**
-            serializer = CourseSerializer(Course.objects, many=True)
-            return HttpResponse(json.dumps(serializer.data), status=status.HTTP_200_OK)
+        if request.method != "GET":
+            return HttpResponse(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        # get all non-admin AppUsers **may have to also fetch User parent class + concatenate fields**
+        serializer = CourseSerializer(Course.objects, many=True)
+        return HttpResponse(json.dumps(serializer.data), status=status.HTTP_200_OK)
 
     
     
-    def post(self, request: HttpRequest, course_code: str, format=None) -> HttpResponse:
+    def post(self, request: HttpRequest) -> HttpResponse:
         if request.method != "POST":
             return HttpResponse(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
         request_data = JSONParser().parse(request)
-        serializer = CourseSerializer(course, data=request_data)
+        serializer = CourseSerializer(data=request_data)
+        
         if serializer.is_valid():
-            
-            serializer.update(course, serializer.validated_data)
+            print()
+            print(serializer.validated_data)
+            print()
+            serializer.create(serializer.validated_data)
             return HttpResponse(json.dumps(serializer.data), status=status.HTTP_200_OK)
         
         return HttpResponse(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
@@ -40,6 +50,9 @@ class AllCoursesView(APIView):
 
 
 class CourseView(APIView):
+
+    permission_classes = [IsAdmin, IsAuthenticated]
+
     def get(self, request: HttpRequest, course_code: str):
         if request.method != "GET":
             return HttpResponse(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
