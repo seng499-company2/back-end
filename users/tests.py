@@ -79,7 +79,7 @@ class AppUserSerializerTest(TestCase):
         self.assertEqual(data['is_peng'], self.app_user_attributes['is_peng'])
         self.assertEqual(data['is_form_submitted'], self.app_user_attributes['is_form_submitted'])
 
-    
+
     def test_valid_deserialization(self):
         serialized_data = {
             'user':{
@@ -97,7 +97,7 @@ class AppUserSerializerTest(TestCase):
         serializer = AppUserSerializer(data=serialized_data)
         self.assertTrue(serializer.is_valid())
 
-    
+
     def test_create_appuser_obj(self):
         serialized_data = {
             'user':{
@@ -119,7 +119,7 @@ class AppUserSerializerTest(TestCase):
         app_user_obj = serializer.save()
         self.assertIsNotNone(app_user_obj.pk)
 
-    
+
     def test_update_appuser_obj(self):
         serialized_data = {
             'user':{
@@ -140,7 +140,7 @@ class AppUserSerializerTest(TestCase):
         #use the serializer to create an AppUser record
         app_user_obj = serializer.save()
         obj_key = app_user_obj.pk
-        
+
         #now, update the AppUser record order by referencing an existing instance
         updated_serialized_data = {
             'user':{
@@ -187,11 +187,11 @@ class AppUserSerializerTest(TestCase):
         #use the serializer to create an AppUser record
         app_user_obj = serializer.save()
         obj_key = app_user_obj.pk
-        
+
         #now, update the AppUser record order by referencing an existing instance
         updated_serialized_data = {
             'user':{
-                'username': 'abcdef',   
+                'username': 'abcdef',
                 'password': 'newpass!',  #only updated field
                 'first_name': 'Abc',
                 'last_name': 'Def',
@@ -211,8 +211,8 @@ class AppUserSerializerTest(TestCase):
         self.assertEquals(updated_obj_key, obj_key)
         #check that the password is now associated and correctly hashed
         self.assertTrue(AppUser.objects.get(pk=obj_key).user.check_password('newpass!'))
-        
-        
+
+
 
 class UserPermissions(TestCase):
     """ Test Permissions
@@ -233,7 +233,7 @@ class UserPermissions(TestCase):
         self.assertTrue(permission)
         obj_permissions = permission_check.has_object_permission(request, self.view, self.admin_user)
         self.assertTrue(obj_permissions)
-    
+
     def test_non_admin_user_permissions(self):
         request = self.factory.delete('/users/abcdef')
         request.user = self.non_admin_user

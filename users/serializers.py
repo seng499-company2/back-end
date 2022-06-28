@@ -51,7 +51,7 @@ class AppUserSerializer(serializers.ModelSerializer):
         try:
             user = User.objects.create_user(**user_data)
             appUser = AppUser.objects.create(user=user, **validated_data)
-        
+
         #raising a JSON-like exception
         except ValidationError:
             raise serializers.ValidationError({"error": "Invalid input!"})

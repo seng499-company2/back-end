@@ -138,7 +138,7 @@ class TestProfessorsList(TestCase):
         self.assertEqual(status.HTTP_200_OK, response.status_code)
         self.assertContains(response, "\"user\": {\"username\": \"johnd1\"")
         self.assertContains(response, "\"user\": {\"username\": \"abcdef\"")
-    
+
     def test_get_admin_errors_not_superuser(self):
         user = User.objects.create_user(username='non-admin', email='noadmin@test.com', password='nope', is_superuser=False)
         client = APIClient()
@@ -147,7 +147,7 @@ class TestProfessorsList(TestCase):
         response = client.get('/api/users/', format='json')
         self.assertIsNotNone(response)
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
-        
+
     def test_get_auth_errors_not_bearer_token(self):
         user = User.objects.create_user(username='non-admin', email='noadmin@test.com', password='nope', is_superuser=False)
         client = APIClient()
@@ -156,7 +156,7 @@ class TestProfessorsList(TestCase):
         response = client.get('/api/users/', format='json')
         self.assertIsNotNone(response)
         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
-        
+
     def test_get_auth_errors_no_user(self):
         client = APIClient()
         response = client.get('/api/users/', format='json')
@@ -168,28 +168,28 @@ class TestTokenLogin(TestCase):
     @classmethod
     def setUp(self):
         self.client = APIClient()
-        
+
     def test_login_token_superuser(self):
         User.objects.create_user(username='admin', email='admin@test.com', password='admin', is_superuser=True)
         response = self.client.post('/api/login/', {'username':'admin', 'password':'admin'}, format='json')
         self.assertIsNotNone(response)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertTrue('token' in response.data)
-    
+
     def test_login_token_non_superuser(self):
         User.objects.create_user(username='nonadmin', email='nonadmin@test.com', password='nonadmin', is_superuser=False)
         response = self.client.post('/api/login/', {'username':'nonadmin', 'password':'nonadmin'}, format='json')
         self.assertIsNotNone(response)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertTrue('token' in response.data)
-    
+
     def test_get_auth_errors_invalid_password(self):
         User.objects.create_user(username='admin', email='admin@test.com', password='admin', is_superuser=True)
         response = self.client.post('/api/login/', {'username':'admin', 'password':'pass'}, format='json')
         self.assertIsNotNone(response)
         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
         self.assertFalse('token' in response.data)
-    
+
     def test_get_auth_errors_invalid_data(self):
         User.objects.create_user(username='admin', email='admin@test.com', password='admin', is_superuser=True)
         response = self.client.post('/api/login/', {'usernameee':'admin', 'password':'admin'}, format='json')
