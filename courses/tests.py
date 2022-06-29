@@ -14,8 +14,8 @@ class AppUserSerializerTest(TestCase):
     def setUp(self):
         #build AppUser and AppUserSerializer instances
         self.course_attributes = {
-            "course_id": "7f57d33b-789d-47d7-b9ab-91b5c68324a7",
             "course_code": "SENG499",
+            "section": "A01",
             "course_title": "Design Project 2",
             "fall_offering": True,
             "spring_offering": True,
@@ -31,8 +31,8 @@ class AppUserSerializerTest(TestCase):
     def test_contains_expected_fields(self):
         data = self.serializer.data
         self.assertEqual(set(data.keys()), set([
-            'course_id',
             'course_code',
+            'section',
             'course_title',
             'fall_offering',
             'spring_offering',
@@ -42,8 +42,8 @@ class AppUserSerializerTest(TestCase):
     
     def test_valid_deserialization(self):
         serialized_data = {
-            "course_id": "7f57d33b-789d-47d7-b9ab-91b5c68324a7",
             "course_code": "SENG499",
+            "section": "A01",
             "course_title": "Design Project 2",
             "fall_offering": True,
             "spring_offering": True,
@@ -57,8 +57,8 @@ class AppUserSerializerTest(TestCase):
     
     def test_create_course_object(self):
         serialized_data = {
-            "course_id": "8f57d23b-789d-47d7-b9ab-91b5a68326a7",
             "course_code": "SENG321",
+            "section": "A01",
             "course_title": "Requirements Engineering",
             "fall_offering": False,
             "spring_offering": True,
@@ -82,8 +82,8 @@ class AppUserSerializerTest(TestCase):
 
         #update the Course order by referencing an existing instance
         new_serialized_data = {
-            "course_id": "7f57d33b-789d-47d7-b9ab-91b5c68324a7",
             "course_code": "SENG499",
+            "section": "A01",
             "course_title": "Design Project 2 with daniella", #updated
             "fall_offering": True,
             "spring_offering": False, #updated
