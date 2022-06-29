@@ -1,4 +1,3 @@
-import uuid
 
 
 from django.db import models
@@ -11,8 +10,8 @@ from users.models import AppUser
 #Front-End Base Model
 
 class Course(models.Model):
-    course_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    course_code = models.CharField(max_length=7)
+    course_code = models.CharField(max_length=9)
+    section = models.CharField(max_length=5)
     course_title = models.TextField(blank=False)
     fall_offering = models.BooleanField()
     spring_offering = models.BooleanField()
@@ -31,8 +30,13 @@ class Course(models.Model):
 
 
 # class CourseSection(models.Model):
-#     professor = models.OneToOneField(AppUser, primary_key = True)
+#     section_id = models.CharField(primarykeey=True, max_length=5)
+#     professor = models.OneToOneField(AppUser)
 #     capacity = models.IntegerField()
+
+#     class Meta:
+#         managed = True
+#         db_table = "CourseSection"
 
 
 

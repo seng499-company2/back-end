@@ -1,6 +1,8 @@
 import json
 import courses
 
+import uuid
+
 from django.shortcuts import render
 from .models import Course
 from rest_framework.parsers import JSONParser
@@ -12,9 +14,6 @@ from rest_framework import status
 
 from .permissions import IsAdmin
 from rest_framework.permissions import IsAuthenticated
-
-
-
 
 
 
@@ -39,9 +38,6 @@ class AllCoursesView(APIView):
         serializer = CourseSerializer(data=request_data)
         
         if serializer.is_valid():
-            print()
-            print(serializer.validated_data)
-            print()
             serializer.create(serializer.validated_data)
             return HttpResponse(json.dumps(serializer.data), status=status.HTTP_200_OK)
         

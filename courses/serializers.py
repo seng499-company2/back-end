@@ -3,11 +3,13 @@ from .models import Course
 from rest_framework import viewsets
 from django.core.exceptions import ValidationError
 
+import uuid
+
 # Create your serializers here.
 
 class CourseSerializer(serializers.ModelSerializer):
-    course_id = serializers.CharField()
     course_code = serializers.CharField()
+    section = serializers.CharField()
     course_title = serializers.CharField()
     fall_offering = serializers.BooleanField()
     spring_offering = serializers.BooleanField()
@@ -16,7 +18,7 @@ class CourseSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Course
-        fields = ('course_id', 'course_code', 'course_title', 'fall_offering', 'spring_offering', 'summer_offering', 'PENG_required')
+        fields = ('course_code', 'section', 'course_title', 'fall_offering', 'spring_offering', 'summer_offering', 'PENG_required')
     
     def create(self, validated_data):
         try:
@@ -35,10 +37,6 @@ class CourseSerializer(serializers.ModelSerializer):
         Professor field is stored in the DB as an object; therefore the most recent AppUser object will be fetched and updated.
         """
         course_code = validated_data.pop('course_code')
-        print()
-        print(course_code)
-        print()
-
 
         try:
             course_object = Course.objects.get(course_code=course_code)
