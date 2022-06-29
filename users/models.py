@@ -2,10 +2,11 @@ from django.db import models
 from django.contrib.auth.models import User
 
 from django.utils.translation import gettext_lazy as _
-from django.db.models.signals import post_save
+from django.db.models.signals import post_delete
 from django.dispatch import receiver
 
 # Model for the database representation of an AppUser (attribute: django.contrib.auth.models.User).
+
 
 class AppUser(models.Model):
 
@@ -13,6 +14,7 @@ class AppUser(models.Model):
         TEACHING_PROF = 'TP', _('Teaching Prof')
         RESEARCH_PROF = 'RP', _('Research Prof')
         OTHER = 'OT', _('Other')
+
 
     #user: contains fields
     #   - username
@@ -32,11 +34,17 @@ class AppUser(models.Model):
         default=TeachingType.TEACHING_PROF,
     )
     is_peng = models.BooleanField(default=False)
+    is_form_submitted = models.BooleanField(default=False)
 
     class Meta:
         managed = True  #auto creates tables
         db_table = 'appuser'
 
+# Use Django signals to delete User instance when AppUser is deleted. Based on: https://stackoverflow.com/a/12754229
+@receiver(post_delete, sender=AppUser)
+def post_delete_user(sender, instance, **kwargs):
+    instance.user.delete()
+    
 '''#methods use Django signals to create/update AppUser instances when auth.User instances are created/updated
 @receiver(post_save, sender=User)
 def create_app_user(sender, instance, created, **kwargs):

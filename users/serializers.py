@@ -8,7 +8,6 @@ from .models import AppUser
 #User superclass serializer
 class UserSerializer(serializers.ModelSerializer):
     username = serializers.CharField(required=True)
-    password = serializers.CharField(required=True)
     first_name = serializers.CharField(required=True)
     last_name = serializers.CharField(required=True)
     email = serializers.EmailField()
@@ -16,6 +15,7 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('username', 'password', 'first_name', 'last_name', 'email', 'is_superuser')
+        extra_kwargs = {'password': {'write_only': True}}
 
     #overrides default update
     def update(self, instance, validated_data):
@@ -34,10 +34,11 @@ class AppUserSerializer(serializers.ModelSerializer):
     user = UserSerializer()
     prof_type = serializers.ChoiceField(choices=AppUser.TeachingType, default=AppUser.TeachingType.TEACHING_PROF)
     is_peng = serializers.BooleanField(default=False)
+    is_form_submitted = serializers.BooleanField(default=False)
 
     class Meta: 
         model = AppUser 
-        fields = ('user', 'prof_type', 'is_peng')
+        fields = ('user', 'prof_type', 'is_peng', 'is_form_submitted')
 
     #overrides default create
     def create(self, validated_data):
@@ -50,7 +51,7 @@ class AppUserSerializer(serializers.ModelSerializer):
         try:
             user = User.objects.create_user(**user_data)
             appUser = AppUser.objects.create(user=user, **validated_data)
-        
+
         #raising a JSON-like exception
         except ValidationError:
             raise serializers.ValidationError({"error": "Invalid input!"})

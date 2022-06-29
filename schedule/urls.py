@@ -12,7 +12,7 @@ urlpatterns = [
 
     # GET / schedule / {year - semester}
     # Example: http://localhost:8000/schedule/2022/FALL/2
-    path('<int:year>/<str:semester>/<int:company_alg>', views.Schedule.as_view()),
+    path('<int:year>/<str:semester>/<int:requested_company_alg>', views.Schedule.as_view()),
 
     # POST / schedule / {scheduleId} / {courseId}
     # Example: http://localhost:8000/schedule/schedule_id/course_id/2

@@ -24,7 +24,8 @@ class AppUserSerializerTest(TestCase):
         self.app_user_attributes = {
             'user': self.user,
             'prof_type': 'RP',
-            'is_peng': True
+            'is_peng': True,
+            'is_form_submitted': False
         }
         #default data for the serializer, if needed
         self.default_serializer_data = {
@@ -37,7 +38,8 @@ class AppUserSerializerTest(TestCase):
                 'is_superuser': False
             },
             'prof_type': 'TP',
-            'is_peng': True
+            'is_peng': True,
+            'is_form_submitted': False
         }
 
         #serialize into an AppUser object
@@ -50,18 +52,20 @@ class AppUserSerializerTest(TestCase):
         self.assertEqual(set(data.keys()), set([
             'user',
             'prof_type',
-            'is_peng']))
+            'is_peng',
+            'is_form_submitted']))
 
 
     def test_user_contains_expected_fields(self):
         data = self.serializer.data
         self.assertEqual(set(data['user'].keys()), set([
             'username',
-            'password',
             'first_name',
             'last_name',
             'email',
             'is_superuser']))
+        self.assertNotIn(set(data['user'].keys()), set([
+            'password']))
 
 
     def test_username_field_content(self):
@@ -73,8 +77,9 @@ class AppUserSerializerTest(TestCase):
         data = self.serializer.data
         self.assertEqual(data['prof_type'], self.app_user_attributes['prof_type'])
         self.assertEqual(data['is_peng'], self.app_user_attributes['is_peng'])
+        self.assertEqual(data['is_form_submitted'], self.app_user_attributes['is_form_submitted'])
 
-    
+
     def test_valid_deserialization(self):
         serialized_data = {
             'user':{
@@ -86,12 +91,13 @@ class AppUserSerializerTest(TestCase):
                 'is_superuser': False
             },
             'prof_type': 'TP',
-            'is_peng': True
+            'is_peng': True,
+            'is_form_submitted': False
         }
         serializer = AppUserSerializer(data=serialized_data)
         self.assertTrue(serializer.is_valid())
 
-    
+
     def test_create_appuser_obj(self):
         serialized_data = {
             'user':{
@@ -103,7 +109,8 @@ class AppUserSerializerTest(TestCase):
                 'is_superuser': False
             },
             'prof_type': 'TP',
-            'is_peng': True
+            'is_peng': True,
+            'is_form_submitted': False
         }
         serializer = AppUserSerializer(data=serialized_data)
         self.assertTrue(serializer.is_valid())
@@ -112,7 +119,7 @@ class AppUserSerializerTest(TestCase):
         app_user_obj = serializer.save()
         self.assertIsNotNone(app_user_obj.pk)
 
-    
+
     def test_update_appuser_obj(self):
         serialized_data = {
             'user':{
@@ -124,7 +131,8 @@ class AppUserSerializerTest(TestCase):
                 'is_superuser': False
             },
             'prof_type': 'TP',
-            'is_peng': True
+            'is_peng': True,
+            'is_form_submitted': False,
         }
         serializer = AppUserSerializer(data=serialized_data)
         self.assertTrue(serializer.is_valid())
@@ -132,7 +140,7 @@ class AppUserSerializerTest(TestCase):
         #use the serializer to create an AppUser record
         app_user_obj = serializer.save()
         obj_key = app_user_obj.pk
-        
+
         #now, update the AppUser record order by referencing an existing instance
         updated_serialized_data = {
             'user':{
@@ -144,7 +152,8 @@ class AppUserSerializerTest(TestCase):
                 'is_superuser': False
             },
             'prof_type': 'RP',   #updated field
-            'is_peng': True
+            'is_peng': True,
+            'is_form_submitted': True   #updated field
         }
         serializer = AppUserSerializer(instance=app_user_obj, data=updated_serialized_data)
         self.assertTrue(serializer.is_valid())
@@ -155,6 +164,7 @@ class AppUserSerializerTest(TestCase):
         self.assertEquals(updated_obj_key, obj_key)
         self.assertEquals(AppUser.objects.get(pk=obj_key).user.username, updated_serialized_data['user']['username'])
         self.assertEquals(AppUser.objects.get(pk=obj_key).prof_type, updated_serialized_data['prof_type'])
+        self.assertEquals(AppUser.objects.get(pk=obj_key).is_form_submitted, updated_serialized_data['is_form_submitted'])
 
 
     def test_updated_appuser_password_hash(self):
@@ -168,7 +178,8 @@ class AppUserSerializerTest(TestCase):
                 'is_superuser': False
             },
             'prof_type': 'TP',
-            'is_peng': True
+            'is_peng': True,
+            'is_form_submitted': False
         }
         serializer = AppUserSerializer(data=serialized_data)
         self.assertTrue(serializer.is_valid())
@@ -176,11 +187,11 @@ class AppUserSerializerTest(TestCase):
         #use the serializer to create an AppUser record
         app_user_obj = serializer.save()
         obj_key = app_user_obj.pk
-        
+
         #now, update the AppUser record order by referencing an existing instance
         updated_serialized_data = {
             'user':{
-                'username': 'abcdef',   
+                'username': 'abcdef',
                 'password': 'newpass!',  #only updated field
                 'first_name': 'Abc',
                 'last_name': 'Def',
@@ -188,7 +199,8 @@ class AppUserSerializerTest(TestCase):
                 'is_superuser': False
             },
             'prof_type': 'TP',
-            'is_peng': True
+            'is_peng': True,
+            'is_form_submitted': False
         }
         serializer = AppUserSerializer(instance=app_user_obj, data=updated_serialized_data)
         self.assertTrue(serializer.is_valid())
@@ -199,8 +211,8 @@ class AppUserSerializerTest(TestCase):
         self.assertEquals(updated_obj_key, obj_key)
         #check that the password is now associated and correctly hashed
         self.assertTrue(AppUser.objects.get(pk=obj_key).user.check_password('newpass!'))
-        
-        
+
+
 
 class UserPermissions(TestCase):
     """ Test Permissions
@@ -221,7 +233,7 @@ class UserPermissions(TestCase):
         self.assertTrue(permission)
         obj_permissions = permission_check.has_object_permission(request, self.view, self.admin_user)
         self.assertTrue(obj_permissions)
-    
+
     def test_non_admin_user_permissions(self):
         request = self.factory.delete('/users/abcdef')
         request.user = self.non_admin_user

@@ -78,3 +78,23 @@ class Professor(APIView):
             return HttpResponse(status=status.HTTP_404_NOT_FOUND)
         prof.delete()
         return HttpResponse(status=status.HTTP_204_NO_CONTENT)
+    
+
+class UserDetail(APIView):
+    """
+    All User Management: Retrieve logged in user's information.
+    """
+    
+    permission_classes = [IsAuthenticated]
+    
+    def get(self, request):
+        token_user_username = request.user.username
+        if request.method != "GET":
+            return HttpResponse(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        try:
+            appUser = AppUser.objects.get(user__username=token_user_username)
+        except users.models.AppUser.DoesNotExist:
+            return HttpResponse(status=status.HTTP_404_NOT_FOUND)
+        
+        serializer = AppUserSerializer(appUser)
+        return HttpResponse(json.dumps(serializer.data), status=status.HTTP_200_OK)

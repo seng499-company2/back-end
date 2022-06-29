@@ -24,8 +24,8 @@ class PreferencesSerializer(serializers.ModelSerializer):
     teaching_willingness = serializers.JSONField()
     teaching_difficulty = serializers.JSONField()
     wants_topics_course = serializers.BooleanField(default=False)
-    topics_course_id = serializers.CharField(max_length=20, default='')
-    topics_course_name = serializers.CharField(max_length=255, default='')
+    topics_course_id = serializers.CharField(max_length=20, default='', allow_blank=True)
+    topics_course_name = serializers.CharField(max_length=255, default='', allow_blank=True)
     class Meta:
         model = Preferences
         fields = (
