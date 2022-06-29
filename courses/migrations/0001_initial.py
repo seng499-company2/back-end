@@ -15,7 +15,8 @@ class Migration(migrations.Migration):
             name='Course',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('course_code', models.CharField(max_length=7)),
+                ('course_code', models.CharField(max_length=9)),
+                ('section', models.CharField(max_length=5)),
                 ('course_title', models.TextField()),
                 ('fall_offering', models.BooleanField()),
                 ('spring_offering', models.BooleanField()),
