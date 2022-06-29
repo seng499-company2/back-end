@@ -43,7 +43,7 @@ class AppUserSerializerTest(TestCase):
     def test_valid_deserialization(self):
         serialized_data = {
             "course_code": "SENG499",
-            "section": "A01",
+            "section": "A02",
             "course_title": "Design Project 2",
             "fall_offering": True,
             "spring_offering": True,
