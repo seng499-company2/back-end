@@ -34,9 +34,10 @@ class CourseSerializer(serializers.ModelSerializer):
     def update(self, instance, validated_data):
 
         course_code = validated_data.pop('course_code')
+        section = validated_data.pop('section')
 
         try:
-            course_object = Course.objects.get(course_code=course_code)
+            course_object = Course.objects.get(course_code=course_code, section=section)
         except Course.models.DoesNotExist:
             raise serializers.ValidationError({"error": "The associated course object does not exist!"})
 
