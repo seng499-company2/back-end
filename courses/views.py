@@ -49,12 +49,12 @@ class CourseView(APIView):
 
     permission_classes = [IsAdmin, IsAuthenticated]
 
-    def get(self, request: HttpRequest, course_code: str):
+    def get(self, request: HttpRequest, course_code: str, section: str):
         if request.method != "GET":
             return HttpResponse(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
         try:
-            course = Course.objects.get(course_code=course_code)
+            course = Course.objects.get(course_code=course_code, section=section)
             if course is None or not isinstance(course, Course):
                 return HttpResponse(status=status.HTTP_404_NOT_FOUND)
         except courses.models.Course.DoesNotExist:
@@ -62,12 +62,12 @@ class CourseView(APIView):
         serializer = CourseSerializer(course)
         return HttpResponse(json.dumps(serializer.data), status=status.HTTP_200_OK)
 
-    def post(self, request: HttpRequest, course_code: str, format=None) -> HttpResponse:
+    def post(self, request: HttpRequest, course_code: str, section: str, format=None) -> HttpResponse:
         if request.method != "POST":
             return HttpResponse(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
         try:
-            course = Course.objects.get(course_code=course_code)
+            course = Course.objects.get(course_code=course_code, section=section)
             if course is None or not isinstance(course, Course):
                 return HttpResponse(status=status.HTTP_404_NOT_FOUND)
         except courses.models.Course.DoesNotExist:
@@ -81,11 +81,11 @@ class CourseView(APIView):
         return HttpResponse(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     
-    def delete(self, request: HttpRequest, course_code: str, format=None) -> HttpResponse:
+    def delete(self, request: HttpRequest, course_code: str, section: str, format=None) -> HttpResponse:
         if request.method != "DELETE":
             return HttpResponse(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
         try:
-            course = Course.objects.get(course_code=course_code)
+            course = Course.objects.get(course_code=course_code, section=section)
         except courses.models.Course.DoesNotExist:
             return HttpResponse(status=status.HTTP_404_NOT_FOUND)
         course.delete()

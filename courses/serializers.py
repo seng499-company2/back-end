@@ -32,16 +32,13 @@ class CourseSerializer(serializers.ModelSerializer):
 
    
     def update(self, instance, validated_data):
-        """
-        Update and return an existing Preferences instance, given the validated data.
-        Professor field is stored in the DB as an object; therefore the most recent AppUser object will be fetched and updated.
-        """
+
         course_code = validated_data.pop('course_code')
 
         try:
             course_object = Course.objects.get(course_code=course_code)
         except Course.models.DoesNotExist:
-            raise serializers.ValidationError({"error": "The associated professor object does not exist!"})
+            raise serializers.ValidationError({"error": "The associated course object does not exist!"})
 
 
         instance.course = course_object

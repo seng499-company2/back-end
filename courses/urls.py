@@ -7,7 +7,7 @@ from . import views
 
 urlpatterns = [
     path('courses/', views.AllCoursesView.as_view()),
-    path('course/<str:course_code>/', views.CourseView.as_view())
+    path('course/<str:course_code>/<str:section>/', views.CourseView.as_view())
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

@@ -19,6 +19,7 @@ class Course(models.Model):
     PENG_required = models.BooleanField()
 
     class Meta:
+        unique_together = ('course_code', 'section')
         managed = True  #auto creates tables
         db_table = 'Courses'
 
