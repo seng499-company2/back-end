@@ -1,3 +1,13 @@
 from django.urls import include, path
+from rest_framework.urlpatterns import format_suffix_patterns
 
-# Define your urls here.
+
+from . import views
+
+
+urlpatterns = [
+    path('courses/', views.AllCoursesView.as_view()),
+    path('course/<str:course_code>/<str:section>/', views.CourseView.as_view())
+]
+
+urlpatterns = format_suffix_patterns(urlpatterns)
