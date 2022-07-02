@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from rest_framework import viewsets
 from django.core.exceptions import ValidationError
-
+from rest_framework_simplejwt.serializers import TokenObtainSlidingSerializer
 from django.contrib.auth.models import User
 from .models import AppUser
 
@@ -70,3 +70,18 @@ class AppUserSerializer(serializers.ModelSerializer):
         #then update AppUser
         super(AppUserSerializer, self).update(instance, validated_data)
         return instance
+    
+class UserTokenObtainSlidingSerializer(TokenObtainSlidingSerializer):
+    """
+    Encode the user information into the token
+    """
+    @classmethod
+    def get_token(cls, user):
+        token = super().get_token(user)
+        token['is_superuser'] = user.is_superuser
+        token['username'] = user.username
+        token['email'] = user.email
+        token['first_name'] = user.first_name
+        token['last_name'] = user.last_name
+        return token
+    

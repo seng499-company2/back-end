@@ -1,6 +1,4 @@
 from django.db import models
-from django.contrib.auth.models import User
-from users.models import AppUser
 
 from django.utils.translation import gettext_lazy as _
 
@@ -13,7 +11,7 @@ class Preferences(models.Model):
         NONE = 'NONE', _('None')
 
     professor = models.OneToOneField(
-        AppUser,
+        'users.AppUser',
         on_delete=models.CASCADE,
         to_field='user',
         primary_key=True
@@ -29,9 +27,9 @@ class Preferences(models.Model):
         default=SabbaticalLength.NONE
     )
     sabbatical_start_month = models.PositiveIntegerField(default=0)
-    preferred_hours = models.JSONField()
-    teaching_willingness = models.JSONField()
-    teaching_difficulty = models.JSONField()
+    preferred_hours = models.JSONField(default=dict)
+    teaching_willingness = models.JSONField(default=dict)
+    teaching_difficulty = models.JSONField(default=dict)
     wants_topics_course = models.BooleanField(default=False)
     topics_course_id = models.CharField(max_length=20, blank=True, default='')
     topics_course_name = models.CharField(max_length=255, blank=True, default='')
