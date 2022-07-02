@@ -1,7 +1,28 @@
 from django.db import models
+from itertools import chain
+
+from django.utils.translation import gettext_lazy as _
 
 
-class TimeSlot(models.Model):
+'''A printable model class that, when superclassed, allows the child model object to be printed in Python dictionary format.'''
+class PrintableModel(models.Model):
+    def __repr__(self):
+        return str(self.to_dict())
+
+    def to_dict(instance):
+        opts = instance._meta
+        data = {}
+        for f in chain(opts.concrete_fields, opts.private_fields):
+            data[f.name] = f.value_from_object(instance)
+        for f in opts.many_to_many:
+            data[f.name] = [i.id for i in f.value_from_object(instance)]
+        return data
+
+    class Meta:
+        abstract = True
+
+
+class A_TimeSlot(models.Model):
 
     class DayOfTheWeek(models.TextChoices):
         MONDAY = 'MONDAY', _('MONDAY')
@@ -13,31 +34,31 @@ class TimeSlot(models.Model):
     '''#specifies the Many-to-One relationship with a CourseSection
     courseSection = models.ForeignKey(CourseSection, on_delete=models.CASCADE)'''
     dayOfWeek = models.CharField(
-        max_length=4,
+        max_length=9,
         choices=DayOfTheWeek.choices
     )
     timeRange = models.CharField(max_length=18, blank=False) #holds a single tuple of form: ("12:00","13:00")
 
 
-class CourseSection(models.Model):
+class A_CourseSection(models.Model):
     professor = models.JSONField()  #{"id": AppUser.user.username, "name": AppUser.user.first_name + " " + AppUser.user.last_name}
     capacity = models.PositiveIntegerField(default=0)
-    timeSlots = models.ManyToManyField(TimeSlot) #to associate multiple TimeSlot objects
+    timeSlots = models.ManyToManyField(A_TimeSlot) #to associate multiple TimeSlot objects
 
 
-class Course(models.Model):
+class A_Course(models.Model):
     code = models.CharField(max_length=20)
     title = models.CharField(max_length=255)
     pengRequired = models.JSONField() #{"fall": true, "spring": false, "summer": true}
     yearRequired = models.PositiveIntegerField()
 
 
-class CourseOffering(models.Model):
-    course = models.ManyToManyField(Course)
-    sections = models.ManyToManyField(CourseSection)
+class A_CourseOffering(models.Model):
+    course = models.ManyToManyField(A_Course)
+    sections = models.ManyToManyField(A_CourseSection)
 
 
-class Schedule(models.Model):
-    fall = models.ManyToManyField(CourseOffering)
-    spring = models.ManyToManyField(CourseOffering)
-    summer = models.ManyToManyField(CourseOffering)
+class A_Schedule(PrintableModel):
+    fall = models.ManyToManyField(A_CourseOffering, related_name='fall')
+    spring = models.ManyToManyField(A_CourseOffering, related_name='spring')
+    summer = models.ManyToManyField(A_CourseOffering, related_name='summer')
