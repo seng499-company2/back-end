@@ -64,6 +64,24 @@ will bring up all docker containers, run the tests, and teardown the docker cont
 
 Since the app has been containerized, any changes that you make will be picked up by docker as long as the app is running. 
 
+## Resetting the Database
+If you have a lot of database migrations, you may just want to start with a fresh instance of the db.   
+First, nuke the postgres docker container volume with the current database data:   
+```
+sudo rm -rf data
+```
+Then, rebuild the docker containers: 
+```
+docker-compose up -d --build
+```
+
+After the containers come up, create the new database schema: 
+```
+docker-compose exec web python manage.py makemigrations
+docker-compose exec web python manage.py migrate
+```
+Ta-da! Fresh database!
+
 ## Database Migrations
 
 When developing, if you create or modify models you need to apply them to the database.
