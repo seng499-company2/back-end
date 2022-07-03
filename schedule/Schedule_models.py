@@ -22,7 +22,7 @@ class PrintableModel(models.Model):
         abstract = True
 
 
-class A_TimeSlot(models.Model):
+class A_TimeSlot(PrintableModel):
 
     class DayOfTheWeek(models.TextChoices):
         MONDAY = 'MONDAY', _('MONDAY')
@@ -40,20 +40,21 @@ class A_TimeSlot(models.Model):
     timeRange = models.CharField(max_length=18, blank=False) #holds a single tuple of form: ("12:00","13:00")
 
 
-class A_CourseSection(models.Model):
+class A_CourseSection(PrintableModel):
     professor = models.JSONField()  #{"id": AppUser.user.username, "name": AppUser.user.first_name + " " + AppUser.user.last_name}
     capacity = models.PositiveIntegerField(default=0)
     timeSlots = models.ManyToManyField(A_TimeSlot) #to associate multiple TimeSlot objects
 
 
-class A_Course(models.Model):
+class A_Course(PrintableModel):
     code = models.CharField(max_length=20)
     title = models.CharField(max_length=255)
     pengRequired = models.JSONField() #{"fall": true, "spring": false, "summer": true}
-    yearRequired = models.PositiveIntegerField()
+    yearRequired = models.CharField(max_length=5)
 
 
-class A_CourseOffering(models.Model):
+#one instance of this class should represent a single Course & CourseSection pair
+class A_CourseOffering(PrintableModel):
     course = models.ManyToManyField(A_Course)
     sections = models.ManyToManyField(A_CourseSection)
 
