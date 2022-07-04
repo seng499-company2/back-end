@@ -5,6 +5,7 @@ from .models import AppUser
 from .serializers import AppUserSerializer
 from .permissions import IsAdmin
 from .views import Professor
+from preferences.models import Preferences
 
 #Serializer Testing
 class AppUserSerializerTest(TestCase):
@@ -98,7 +99,7 @@ class AppUserSerializerTest(TestCase):
         self.assertTrue(serializer.is_valid())
 
 
-    def test_create_appuser_obj(self):
+    def test_create_prof_appuser_obj(self):
         serialized_data = {
             'user':{
                 'username': 'abcdef',
@@ -118,6 +119,34 @@ class AppUserSerializerTest(TestCase):
         #use the serializer to create an AppUser record, then assert it has been committed to DB
         app_user_obj = serializer.save()
         self.assertIsNotNone(app_user_obj.pk)
+        
+        # Assert that preference record was created with prof record
+        associated_preferences_obj = Preferences.objects.get(professor=app_user_obj)
+        self.assertIsNotNone(associated_preferences_obj)
+        self.assertEqual(app_user_obj, associated_preferences_obj.professor)
+
+    def test_create_admin_appuser_obj(self):
+        serialized_data = {
+            'user':{
+                'username': 'admin',
+                'password': '123',
+                'first_name': 'ad',
+                'last_name': 'Def',
+                'email': 'admin123@uvic.ca',
+                'is_superuser': True
+            },
+            'prof_type': 'OT',
+            'is_peng': False,
+            'is_form_submitted': False
+        }
+        serializer = AppUserSerializer(data=serialized_data)
+        self.assertTrue(serializer.is_valid())
+
+        #use the serializer to create an AppUser record, then assert it has been committed to DB
+        app_user_obj = serializer.save()
+        self.assertIsNotNone(app_user_obj.pk)
+        # Assert that admin does not have associated preference record
+        self.assertRaises(Preferences.DoesNotExist, Preferences.objects.get, professor=app_user_obj)
 
 
     def test_update_appuser_obj(self):
