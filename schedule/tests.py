@@ -5,6 +5,8 @@ from rest_framework_simplejwt.tokens import SlidingToken
 from django.contrib.auth.models import User
 from schedule.adapter import course_to_dictionary
 from courses.models import Course
+from schedule.alg2_data_generator import get_historic_course_data
+from schedule.alg2_data_generator import get_program_enrollment_data
 
 
 class ViewTest(TestCase):
@@ -84,3 +86,13 @@ class ViewTest(TestCase):
         except KeyError:
             # expected behaviour is throwing a KeyError
             pass
+
+# alg2_data_generator TESTS
+
+    def test_historic_course_data(self):
+        historic_data_dict = get_historic_course_data()
+        self.assertEquals(4831, len(historic_data_dict))
+
+    def test_program_enrollment_data(self):
+        historic_data_dict = get_program_enrollment_data()
+        self.assertEquals(8, len(historic_data_dict))
