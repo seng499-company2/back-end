@@ -43,7 +43,7 @@ class A_TimeSlot(PrintableModel):
 class A_CourseSection(PrintableModel):
     professor = models.JSONField()  #{"id": AppUser.user.username, "name": AppUser.user.first_name + " " + AppUser.user.last_name}
     capacity = models.PositiveIntegerField(default=0)
-    timeSlots = models.ManyToManyField(A_TimeSlot) #to associate multiple TimeSlot objects
+    timeSlots = models.ManyToManyField(A_TimeSlot, related_name='courseSections') #to associate multiple TimeSlot objects
 
 
 class A_Course(PrintableModel):
@@ -55,11 +55,11 @@ class A_Course(PrintableModel):
 
 #one instance of this class should represent a single Course & CourseSection pair
 class A_CourseOffering(PrintableModel):
-    course = models.ManyToManyField(A_Course)
-    sections = models.ManyToManyField(A_CourseSection)
+    course = models.ForeignKey(A_Course, related_name='courseOfferings', blank=True, null=True, on_delete=models.CASCADE)    #One-to-Many: course to courseOfferings
+    sections = models.ManyToManyField(A_CourseSection, related_name='courseOfferings')
 
 
 class A_Schedule(PrintableModel):
-    fall = models.ManyToManyField(A_CourseOffering, related_name='fall')
-    spring = models.ManyToManyField(A_CourseOffering, related_name='spring')
-    summer = models.ManyToManyField(A_CourseOffering, related_name='summer')
+    fall = models.ManyToManyField(A_CourseOffering, related_name='fall_schedules')
+    spring = models.ManyToManyField(A_CourseOffering, related_name='spring_schedules')
+    summer = models.ManyToManyField(A_CourseOffering, related_name='summer_schedules')
