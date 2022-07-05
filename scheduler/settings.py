@@ -57,9 +57,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-# TODO: Will need to add the url of the FE app once it is up
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
+    "https://seng499-c2-dev-42qwrvwidq-uw.a.run.app",
+    "https://seng499-c2-main-42qwrvwidq-uw.a.run.app",
 ]
 
 ROOT_URLCONF = 'scheduler.urls'

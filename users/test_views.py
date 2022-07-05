@@ -8,6 +8,7 @@ from rest_framework import status
 from rest_framework.test import APIRequestFactory, APIClient
 from django.http import HttpResponse
 from rest_framework_simplejwt.tokens import SlidingToken
+import jwt
 
 
 class TestProfessorsList(TestCase):
@@ -170,18 +171,32 @@ class TestTokenLogin(TestCase):
         self.client = APIClient()
 
     def test_login_token_superuser(self):
-        User.objects.create_user(username='admin', email='admin@test.com', password='admin', is_superuser=True)
+        User.objects.create_user(username='admin', email='admin@test.com', password='admin',
+                                 is_superuser=True, first_name='Ad', last_name='Min')
         response = self.client.post('/api/login/', {'username':'admin', 'password':'admin'}, format='json')
         self.assertIsNotNone(response)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertTrue('token' in response.data)
+        decoded_token = jwt.decode(response.data['token'], options={"verify_signature": False})
+        self.assertEqual(decoded_token['username'], 'admin')
+        self.assertEqual(decoded_token['email'], 'admin@test.com')
+        self.assertEqual(decoded_token['is_superuser'], True)
+        self.assertEqual(decoded_token['first_name'], 'Ad')
+        self.assertEqual(decoded_token['last_name'], 'Min')
 
     def test_login_token_non_superuser(self):
-        User.objects.create_user(username='nonadmin', email='nonadmin@test.com', password='nonadmin', is_superuser=False)
+        User.objects.create_user(username='nonadmin', email='nonadmin@test.com', password='nonadmin',
+                                 is_superuser=False, first_name='Non', last_name='Non')
         response = self.client.post('/api/login/', {'username':'nonadmin', 'password':'nonadmin'}, format='json')
         self.assertIsNotNone(response)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertTrue('token' in response.data)
+        decoded_token = jwt.decode(response.data['token'], options={"verify_signature": False})
+        self.assertEqual(decoded_token['username'], 'nonadmin')
+        self.assertEqual(decoded_token['email'], 'nonadmin@test.com')
+        self.assertEqual(decoded_token['is_superuser'], False)
+        self.assertEqual(decoded_token['first_name'], 'Non')
+        self.assertEqual(decoded_token['last_name'], 'Non')
 
     def test_get_auth_errors_invalid_password(self):
         User.objects.create_user(username='admin', email='admin@test.com', password='admin', is_superuser=True)

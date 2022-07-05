@@ -6,10 +6,11 @@ from rest_framework.parsers import JSONParser
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework import status
+from rest_framework_simplejwt.views import TokenObtainSlidingView
 
 import users
 from .models import AppUser
-from .serializers import AppUserSerializer
+from .serializers import AppUserSerializer, UserTokenObtainSlidingSerializer
 from .permissions import IsAdmin
 
 
@@ -98,3 +99,9 @@ class UserDetail(APIView):
         
         serializer = AppUserSerializer(appUser)
         return HttpResponse(json.dumps(serializer.data), status=status.HTTP_200_OK)
+    
+class UserTokenObtainSlidingView(TokenObtainSlidingView):
+    """
+    Override to use custom serializer class for Login View
+    """
+    serializer_class = UserTokenObtainSlidingSerializer
