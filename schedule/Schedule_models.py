@@ -1,6 +1,6 @@
 from django.db import models
+from django.contrib.postgres.fields import ArrayField
 from itertools import chain
-
 from django.utils.translation import gettext_lazy as _
 
 
@@ -17,7 +17,10 @@ class A_TimeSlot(models.Model):
         max_length=9,
         choices=DayOfTheWeek.choices
     )
-    timeRange = models.CharField(max_length=18, blank=False) #holds a single tuple of form: ("12:00","13:00")
+    timeRange = ArrayField(
+        models.CharField(max_length=6, blank=False),
+        size=2
+    )
 
 
 class A_CourseSection(models.Model):
