@@ -1,20 +1,14 @@
 from rest_framework import serializers
-from rest_framework import viewsets
-from django.core.exceptions import ValidationError
-
 from .Schedule_models import A_Schedule, A_TimeSlot, A_CourseSection, A_Course, A_CourseOffering
 
 
 class A_TimeSlotSerializer(serializers.ModelSerializer):
-    #dayOfWeek = serializers.ChoiceField(choices=A_TimeSlot.DayOfTheWeek, required=True)
-    #timeRange = serializers.CharField(required=True)
     class Meta:
         model = A_TimeSlot
-        fields = ['dayOfWeek', 'timeRange'] #reverse relation courseSections removed for now
-
+        fields = ['dayOfWeek', 'timeRange']
 
 class A_CourseSectionSerializer(serializers.ModelSerializer):
-    professor = serializers.JSONField()
+    professor = serializers.JSONField() #Ex: #{"id": mzastre, "name": Mike Zastre}
     capacity = serializers.IntegerField(max_value=None, min_value=0)
     timeSlots = A_TimeSlotSerializer(many=True, read_only=True)     #nested & many-to-many
     class Meta:
@@ -25,11 +19,11 @@ class A_CourseSectionSerializer(serializers.ModelSerializer):
 class A_CourseSerializer(serializers.ModelSerializer):
     code = serializers.CharField()
     title = serializers.CharField()
-    pengRequired = serializers.JSONField() #{"fall": true, "spring": false, "summer": true}
+    pengRequired = serializers.JSONField() #Ex: {"fall": true, "spring": false, "summer": true}
     yearRequired = serializers.CharField()
     class Meta:
         model = A_Course
-        fields = ('code', 'title', 'pengRequired', 'yearRequired') #TODO: do we need the reverse relation here?
+        fields = ('code', 'title', 'pengRequired', 'yearRequired')
 
 
 class A_CourseOfferingSerializer(serializers.ModelSerializer):
@@ -38,5 +32,14 @@ class A_CourseOfferingSerializer(serializers.ModelSerializer):
     class Meta:
         model = A_CourseOffering
         fields = ['course', 'sections']
+
+
+class A_ScheduleSerializer(serializers.ModelSerializer):
+    fall = A_CourseOfferingSerializer(many=True, read_only = True)
+    spring = A_CourseOfferingSerializer(many=True, read_only = True)
+    summer = A_CourseOfferingSerializer(many=True, read_only = True)
+    class Meta:
+        model = A_Schedule
+        fields = ['fall', 'spring', 'summer']
 
 
