@@ -16,14 +16,26 @@ t4.save()
 
 #create courses, then save to DB
 # ** Note: models.JSONField() attributes accept a non-stringified Python-valid dictionary **
-course1 = A_Course.objects.create(code="CSC226", title="Algorithms 1", pengRequired={"fall": True, "spring": False, "summer": True}, yearRequired="2A")
-course2 = A_Course.objects.create(code="SENG275", title="Testing 1", pengRequired={"fall": False, "spring": True, "summer": True}, yearRequired="2B")
+course1 = A_Course.objects.create(code="CSC226",
+    title="Algorithms 1",
+    pengRequired={"fall": True, "spring": False, "summer": True},
+    yearRequired=2
+)
+course2 = A_Course.objects.create(code="SENG275",
+    title="Testing 1",
+    pengRequired={"fall": False, "spring": True, "summer": True},
+    yearRequired=2
+)
 course1.save()
 course2.save()
 
 #create course sections, then save to DB
-courseSection1 = A_CourseSection.objects.create(professor={"id": "mzastre", "name": "Mike Zastre"}, capacity=0)
-courseSection2 = A_CourseSection.objects.create(professor={"id": "bbird", "name": "Bill Bird"}, capacity=0)
+courseSection1 = A_CourseSection.objects.create(professor={"id": "mzastre", "name": "Mike Zastre"},
+    capacity=0
+)
+courseSection2 = A_CourseSection.objects.create(professor={"id": "bbird", "name": "Bill Bird"},
+    capacity=0
+)
 courseSection1.save()
 courseSection2.save()
 

@@ -20,7 +20,7 @@ class A_CourseSerializer(serializers.ModelSerializer):
     code = serializers.CharField()
     title = serializers.CharField()
     pengRequired = serializers.JSONField() #Ex: {"fall": true, "spring": false, "summer": true}
-    yearRequired = serializers.CharField()
+    yearRequired = serializers.IntegerField(min_value=0)
     class Meta:
         model = A_Course
         fields = ('code', 'title', 'pengRequired', 'yearRequired')
