@@ -34,7 +34,7 @@ class A_TimeSlot(models.Model):
 
 '''PRIMARY KEY: id (Django auto)'''
 class A_CourseSection(models.Model):
-    professor = models.JSONField()  #{"id": AppUser.user.username, "name": AppUser.user.first_name + AppUser.user.last_name}
+    professor = models.JSONField()  #{"id": <int>, "name": AppUser.user.first_name + AppUser.user.last_name}
     capacity = models.PositiveIntegerField(default=0)
     timeSlots = models.ManyToManyField(A_TimeSlot, related_name='courseSections') #to associate multiple TimeSlot objects
 

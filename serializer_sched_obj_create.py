@@ -30,10 +30,10 @@ course1.save()
 course2.save()
 
 #create course sections, then save to DB
-courseSection1 = A_CourseSection.objects.create(professor={"id": "mzastre", "name": "Mike Zastre"},
+courseSection1 = A_CourseSection.objects.create(professor={"id": 1, "name": "Mike Zastre"},
     capacity=0
 )
-courseSection2 = A_CourseSection.objects.create(professor={"id": "bbird", "name": "Bill Bird"},
+courseSection2 = A_CourseSection.objects.create(professor={"id": 2, "name": "Bill Bird"},
     capacity=0
 )
 courseSection1.save()
