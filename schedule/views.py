@@ -20,11 +20,14 @@ from courses.models import Course
 class Schedule(APIView):
     # GET / schedule / {year - semester}
     def get(self, request: HttpRequest, year: int, semester: str, requested_company_alg: int) -> HttpResponse:
+
+        # Create params for algorithms packages
         historical_data = get_historic_course_data()
         previous_enrollment = get_program_enrollment_data()
-        # courses = Course.objects.filter(True) # get all courses
         schedule = get_schedule()
         professors = get_professor_dict()
+
+        # Call algorithms
         # alg2_result = c2alg2(historical_data, previous_enrollment, schedule) if requested_company_alg == 1 \
         #     else c2alg2(historical_data, previous_enrollment, schedule)# TODO: fix when import problem solved
         # alg1_result = c1alg1.generate_schedule() if requested_company_alg == 1 \
