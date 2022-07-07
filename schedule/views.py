@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from rest_framework.views import APIView
 from django.http import HttpResponse
 from django.http import HttpRequest
@@ -10,8 +9,12 @@ from forecaster.forecaster import forecast as c2alg2 # company 2 alg 2
 from c1algo1 import scheduler as c1alg1# company 1 alg 1
 # import c1algo2 # TODO: CURRENTLY THROWING A MODULENOTFOUND ERROR, despite a successful pip install
 
-from schedule.alg2_data_generator import get_historic_course_data
-from schedule.alg2_data_generator import get_program_enrollment_data
+from schedule.alg_data_generator import get_historic_course_data
+from schedule.alg_data_generator import get_program_enrollment_data
+from schedule.alg_data_generator import get_schedule
+from schedule.alg_data_generator import get_professor_dict
+
+from courses.models import Course
 
 
 class Schedule(APIView):
@@ -19,11 +22,15 @@ class Schedule(APIView):
     def get(self, request: HttpRequest, year: int, semester: str, requested_company_alg: int) -> HttpResponse:
         historical_data = get_historic_course_data()
         previous_enrollment = get_program_enrollment_data()
-        schedule = {}
-        # alg2_result = c2alg2(historical_data, previous_enrollment, schedule) # TODO: fix when import problem solved
-        # alg1_result = c1alg1.generate_schedule() if requested_company_alg == 1 else c2alg1(None, None, None)
+        # courses = Course.objects.filter(True) # get all courses
+        schedule = get_schedule()
+        professors = get_professor_dict()
+        # alg2_result = c2alg2(historical_data, previous_enrollment, schedule) if requested_company_alg == 1 \
+        #     else c2alg2(historical_data, previous_enrollment, schedule)# TODO: fix when import problem solved
+        # alg1_result = c1alg1.generate_schedule() if requested_company_alg == 1 \
+        #     else c2alg1(professors, alg2_result, None)
 
-        # just in here to make unit tests pass while we build schedule dictionary
+        # just in here to make unit tests pass while we build Alg params
         alg1_result = "OK"
         alg2_result = "OK"
 

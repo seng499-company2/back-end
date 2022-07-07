@@ -3,10 +3,10 @@ from rest_framework import status
 from rest_framework.test import APIClient
 from rest_framework_simplejwt.tokens import SlidingToken
 from django.contrib.auth.models import User
-from schedule.adapter import course_to_dictionary
+from schedule.adapter import course_to_alg_dictionary
 from courses.models import Course
-from schedule.alg2_data_generator import get_historic_course_data
-from schedule.alg2_data_generator import get_program_enrollment_data
+from schedule.alg_data_generator import get_historic_course_data
+from schedule.alg_data_generator import get_program_enrollment_data
 
 
 class ViewTest(TestCase):
@@ -56,7 +56,7 @@ class ViewTest(TestCase):
 
 # ADAPTER TESTS
     def test_none(self):
-        course_dict = course_to_dictionary(None)
+        course_dict = course_to_alg_dictionary(None)
         self.assertIsNone(course_dict)
 
     def test_trivial(self):
@@ -70,15 +70,12 @@ class ViewTest(TestCase):
             "PENG_required": True
         }
         course = Course.objects.create(**course_attributes)
-        course_dict = course_to_dictionary(course)
+        course_dict = course_to_alg_dictionary(course)
         self.assertIsNotNone(course_dict)
-        self.assertEquals("SENG499", course_dict["course_code"])
-        self.assertEquals("A01", course_dict["section"])
-        self.assertEquals("Design Project 2", course_dict["course_title"])
-        self.assertEquals(True, course_dict["fall_offering"])
-        self.assertEquals(True, course_dict["spring_offering"])
-        self.assertEquals(False, course_dict["summer_offering"])
-        self.assertEquals(True, course_dict["PENG_required"])
+        self.assertEquals("SENG499", course_dict["code"])
+        self.assertEquals("Design Project 2", course_dict["title"])
+        self.assertEquals(True, course_dict["pengRequired"])
+        self.assertEquals(4, course_dict["yearRequired"])
         try:
             state = course_dict["_state"]
             # Should have thrown keyError
