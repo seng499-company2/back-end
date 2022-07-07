@@ -34,7 +34,7 @@ class PreferencesSerializerTest(TestCase):
         self.app_user = AppUser.objects.create(**self.app_user_attributes)
         self.app_user_serializer = AppUserSerializer(instance=self.app_user)
 
-        #create associated Preferences record
+        # Update associated Preferences record
         self.preferences_attributes = {
             "professor": self.app_user,
             "is_submitted": True,
@@ -58,7 +58,9 @@ class PreferencesSerializerTest(TestCase):
             "topics_course_id": "CSC485c",
             "topics_course_name": "Data Management and Parallelization"
         }
-        self.preferences_record = Preferences.objects.create(**self.preferences_attributes)
+        Preferences.objects.update(**self.preferences_attributes)
+
+        self.preferences_record = Preferences.objects.get(professor=self.app_user)
         self.serializer = PreferencesSerializer(instance=self.preferences_record)
 
 
@@ -134,7 +136,15 @@ class PreferencesSerializerTest(TestCase):
         app_user = AppUser.objects.create(**app_user_attributes)
         app_user_serializer = AppUserSerializer(instance=app_user)
 
-        #create a new Preferences object using the serializer
+        # Assert that a preference record with AppUser creation and is valid
+        preference = Preferences.objects.get(professor=app_user)
+        preference_data = PreferencesSerializer(instance=preference).data
+        self.assertIsNotNone(preference_data)
+
+        preference_serializer = PreferencesSerializer(data=preference_data)
+        self.assertTrue(preference_serializer.is_valid())
+
+        #Update a new Preferences object using the serializer
         serialized_data = {
             "professor": "julia2",
             "is_submitted": True,
@@ -158,10 +168,10 @@ class PreferencesSerializerTest(TestCase):
             "topics_course_id": "CSC485c",
             "topics_course_name": "Data Management and Parallelization"
         }
-        serializer = PreferencesSerializer(data=serialized_data)
+        serializer = PreferencesSerializer(preference, data=serialized_data)
         self.assertTrue(serializer.is_valid())
 
-        #use the serializer to create an AppUser record, then assert it has been committed to DB
+        # update the default preferences with the serializer, then assert it has been committed to DB
         preferences_obj = serializer.save()
         self.assertIsNotNone(preferences_obj.pk)
 
@@ -228,7 +238,7 @@ class AdminSidePreferencesRecordViewTest(TestCase):
         self.app_user = AppUser.objects.create(**self.app_user_attributes)
         self.app_user_serializer = AppUserSerializer(instance=self.app_user)
 
-        #create associated Preferences record
+        # create associated Preferences record
         self.preferences_attributes = {
             "professor": self.app_user,
             "is_submitted": True,
@@ -252,8 +262,11 @@ class AdminSidePreferencesRecordViewTest(TestCase):
             "topics_course_id": "CSC485c",
             "topics_course_name": "Data Management and Parallelization"
         }
-        self.preferences_record = Preferences.objects.create(**self.preferences_attributes)
-        self.serializer = PreferencesSerializer(instance=self.preferences_record)
+        
+        # Update default preference data with above
+        Preferences.objects.update(**self.preferences_attributes)
+        self.preferences_record = Preferences.objects.get(professor__user__username=self.app_user.user.username)
+        self.serializer = PreferencesSerializer(instance=self.preferences_record, data=self.preferences_record)
 
         #provide some default Preferences data to be used as a request body
         self.default_serializer_data = {
@@ -416,7 +429,26 @@ class UserSidePreferencesRecordViewTest(TestCase):
             'topics_course_id': 'CSC485c',
             'topics_course_name': 'Data Management and Parallelization'
         }
+        
+        # Build Admin AppUser instance
+        self.admin_user_attributes = {
+            'username': 'admin',
+            'password': 'securepass3',
+            'first_name': 'Admin',
+            'last_name': 'Doe',
+            'email': 'admin123@uvic.ca',
+            'is_superuser': True
+        }
+        self.admin_user = User.objects.create_user(**self.admin_user_attributes)
 
+        self.admin_app_user_attributes = {
+            'user': self.admin_user,
+            'prof_type': 'OT',
+            'is_peng': False,
+            'is_form_submitted': False
+        }
+        self.admin_app_user = AppUser.objects.create(**self.admin_app_user_attributes)
+        self.app_user_serializer = AppUserSerializer(instance=self.admin_app_user)
 
     @classmethod
     def save_default_user(self):
@@ -427,6 +459,14 @@ class UserSidePreferencesRecordViewTest(TestCase):
     @classmethod
     def get_nonadmin_API_client(self): 
         user = self.user
+        client = APIClient()
+        token = SlidingToken.for_user(user)
+        client.credentials(HTTP_AUTHORIZATION=f'Bearer {token}')
+        return client
+    
+    @classmethod
+    def get_admin_API_client(self): 
+        user = self.admin_user
         client = APIClient()
         token = SlidingToken.for_user(user)
         client.credentials(HTTP_AUTHORIZATION=f'Bearer {token}')
@@ -448,7 +488,8 @@ class UserSidePreferencesRecordViewTest(TestCase):
         return response
 
     def test_GET_not_found(self): 
-        client = self.get_nonadmin_API_client()
+        # Admin should not have a preference record
+        client = self.get_admin_API_client()
         response: HttpResponse = client.get("/api/preferences/")
         self.assertIsNotNone(response)
         self.assertEquals(status.HTTP_404_NOT_FOUND, response.status_code)
