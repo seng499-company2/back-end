@@ -139,10 +139,8 @@ To view data from the admin interface, it needs to be registered within the app'
 If you intend to use this admin user for testing purposes, please create the an associated App User for it or else you may run into issues. This can be done in the admin interface by adding a new App User and selecting `admin` as the user. 
 
 ## Running production
-To run the production docker file, make sure you have the proper environment files set up. Then use the command:
-```
-docker-compose -f docker-compose.prod.yml up --build -d
-```
+
+The production instance is running at http://ec2-34-207-93-228.compute-1.amazonaws.com:8000/
 
 ## Useful Links
 
