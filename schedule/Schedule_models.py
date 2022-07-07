@@ -34,12 +34,13 @@ class A_TimeSlot(models.Model):
 
 '''PRIMARY KEY: id (Django auto)'''
 class A_CourseSection(models.Model):
-    professor = models.JSONField()  #{"id": AppUser.user.username, "name": AppUser.user.first_name + " " + AppUser.user.last_name}
+    professor = models.JSONField()  #{"id": AppUser.user.username, "name": AppUser.user.first_name + AppUser.user.last_name}
     capacity = models.PositiveIntegerField(default=0)
     timeSlots = models.ManyToManyField(A_TimeSlot, related_name='courseSections') #to associate multiple TimeSlot objects
 
     def __str__(self):
-        return str(self.professor) + ', ' + str(self.capacity) + ', ' + str(self.timeSlots)
+        related_timeSlots = [str(slot) for slot in self.timeSlots.all()]
+        return 'Professor: ' + str(self.professor['name']) + ', Capacity: ' + str(self.capacity) + ', TimeSlots: ' + f'{" ".join(related_timeSlots)}'
 
 
 '''PRIMARY KEY: code'''
@@ -60,7 +61,7 @@ class A_CourseOffering(models.Model):
     sections = models.ManyToManyField(A_CourseSection, related_name='courseOfferings')
 
     def __str__(self):
-        return str(self.course.code) + ', Number of Sections: ' + str(len(self.sections.all()))
+        return 'id: ' + str(self.id) + ', ' + str(self.course.code) + ', Number of Sections: ' + str(len(self.sections.all()))
 
 
 '''PRIMARY KEY: id (Django auto)'''
@@ -70,4 +71,4 @@ class A_Schedule(models.Model):
     summer = models.ManyToManyField(A_CourseOffering, related_name='summer_schedules')
 
     def __str__(self):
-        return "Number of Offerings - Fall: " + str(len(self.fall.all())) + ', Spring: ' + str(len(self.spring.all())) + ', Summer: ' + str(len(self.summer.all()))
+        return 'id: ' + str(self.id) + ', Number of Offerings: Fall: ' + str(len(self.fall.all())) + ', Spring: ' + str(len(self.spring.all())) + ', Summer: ' + str(len(self.summer.all()))
