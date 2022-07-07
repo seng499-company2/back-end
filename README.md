@@ -104,10 +104,8 @@ Please remember the password as you will use it to login.
 To view data from the admin interface, it needs to be registered within the app's admin file. Please check out the [Django Documentation](https://docs.djangoproject.com/en/4.0/intro/tutorial02/#introducing-the-django-admin) for an example and more information. Once it is setup, go to [http://localhost:8000/admin](http://localhost:8000/admin) to access it. 
 
 ## Running production
-To run the production docker file, make sure you have the proper environment files set up. Then use the command:
-```
-docker-compose -f docker-compose.prod.yml up --build -d
-```
+
+The production instance is running at http://ec2-34-207-93-228.compute-1.amazonaws.com:8000/
 
 ## Useful Links
 
