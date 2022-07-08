@@ -8,7 +8,7 @@ class A_TimeSlotSerializer(serializers.ModelSerializer):
         fields = ['dayOfWeek', 'timeRange']
 
 class A_CourseSectionSerializer(serializers.ModelSerializer):
-    professor = serializers.JSONField() #Ex: #{"id": mzastre, "name": Mike Zastre}
+    professor = serializers.JSONField() #Ex: #{"id": <int>, "name": Mike Zastre}
     capacity = serializers.IntegerField(max_value=None, min_value=0)
     timeSlots = A_TimeSlotSerializer(many=True, read_only=True)     #nested & many-to-many
     class Meta:
