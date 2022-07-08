@@ -17,6 +17,7 @@ class Course(models.Model):
     spring_offering = models.BooleanField()
     summer_offering = models.BooleanField()
     PENG_required = models.BooleanField()
+    yearRequired = models.IntegerField(default=4)
 
     class Meta:
         unique_together = ('course_code', 'section')

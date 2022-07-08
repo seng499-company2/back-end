@@ -15,10 +15,11 @@ class CourseSerializer(serializers.ModelSerializer):
     spring_offering = serializers.BooleanField()
     summer_offering = serializers.BooleanField()
     PENG_required = serializers.BooleanField()
+    yearRequired = serializers.IntegerField()
 
     class Meta:
         model = Course
-        fields = ('course_code', 'section', 'course_title', 'fall_offering', 'spring_offering', 'summer_offering', 'PENG_required')
+        fields = ('course_code', 'section', 'course_title', 'fall_offering', 'spring_offering', 'summer_offering', 'PENG_required', 'yearRequired')
     
     def create(self, validated_data):
         try:
