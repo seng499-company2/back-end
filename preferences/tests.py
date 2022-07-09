@@ -38,25 +38,47 @@ class PreferencesSerializerTest(TestCase):
         self.preferences_attributes = {
             "professor": self.app_user,
             "is_submitted": True,
-            "is_unavailable_sem1": False,
-            "is_unavailable_sem2": True,
-            "num_relief_courses": 1,
             "taking_sabbatical": True,
             "sabbatical_length": "FULL",
             "sabbatical_start_month": 1,
-            "preferred_hours": [
-                {"Mon": "8am-9am"},
-                {"Thu": "1pm-2pm"}
+            "preferred_times": {
+                "fall": [
+                    {"day": 1, "time": 8},
+                    {"day": 1, "time": 9}
+                ],
+                "spring": [
+                    {"day": 3, "time": 8},
+                    {"day": 3, "time": 9},
+                ],
+                "summer": [
+                    {"day": 4, "time": 12},
+                ]
+            },
+           "courses_preferences": {
+                "CSC 225": {
+                    "willingness": 1,
+                    "difficulty": 1
+                },
+                "CSC 226": {
+                    "willingness": 2,
+                    "difficulty": 2
+                }
+           },
+           "preferred_non_teaching_semester": "fall",
+           "preferred_courses_per_semester": {
+                "fall": "1",
+                "spring": "2",
+                "summer": "3"
+            },
+           "preferred_number_teaching_days": {
+                "fall": 1,
+                "spring": 2,
+                "summer": 5
+            },
+           "preferred_course_day_spreads": [
+                "TWF",
+                "Th"
             ],
-            "teaching_willingness": {
-                "CSC226": "Very Willing"
-            },
-            "teaching_difficulty": {
-                "CSC226": "Able"
-            },
-            "wants_topics_course": True,
-            "topics_course_id": "CSC485c",
-            "topics_course_name": "Data Management and Parallelization"
         }
         Preferences.objects.update(**self.preferences_attributes)
 
@@ -69,18 +91,16 @@ class PreferencesSerializerTest(TestCase):
         self.assertEqual(set(data.keys()), set([
             'professor',
             'is_submitted',
-            'is_unavailable_sem1',
-            'is_unavailable_sem2',
-            'num_relief_courses',
             'taking_sabbatical',
             'sabbatical_length',
             'sabbatical_start_month',
-            'preferred_hours',
-            'teaching_willingness',
-            'teaching_difficulty',
-            'wants_topics_course',
-            'topics_course_id',
-            'topics_course_name']))
+            'preferred_times',
+            'courses_preferences',
+            'preferred_non_teaching_semester',
+            'preferred_courses_per_semester',
+            'preferred_number_teaching_days',
+            'preferred_course_day_spreads'
+            ]))
 
     
     def test_professor_field_serializes_to_string(self):
@@ -92,25 +112,39 @@ class PreferencesSerializerTest(TestCase):
         serialized_data = {
             "professor": "johnd1",
             "is_submitted": True,
-            "is_unavailable_sem1": False,
-            "is_unavailable_sem2": True,
-            "num_relief_courses": 1,
             "taking_sabbatical": True,
             "sabbatical_length": "FULL",
             "sabbatical_start_month": 1,
-            "preferred_hours": [
-                {"Mon": "8am-9am"},
-                {"Thu": "1pm-2pm"}
+            "sabbatical_start_month": 1,
+           "preferred_times": {
+                "fall": [
+                    {"day": 1, "time": 8},
+                    {"day": 1, "time": 9}
+                ],
+                "spring":[],
+                "summer": []
+            },
+            "courses_preferences": {
+                "CSC 225": {
+                    "willingness": 1,
+                    "difficulty": 1
+                },
+            },
+            "preferred_non_teaching_semester": "fall",
+             "preferred_courses_per_semester": {
+                "fall": "1",
+                "spring": "2",
+                "summer": "3"
+            },
+            "preferred_number_teaching_days": {
+                "fall": 1,
+                "spring": 2,
+                "summer": 5
+            },
+           "preferred_course_day_spreads": [
+                "TWF",
+                "Th"
             ],
-            "teaching_willingness": {
-                "CSC226": "Very Willing"
-            },
-            "teaching_difficulty": {
-                "CSC226": "Able"
-            },
-            "wants_topics_course": True,
-            "topics_course_id": "CSC485c",
-            "topics_course_name": "Data Management and Parallelization"
         }
         serializer = PreferencesSerializer(data=serialized_data)
         self.assertTrue(serializer.is_valid())
@@ -148,25 +182,40 @@ class PreferencesSerializerTest(TestCase):
         serialized_data = {
             "professor": "julia2",
             "is_submitted": True,
-            "is_unavailable_sem1": False,
-            "is_unavailable_sem2": True,
-            "num_relief_courses": 1,
             "taking_sabbatical": True,
             "sabbatical_length": "FULL",
             "sabbatical_start_month": 1,
-            "preferred_hours": [
-                {"Mon": "8am-9am"},
-                {"Thu": "1pm-2pm"}
+            "preferred_times": {
+                "fall": [
+                    {"day": 1, "time": 8},
+                    {"day": 1, "time": 9}
+                ],
+                "spring":[],
+                "summer": []
+            },
+            "courses_preferences": {
+                "CSC 226": {
+                    "willingness": 1,
+                    "difficulty": 2
+                },
+            },
+            "preferred_non_teaching_semester": "fall",
+            "preferred_courses_per_semester": {
+                "fall": "1",
+                "spring": "0",
+                "summer": "0"
+            },
+            "preferred_number_teaching_days": {
+                "fall": 3,
+                "spring": 0,
+                "summer": 0
+            },
+           "preferred_course_day_spreads": [
+                "TWF",
+                "T",
+                "W",
+                "F"
             ],
-            "teaching_willingness": {
-                "CSC226": "Very Willing"
-            },
-            "teaching_difficulty": {
-                "CSC226": "Able"
-            },
-            "wants_topics_course": True,
-            "topics_course_id": "CSC485c",
-            "topics_course_name": "Data Management and Parallelization"
         }
         serializer = PreferencesSerializer(preference, data=serialized_data)
         self.assertTrue(serializer.is_valid())
@@ -185,24 +234,39 @@ class PreferencesSerializerTest(TestCase):
         updated_serialized_data = {
             "professor": "johnd1",
             "is_submitted": False,      #updated
-            "is_unavailable_sem1": False,
-            "is_unavailable_sem2": True,
-            "num_relief_courses": 1,
             "taking_sabbatical": True,
             "sabbatical_length": "HALF", #updated
             "sabbatical_start_month": 1,
-            "preferred_hours": [
-                {"Mon": "10am-11am"}    #updated JSON
-            ],
-            "teaching_willingness": {
-                "CSC226": "Very Willing"
+            "preferred_times": {        #updated
+                "fall": [],
+                "spring": [],
+                "summer": []
             },
-            "teaching_difficulty": {
-                "CSC226": "Able"
+            "courses_preferences": {
+                    "CSC 225": {
+                        "willingness": 1,
+                        "difficulty": 1
+                    },
+                    "CSC 226": {
+                        "willingness": 2,
+                        "difficulty": 2
+                    }
             },
-            "wants_topics_course": True,
-            "topics_course_id": "CSC485c",
-            "topics_course_name": "Data Management and Parallelization"
+            "preferred_non_teaching_semester": "fall",
+            "preferred_courses_per_semester": {
+                    "fall": "1",
+                    "spring": "2",
+                    "summer": "3"
+                },
+            "preferred_number_teaching_days": {
+                    "fall": 1,
+                    "spring": 2,
+                    "summer": 5
+                },
+            "preferred_course_day_spreads": [
+                    "TWF",
+                    "Th"
+                ],
         }
         serializer = PreferencesSerializer(instance=preferences_obj, data=updated_serialized_data)
         self.assertTrue(serializer.is_valid())
@@ -213,7 +277,7 @@ class PreferencesSerializerTest(TestCase):
         self.assertEquals(updated_obj_key, obj_key)
         self.assertEquals(Preferences.objects.get(pk=obj_key).is_submitted, updated_serialized_data['is_submitted'])
         self.assertEquals(Preferences.objects.get(pk=obj_key).sabbatical_length, updated_serialized_data['sabbatical_length'])
-        self.assertEquals(Preferences.objects.get(pk=obj_key).preferred_hours, updated_serialized_data['preferred_hours'])
+        self.assertEquals(Preferences.objects.get(pk=obj_key).preferred_times, updated_serialized_data['preferred_times'])
 
 
 class AdminSidePreferencesRecordViewTest(TestCase):
@@ -242,25 +306,47 @@ class AdminSidePreferencesRecordViewTest(TestCase):
         self.preferences_attributes = {
             "professor": self.app_user,
             "is_submitted": True,
-            "is_unavailable_sem1": False,
-            "is_unavailable_sem2": True,
-            "num_relief_courses": 1,
             "taking_sabbatical": True,
             "sabbatical_length": "FULL",
             "sabbatical_start_month": 1,
-            "preferred_hours": [
-                {"Mon": "8am-9am"},
-                {"Thu": "1pm-2pm"}
-            ],
-            "teaching_willingness": {
-                "CSC226": "Very Willing"
+            "preferred_times": {
+                "fall": [
+                    {"day": 1, "time": 8},
+                    {"day": 1, "time": 9}
+                ],
+                "spring": [
+                    {"day": 3, "time": 8},
+                    {"day": 3 ,"time": 9},
+                ],
+                "summer": [
+                    {"day": 4, "time": 12},
+                ]
             },
-            "teaching_difficulty": {
-                "CSC226": "Able"
+            "courses_preferences": {
+                    "CSC 225": {
+                        "willingness": 1,
+                        "difficulty": 1
+                    },
+                    "CSC 226": {
+                        "willingness": 2,
+                        "difficulty": 2
+                    }
             },
-            "wants_topics_course": True,
-            "topics_course_id": "CSC485c",
-            "topics_course_name": "Data Management and Parallelization"
+            "preferred_non_teaching_semester": "fall",
+            "preferred_courses_per_semester": {
+                    "fall": "1",
+                    "spring": "2",
+                    "summer": "3"
+                },
+            "preferred_number_teaching_days": {
+                    "fall": 1,
+                    "spring": 2,
+                    "summer": 5
+                },
+            "preferred_course_day_spreads": [
+                    "TWF",
+                    "Th"
+                ],
         }
         
         # Update default preference data with above
@@ -272,25 +358,47 @@ class AdminSidePreferencesRecordViewTest(TestCase):
         self.default_serializer_data = {
             'professor': 'johnd1',
             'is_submitted': True,
-            'is_unavailable_sem1': False,
-            'is_unavailable_sem2': True,
-            'num_relief_courses': 1,
             'taking_sabbatical': True,
             'sabbatical_length': 'FULL',
             'sabbatical_start_month': 1,
-            'preferred_hours': [
-                {'Mon': '8am-9am'},
-                {'Thu': '1pm-2pm'}
-            ],
-            'teaching_willingness': {
-                'CSC226': 'Very Willing'
+            "preferred_times": {
+                "fall": [
+                    {"day": 1, "time": 8},
+                    {"day": 1, "time": 9}
+                ],
+                "spring": [
+                    {"day": 3 ,"time": 8},
+                    {"day": 3, "time": 9},
+                ],
+                "summer": [
+                    {"day": 4, "time": 12},
+                ]
             },
-            'teaching_difficulty': {
-                'CSC226': 'Able'
+            "courses_preferences": {
+                    "CSC 225": {
+                        "willingness": 1,
+                        "difficulty": 1
+                    },
+                    "CSC 226": {
+                        "willingness": 2,
+                        "difficulty": 2
+                    }
             },
-            'wants_topics_course': True,
-            'topics_course_id': 'CSC485c',
-            'topics_course_name': 'Data Management and Parallelization'
+            "preferred_non_teaching_semester": "fall",
+            "preferred_courses_per_semester": {
+                    "fall": "1",
+                    "spring": "2",
+                    "summer": "3"
+                },
+            "preferred_number_teaching_days": {
+                    "fall": 1,
+                    "spring": 2,
+                    "summer": 5
+                },
+            "preferred_course_day_spreads": [
+                    "TWF",
+                    "Th"
+                ],
         }
 
     @classmethod
@@ -324,7 +432,7 @@ class AdminSidePreferencesRecordViewTest(TestCase):
         #update some fields
         self.default_serializer_data['is_submitted'] = False
         self.default_serializer_data['sabbatical_length'] = 'HALF'
-        self.default_serializer_data['preferred_hours'] = [{'Mon': '10am-11am'}]
+        self.default_serializer_data['preferred_times'] = [ {"fall": [],"spring": [],"summer": []}]
 
         request_factory = APIRequestFactory()
         request = request_factory.post('/preferences/johnd1/', data=self.default_serializer_data, format='json')
@@ -384,50 +492,95 @@ class UserSidePreferencesRecordViewTest(TestCase):
         self.preferences_attributes = {
             "professor": self.app_user,
             "is_submitted": True,
-            "is_unavailable_sem1": False,
-            "is_unavailable_sem2": True,
-            "num_relief_courses": 1,
             "taking_sabbatical": True,
             "sabbatical_length": "FULL",
             "sabbatical_start_month": 1,
-            "preferred_hours": [
-                {"Mon": "8am-9am"},
-                {"Thu": "1pm-2pm"}
-            ],
-            "teaching_willingness": {
-                "CSC226": "Very Willing"
+            "preferred_times": {
+                "fall": [
+                    {"day": 1, "time": 8},
+                    {"day": 1, "time": 9}
+                ],
+                "spring": [
+                    {"day": 3, "time": 8},
+                    {"day": 3, "time": 9},
+                ],
+                "summer": [
+                    {"day": 4, "time": 12},
+                ]
             },
-            "teaching_difficulty": {
-                "CSC226": "Able"
+            "courses_preferences": {
+                    "CSC 225": {
+                        "willingness": 1,
+                        "difficulty": 1
+                    },
+                    "CSC 226": {
+                        "willingness": 2,
+                        "difficulty": 2
+                    }
             },
-            "wants_topics_course": True,
-            "topics_course_id": "CSC485c",
-            "topics_course_name": "Data Management and Parallelization"
+            "preferred_non_teaching_semester": "fall",
+            "preferred_courses_per_semester": {
+                    "fall": "1",
+                    "spring": "2",
+                    "summer": "3"
+                },
+            "preferred_number_teaching_days": {
+                    "fall": 1,
+                    "spring": 2,
+                    "summer": 5
+                },
+            
+            "preferred_course_day_spreads": [
+                    "TWF",
+                    "Th"
+                ],
         }
 
         #provide some default Preferences data to be used as a request body
         self.default_serializer_data = {
             'professor': 'johnd1',
             'is_submitted': True,
-            'is_unavailable_sem1': False,
-            'is_unavailable_sem2': True,
-            'num_relief_courses': 1,
             'taking_sabbatical': True,
             'sabbatical_length': 'FULL',
             'sabbatical_start_month': 1,
-            'preferred_hours': [
-                {'Mon': '8am-9am'},
-                {'Thu': '1pm-2pm'}
+            "preferred_times": {
+                "fall": [
+                    {"day": 1, "time": 8},
+                    {"day": 1, "time": 9}
+                ],
+                "spring": [
+                    {"day": 3, "time": 8},
+                    {"day": 3, "time": 9},
+                ],
+                "summer": [
+                    {"day": 4, "time": 12},
+                ]
+            },
+            "courses_preferences": {
+                "CSC 225": {
+                    "willingness": 1,
+                    "difficulty": 1
+                },
+                "CSC 226": {
+                    "willingness": 2,
+                    "difficulty": 2
+                }
+            },
+            "preferred_non_teaching_semester": "fall",
+            "preferred_courses_per_semester": {
+            "fall": "1",
+            "spring": "2",
+            "summer": "3"
+        },
+            "preferred_number_teaching_days": {
+                "fall": 1,
+                "spring": 2,
+                "summer": 5
+            },
+            "preferred_course_day_spreads": [
+                "TWF",
+                "Th"
             ],
-            'teaching_willingness': {
-                'CSC226': 'Very Willing'
-            },
-            'teaching_difficulty': {
-                'CSC226': 'Able'
-            },
-            'wants_topics_course': True,
-            'topics_course_id': 'CSC485c',
-            'topics_course_name': 'Data Management and Parallelization'
         }
         
         # Build Admin AppUser instance
