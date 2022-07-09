@@ -20,7 +20,8 @@ class AppUserSerializerTest(TestCase):
             "fall_offering": True,
             "spring_offering": True,
             "summer_offering": False,
-            "PENG_required": True
+            "PENG_required": True,
+            "yearRequired": 4
         }
 
         #serialize into an AppUser object
@@ -37,7 +38,9 @@ class AppUserSerializerTest(TestCase):
             'fall_offering',
             'spring_offering',
             'summer_offering',
-            'PENG_required']))
+            'PENG_required',
+            'yearRequired'
+        ]))
 
     
     def test_valid_deserialization(self):
@@ -48,7 +51,8 @@ class AppUserSerializerTest(TestCase):
             "fall_offering": True,
             "spring_offering": True,
             "summer_offering": False,
-            "PENG_required": True
+            "PENG_required": True,
+            "yearRequired": 4
         }
 
         serializer = CourseSerializer(data=serialized_data)
@@ -63,7 +67,8 @@ class AppUserSerializerTest(TestCase):
             "fall_offering": False,
             "spring_offering": True,
             "summer_offering": False,
-            "PENG_required": True
+            "PENG_required": True,
+            "yearRequired": 4
         }
 
         serializer = CourseSerializer(data=serialized_data)
@@ -88,7 +93,8 @@ class AppUserSerializerTest(TestCase):
             "fall_offering": True,
             "spring_offering": False, #updated
             "summer_offering": False,
-            "PENG_required": True
+            "PENG_required": True,
+            "yearRequired": 4
         }
         serializer = CourseSerializer(instance=course_object, data=new_serialized_data)
         self.assertTrue(serializer.is_valid())
