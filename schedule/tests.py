@@ -22,37 +22,31 @@ class ViewTest(TestCase):
         response = self.client.get('/schedule/2022/FALL/1', format='json')
         self.assertIsNotNone(response)
         self.assertEquals(status.HTTP_200_OK, response.status_code)
-        self.assertContains(response, "GENERATED SCHEDULE FROM COMPANY 1 ALGORITHM")
 
     def test_POST_company_1(self):
         response = self.client.post('/schedule/schedule_id/course_id/1', format='json')
         self.assertIsNotNone(response)
         self.assertEquals(status.HTTP_200_OK, response.status_code)
-        self.assertContains(response, "GENERATED SCHEDULE FROM COMPANY 1 ALGORITHM")
 
     def test_GET_from_scheduleId_company_1(self):
         response = self.client.get('/schedule/files/schedule_id/1', format='json')
         self.assertIsNotNone(response)
         self.assertEquals(status.HTTP_200_OK, response.status_code)
-        self.assertContains(response, "GENERATED SCHEDULE FROM COMPANY 1 ALGORITHM")
 
     def test_GET_company_2(self):
         response = self.client.get('/schedule/2022/FALL/2', format='json')
         self.assertIsNotNone(response)
         self.assertEquals(status.HTTP_200_OK, response.status_code)
-        self.assertContains(response, "GENERATED SCHEDULE FROM COMPANY 2 ALGORITHM")
 
     def test_POST_company_2(self):
         response = self.client.post('/schedule/schedule_id/course_id/2', format='json')
         self.assertIsNotNone(response)
         self.assertEquals(status.HTTP_200_OK, response.status_code)
-        self.assertContains(response, "GENERATED SCHEDULE FROM COMPANY 2 ALGORITHM")
 
     def test_GET_from_scheduleId_company_2(self):
         response = self.client.get('/schedule/files/schedule_id/2', format='json')
         self.assertIsNotNone(response)
         self.assertEquals(status.HTTP_200_OK, response.status_code)
-        self.assertContains(response, "GENERATED SCHEDULE FROM COMPANY 2 ALGORITHM")
 
 # ADAPTER TESTS
     def test_none(self):

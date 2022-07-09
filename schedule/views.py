@@ -30,22 +30,15 @@ class Schedule(APIView):
         professors = get_professor_dict_mock()
         schedule_1 = get_schedule_alg1_mock()
 
-        # Call algorithms
-        schedule = c1alg2(historical_data, previous_enrollment, schedule) if requested_company_alg == 1 \
-             else c1alg2(historical_data, previous_enrollment, schedule)
-        print(schedule)
-        schedule = c1alg1.generate_schedule(professors, schedule_1, None) if requested_company_alg == 1 \
-            else c2alg1(professors, schedule_1, False)
-
-        # just in here to make unit tests pass while we build Alg params
-        alg1_result = "OK"
-        alg2_result = "OK"
-
-        if "OK" == alg1_result and "OK" == alg2_result:
-            body = "GENERATED SCHEDULE FROM COMPANY %d ALGORITHM, AND BOTH RETURNED OK" % requested_company_alg
-            return HttpResponse(body, status=status.HTTP_200_OK)
-        else: 
-            return HttpResponse(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        try:
+            # Call algorithms
+            schedule = c1alg2(historical_data, previous_enrollment, schedule) if requested_company_alg == 1 \
+                 else c1alg2(historical_data, previous_enrollment, schedule)
+            schedule = c1alg1.generate_schedule(professors, schedule_1, None) if requested_company_alg == 1 \
+                else c2alg1(professors, schedule_1, False)
+            return HttpResponse(schedule, status=status.HTTP_200_OK)
+        except:
+            return HttpResponse("ERROR WITH ALGORITHMS", status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
     # POST / schedule / {scheduleId} / {courseId}
     def post(self, request: HttpRequest, schedule_id: str, course_id: str,  company_alg: int) -> HttpResponse:

@@ -22,7 +22,6 @@ def course_to_alg_course(course: Course) -> None or A_Course:
     a_course.code = course.course_code
     a_course.title = course.course_title
     a_course.pengRequired = course.PENG_required
-    # a_course.yearRequired = course.yearRequired  # TODO: Add year required to course object
-    a_course.yearRequired = 4  # Temporary workaround for testing
+    a_course.yearRequired = course.yearRequired
     a_course.save()
     return a_course
