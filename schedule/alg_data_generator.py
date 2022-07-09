@@ -48,3 +48,18 @@ def get_professor_dict():
         prof_dict["preferredCourseDaySpreads"] = None # TODO: Does that exist?
         professors.append(prof_dict)
     return professors
+
+
+def get_professor_dict_mock():
+    with open("resources/professor_object_(alg1_input).json") as json_file:
+        return json.load(json_file)
+
+
+def get_schedule_alg1_mock():
+    with open("resources/schedule_object_capacities_(alg1_input).json") as json_file:
+        return json.load(json_file)
+
+
+def get_schedule_alg2_mock():
+    with open("resources/schedule_object_no_capacities_(alg2_input).json") as json_file:
+        return json.load(json_file)

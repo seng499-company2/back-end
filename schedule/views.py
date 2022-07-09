@@ -13,7 +13,9 @@ from c1algo2.forecaster import forecast as c1algo2
 from schedule.alg_data_generator import get_historic_course_data
 from schedule.alg_data_generator import get_program_enrollment_data
 from schedule.alg_data_generator import get_schedule
-from schedule.alg_data_generator import get_professor_dict
+from schedule.alg_data_generator import get_professor_dict_mock
+from schedule.alg_data_generator import get_schedule_alg1_mock
+from schedule.alg_data_generator import get_schedule_alg2_mock
 
 from courses.models import Course
 
@@ -25,14 +27,14 @@ class Schedule(APIView):
         # Create params for algorithms packages
         historical_data = get_historic_course_data()
         previous_enrollment = get_program_enrollment_data()
-        schedule = get_schedule()
-        professors = get_professor_dict()
+        schedule = get_schedule_alg2_mock()
+        professors = get_professor_dict_mock()
 
         # Call algorithms
-        # alg2_result = c2alg2(historical_data, previous_enrollment, schedule) if requested_company_alg == 1 \
-        #     else c1alg2(historical_data, previous_enrollment, schedule)
-        # alg1_result = c1alg1.generate_schedule() if requested_company_alg == 1 \
-        #     else c2alg1(professors, alg2_result, None)
+        alg2_result = c2alg2(historical_data, previous_enrollment, schedule) if requested_company_alg == 1 \
+            else c1alg2(historical_data, previous_enrollment, schedule)
+        alg1_result = c1alg1.generate_schedule() if requested_company_alg == 1 \
+            else c2alg1(professors, alg2_result, None)
 
         # just in here to make unit tests pass while we build Alg params
         alg1_result = "OK"
