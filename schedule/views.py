@@ -33,11 +33,10 @@ class Schedule(APIView):
         schedule_1 = get_schedule_alg1_mock()
 
         try:
-            # Call algorithms
             schedule = c1alg2(historical_data, previous_enrollment, schedule) if requested_company_alg == 1 \
-                 else c1alg2(historical_data, previous_enrollment, schedule)
+                 else c2alg2(historical_data, previous_enrollment, None)
             schedule = c1alg1.generate_schedule(professors, schedule_1, None) if requested_company_alg == 1 \
-                else c2alg1(professors, schedule_1, False)
+                else c2alg1(None, schedule_1, True)
             return HttpResponse(schedule, status=status.HTTP_200_OK)
         except Exception as err:
             print(traceback.format_exception(err))
