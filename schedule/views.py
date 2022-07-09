@@ -16,6 +16,8 @@ from schedule.alg_data_generator import get_professor_dict_mock
 from schedule.alg_data_generator import get_schedule_alg1_mock
 from schedule.alg_data_generator import get_schedule_alg2_mock
 
+import traceback
+
 from courses.models import Course
 
 
@@ -37,7 +39,8 @@ class Schedule(APIView):
             schedule = c1alg1.generate_schedule(professors, schedule_1, None) if requested_company_alg == 1 \
                 else c2alg1(professors, schedule_1, False)
             return HttpResponse(schedule, status=status.HTTP_200_OK)
-        except:
+        except Exception as err:
+            print(traceback.format_exception(err))
             return HttpResponse("ERROR WITH ALGORITHMS", status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
     # POST / schedule / {scheduleId} / {courseId}
