@@ -7,8 +7,7 @@ from coursescheduler import generate_schedule as c2alg1# Company 2 alg 1
 from forecaster.forecaster import forecast as c2alg2 # company 2 alg 2
 
 from c1algo1 import scheduler as c1alg1# company 1 alg 1
-from c1algo2.forecaster import forecast as c1algo2
-# import c1algo2 # TODO: CURRENTLY THROWING A MODULENOTFOUND ERROR, despite a successful pip install
+from c1algo2.forecaster import forecast as c1alg2
 
 from schedule.alg_data_generator import get_historic_course_data
 from schedule.alg_data_generator import get_program_enrollment_data
@@ -29,12 +28,14 @@ class Schedule(APIView):
         previous_enrollment = get_program_enrollment_data()
         schedule = get_schedule_alg2_mock()
         professors = get_professor_dict_mock()
+        schedule_1 = get_schedule_alg1_mock()
 
         # Call algorithms
-        alg2_result = c2alg2(historical_data, previous_enrollment, schedule) if requested_company_alg == 1 \
-            else c1alg2(historical_data, previous_enrollment, schedule)
-        alg1_result = c1alg1.generate_schedule() if requested_company_alg == 1 \
-            else c2alg1(professors, alg2_result, None)
+        schedule = c1alg2(historical_data, previous_enrollment, schedule) if requested_company_alg == 1 \
+             else c1alg2(historical_data, previous_enrollment, schedule)
+        print(schedule)
+        schedule = c1alg1.generate_schedule(professors, schedule_1, None) if requested_company_alg == 1 \
+            else c2alg1(professors, schedule_1, False)
 
         # just in here to make unit tests pass while we build Alg params
         alg1_result = "OK"
