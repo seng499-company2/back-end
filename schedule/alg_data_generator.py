@@ -25,7 +25,7 @@ def get_schedule():
 
 
 def get_professor_dict():
-    preferences = Preferences.objects.all()
+    preferences: [Preferences] = Preferences.objects.all()
     professors: [] = []
     for preference in preferences:
         user: AppUser = preference.professor
@@ -37,7 +37,14 @@ def get_professor_dict():
         prof_dict["teachingObligations"] = 3 if user.prof_type == "RP" else 6 # TODO: verify accuracy of calculation
         prof_dict["preferredTimes"] = preference.preferred_hours
         prof_dict["preferredCoursesPerSemester"] = preference.teaching_willingness  # TODO: Does that exist?
-        prof_dict["preferredNonTeachingSemester"] = None # TODO: Does that exist?
+        preferred_non_teaching_semester = None
+        if preference.is_unavailable_sem1:
+            preferred_non_teaching_semester = "FALL"
+        elif preference.is_unavailable_sem2:
+            preferred_non_teaching_semester = "SPRING"
+        elif preference.is_unavailable_sem3:
+            preferred_non_teaching_semester = "SUMMER"
+        prof_dict["preferredNonTeachingSemester"] = preferred_non_teaching_semester
         prof_dict["preferredCourseDaySpreads"] = None # TODO: Does that exist?
         professors.append(prof_dict)
     return professors

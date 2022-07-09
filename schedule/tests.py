@@ -93,3 +93,9 @@ class ViewTest(TestCase):
     def test_program_enrollment_data(self):
         historic_data_dict = get_program_enrollment_data()
         self.assertEquals(8, len(historic_data_dict))
+
+    def test_get_schedule(self):
+        pass
+
+    def test_get_professor_dict(self):
+        pass

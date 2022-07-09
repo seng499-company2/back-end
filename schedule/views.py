@@ -7,6 +7,7 @@ from coursescheduler import generate_schedule as c2alg1# Company 2 alg 1
 from forecaster.forecaster import forecast as c2alg2 # company 2 alg 2
 
 from c1algo1 import scheduler as c1alg1# company 1 alg 1
+from c1algo2.forecaster import forecast as c1algo2
 # import c1algo2 # TODO: CURRENTLY THROWING A MODULENOTFOUND ERROR, despite a successful pip install
 
 from schedule.alg_data_generator import get_historic_course_data
@@ -29,7 +30,7 @@ class Schedule(APIView):
 
         # Call algorithms
         # alg2_result = c2alg2(historical_data, previous_enrollment, schedule) if requested_company_alg == 1 \
-        #     else c2alg2(historical_data, previous_enrollment, schedule)# TODO: fix when import problem solved
+        #     else c1alg2(historical_data, previous_enrollment, schedule)
         # alg1_result = c1alg1.generate_schedule() if requested_company_alg == 1 \
         #     else c2alg1(professors, alg2_result, None)
 

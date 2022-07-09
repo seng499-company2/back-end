@@ -13,3 +13,5 @@ capacityforecaster #Company 2 alg 2 (from pypi.org/simple/ index)
 
 --extra-index-url https://test.pypi.org/simple/
 c1algo2 #Company 1 alg 2 (from pypi.org/simple/ index)
+
+anyio
