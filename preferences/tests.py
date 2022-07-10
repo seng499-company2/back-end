@@ -70,11 +70,6 @@ class PreferencesSerializerTest(TestCase):
                 "spring": "2",
                 "summer": "3"
             },
-           "preferred_number_teaching_days": {
-                "fall": 1,
-                "spring": 2,
-                "summer": 5
-            },
            "preferred_course_day_spreads": [
                 "TWF",
                 "Th"
@@ -98,7 +93,6 @@ class PreferencesSerializerTest(TestCase):
             'courses_preferences',
             'preferred_non_teaching_semester',
             'preferred_courses_per_semester',
-            'preferred_number_teaching_days',
             'preferred_course_day_spreads'
             ]))
 
@@ -135,11 +129,6 @@ class PreferencesSerializerTest(TestCase):
                 "fall": "1",
                 "spring": "2",
                 "summer": "3"
-            },
-            "preferred_number_teaching_days": {
-                "fall": 1,
-                "spring": 2,
-                "summer": 5
             },
            "preferred_course_day_spreads": [
                 "TWF",
@@ -205,11 +194,6 @@ class PreferencesSerializerTest(TestCase):
                 "spring": "0",
                 "summer": "0"
             },
-            "preferred_number_teaching_days": {
-                "fall": 3,
-                "spring": 0,
-                "summer": 0
-            },
            "preferred_course_day_spreads": [
                 "TWF",
                 "T",
@@ -257,11 +241,6 @@ class PreferencesSerializerTest(TestCase):
                     "fall": "1",
                     "spring": "2",
                     "summer": "3"
-                },
-            "preferred_number_teaching_days": {
-                    "fall": 1,
-                    "spring": 2,
-                    "summer": 5
                 },
             "preferred_course_day_spreads": [
                     "TWF",
@@ -338,11 +317,6 @@ class AdminSidePreferencesRecordViewTest(TestCase):
                     "spring": "2",
                     "summer": "3"
                 },
-            "preferred_number_teaching_days": {
-                    "fall": 1,
-                    "spring": 2,
-                    "summer": 5
-                },
             "preferred_course_day_spreads": [
                     "TWF",
                     "Th"
@@ -389,11 +363,6 @@ class AdminSidePreferencesRecordViewTest(TestCase):
                     "fall": "1",
                     "spring": "2",
                     "summer": "3"
-                },
-            "preferred_number_teaching_days": {
-                    "fall": 1,
-                    "spring": 2,
-                    "summer": 5
                 },
             "preferred_course_day_spreads": [
                     "TWF",
@@ -524,12 +493,7 @@ class UserSidePreferencesRecordViewTest(TestCase):
                     "spring": "2",
                     "summer": "3"
                 },
-            "preferred_number_teaching_days": {
-                    "fall": 1,
-                    "spring": 2,
-                    "summer": 5
-                },
-            
+
             "preferred_course_day_spreads": [
                     "TWF",
                     "Th"
@@ -572,11 +536,6 @@ class UserSidePreferencesRecordViewTest(TestCase):
             "spring": "2",
             "summer": "3"
         },
-            "preferred_number_teaching_days": {
-                "fall": 1,
-                "spring": 2,
-                "summer": 5
-            },
             "preferred_course_day_spreads": [
                 "TWF",
                 "Th"

@@ -21,7 +21,6 @@ class PreferencesSerializer(serializers.ModelSerializer):
     courses_preferences = serializers.JSONField()
     preferred_non_teaching_semester = serializers.CharField(max_length=10, default='', allow_blank=True)
     preferred_courses_per_semester = serializers.JSONField()
-    preferred_number_teaching_days = serializers.JSONField()
     preferred_course_day_spreads = serializers.ListField(child = serializers.CharField(max_length=5), default=list)
     
     class Meta:
@@ -29,7 +28,7 @@ class PreferencesSerializer(serializers.ModelSerializer):
         fields = (
             'professor', 'is_submitted','taking_sabbatical', 'sabbatical_length', 
             'sabbatical_start_month', 'preferred_times', 'courses_preferences', 'preferred_non_teaching_semester',
-            'preferred_courses_per_semester', 'preferred_number_teaching_days', 'preferred_course_day_spreads'
+            'preferred_courses_per_semester', 'preferred_course_day_spreads'
         )
     
     #overrides default create
