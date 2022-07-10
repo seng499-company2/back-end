@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.postgres.fields import ArrayField
 
 from django.utils.translation import gettext_lazy as _
 
@@ -17,9 +18,6 @@ class Preferences(models.Model):
         primary_key=True
     )
     is_submitted = models.BooleanField(default=False)
-    is_unavailable_sem1 = models.BooleanField(default=False)
-    is_unavailable_sem2 = models.BooleanField(default=False)
-    num_relief_courses = models.PositiveIntegerField(default=0)
     taking_sabbatical = models.BooleanField(default=False)
     sabbatical_length = models.CharField(
         max_length=4,
@@ -27,13 +25,13 @@ class Preferences(models.Model):
         default=SabbaticalLength.NONE
     )
     sabbatical_start_month = models.PositiveIntegerField(default=0)
-    preferred_hours = models.JSONField(default=dict)
-    teaching_willingness = models.JSONField(default=dict)
-    teaching_difficulty = models.JSONField(default=dict)
-    wants_topics_course = models.BooleanField(default=False)
-    topics_course_id = models.CharField(max_length=20, blank=True, default='')
-    topics_course_name = models.CharField(max_length=255, blank=True, default='')
-
+    preferred_times = models.JSONField(default=dict)
+    courses_preferences = models.JSONField(default=dict)
+    preferred_non_teaching_semester = models.CharField(max_length=10,  blank=True, default='')
+    preferred_courses_per_semester = models.JSONField(default=dict)
+    preferred_number_teaching_days = models.JSONField(default=dict)
+    preferred_course_day_spreads = ArrayField(models.CharField(max_length=5, blank=False), default=list)
+   
     class Meta:
         managed = True  #auto creates tables
         db_table = 'preferences'
