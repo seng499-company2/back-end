@@ -12,6 +12,7 @@ from users.models import AppUser
 
 import preferences
 from .models import Preferences
+from courses.models import Course
 from .serializers import PreferencesSerializer
 from .permissions import IsAdmin
 
@@ -29,13 +30,20 @@ class PreferencesRecord(APIView):
             return HttpResponse(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
         try:
+            #Get a Preference record and the full list of Course.code
             preferences_record = Preferences.objects.get(professor__user__username=professor_id)
+            course_codes_data = list(Course.objects.values_list('course_code', flat=True))
+
             if preferences_record is None or not isinstance(preferences_record, Preferences):
                 return HttpResponse(status=status.HTTP_404_NOT_FOUND)
         except preferences.models.Preferences.DoesNotExist:
             return HttpResponse(status=status.HTTP_404_NOT_FOUND)
         serializer = PreferencesSerializer(preferences_record)
-        return HttpResponse(json.dumps(serializer.data), status=status.HTTP_200_OK)
+        data = {
+            'resource': serializer.data,
+            'course_codes': course_codes_data
+        }
+        return HttpResponse(json.dumps(data), status=status.HTTP_200_OK)
 
     # (Admin) update the unique Preferences record for a professor.
     def post(self, request: HttpRequest, professor_id: str, format=None) -> HttpResponse:
@@ -66,11 +74,17 @@ class PreferencesView(APIView):
             return HttpResponse(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
         professor_id = request.user.username
         try:
+            #Get a Preference record and the full list of Course.code
             preferences_model = Preferences.objects.get(professor__user__username=professor_id)
+            course_codes_data = list(Course.objects.values_list('course_code', flat=True))
             if preferences_model is None or not isinstance(preferences_model, Preferences):
                 return HttpResponse(status=status.HTTP_404_NOT_FOUND)
             serializer = PreferencesSerializer(preferences_model)
-            return HttpResponse(json.dumps(serializer.data), status=status.HTTP_200_OK)
+            data = {
+                'resource': serializer.data,
+                'course_codes': course_codes_data
+            }
+            return HttpResponse(json.dumps(data), status=status.HTTP_200_OK)
         except preferences.models.Preferences.DoesNotExist:
             return HttpResponse(status=status.HTTP_404_NOT_FOUND)
 
