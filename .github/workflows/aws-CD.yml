@@ -35,7 +35,6 @@ jobs:
             sudo rm -rf back-end
             git clone git@github.com:seng499-company2/back-end.git
             cd back-end
-            git checkout update-docker-base-image
             touch .env.prod
             echo DEBUG=True >> .env.prod
             echo SECRET_KEY=$DJANGO_SECRET_KEY >> .env.prod
