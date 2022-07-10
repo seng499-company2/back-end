@@ -6,7 +6,8 @@ from django.contrib.auth.models import User
 from .models import Course
 from .serializers import CourseSerializer
 from .permissions import IsAdmin
-from .views import CourseView, AllCoursesView
+from .views import CourseView, AllCoursesView, get_alg_course
+from schedule.Schedule_models import A_Course
 
 #Serializer Testing
 class CourseSerializerTest(TestCase):
@@ -105,4 +106,27 @@ class CourseSerializerTest(TestCase):
         # self.assertEquals(updated_obj_key, obj_key)
         self.assertEquals(Course.objects.get(pk=obj_key).course_title, new_serialized_data['course_title'])
         self.assertEquals(Course.objects.get(pk=obj_key).spring_offering, new_serialized_data['spring_offering'])
-    
+
+
+    def test_get_alg_course_create(self):
+        course = self.course
+        alg_course = get_alg_course(course)
+        self.assertEquals(course.course_code, alg_course.code)
+        self.assertEquals(course.course_title, alg_course.title)
+        self.assertEquals(course.pengRequired, alg_course.pengRequired)
+        self.assertEquals(course.yearRequired, alg_course.yearRequired)
+
+    def test_get_alg_course_update(self):
+        course = self.course
+        alg_course = A_Course()
+        alg_course.code = course.course_code
+        self.assertEquals(course.course_code, alg_course.code)
+        self.assertNotEquals(course.course_title, alg_course.title)
+        print("course title is by default : " + str(alg_course.title))
+        self.assertNotEquals(course.pengRequired, alg_course.pengRequired)
+        self.assertNotEquals(course.yearRequired, alg_course.yearRequired)
+        alg_course = get_alg_course(course)
+        self.assertEquals(course.course_code, alg_course.code)
+        self.assertEquals(course.course_title, alg_course.title)
+        self.assertEquals(course.pengRequired, alg_course.pengRequired)
+        self.assertEquals(course.yearRequired, alg_course.yearRequired)

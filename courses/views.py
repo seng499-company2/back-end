@@ -1,9 +1,7 @@
 import json
 import courses
 
-import uuid
 
-from django.shortcuts import render
 from .models import Course
 from schedule.Schedule_models import A_Course
 from rest_framework.parsers import JSONParser
@@ -17,16 +15,16 @@ from .permissions import IsAdmin
 from rest_framework.permissions import IsAuthenticated
 
 
-def update_alg_course(course: Course) -> A_Course:
+def get_alg_course(course: Course) -> A_Course:
     try:
         a_course = A_Course.objects.get(code=course.course_code)
     except:
-        a_course = A_Course.objects.create()
+        a_course = A_Course()
     a_course.code = course.course_code
     a_course.title = course.course_title
     a_course.pengRequired = course.pengRequired
     a_course.yearRequired = course.yearRequired
-    a_course.save()
+    return a_course
 
 
 class AllCoursesView(APIView):
@@ -50,7 +48,8 @@ class AllCoursesView(APIView):
         
         if serializer.is_valid():
             course = serializer.create(serializer.validated_data)
-            update_alg_course(course)
+            a_course = get_alg_course(course)
+            a_course.save()
             return HttpResponse(json.dumps(serializer.data), status=status.HTTP_200_OK)
         
         return HttpResponse(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
@@ -88,9 +87,9 @@ class CourseView(APIView):
         request_data = JSONParser().parse(request)
         serializer = CourseSerializer(course, data=request_data)
         if serializer.is_valid():
-
-            # TODO: update ALG_course here as well
-            serializer.update(course, serializer.validated_data)
+            course = serializer.update(course, serializer.validated_data)
+            alg_course = get_alg_course(course)
+            alg_course.save()
             return HttpResponse(json.dumps(serializer.data), status=status.HTTP_200_OK)
         return HttpResponse(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
@@ -99,9 +98,10 @@ class CourseView(APIView):
         if request.method != "DELETE":
             return HttpResponse(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
         try:
-            # TODO: update ALG_course here as well
-            course = Course.objects.get(course_code=course_code, section=section)
+            course = Course.objects.get(course_code=course_code)
         except courses.models.Course.DoesNotExist:
             return HttpResponse(status=status.HTTP_404_NOT_FOUND)
-        course.delete()
+        course = course.delete()
+        alg_course = get_alg_course(course)
+        alg_course.delete()
         return HttpResponse(status=status.HTTP_204_NO_CONTENT)

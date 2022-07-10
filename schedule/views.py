@@ -19,8 +19,6 @@ from schedule.alg_data_generator import get_schedule_alg2_mock
 import traceback
 import json
 
-from courses.models import Course
-
 
 class Schedule(APIView):
     # GET / schedule / {year - semester}
@@ -36,8 +34,8 @@ class Schedule(APIView):
         try:
             schedule = c1alg2(historical_data, previous_enrollment, schedule) if requested_company_alg == 1 \
                  else c2alg2(historical_data, previous_enrollment, None)
-            schedule = c1alg1.generate_schedule(professors, schedule_1, None) if requested_company_alg == 1 \
-                else c2alg1(None, schedule_1, True)
+            # schedule = c1alg1.generate_schedule(professors, schedule_1) if requested_company_alg == 1 \
+            #     else c2alg1(None, schedule_1, True)
             return HttpResponse(json.dumps(schedule), status=status.HTTP_200_OK)
         except Exception as err:
             print(traceback.format_exception(err))
