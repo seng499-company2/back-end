@@ -33,9 +33,9 @@ class Schedule(APIView):
 
         try:
             schedule = c1alg2(historical_data, previous_enrollment, schedule) if requested_company_alg == 1 \
-                 else c2alg2(historical_data, previous_enrollment, None)
+                 else c2alg2(historical_data, previous_enrollment, schedule)
             schedule = c1alg1.generate_schedule(professors, schedule_1) if requested_company_alg == 1 \
-                else c2alg1(None, schedule_1, True)
+                else c2alg1(professors, schedule_1, False)
             return HttpResponse(json.dumps(schedule), status=status.HTTP_200_OK)
         except Exception as err:
             print(traceback.format_exception(err))

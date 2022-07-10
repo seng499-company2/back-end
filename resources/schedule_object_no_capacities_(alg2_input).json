@@ -194,30 +194,6 @@
             },
             {
                   "course": {
-                        "code": "ECE458",
-                        "title": "Communication Networks",
-                        "pengRequired": {
-                              "fall": false,
-                              "spring": false,
-                              "summer": false
-                        },
-                        "yearRequired": 3
-                  },
-                  "sections": [
-                        {
-                              "professor": null,
-                              "capacity": null,
-                              "timeSlots": []
-                        },
-                        {
-                              "professor": null,
-                              "capacity": null,
-                              "timeSlots": []
-                        }
-                  ]
-            },
-            {
-                  "course": {
                         "code": "CSC361",
                         "title": "Computer Communications and Networks",
                         "pengRequired": {
@@ -494,7 +470,7 @@
                   "sections": [
                         {
                               "professor": {
-                                    "id": 100,
+                                    "id": "100",
                                     "name": "Static Prof 1"
                               },
                               "capacity": 140,
@@ -524,7 +500,7 @@
                         },
                         {
                               "professor": {
-                                    "id": 100,
+                                    "id": "100",
                                     "name": "Static Prof 1"
                               },
                               "capacity": 80,
@@ -568,7 +544,7 @@
                   "sections": [
                         {
                               "professor": {
-                                    "id": 101,
+                                    "id": "101",
                                     "name": "Static Prof 2"
                               },
                               "capacity": 140,
@@ -591,7 +567,7 @@
                         },
                         {
                               "professor": {
-                                    "id": 101,
+                                    "id": "101",
                                     "name": "Static Prof 2"
                               },
                               "capacity": 120,
@@ -628,7 +604,7 @@
                   "sections": [
                         {
                               "professor": {
-                                    "id": 102,
+                                    "id": "102",
                                     "name": "Static Prof 3"
                               },
                               "capacity": 80,
@@ -658,7 +634,7 @@
                         },
                         {
                               "professor": {
-                                    "id": 102,
+                                    "id": "102",
                                     "name": "Static Prof 3"
                               },
                               "capacity": 80,
@@ -702,7 +678,7 @@
                   "sections": [
                         {
                               "professor": {
-                                    "id": 103,
+                                    "id": "103",
                                     "name": "Static Prof 4"
                               },
                               "capacity": 140,
@@ -725,7 +701,7 @@
                         },
                         {
                               "professor": {
-                                    "id": 103,
+                                    "id": "103",
                                     "name": "Static Prof 4"
                               },
                               "capacity": 140,
@@ -762,7 +738,7 @@
                   "sections": [
                         {
                               "professor": {
-                                    "id": 104,
+                                    "id": "104",
                                     "name": "Static Prof 5"
                               },
                               "capacity": 120,
@@ -792,7 +768,7 @@
                         },
                         {
                               "professor": {
-                                    "id": 104,
+                                    "id": "104",
                                     "name": "Static Prof 5"
                               },
                               "capacity": 80,
@@ -836,7 +812,7 @@
                   "sections": [
                         {
                               "professor": {
-                                    "id": 105,
+                                    "id": "105",
                                     "name": "Static Prof 6"
                               },
                               "capacity": 140,
@@ -859,7 +835,7 @@
                         },
                         {
                               "professor": {
-                                    "id": 105,
+                                    "id": "105",
                                     "name": "Static Prof 6"
                               },
                               "capacity": 100,
@@ -896,7 +872,7 @@
                   "sections": [
                         {
                               "professor": {
-                                    "id": 108,
+                                    "id": "108",
                                     "name": "Static Prof 9"
                               },
                               "capacity": 100,
@@ -926,7 +902,7 @@
                         },
                         {
                               "professor": {
-                                    "id": 108,
+                                    "id": "108",
                                     "name": "Static Prof 9"
                               },
                               "capacity": 100,
@@ -970,7 +946,7 @@
                   "sections": [
                         {
                               "professor": {
-                                    "id": 110,
+                                    "id": "110",
                                     "name": "Static Prof 11"
                               },
                               "capacity": 140,
@@ -1000,7 +976,7 @@
                         },
                         {
                               "professor": {
-                                    "id": 110,
+                                    "id": "110",
                                     "name": "Static Prof 11"
                               },
                               "capacity": 80,
@@ -1044,7 +1020,7 @@
                   "sections": [
                         {
                               "professor": {
-                                    "id": 111,
+                                    "id": "111",
                                     "name": "Static Prof 12"
                               },
                               "capacity": 140,
@@ -1067,7 +1043,7 @@
                         },
                         {
                               "professor": {
-                                    "id": 111,
+                                    "id": "111",
                                     "name": "Static Prof 12"
                               },
                               "capacity": 60,
@@ -1104,7 +1080,7 @@
                   "sections": [
                         {
                               "professor": {
-                                    "id": 112,
+                                    "id": "112",
                                     "name": "Static Prof 13"
                               },
                               "capacity": 120,
@@ -1134,7 +1110,7 @@
                         },
                         {
                               "professor": {
-                                    "id": 112,
+                                    "id": "112",
                                     "name": "Static Prof 13"
                               },
                               "capacity": 140,
@@ -1178,7 +1154,7 @@
                   "sections": [
                         {
                               "professor": {
-                                    "id": 113,
+                                    "id": "113",
                                     "name": "Static Prof 14"
                               },
                               "capacity": 80,
@@ -1201,7 +1177,7 @@
                         },
                         {
                               "professor": {
-                                    "id": 113,
+                                    "id": "113",
                                     "name": "Static Prof 14"
                               },
                               "capacity": 140,
@@ -1280,30 +1256,6 @@
                         "title": "Introduction to Computer Architecture",
                         "pengRequired": {
                               "fall": true,
-                              "spring": false,
-                              "summer": false
-                        },
-                        "yearRequired": 2
-                  },
-                  "sections": [
-                        {
-                              "professor": null,
-                              "capacity": null,
-                              "timeSlots": []
-                        },
-                        {
-                              "professor": null,
-                              "capacity": null,
-                              "timeSlots": []
-                        }
-                  ]
-            },
-            {
-                  "course": {
-                        "code": "ECE255",
-                        "title": "Introduction to Computer Architecture",
-                        "pengRequired": {
-                              "fall": false,
                               "spring": false,
                               "summer": false
                         },
@@ -1744,7 +1696,7 @@
                   "sections": [
                         {
                               "professor": {
-                                    "id": 101,
+                                    "id": "101",
                                     "name": "Static Prof 2"
                               },
                               "capacity": 100,
@@ -1774,7 +1726,7 @@
                         },
                         {
                               "professor": {
-                                    "id": 101,
+                                    "id": "101",
                                     "name": "Static Prof 2"
                               },
                               "capacity": 120,
@@ -1818,7 +1770,7 @@
                   "sections": [
                         {
                               "professor": {
-                                    "id": 102,
+                                    "id": "102",
                                     "name": "Static Prof 3"
                               },
                               "capacity": 140,
@@ -1841,7 +1793,7 @@
                         },
                         {
                               "professor": {
-                                    "id": 102,
+                                    "id": "102",
                                     "name": "Static Prof 3"
                               },
                               "capacity": 60,
@@ -1878,7 +1830,7 @@
                   "sections": [
                         {
                               "professor": {
-                                    "id": 103,
+                                    "id": "103",
                                     "name": "Static Prof 4"
                               },
                               "capacity": 60,
@@ -1908,7 +1860,7 @@
                         },
                         {
                               "professor": {
-                                    "id": 103,
+                                    "id": "103",
                                     "name": "Static Prof 4"
                               },
                               "capacity": 100,
@@ -1952,7 +1904,7 @@
                   "sections": [
                         {
                               "professor": {
-                                    "id": 105,
+                                    "id": "105",
                                     "name": "Static Prof 6"
                               },
                               "capacity": 140,
@@ -1975,7 +1927,7 @@
                         },
                         {
                               "professor": {
-                                    "id": 105,
+                                    "id": "105",
                                     "name": "Static Prof 6"
                               },
                               "capacity": 100,
@@ -2012,7 +1964,7 @@
                   "sections": [
                         {
                               "professor": {
-                                    "id": 106,
+                                    "id": "106",
                                     "name": "Static Prof 7"
                               },
                               "capacity": 80,
@@ -2042,7 +1994,7 @@
                         },
                         {
                               "professor": {
-                                    "id": 106,
+                                    "id": "106",
                                     "name": "Static Prof 7"
                               },
                               "capacity": 100,
@@ -2086,7 +2038,7 @@
                   "sections": [
                         {
                               "professor": {
-                                    "id": 107,
+                                    "id": "107",
                                     "name": "Static Prof 8"
                               },
                               "capacity": 140,
@@ -2109,7 +2061,7 @@
                         },
                         {
                               "professor": {
-                                    "id": 107,
+                                    "id": "107",
                                     "name": "Static Prof 8"
                               },
                               "capacity": 60,
@@ -2146,7 +2098,7 @@
                   "sections": [
                         {
                               "professor": {
-                                    "id": 108,
+                                    "id": "108",
                                     "name": "Static Prof 9"
                               },
                               "capacity": 100,
@@ -2176,7 +2128,7 @@
                         },
                         {
                               "professor": {
-                                    "id": 108,
+                                    "id": "108",
                                     "name": "Static Prof 9"
                               },
                               "capacity": 100,
@@ -2220,7 +2172,7 @@
                   "sections": [
                         {
                               "professor": {
-                                    "id": 109,
+                                    "id": "109",
                                     "name": "Static Prof 10"
                               },
                               "capacity": 140,
@@ -2243,7 +2195,7 @@
                         },
                         {
                               "professor": {
-                                    "id": 109,
+                                    "id": "109",
                                     "name": "Static Prof 10"
                               },
                               "capacity": 100,
@@ -2280,7 +2232,7 @@
                   "sections": [
                         {
                               "professor": {
-                                    "id": 111,
+                                    "id": "111",
                                     "name": "Static Prof 12"
                               },
                               "capacity": 60,
@@ -2310,7 +2262,7 @@
                         },
                         {
                               "professor": {
-                                    "id": 111,
+                                    "id": "111",
                                     "name": "Static Prof 12"
                               },
                               "capacity": 60,
@@ -2354,7 +2306,7 @@
                   "sections": [
                         {
                               "professor": {
-                                    "id": 112,
+                                    "id": "112",
                                     "name": "Static Prof 13"
                               },
                               "capacity": 100,
@@ -2377,7 +2329,7 @@
                         },
                         {
                               "professor": {
-                                    "id": 112,
+                                    "id": "112",
                                     "name": "Static Prof 13"
                               },
                               "capacity": 80,
@@ -2432,30 +2384,6 @@
                         "title": "Introduction to Computer Architecture",
                         "pengRequired": {
                               "fall": true,
-                              "spring": false,
-                              "summer": false
-                        },
-                        "yearRequired": 2
-                  },
-                  "sections": [
-                        {
-                              "professor": null,
-                              "capacity": null,
-                              "timeSlots": []
-                        },
-                        {
-                              "professor": null,
-                              "capacity": null,
-                              "timeSlots": []
-                        }
-                  ]
-            },
-            {
-                  "course": {
-                        "code": "ECE255",
-                        "title": "Introduction to Computer Architecture",
-                        "pengRequired": {
-                              "fall": false,
                               "spring": false,
                               "summer": false
                         },
@@ -2800,7 +2728,7 @@
                   "sections": [
                         {
                               "professor": {
-                                    "id": 102,
+                                    "id": "102",
                                     "name": "Static Prof 3"
                               },
                               "capacity": 120,
@@ -2830,7 +2758,7 @@
                         },
                         {
                               "professor": {
-                                    "id": 102,
+                                    "id": "102",
                                     "name": "Static Prof 3"
                               },
                               "capacity": 100,
@@ -2874,7 +2802,7 @@
                   "sections": [
                         {
                               "professor": {
-                                    "id": 103,
+                                    "id": "103",
                                     "name": "Static Prof 4"
                               },
                               "capacity": 80,
@@ -2897,7 +2825,7 @@
                         },
                         {
                               "professor": {
-                                    "id": 103,
+                                    "id": "103",
                                     "name": "Static Prof 4"
                               },
                               "capacity": 100,
@@ -2934,7 +2862,7 @@
                   "sections": [
                         {
                               "professor": {
-                                    "id": 107,
+                                    "id": "107",
                                     "name": "Static Prof 8"
                               },
                               "capacity": 120,
@@ -2964,7 +2892,7 @@
                         },
                         {
                               "professor": {
-                                    "id": 107,
+                                    "id": "107",
                                     "name": "Static Prof 8"
                               },
                               "capacity": 80,
@@ -3008,7 +2936,7 @@
                   "sections": [
                         {
                               "professor": {
-                                    "id": 108,
+                                    "id": "108",
                                     "name": "Static Prof 9"
                               },
                               "capacity": 120,
@@ -3031,7 +2959,7 @@
                         },
                         {
                               "professor": {
-                                    "id": 108,
+                                    "id": "108",
                                     "name": "Static Prof 9"
                               },
                               "capacity": 80,
@@ -3068,7 +2996,7 @@
                   "sections": [
                         {
                               "professor": {
-                                    "id": 109,
+                                    "id": "109",
                                     "name": "Static Prof 10"
                               },
                               "capacity": 60,
@@ -3098,7 +3026,7 @@
                         },
                         {
                               "professor": {
-                                    "id": 109,
+                                    "id": "109",
                                     "name": "Static Prof 10"
                               },
                               "capacity": 140,
@@ -3142,7 +3070,7 @@
                   "sections": [
                         {
                               "professor": {
-                                    "id": 110,
+                                    "id": "110",
                                     "name": "Static Prof 11"
                               },
                               "capacity": 100,
@@ -3172,7 +3100,7 @@
                         },
                         {
                               "professor": {
-                                    "id": 110,
+                                    "id": "110",
                                     "name": "Static Prof 11"
                               },
                               "capacity": 100,
@@ -3216,7 +3144,7 @@
                   "sections": [
                         {
                               "professor": {
-                                    "id": 111,
+                                    "id": "111",
                                     "name": "Static Prof 12"
                               },
                               "capacity": 120,
@@ -3239,7 +3167,7 @@
                         },
                         {
                               "professor": {
-                                    "id": 111,
+                                    "id": "111",
                                     "name": "Static Prof 12"
                               },
                               "capacity": 80,
@@ -3276,7 +3204,7 @@
                   "sections": [
                         {
                               "professor": {
-                                    "id": 112,
+                                    "id": "112",
                                     "name": "Static Prof 13"
                               },
                               "capacity": 80,
@@ -3306,7 +3234,7 @@
                         },
                         {
                               "professor": {
-                                    "id": 112,
+                                    "id": "112",
                                     "name": "Static Prof 13"
                               },
                               "capacity": 120,
@@ -3350,7 +3278,7 @@
                   "sections": [
                         {
                               "professor": {
-                                    "id": 113,
+                                    "id": "113",
                                     "name": "Static Prof 14"
                               },
                               "capacity": 140,
@@ -3373,7 +3301,7 @@
                         },
                         {
                               "professor": {
-                                    "id": 113,
+                                    "id": "113",
                                     "name": "Static Prof 14"
                               },
                               "capacity": 80,
