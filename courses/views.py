@@ -5,6 +5,7 @@ import uuid
 
 from django.shortcuts import render
 from .models import Course
+from schedule.Schedule_models import A_Course
 from rest_framework.parsers import JSONParser
 from .serializers import CourseSerializer
 from django.http import HttpResponse
@@ -15,6 +16,17 @@ from rest_framework import status
 from .permissions import IsAdmin
 from rest_framework.permissions import IsAuthenticated
 
+
+def update_alg_course(course: Course) -> A_Course:
+    try:
+        a_course = A_Course.objects.get(code=course.course_code)
+    except:
+        a_course = A_Course.objects.create()
+    a_course.code = course.course_code
+    a_course.title = course.course_title
+    a_course.pengRequired = course.pengRequired
+    a_course.yearRequired = course.yearRequired
+    a_course.save()
 
 
 class AllCoursesView(APIView):
@@ -37,8 +49,8 @@ class AllCoursesView(APIView):
         serializer = CourseSerializer(data=request_data)
         
         if serializer.is_valid():
-            # TODO: update ALG_course here as well
-            serializer.create(serializer.validated_data)
+            course = serializer.create(serializer.validated_data)
+            update_alg_course(course)
             return HttpResponse(json.dumps(serializer.data), status=status.HTTP_200_OK)
         
         return HttpResponse(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
