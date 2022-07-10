@@ -6,25 +6,27 @@ from django.contrib.auth.models import User
 from .models import Course
 from .serializers import CourseSerializer
 from .permissions import IsAdmin
-from .views import CourseView, AllCoursesView
+from .views import CourseView, AllCoursesView, get_alg_course
+from schedule.Schedule_models import A_Course
+from django.db import models
 
 #Serializer Testing
-class AppUserSerializerTest(TestCase):
+class CourseSerializerTest(TestCase):
     @classmethod
     def setUp(self):
-        #build AppUser and AppUserSerializer instances
+        #build Course and CourseSerializer instances
         self.course_attributes = {
             "course_code": "SENG499",
-            "section": "A01",
+            "num_sections": 2,
             "course_title": "Design Project 2",
             "fall_offering": True,
             "spring_offering": True,
             "summer_offering": False,
-            "PENG_required": True,
+            "pengRequired": {"fall": False, "spring": True, "summer": True},
             "yearRequired": 4
         }
 
-        #serialize into an AppUser object
+        #serialize into a Course object
         self.course = Course.objects.create(**self.course_attributes)
         self.serializer = CourseSerializer(instance=self.course)
 
@@ -33,12 +35,12 @@ class AppUserSerializerTest(TestCase):
         data = self.serializer.data
         self.assertEqual(set(data.keys()), set([
             'course_code',
-            'section',
+            'num_sections',
             'course_title',
             'fall_offering',
             'spring_offering',
             'summer_offering',
-            'PENG_required',
+            'pengRequired',
             'yearRequired'
         ]))
 
@@ -46,12 +48,12 @@ class AppUserSerializerTest(TestCase):
     def test_valid_deserialization(self):
         serialized_data = {
             "course_code": "SENG499",
-            "section": "A02",
+            "num_sections": 2,
             "course_title": "Design Project 2",
             "fall_offering": True,
             "spring_offering": True,
             "summer_offering": False,
-            "PENG_required": True,
+            "pengRequired": {"fall": False, "spring": True, "summer": True},
             "yearRequired": 4
         }
 
@@ -62,12 +64,12 @@ class AppUserSerializerTest(TestCase):
     def test_create_course_object(self):
         serialized_data = {
             "course_code": "SENG321",
-            "section": "A01",
+            "num_sections": 2,
             "course_title": "Requirements Engineering",
             "fall_offering": False,
             "spring_offering": True,
             "summer_offering": False,
-            "PENG_required": True,
+            "pengRequired": {"fall": False, "spring": True, "summer": True},
             "yearRequired": 4
         }
 
@@ -88,21 +90,72 @@ class AppUserSerializerTest(TestCase):
         #update the Course order by referencing an existing instance
         new_serialized_data = {
             "course_code": "SENG499",
-            "section": "A01",
+            "num_sections": 2,
             "course_title": "Design Project 2 with daniella", #updated
             "fall_offering": True,
             "spring_offering": False, #updated
             "summer_offering": False,
-            "PENG_required": True,
+            "pengRequired": {"fall": False, "spring": True, "summer": True},
             "yearRequired": 4
         }
         serializer = CourseSerializer(instance=course_object, data=new_serialized_data)
         self.assertTrue(serializer.is_valid())
-        new_course_object = serializer.save()
+        new_course_object: Course = serializer.save()
         updated_obj_key = new_course_object.pk
 
         #assert that the same instance was updated, and updated as expected
         # self.assertEquals(updated_obj_key, obj_key)
         self.assertEquals(Course.objects.get(pk=obj_key).course_title, new_serialized_data['course_title'])
         self.assertEquals(Course.objects.get(pk=obj_key).spring_offering, new_serialized_data['spring_offering'])
-    
+
+    def test_get_alg_course_create(self):
+        course = self.course
+        alg_course = get_alg_course(course)
+        self.assertEquals(course.course_code, alg_course.code)
+        self.assertEquals(course.course_title, alg_course.title)
+        self.assertEquals(course.pengRequired, alg_course.pengRequired)
+        self.assertEquals(course.yearRequired, alg_course.yearRequired)
+
+    def test_get_alg_course_update(self):
+        course = self.course
+        alg_course = A_Course()
+        alg_course.code = course.course_code
+        self.assertEquals(course.course_code, alg_course.code)
+        self.assertNotEquals(course.course_title, alg_course.title)
+        self.assertNotEquals(course.pengRequired, alg_course.pengRequired)
+        self.assertNotEquals(course.yearRequired, alg_course.yearRequired)
+        alg_course = get_alg_course(course)
+        self.assertEquals(course.course_code, alg_course.code)
+        self.assertEquals(course.course_title, alg_course.title)
+        self.assertEquals(course.pengRequired, alg_course.pengRequired)
+        self.assertEquals(course.yearRequired, alg_course.yearRequired)
+        try:
+            alg_course2 = A_Course.objects.get(code=alg_course.code)
+            self.fail()
+        except A_Course.DoesNotExist:
+            pass  # expected behaviour
+        alg_course.save()
+        alg_course2 = A_Course.objects.get(code=alg_course.code)
+        self.assertEquals(course.course_code, alg_course2.code)
+        self.assertEquals(course.course_title, alg_course2.title)
+        self.assertEquals(course.pengRequired, alg_course2.pengRequired)
+        self.assertEquals(course.yearRequired, alg_course2.yearRequired)
+
+    def test_get_alg_course_delete(self):
+        course = self.course
+        alg_course = A_Course()
+        alg_course.code = course.course_code
+        self.assertEquals(course.course_code, alg_course.code)
+        self.assertNotEquals(course.course_title, alg_course.title)
+        self.assertNotEquals(course.pengRequired, alg_course.pengRequired)
+        self.assertNotEquals(course.yearRequired, alg_course.yearRequired)
+        alg_course = get_alg_course(course)
+        alg_course.save()
+        alg_course2 = A_Course.objects.get(code=alg_course.code)
+        alg_course.delete()
+        try:
+            alg_course2 = A_Course.objects.get(code=alg_course.code)
+            self.fail()
+        except A_Course.DoesNotExist:
+            pass  # expected behaviour
+

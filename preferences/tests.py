@@ -70,11 +70,6 @@ class PreferencesSerializerTest(TestCase):
                 "spring": "2",
                 "summer": "3"
             },
-           "preferred_number_teaching_days": {
-                "fall": 1,
-                "spring": 2,
-                "summer": 5
-            },
            "preferred_course_day_spreads": [
                 "TWF",
                 "Th"
@@ -98,7 +93,6 @@ class PreferencesSerializerTest(TestCase):
             'courses_preferences',
             'preferred_non_teaching_semester',
             'preferred_courses_per_semester',
-            'preferred_number_teaching_days',
             'preferred_course_day_spreads'
             ]))
 
@@ -135,11 +129,6 @@ class PreferencesSerializerTest(TestCase):
                 "fall": "1",
                 "spring": "2",
                 "summer": "3"
-            },
-            "preferred_number_teaching_days": {
-                "fall": 1,
-                "spring": 2,
-                "summer": 5
             },
            "preferred_course_day_spreads": [
                 "TWF",
@@ -205,11 +194,6 @@ class PreferencesSerializerTest(TestCase):
                 "spring": "0",
                 "summer": "0"
             },
-            "preferred_number_teaching_days": {
-                "fall": 3,
-                "spring": 0,
-                "summer": 0
-            },
            "preferred_course_day_spreads": [
                 "TWF",
                 "T",
@@ -257,11 +241,6 @@ class PreferencesSerializerTest(TestCase):
                     "fall": "1",
                     "spring": "2",
                     "summer": "3"
-                },
-            "preferred_number_teaching_days": {
-                    "fall": 1,
-                    "spring": 2,
-                    "summer": 5
                 },
             "preferred_course_day_spreads": [
                     "TWF",
@@ -338,11 +317,6 @@ class AdminSidePreferencesRecordViewTest(TestCase):
                     "spring": "2",
                     "summer": "3"
                 },
-            "preferred_number_teaching_days": {
-                    "fall": 1,
-                    "spring": 2,
-                    "summer": 5
-                },
             "preferred_course_day_spreads": [
                     "TWF",
                     "Th"
@@ -390,11 +364,6 @@ class AdminSidePreferencesRecordViewTest(TestCase):
                     "spring": "2",
                     "summer": "3"
                 },
-            "preferred_number_teaching_days": {
-                    "fall": 1,
-                    "spring": 2,
-                    "summer": 5
-                },
             "preferred_course_day_spreads": [
                     "TWF",
                     "Th"
@@ -415,6 +384,7 @@ class AdminSidePreferencesRecordViewTest(TestCase):
         self.assertIsNotNone(response)
         self.assertEqual(status.HTTP_200_OK, response.status_code)
         self.assertContains(response, "{\"professor\": \"johnd1\", \"is_submitted\": true")
+        self.assertContains(response, "\"course_codes\": [")
 
 
     def test_preferences_record_GET__not_found(self):
@@ -524,12 +494,7 @@ class UserSidePreferencesRecordViewTest(TestCase):
                     "spring": "2",
                     "summer": "3"
                 },
-            "preferred_number_teaching_days": {
-                    "fall": 1,
-                    "spring": 2,
-                    "summer": 5
-                },
-            
+
             "preferred_course_day_spreads": [
                     "TWF",
                     "Th"
@@ -572,11 +537,6 @@ class UserSidePreferencesRecordViewTest(TestCase):
             "spring": "2",
             "summer": "3"
         },
-            "preferred_number_teaching_days": {
-                "fall": 1,
-                "spring": 2,
-                "summer": 5
-            },
             "preferred_course_day_spreads": [
                 "TWF",
                 "Th"
@@ -653,6 +613,7 @@ class UserSidePreferencesRecordViewTest(TestCase):
         response: HttpResponse = client.get("/api/preferences/")
         self.assertIsNotNone(response)
         self.assertEquals(status.HTTP_200_OK, response.status_code)
+        self.assertContains(response, "\"course_codes\": [")
 
     def test_POST_create_preferences(self): 
         response: HttpResponse = self.post_default_user()
