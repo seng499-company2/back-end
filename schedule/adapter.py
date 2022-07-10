@@ -17,7 +17,7 @@ def course_to_alg_dictionary(course: Course) -> None or typing.Dict[str, str or 
 def course_to_alg_course(course: Course) -> None or A_Course:
     try:
         a_course = A_Course.objects.get(code=course.course_code)
-    except:
+    except A_Course.DoesNotExist:
         a_course = A_Course()
     a_course.code = course.course_code
     a_course.title = course.course_title
@@ -25,3 +25,13 @@ def course_to_alg_course(course: Course) -> None or A_Course:
     a_course.yearRequired = course.yearRequired
     a_course.save()
     return a_course
+
+
+def remove_state(input_dict):
+    del(input_dict["_state"])
+    return input_dict
+
+
+def remove_id(input_dict):
+    del(input_dict["id"])
+    return input_dict

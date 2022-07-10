@@ -18,10 +18,29 @@ def get_program_enrollment_data() -> typing.Dict[str, str]:
 
 def get_schedule():
     courses = Course.objects.all()
-    courses_dict_list = list(map(course_to_alg_dictionary, courses))
-    # TODO: format courses_dict_list into properly formatted schedule dictionary
-    schedule = courses_dict_list
+    fall_courses: [Course] = list(filter(lambda course: course.spring_offering, courses))
+    spring_courses: [Course] = list(filter(lambda course: course.spring_offering, courses))
+    summer_courses: [Course] = list(filter(lambda course: course.summer_offering, courses))
+    fall_course_offerings = get_course_offerings(fall_courses)
+    spring_course_offerings = get_course_offerings(spring_courses)
+    summer_course_offerings = get_course_offerings(summer_courses)
+    schedule = {"fall": fall_course_offerings,
+                "spring": spring_course_offerings,
+                "summer": summer_course_offerings
+                }
+    print(schedule)
     return schedule
+
+
+def get_course_offerings(courses):
+    alg_course_dicts = list(map(course_to_alg_dictionary, courses))
+    course_offerings = []
+    for alg_course_dict in alg_course_dicts:
+        section1 = {"professor": "", "capacity": "", "timeslots": ""}
+        section2 = {"professor": "", "capacity": "", "timeslots": ""}
+        course_offering = {"course": alg_course_dict, "sections": [section1, section2]}
+        course_offerings.append(course_offering)
+    return course_offerings
 
 
 def get_professor_dict():
