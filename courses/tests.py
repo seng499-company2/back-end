@@ -20,7 +20,7 @@ class CourseSerializerTest(TestCase):
             "fall_offering": True,
             "spring_offering": True,
             "summer_offering": False,
-            "pengRequired": True,
+            "pengRequired": {"fall": False, "spring": True, "summer": True},
             "yearRequired": 4
         }
 
@@ -51,7 +51,7 @@ class CourseSerializerTest(TestCase):
             "fall_offering": True,
             "spring_offering": True,
             "summer_offering": False,
-            "pengRequired": True,
+            "pengRequired": {"fall": False, "spring": True, "summer": True},
             "yearRequired": 4
         }
 
@@ -67,7 +67,7 @@ class CourseSerializerTest(TestCase):
             "fall_offering": False,
             "spring_offering": True,
             "summer_offering": False,
-            "pengRequired": True,
+            "pengRequired": {"fall": False, "spring": True, "summer": True},
             "yearRequired": 4
         }
 
@@ -93,7 +93,7 @@ class CourseSerializerTest(TestCase):
             "fall_offering": True,
             "spring_offering": False, #updated
             "summer_offering": False,
-            "pengRequired": True,
+            "pengRequired": {"fall": False, "spring": True, "summer": True},
             "yearRequired": 4
         }
         serializer = CourseSerializer(instance=course_object, data=new_serialized_data)
