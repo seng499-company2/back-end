@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 # Pull official python base image
-FROM python:3
+FROM python:3.10
 
 # Prevent python from writing out pyc files
 ENV PYTHONDONTWRITEBYTECODE=1

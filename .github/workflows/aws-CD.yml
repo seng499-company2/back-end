@@ -47,4 +47,5 @@ jobs:
             rm -rf .env
             docker kill $(docker ps -q)
             docker rmi $(docker images -q) -f
+            yes | docker system prune
             yes | docker-compose -f docker-compose.prod.yml up --build -d
