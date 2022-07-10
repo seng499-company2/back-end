@@ -80,7 +80,6 @@ class CourseView(APIView):
             return HttpResponse(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
         try:
-            # TODO: update ALG_course here as well
             course = Course.objects.get(course_code=course_code)
             if course is None or not isinstance(course, Course):
                 return HttpResponse(status=status.HTTP_404_NOT_FOUND)

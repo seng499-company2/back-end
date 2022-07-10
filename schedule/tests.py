@@ -56,19 +56,20 @@ class ViewTest(TestCase):
     def test_trivial(self):
         course_attributes = {
             "course_code": "SENG499",
-            "section": "A01",
+            "num_sections": 2,
             "course_title": "Design Project 2",
             "fall_offering": True,
             "spring_offering": True,
             "summer_offering": False,
-            "PENG_required": True
+            "pengRequired": {"fall": False, "spring": True, "summer": True},
+            "yearRequired": 4
         }
         course = Course.objects.create(**course_attributes)
         course_dict = course_to_alg_dictionary(course)
         self.assertIsNotNone(course_dict)
         self.assertEquals("SENG499", course_dict["code"])
         self.assertEquals("Design Project 2", course_dict["title"])
-        self.assertEquals(True, course_dict["pengRequired"])
+        self.assertEquals(False, course_dict["pengRequired"]["fall"])
         self.assertEquals(4, course_dict["yearRequired"])
         try:
             state = course_dict["_state"]
