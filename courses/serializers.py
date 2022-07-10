@@ -8,17 +8,18 @@ import uuid
 # Create your serializers here.
 
 class CourseSerializer(serializers.ModelSerializer):
-    course_code = serializers.CharField()
-    section = serializers.CharField()
+    course_code = serializers.CharField(required=True)
+    num_sections = serializers.IntegerField(max_value=None, min_value=0)
     course_title = serializers.CharField()
     fall_offering = serializers.BooleanField()
     spring_offering = serializers.BooleanField()
     summer_offering = serializers.BooleanField()
-    PENG_required = serializers.BooleanField()
+    pengRequired = serializers.JSONField()
+    yearRequired = serializers.IntegerField()
 
     class Meta:
         model = Course
-        fields = ('course_code', 'section', 'course_title', 'fall_offering', 'spring_offering', 'summer_offering', 'PENG_required')
+        fields = ('course_code', 'num_sections', 'course_title', 'fall_offering', 'spring_offering', 'summer_offering', 'pengRequired', 'yearRequired')
     
     def create(self, validated_data):
         try:
@@ -34,10 +35,9 @@ class CourseSerializer(serializers.ModelSerializer):
     def update(self, instance, validated_data):
 
         course_code = validated_data.pop('course_code')
-        section = validated_data.pop('section')
 
         try:
-            course_object = Course.objects.get(course_code=course_code, section=section)
+            course_object = Course.objects.get(course_code=course_code)
         except Course.models.DoesNotExist:
             raise serializers.ValidationError({"error": "The associated course object does not exist!"})
 

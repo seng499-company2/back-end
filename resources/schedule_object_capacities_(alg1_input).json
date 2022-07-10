@@ -1,0 +1,3400 @@
+{
+      "fall": [
+            {
+                  "course": {
+                        "code": "CSC111",
+                        "title": "Fundamentals of Programming with Engineering Applications",
+                        "pengRequired": {
+                              "fall": true,
+                              "spring": true,
+                              "summer": false
+                        },
+                        "yearRequired": 1
+                  },
+                  "sections": [
+                        {
+                              "professor": null,
+                              "capacity": 140,
+                              "timeSlots": []
+                        },
+                        {
+                              "professor": null,
+                              "capacity": 60,
+                              "timeSlots": []
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "CSC115",
+                        "title": "Fundamentals of Programming II",
+                        "pengRequired": {
+                              "fall": true,
+                              "spring": true,
+                              "summer": true
+                        },
+                        "yearRequired": 1
+                  },
+                  "sections": [
+                        {
+                              "professor": null,
+                              "capacity": 100,
+                              "timeSlots": []
+                        },
+                        {
+                              "professor": null,
+                              "capacity": 100,
+                              "timeSlots": []
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "CSC230",
+                        "title": "Introduction to Computer Architecture",
+                        "pengRequired": {
+                              "fall": true,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 2
+                  },
+                  "sections": [
+                        {
+                              "professor": null,
+                              "capacity": 140,
+                              "timeSlots": []
+                        },
+                        {
+                              "professor": null,
+                              "capacity": 120,
+                              "timeSlots": []
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "ECE255",
+                        "title": "Introduction to Computer Architecture",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 2
+                  },
+                  "sections": [
+                        {
+                              "professor": null,
+                              "capacity": 140,
+                              "timeSlots": []
+                        },
+                        {
+                              "professor": null,
+                              "capacity": 120,
+                              "timeSlots": []
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "ECE260",
+                        "title": "Continuous-Time Signals and Systems",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 2
+                  },
+                  "sections": [
+                        {
+                              "professor": null,
+                              "capacity": 80,
+                              "timeSlots": []
+                        },
+                        {
+                              "professor": null,
+                              "capacity": 60,
+                              "timeSlots": []
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "SENG265",
+                        "title": "Software Development Methods",
+                        "pengRequired": {
+                              "fall": true,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 2
+                  },
+                  "sections": [
+                        {
+                              "professor": null,
+                              "capacity": 140,
+                              "timeSlots": []
+                        },
+                        {
+                              "professor": null,
+                              "capacity": 120,
+                              "timeSlots": []
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "CSC225",
+                        "title": "Algorithms and Data Structures I",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 2
+                  },
+                  "sections": [
+                        {
+                              "professor": null,
+                              "capacity": 120,
+                              "timeSlots": []
+                        },
+                        {
+                              "professor": null,
+                              "capacity": 60,
+                              "timeSlots": []
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "SENG310",
+                        "title": "Human Computer Interaction",
+                        "pengRequired": {
+                              "fall": true,
+                              "spring": true,
+                              "summer": true
+                        },
+                        "yearRequired": 2
+                  },
+                  "sections": [
+                        {
+                              "professor": null,
+                              "capacity": 80,
+                              "timeSlots": []
+                        },
+                        {
+                              "professor": null,
+                              "capacity": 120,
+                              "timeSlots": []
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "ECE458",
+                        "title": "Communication Networks",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 3
+                  },
+                  "sections": [
+                        {
+                              "professor": null,
+                              "capacity": 100,
+                              "timeSlots": []
+                        },
+                        {
+                              "professor": null,
+                              "capacity": 60,
+                              "timeSlots": []
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "CSC361",
+                        "title": "Computer Communications and Networks",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": true,
+                              "summer": false
+                        },
+                        "yearRequired": 3
+                  },
+                  "sections": [
+                        {
+                              "professor": null,
+                              "capacity": 60,
+                              "timeSlots": []
+                        },
+                        {
+                              "professor": null,
+                              "capacity": 120,
+                              "timeSlots": []
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "CSC226",
+                        "title": "Algorithms and Data Structures II",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 3
+                  },
+                  "sections": [
+                        {
+                              "professor": null,
+                              "capacity": 120,
+                              "timeSlots": []
+                        },
+                        {
+                              "professor": null,
+                              "capacity": 80,
+                              "timeSlots": []
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "ECE360",
+                        "title": "Control Theory and Systems I",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 3
+                  },
+                  "sections": [
+                        {
+                              "professor": null,
+                              "capacity": 80,
+                              "timeSlots": []
+                        },
+                        {
+                              "professor": null,
+                              "capacity": 60,
+                              "timeSlots": []
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "SENG321",
+                        "title": "Requirements Engineering",
+                        "pengRequired": {
+                              "fall": true,
+                              "spring": true,
+                              "summer": false
+                        },
+                        "yearRequired": 3
+                  },
+                  "sections": [
+                        {
+                              "professor": null,
+                              "capacity": 140,
+                              "timeSlots": []
+                        },
+                        {
+                              "professor": null,
+                              "capacity": 60,
+                              "timeSlots": []
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "ECE355",
+                        "title": "Microprocessor-Based Systems",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 3
+                  },
+                  "sections": [
+                        {
+                              "professor": null,
+                              "capacity": 60,
+                              "timeSlots": []
+                        },
+                        {
+                              "professor": null,
+                              "capacity": 100,
+                              "timeSlots": []
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "CSC355",
+                        "title": "Digital Logic and Computer Organization",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 3
+                  },
+                  "sections": [
+                        {
+                              "professor": null,
+                              "capacity": 80,
+                              "timeSlots": []
+                        },
+                        {
+                              "professor": null,
+                              "capacity": 140,
+                              "timeSlots": []
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "CSC320",
+                        "title": "Foundations of Computer Science",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 3
+                  },
+                  "sections": [
+                        {
+                              "professor": null,
+                              "capacity": 100,
+                              "timeSlots": []
+                        },
+                        {
+                              "professor": null,
+                              "capacity": 140,
+                              "timeSlots": []
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "CSC360",
+                        "title": "Operating Systems",
+                        "pengRequired": {
+                              "fall": true,
+                              "spring": true,
+                              "summer": false
+                        },
+                        "yearRequired": 3
+                  },
+                  "sections": [
+                        {
+                              "professor": null,
+                              "capacity": 60,
+                              "timeSlots": []
+                        },
+                        {
+                              "professor": null,
+                              "capacity": 140,
+                              "timeSlots": []
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "CSC370",
+                        "title": "Database Systems",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 3
+                  },
+                  "sections": [
+                        {
+                              "professor": null,
+                              "capacity": 140,
+                              "timeSlots": []
+                        },
+                        {
+                              "professor": null,
+                              "capacity": 80,
+                              "timeSlots": []
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "SENG350",
+                        "title": "Software Architecture and Design",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 3
+                  },
+                  "sections": [
+                        {
+                              "professor": null,
+                              "capacity": 140,
+                              "timeSlots": []
+                        },
+                        {
+                              "professor": null,
+                              "capacity": 60,
+                              "timeSlots": []
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "SENG360",
+                        "title": "Security Engineering",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 3
+                  },
+                  "sections": [
+                        {
+                              "professor": null,
+                              "capacity": 100,
+                              "timeSlots": []
+                        },
+                        {
+                              "professor": null,
+                              "capacity": 120,
+                              "timeSlots": []
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "ENGR110",
+                        "title": "Design and Communication I",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 1
+                  },
+                  "sections": [
+                        {
+                              "professor": {
+                                    "id": 100,
+                                    "name": "Static Prof 1"
+                              },
+                              "capacity": 140,
+                              "timeSlots": [
+                                    {
+                                          "dayOfWeek": "TUESDAY",
+                                          "timeRange": [
+                                                "8:30",
+                                                "9:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "WEDNESDAY",
+                                          "timeRange": [
+                                                "8:30",
+                                                "9:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "FRIDAY",
+                                          "timeRange": [
+                                                "8:30",
+                                                "9:20"
+                                          ]
+                                    }
+                              ]
+                        },
+                        {
+                              "professor": {
+                                    "id": 100,
+                                    "name": "Static Prof 1"
+                              },
+                              "capacity": 80,
+                              "timeSlots": [
+                                    {
+                                          "dayOfWeek": "TUESDAY",
+                                          "timeRange": [
+                                                "8:30",
+                                                "9:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "WEDNESDAY",
+                                          "timeRange": [
+                                                "8:30",
+                                                "9:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "FRIDAY",
+                                          "timeRange": [
+                                                "8:30",
+                                                "9:20"
+                                          ]
+                                    }
+                              ]
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "ENGR130",
+                        "title": "Introduction to Professional Practice",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 1
+                  },
+                  "sections": [
+                        {
+                              "professor": {
+                                    "id": 101,
+                                    "name": "Static Prof 2"
+                              },
+                              "capacity": 140,
+                              "timeSlots": [
+                                    {
+                                          "dayOfWeek": "MONDAY",
+                                          "timeRange": [
+                                                "8:30",
+                                                "9:50"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "THURSDAY",
+                                          "timeRange": [
+                                                "8:30",
+                                                "9:50"
+                                          ]
+                                    }
+                              ]
+                        },
+                        {
+                              "professor": {
+                                    "id": 101,
+                                    "name": "Static Prof 2"
+                              },
+                              "capacity": 120,
+                              "timeSlots": [
+                                    {
+                                          "dayOfWeek": "MONDAY",
+                                          "timeRange": [
+                                                "8:30",
+                                                "9:50"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "THURSDAY",
+                                          "timeRange": [
+                                                "8:30",
+                                                "9:50"
+                                          ]
+                                    }
+                              ]
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "MATH100",
+                        "title": "Calculus I",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 1
+                  },
+                  "sections": [
+                        {
+                              "professor": {
+                                    "id": 102,
+                                    "name": "Static Prof 3"
+                              },
+                              "capacity": 80,
+                              "timeSlots": [
+                                    {
+                                          "dayOfWeek": "TUESDAY",
+                                          "timeRange": [
+                                                "9:30",
+                                                "10:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "WEDNESDAY",
+                                          "timeRange": [
+                                                "9:30",
+                                                "10:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "FRIDAY",
+                                          "timeRange": [
+                                                "9:30",
+                                                "10:20"
+                                          ]
+                                    }
+                              ]
+                        },
+                        {
+                              "professor": {
+                                    "id": 102,
+                                    "name": "Static Prof 3"
+                              },
+                              "capacity": 80,
+                              "timeSlots": [
+                                    {
+                                          "dayOfWeek": "TUESDAY",
+                                          "timeRange": [
+                                                "9:30",
+                                                "10:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "WEDNESDAY",
+                                          "timeRange": [
+                                                "9:30",
+                                                "10:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "FRIDAY",
+                                          "timeRange": [
+                                                "9:30",
+                                                "10:20"
+                                          ]
+                                    }
+                              ]
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "MATH109",
+                        "title": "Introduciton to Calculus",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 1
+                  },
+                  "sections": [
+                        {
+                              "professor": {
+                                    "id": 103,
+                                    "name": "Static Prof 4"
+                              },
+                              "capacity": 140,
+                              "timeSlots": [
+                                    {
+                                          "dayOfWeek": "MONDAY",
+                                          "timeRange": [
+                                                "10:00",
+                                                "11:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "THURSDAY",
+                                          "timeRange": [
+                                                "10:00",
+                                                "11:20"
+                                          ]
+                                    }
+                              ]
+                        },
+                        {
+                              "professor": {
+                                    "id": 103,
+                                    "name": "Static Prof 4"
+                              },
+                              "capacity": 140,
+                              "timeSlots": [
+                                    {
+                                          "dayOfWeek": "MONDAY",
+                                          "timeRange": [
+                                                "10:00",
+                                                "11:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "THURSDAY",
+                                          "timeRange": [
+                                                "10:00",
+                                                "11:20"
+                                          ]
+                                    }
+                              ]
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "MATH110",
+                        "title": "Matrix Algebra for Engineers",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 1
+                  },
+                  "sections": [
+                        {
+                              "professor": {
+                                    "id": 104,
+                                    "name": "Static Prof 5"
+                              },
+                              "capacity": 120,
+                              "timeSlots": [
+                                    {
+                                          "dayOfWeek": "TUESDAY",
+                                          "timeRange": [
+                                                "10:30",
+                                                "11:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "WEDNESDAY",
+                                          "timeRange": [
+                                                "10:30",
+                                                "11:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "FRIDAY",
+                                          "timeRange": [
+                                                "10:30",
+                                                "11:20"
+                                          ]
+                                    }
+                              ]
+                        },
+                        {
+                              "professor": {
+                                    "id": 104,
+                                    "name": "Static Prof 5"
+                              },
+                              "capacity": 80,
+                              "timeSlots": [
+                                    {
+                                          "dayOfWeek": "TUESDAY",
+                                          "timeRange": [
+                                                "10:30",
+                                                "11:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "WEDNESDAY",
+                                          "timeRange": [
+                                                "10:30",
+                                                "11:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "FRIDAY",
+                                          "timeRange": [
+                                                "10:30",
+                                                "11:20"
+                                          ]
+                                    }
+                              ]
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "PHYS110",
+                        "title": "Introductory Physics",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 1
+                  },
+                  "sections": [
+                        {
+                              "professor": {
+                                    "id": 105,
+                                    "name": "Static Prof 6"
+                              },
+                              "capacity": 140,
+                              "timeSlots": [
+                                    {
+                                          "dayOfWeek": "MONDAY",
+                                          "timeRange": [
+                                                "11:30",
+                                                "12:50"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "THURSDAY",
+                                          "timeRange": [
+                                                "11:30",
+                                                "12:50"
+                                          ]
+                                    }
+                              ]
+                        },
+                        {
+                              "professor": {
+                                    "id": 105,
+                                    "name": "Static Prof 6"
+                              },
+                              "capacity": 100,
+                              "timeSlots": [
+                                    {
+                                          "dayOfWeek": "MONDAY",
+                                          "timeRange": [
+                                                "11:30",
+                                                "12:50"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "THURSDAY",
+                                          "timeRange": [
+                                                "11:30",
+                                                "12:50"
+                                          ]
+                                    }
+                              ]
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "MATH101",
+                        "title": "Calculus II",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 1
+                  },
+                  "sections": [
+                        {
+                              "professor": {
+                                    "id": 108,
+                                    "name": "Static Prof 9"
+                              },
+                              "capacity": 100,
+                              "timeSlots": [
+                                    {
+                                          "dayOfWeek": "TUESDAY",
+                                          "timeRange": [
+                                                "11:30",
+                                                "12:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "WEDNESDAY",
+                                          "timeRange": [
+                                                "11:30",
+                                                "12:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "FRIDAY",
+                                          "timeRange": [
+                                                "11:30",
+                                                "12:20"
+                                          ]
+                                    }
+                              ]
+                        },
+                        {
+                              "professor": {
+                                    "id": 108,
+                                    "name": "Static Prof 9"
+                              },
+                              "capacity": 100,
+                              "timeSlots": [
+                                    {
+                                          "dayOfWeek": "TUESDAY",
+                                          "timeRange": [
+                                                "11:30",
+                                                "12:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "WEDNESDAY",
+                                          "timeRange": [
+                                                "11:30",
+                                                "12:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "FRIDAY",
+                                          "timeRange": [
+                                                "11:30",
+                                                "12:20"
+                                          ]
+                                    }
+                              ]
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "CHEM101",
+                        "title": "Properties of Materials",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 2
+                  },
+                  "sections": [
+                        {
+                              "professor": {
+                                    "id": 110,
+                                    "name": "Static Prof 11"
+                              },
+                              "capacity": 140,
+                              "timeSlots": [
+                                    {
+                                          "dayOfWeek": "TUESDAY",
+                                          "timeRange": [
+                                                "8:30",
+                                                "9:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "WEDNESDAY",
+                                          "timeRange": [
+                                                "8:30",
+                                                "9:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "FRIDAY",
+                                          "timeRange": [
+                                                "8:30",
+                                                "9:20"
+                                          ]
+                                    }
+                              ]
+                        },
+                        {
+                              "professor": {
+                                    "id": 110,
+                                    "name": "Static Prof 11"
+                              },
+                              "capacity": 80,
+                              "timeSlots": [
+                                    {
+                                          "dayOfWeek": "TUESDAY",
+                                          "timeRange": [
+                                                "8:30",
+                                                "9:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "WEDNESDAY",
+                                          "timeRange": [
+                                                "8:30",
+                                                "9:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "FRIDAY",
+                                          "timeRange": [
+                                                "8:30",
+                                                "9:20"
+                                          ]
+                                    }
+                              ]
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "MATH122",
+                        "title": "Logic and Foundations",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 2
+                  },
+                  "sections": [
+                        {
+                              "professor": {
+                                    "id": 111,
+                                    "name": "Static Prof 12"
+                              },
+                              "capacity": 140,
+                              "timeSlots": [
+                                    {
+                                          "dayOfWeek": "MONDAY",
+                                          "timeRange": [
+                                                "8:30",
+                                                "9:50"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "THURSDAY",
+                                          "timeRange": [
+                                                "8:30",
+                                                "9:50"
+                                          ]
+                                    }
+                              ]
+                        },
+                        {
+                              "professor": {
+                                    "id": 111,
+                                    "name": "Static Prof 12"
+                              },
+                              "capacity": 60,
+                              "timeSlots": [
+                                    {
+                                          "dayOfWeek": "MONDAY",
+                                          "timeRange": [
+                                                "8:30",
+                                                "9:50"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "THURSDAY",
+                                          "timeRange": [
+                                                "8:30",
+                                                "9:50"
+                                          ]
+                                    }
+                              ]
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "STAT260",
+                        "title": "Introduction to Probability and Statistics I",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 2
+                  },
+                  "sections": [
+                        {
+                              "professor": {
+                                    "id": 112,
+                                    "name": "Static Prof 13"
+                              },
+                              "capacity": 120,
+                              "timeSlots": [
+                                    {
+                                          "dayOfWeek": "TUESDAY",
+                                          "timeRange": [
+                                                "9:30",
+                                                "10:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "WEDNESDAY",
+                                          "timeRange": [
+                                                "9:30",
+                                                "10:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "FRIDAY",
+                                          "timeRange": [
+                                                "9:30",
+                                                "10:20"
+                                          ]
+                                    }
+                              ]
+                        },
+                        {
+                              "professor": {
+                                    "id": 112,
+                                    "name": "Static Prof 13"
+                              },
+                              "capacity": 140,
+                              "timeSlots": [
+                                    {
+                                          "dayOfWeek": "TUESDAY",
+                                          "timeRange": [
+                                                "9:30",
+                                                "10:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "WEDNESDAY",
+                                          "timeRange": [
+                                                "9:30",
+                                                "10:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "FRIDAY",
+                                          "timeRange": [
+                                                "9:30",
+                                                "10:20"
+                                          ]
+                                    }
+                              ]
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "ECON180",
+                        "title": "Introduction to Principles of Microeconomics and Financial Project Evaluation",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 2
+                  },
+                  "sections": [
+                        {
+                              "professor": {
+                                    "id": 113,
+                                    "name": "Static Prof 14"
+                              },
+                              "capacity": 80,
+                              "timeSlots": [
+                                    {
+                                          "dayOfWeek": "MONDAY",
+                                          "timeRange": [
+                                                "10:00",
+                                                "11:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "THURSDAY",
+                                          "timeRange": [
+                                                "10:00",
+                                                "11:20"
+                                          ]
+                                    }
+                              ]
+                        },
+                        {
+                              "professor": {
+                                    "id": 113,
+                                    "name": "Static Prof 14"
+                              },
+                              "capacity": 140,
+                              "timeSlots": [
+                                    {
+                                          "dayOfWeek": "MONDAY",
+                                          "timeRange": [
+                                                "10:00",
+                                                "11:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "THURSDAY",
+                                          "timeRange": [
+                                                "10:00",
+                                                "11:20"
+                                          ]
+                                    }
+                              ]
+                        }
+                  ]
+            }
+      ],
+      "spring": [
+            {
+                  "course": {
+                        "code": "CSC111",
+                        "title": "Fundamentals of Programming with Engineering Applications",
+                        "pengRequired": {
+                              "fall": true,
+                              "spring": true,
+                              "summer": false
+                        },
+                        "yearRequired": 1
+                  },
+                  "sections": [
+                        {
+                              "professor": null,
+                              "capacity": 120,
+                              "timeSlots": []
+                        },
+                        {
+                              "professor": null,
+                              "capacity": 80,
+                              "timeSlots": []
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "CSC115",
+                        "title": "Fundamentals of Programming II",
+                        "pengRequired": {
+                              "fall": true,
+                              "spring": true,
+                              "summer": true
+                        },
+                        "yearRequired": 1
+                  },
+                  "sections": [
+                        {
+                              "professor": null,
+                              "capacity": 80,
+                              "timeSlots": []
+                        },
+                        {
+                              "professor": null,
+                              "capacity": 80,
+                              "timeSlots": []
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "CSC230",
+                        "title": "Introduction to Computer Architecture",
+                        "pengRequired": {
+                              "fall": true,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 2
+                  },
+                  "sections": [
+                        {
+                              "professor": null,
+                              "capacity": 60,
+                              "timeSlots": []
+                        },
+                        {
+                              "professor": null,
+                              "capacity": 60,
+                              "timeSlots": []
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "ECE255",
+                        "title": "Introduction to Computer Architecture",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 2
+                  },
+                  "sections": [
+                        {
+                              "professor": null,
+                              "capacity": 140,
+                              "timeSlots": []
+                        },
+                        {
+                              "professor": null,
+                              "capacity": 100,
+                              "timeSlots": []
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "SENG265",
+                        "title": "Software Development Methods",
+                        "pengRequired": {
+                              "fall": true,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 2
+                  },
+                  "sections": [
+                        {
+                              "professor": null,
+                              "capacity": 140,
+                              "timeSlots": []
+                        },
+                        {
+                              "professor": null,
+                              "capacity": 140,
+                              "timeSlots": []
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "CSC225",
+                        "title": "Algorithms and Data Structures I",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 2
+                  },
+                  "sections": [
+                        {
+                              "professor": null,
+                              "capacity": 120,
+                              "timeSlots": []
+                        },
+                        {
+                              "professor": null,
+                              "capacity": 100,
+                              "timeSlots": []
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "ECE310",
+                        "title": "Digital Signal Processing I",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 2
+                  },
+                  "sections": [
+                        {
+                              "professor": null,
+                              "capacity": 80,
+                              "timeSlots": []
+                        },
+                        {
+                              "professor": null,
+                              "capacity": 140,
+                              "timeSlots": []
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "SENG275",
+                        "title": "Software Testing",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": true,
+                              "summer": true
+                        },
+                        "yearRequired": 2
+                  },
+                  "sections": [
+                        {
+                              "professor": null,
+                              "capacity": 100,
+                              "timeSlots": []
+                        },
+                        {
+                              "professor": null,
+                              "capacity": 100,
+                              "timeSlots": []
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "SENG310",
+                        "title": "Human Computer Interaction",
+                        "pengRequired": {
+                              "fall": true,
+                              "spring": true,
+                              "summer": true
+                        },
+                        "yearRequired": 2
+                  },
+                  "sections": [
+                        {
+                              "professor": null,
+                              "capacity": 80,
+                              "timeSlots": []
+                        },
+                        {
+                              "professor": null,
+                              "capacity": 80,
+                              "timeSlots": []
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "ECE458",
+                        "title": "Communication Networks",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 3
+                  },
+                  "sections": [
+                        {
+                              "professor": null,
+                              "capacity": 100,
+                              "timeSlots": []
+                        },
+                        {
+                              "professor": null,
+                              "capacity": 120,
+                              "timeSlots": []
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "CSC361",
+                        "title": "Computer Communications and Networks",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": true,
+                              "summer": false
+                        },
+                        "yearRequired": 3
+                  },
+                  "sections": [
+                        {
+                              "professor": null,
+                              "capacity": 100,
+                              "timeSlots": []
+                        },
+                        {
+                              "professor": null,
+                              "capacity": 120,
+                              "timeSlots": []
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "CSC226",
+                        "title": "Algorithms and Data Structures II",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 3
+                  },
+                  "sections": [
+                        {
+                              "professor": null,
+                              "capacity": 140,
+                              "timeSlots": []
+                        },
+                        {
+                              "professor": null,
+                              "capacity": 120,
+                              "timeSlots": []
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "ECE360",
+                        "title": "Control Theory and Systems I",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 3
+                  },
+                  "sections": [
+                        {
+                              "professor": null,
+                              "capacity": 120,
+                              "timeSlots": []
+                        },
+                        {
+                              "professor": null,
+                              "capacity": 80,
+                              "timeSlots": []
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "SENG321",
+                        "title": "Requirements Engineering",
+                        "pengRequired": {
+                              "fall": true,
+                              "spring": true,
+                              "summer": false
+                        },
+                        "yearRequired": 3
+                  },
+                  "sections": [
+                        {
+                              "professor": null,
+                              "capacity": 120,
+                              "timeSlots": []
+                        },
+                        {
+                              "professor": null,
+                              "capacity": 140,
+                              "timeSlots": []
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "SENG371",
+                        "title": "Software Evolution",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": true,
+                              "summer": false
+                        },
+                        "yearRequired": 3
+                  },
+                  "sections": [
+                        {
+                              "professor": null,
+                              "capacity": 140,
+                              "timeSlots": []
+                        },
+                        {
+                              "professor": null,
+                              "capacity": 60,
+                              "timeSlots": []
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "CSC320",
+                        "title": "Foundations of Computer Science",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 3
+                  },
+                  "sections": [
+                        {
+                              "professor": null,
+                              "capacity": 120,
+                              "timeSlots": []
+                        },
+                        {
+                              "professor": null,
+                              "capacity": 120,
+                              "timeSlots": []
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "CSC360",
+                        "title": "Operating Systems",
+                        "pengRequired": {
+                              "fall": true,
+                              "spring": true,
+                              "summer": false
+                        },
+                        "yearRequired": 3
+                  },
+                  "sections": [
+                        {
+                              "professor": null,
+                              "capacity": 140,
+                              "timeSlots": []
+                        },
+                        {
+                              "professor": null,
+                              "capacity": 120,
+                              "timeSlots": []
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "CSC370",
+                        "title": "Database Systems",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 3
+                  },
+                  "sections": [
+                        {
+                              "professor": null,
+                              "capacity": 120,
+                              "timeSlots": []
+                        },
+                        {
+                              "professor": null,
+                              "capacity": 100,
+                              "timeSlots": []
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "ECE455",
+                        "title": "Real-Time Computer Systems Design Project",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 4
+                  },
+                  "sections": [
+                        {
+                              "professor": null,
+                              "capacity": 100,
+                              "timeSlots": []
+                        },
+                        {
+                              "professor": null,
+                              "capacity": 60,
+                              "timeSlots": []
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "CSC460",
+                        "title": "Design and Analysis of Real-time Systems",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": true,
+                              "summer": false
+                        },
+                        "yearRequired": 4
+                  },
+                  "sections": [
+                        {
+                              "professor": null,
+                              "capacity": 100,
+                              "timeSlots": []
+                        },
+                        {
+                              "professor": null,
+                              "capacity": 140,
+                              "timeSlots": []
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "SENG401",
+                        "title": "Social and Professional Issues",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 4
+                  },
+                  "sections": [
+                        {
+                              "professor": null,
+                              "capacity": 140,
+                              "timeSlots": []
+                        },
+                        {
+                              "professor": null,
+                              "capacity": 80,
+                              "timeSlots": []
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "ENGR130",
+                        "title": "Introduction to Professional Practice",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 1
+                  },
+                  "sections": [
+                        {
+                              "professor": {
+                                    "id": 101,
+                                    "name": "Static Prof 2"
+                              },
+                              "capacity": 100,
+                              "timeSlots": [
+                                    {
+                                          "dayOfWeek": "TUESDAY",
+                                          "timeRange": [
+                                                "8:30",
+                                                "9:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "WEDNESDAY",
+                                          "timeRange": [
+                                                "8:30",
+                                                "9:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "FRIDAY",
+                                          "timeRange": [
+                                                "8:30",
+                                                "9:20"
+                                          ]
+                                    }
+                              ]
+                        },
+                        {
+                              "professor": {
+                                    "id": 101,
+                                    "name": "Static Prof 2"
+                              },
+                              "capacity": 120,
+                              "timeSlots": [
+                                    {
+                                          "dayOfWeek": "TUESDAY",
+                                          "timeRange": [
+                                                "8:30",
+                                                "9:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "WEDNESDAY",
+                                          "timeRange": [
+                                                "8:30",
+                                                "9:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "FRIDAY",
+                                          "timeRange": [
+                                                "8:30",
+                                                "9:20"
+                                          ]
+                                    }
+                              ]
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "MATH100",
+                        "title": "Calculus I",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 1
+                  },
+                  "sections": [
+                        {
+                              "professor": {
+                                    "id": 102,
+                                    "name": "Static Prof 3"
+                              },
+                              "capacity": 140,
+                              "timeSlots": [
+                                    {
+                                          "dayOfWeek": "MONDAY",
+                                          "timeRange": [
+                                                "8:30",
+                                                "9:50"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "THURSDAY",
+                                          "timeRange": [
+                                                "8:30",
+                                                "9:50"
+                                          ]
+                                    }
+                              ]
+                        },
+                        {
+                              "professor": {
+                                    "id": 102,
+                                    "name": "Static Prof 3"
+                              },
+                              "capacity": 60,
+                              "timeSlots": [
+                                    {
+                                          "dayOfWeek": "MONDAY",
+                                          "timeRange": [
+                                                "8:30",
+                                                "9:50"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "THURSDAY",
+                                          "timeRange": [
+                                                "8:30",
+                                                "9:50"
+                                          ]
+                                    }
+                              ]
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "MATH109",
+                        "title": "Introduciton to Calculus",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 1
+                  },
+                  "sections": [
+                        {
+                              "professor": {
+                                    "id": 103,
+                                    "name": "Static Prof 4"
+                              },
+                              "capacity": 60,
+                              "timeSlots": [
+                                    {
+                                          "dayOfWeek": "TUESDAY",
+                                          "timeRange": [
+                                                "9:30",
+                                                "10:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "WEDNESDAY",
+                                          "timeRange": [
+                                                "9:30",
+                                                "10:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "FRIDAY",
+                                          "timeRange": [
+                                                "9:30",
+                                                "10:20"
+                                          ]
+                                    }
+                              ]
+                        },
+                        {
+                              "professor": {
+                                    "id": 103,
+                                    "name": "Static Prof 4"
+                              },
+                              "capacity": 100,
+                              "timeSlots": [
+                                    {
+                                          "dayOfWeek": "TUESDAY",
+                                          "timeRange": [
+                                                "9:30",
+                                                "10:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "WEDNESDAY",
+                                          "timeRange": [
+                                                "9:30",
+                                                "10:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "FRIDAY",
+                                          "timeRange": [
+                                                "9:30",
+                                                "10:20"
+                                          ]
+                                    }
+                              ]
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "PHYS110",
+                        "title": "Introductory Physics",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 1
+                  },
+                  "sections": [
+                        {
+                              "professor": {
+                                    "id": 105,
+                                    "name": "Static Prof 6"
+                              },
+                              "capacity": 140,
+                              "timeSlots": [
+                                    {
+                                          "dayOfWeek": "MONDAY",
+                                          "timeRange": [
+                                                "10:00",
+                                                "11:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "THURSDAY",
+                                          "timeRange": [
+                                                "10:00",
+                                                "11:20"
+                                          ]
+                                    }
+                              ]
+                        },
+                        {
+                              "professor": {
+                                    "id": 105,
+                                    "name": "Static Prof 6"
+                              },
+                              "capacity": 100,
+                              "timeSlots": [
+                                    {
+                                          "dayOfWeek": "MONDAY",
+                                          "timeRange": [
+                                                "10:00",
+                                                "11:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "THURSDAY",
+                                          "timeRange": [
+                                                "10:00",
+                                                "11:20"
+                                          ]
+                                    }
+                              ]
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "ENGR120",
+                        "title": "Design and Communication II",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 1
+                  },
+                  "sections": [
+                        {
+                              "professor": {
+                                    "id": 106,
+                                    "name": "Static Prof 7"
+                              },
+                              "capacity": 80,
+                              "timeSlots": [
+                                    {
+                                          "dayOfWeek": "TUESDAY",
+                                          "timeRange": [
+                                                "10:30",
+                                                "11:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "WEDNESDAY",
+                                          "timeRange": [
+                                                "10:30",
+                                                "11:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "FRIDAY",
+                                          "timeRange": [
+                                                "10:30",
+                                                "11:20"
+                                          ]
+                                    }
+                              ]
+                        },
+                        {
+                              "professor": {
+                                    "id": 106,
+                                    "name": "Static Prof 7"
+                              },
+                              "capacity": 100,
+                              "timeSlots": [
+                                    {
+                                          "dayOfWeek": "TUESDAY",
+                                          "timeRange": [
+                                                "10:30",
+                                                "11:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "WEDNESDAY",
+                                          "timeRange": [
+                                                "10:30",
+                                                "11:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "FRIDAY",
+                                          "timeRange": [
+                                                "10:30",
+                                                "11:20"
+                                          ]
+                                    }
+                              ]
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "ENGR141",
+                        "title": "Engineering Mechanics",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 1
+                  },
+                  "sections": [
+                        {
+                              "professor": {
+                                    "id": 107,
+                                    "name": "Static Prof 8"
+                              },
+                              "capacity": 140,
+                              "timeSlots": [
+                                    {
+                                          "dayOfWeek": "MONDAY",
+                                          "timeRange": [
+                                                "11:30",
+                                                "12:50"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "THURSDAY",
+                                          "timeRange": [
+                                                "11:30",
+                                                "12:50"
+                                          ]
+                                    }
+                              ]
+                        },
+                        {
+                              "professor": {
+                                    "id": 107,
+                                    "name": "Static Prof 8"
+                              },
+                              "capacity": 60,
+                              "timeSlots": [
+                                    {
+                                          "dayOfWeek": "MONDAY",
+                                          "timeRange": [
+                                                "11:30",
+                                                "12:50"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "THURSDAY",
+                                          "timeRange": [
+                                                "11:30",
+                                                "12:50"
+                                          ]
+                                    }
+                              ]
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "MATH101",
+                        "title": "Calculus II",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 1
+                  },
+                  "sections": [
+                        {
+                              "professor": {
+                                    "id": 108,
+                                    "name": "Static Prof 9"
+                              },
+                              "capacity": 100,
+                              "timeSlots": [
+                                    {
+                                          "dayOfWeek": "TUESDAY",
+                                          "timeRange": [
+                                                "11:30",
+                                                "12:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "WEDNESDAY",
+                                          "timeRange": [
+                                                "11:30",
+                                                "12:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "FRIDAY",
+                                          "timeRange": [
+                                                "11:30",
+                                                "12:20"
+                                          ]
+                                    }
+                              ]
+                        },
+                        {
+                              "professor": {
+                                    "id": 108,
+                                    "name": "Static Prof 9"
+                              },
+                              "capacity": 100,
+                              "timeSlots": [
+                                    {
+                                          "dayOfWeek": "TUESDAY",
+                                          "timeRange": [
+                                                "11:30",
+                                                "12:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "WEDNESDAY",
+                                          "timeRange": [
+                                                "11:30",
+                                                "12:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "FRIDAY",
+                                          "timeRange": [
+                                                "11:30",
+                                                "12:20"
+                                          ]
+                                    }
+                              ]
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "PHYS111",
+                        "title": "Introductory Physics II",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 1
+                  },
+                  "sections": [
+                        {
+                              "professor": {
+                                    "id": 109,
+                                    "name": "Static Prof 10"
+                              },
+                              "capacity": 140,
+                              "timeSlots": [
+                                    {
+                                          "dayOfWeek": "MONDAY",
+                                          "timeRange": [
+                                                "13:00",
+                                                "14:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "THURSDAY",
+                                          "timeRange": [
+                                                "13:00",
+                                                "14:20"
+                                          ]
+                                    }
+                              ]
+                        },
+                        {
+                              "professor": {
+                                    "id": 109,
+                                    "name": "Static Prof 10"
+                              },
+                              "capacity": 100,
+                              "timeSlots": [
+                                    {
+                                          "dayOfWeek": "MONDAY",
+                                          "timeRange": [
+                                                "13:00",
+                                                "14:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "THURSDAY",
+                                          "timeRange": [
+                                                "13:00",
+                                                "14:20"
+                                          ]
+                                    }
+                              ]
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "MATH122",
+                        "title": "Logic and Foundations",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 2
+                  },
+                  "sections": [
+                        {
+                              "professor": {
+                                    "id": 111,
+                                    "name": "Static Prof 12"
+                              },
+                              "capacity": 60,
+                              "timeSlots": [
+                                    {
+                                          "dayOfWeek": "TUESDAY",
+                                          "timeRange": [
+                                                "8:30",
+                                                "9:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "WEDNESDAY",
+                                          "timeRange": [
+                                                "8:30",
+                                                "9:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "FRIDAY",
+                                          "timeRange": [
+                                                "8:30",
+                                                "9:20"
+                                          ]
+                                    }
+                              ]
+                        },
+                        {
+                              "professor": {
+                                    "id": 111,
+                                    "name": "Static Prof 12"
+                              },
+                              "capacity": 60,
+                              "timeSlots": [
+                                    {
+                                          "dayOfWeek": "TUESDAY",
+                                          "timeRange": [
+                                                "8:30",
+                                                "9:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "WEDNESDAY",
+                                          "timeRange": [
+                                                "8:30",
+                                                "9:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "FRIDAY",
+                                          "timeRange": [
+                                                "8:30",
+                                                "9:20"
+                                          ]
+                                    }
+                              ]
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "STAT260",
+                        "title": "Introduction to Probability and Statistics I",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 2
+                  },
+                  "sections": [
+                        {
+                              "professor": {
+                                    "id": 112,
+                                    "name": "Static Prof 13"
+                              },
+                              "capacity": 100,
+                              "timeSlots": [
+                                    {
+                                          "dayOfWeek": "MONDAY",
+                                          "timeRange": [
+                                                "8:30",
+                                                "9:50"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "THURSDAY",
+                                          "timeRange": [
+                                                "8:30",
+                                                "9:50"
+                                          ]
+                                    }
+                              ]
+                        },
+                        {
+                              "professor": {
+                                    "id": 112,
+                                    "name": "Static Prof 13"
+                              },
+                              "capacity": 80,
+                              "timeSlots": [
+                                    {
+                                          "dayOfWeek": "MONDAY",
+                                          "timeRange": [
+                                                "8:30",
+                                                "9:50"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "THURSDAY",
+                                          "timeRange": [
+                                                "8:30",
+                                                "9:50"
+                                          ]
+                                    }
+                              ]
+                        }
+                  ]
+            }
+      ],
+      "summer": [
+            {
+                  "course": {
+                        "code": "CSC115",
+                        "title": "Fundamentals of Programming II",
+                        "pengRequired": {
+                              "fall": true,
+                              "spring": true,
+                              "summer": true
+                        },
+                        "yearRequired": 1
+                  },
+                  "sections": [
+                        {
+                              "professor": null,
+                              "capacity": 120,
+                              "timeSlots": []
+                        },
+                        {
+                              "professor": null,
+                              "capacity": 140,
+                              "timeSlots": []
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "CSC230",
+                        "title": "Introduction to Computer Architecture",
+                        "pengRequired": {
+                              "fall": true,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 2
+                  },
+                  "sections": [
+                        {
+                              "professor": null,
+                              "capacity": 140,
+                              "timeSlots": []
+                        },
+                        {
+                              "professor": null,
+                              "capacity": 100,
+                              "timeSlots": []
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "ECE255",
+                        "title": "Introduction to Computer Architecture",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 2
+                  },
+                  "sections": [
+                        {
+                              "professor": null,
+                              "capacity": 100,
+                              "timeSlots": []
+                        },
+                        {
+                              "professor": null,
+                              "capacity": 100,
+                              "timeSlots": []
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "ECE260",
+                        "title": "Continuous-Time Signals and Systems",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 2
+                  },
+                  "sections": [
+                        {
+                              "professor": null,
+                              "capacity": 120,
+                              "timeSlots": []
+                        },
+                        {
+                              "professor": null,
+                              "capacity": 60,
+                              "timeSlots": []
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "SENG265",
+                        "title": "Software Development Methods",
+                        "pengRequired": {
+                              "fall": true,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 2
+                  },
+                  "sections": [
+                        {
+                              "professor": null,
+                              "capacity": 60,
+                              "timeSlots": []
+                        },
+                        {
+                              "professor": null,
+                              "capacity": 80,
+                              "timeSlots": []
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "CSC225",
+                        "title": "Algorithms and Data Structures I",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 2
+                  },
+                  "sections": [
+                        {
+                              "professor": null,
+                              "capacity": 120,
+                              "timeSlots": []
+                        },
+                        {
+                              "professor": null,
+                              "capacity": 60,
+                              "timeSlots": []
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "ECE310",
+                        "title": "Digital Signal Processing I",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 2
+                  },
+                  "sections": [
+                        {
+                              "professor": null,
+                              "capacity": 120,
+                              "timeSlots": []
+                        },
+                        {
+                              "professor": null,
+                              "capacity": 60,
+                              "timeSlots": []
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "SENG275",
+                        "title": "Software Testing",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": true,
+                              "summer": true
+                        },
+                        "yearRequired": 2
+                  },
+                  "sections": [
+                        {
+                              "professor": null,
+                              "capacity": 60,
+                              "timeSlots": []
+                        },
+                        {
+                              "professor": null,
+                              "capacity": 120,
+                              "timeSlots": []
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "SENG310",
+                        "title": "Human Computer Interaction",
+                        "pengRequired": {
+                              "fall": true,
+                              "spring": true,
+                              "summer": true
+                        },
+                        "yearRequired": 2
+                  },
+                  "sections": [
+                        {
+                              "professor": null,
+                              "capacity": 140,
+                              "timeSlots": []
+                        },
+                        {
+                              "professor": null,
+                              "capacity": 100,
+                              "timeSlots": []
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "CSC226",
+                        "title": "Algorithms and Data Structures II",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 3
+                  },
+                  "sections": [
+                        {
+                              "professor": null,
+                              "capacity": 60,
+                              "timeSlots": []
+                        },
+                        {
+                              "professor": null,
+                              "capacity": 120,
+                              "timeSlots": []
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "CSC320",
+                        "title": "Foundations of Computer Science",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 3
+                  },
+                  "sections": [
+                        {
+                              "professor": null,
+                              "capacity": 80,
+                              "timeSlots": []
+                        },
+                        {
+                              "professor": null,
+                              "capacity": 140,
+                              "timeSlots": []
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "CSC360",
+                        "title": "Operating Systems",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": false,
+                              "summer": true
+                        },
+                        "yearRequired": 3
+                  },
+                  "sections": [
+                        {
+                              "professor": null,
+                              "capacity": 140,
+                              "timeSlots": []
+                        },
+                        {
+                              "professor": null,
+                              "capacity": 80,
+                              "timeSlots": []
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "CSC370",
+                        "title": "Database Systems",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 3
+                  },
+                  "sections": [
+                        {
+                              "professor": null,
+                              "capacity": 80,
+                              "timeSlots": []
+                        },
+                        {
+                              "professor": null,
+                              "capacity": 100,
+                              "timeSlots": []
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "SENG426",
+                        "title": "Software Quality Engineering",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 4
+                  },
+                  "sections": [
+                        {
+                              "professor": null,
+                              "capacity": 100,
+                              "timeSlots": []
+                        },
+                        {
+                              "professor": null,
+                              "capacity": 120,
+                              "timeSlots": []
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "SENG440",
+                        "title": "Embedded Systems",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 4
+                  },
+                  "sections": [
+                        {
+                              "professor": null,
+                              "capacity": 140,
+                              "timeSlots": []
+                        },
+                        {
+                              "professor": null,
+                              "capacity": 100,
+                              "timeSlots": []
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "SENG499",
+                        "title": "Design Project II",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 4
+                  },
+                  "sections": [
+                        {
+                              "professor": null,
+                              "capacity": 60,
+                              "timeSlots": []
+                        },
+                        {
+                              "professor": null,
+                              "capacity": 140,
+                              "timeSlots": []
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "MATH100",
+                        "title": "Calculus I",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 1
+                  },
+                  "sections": [
+                        {
+                              "professor": {
+                                    "id": 102,
+                                    "name": "Static Prof 3"
+                              },
+                              "capacity": 120,
+                              "timeSlots": [
+                                    {
+                                          "dayOfWeek": "TUESDAY",
+                                          "timeRange": [
+                                                "8:30",
+                                                "9:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "WEDNESDAY",
+                                          "timeRange": [
+                                                "8:30",
+                                                "9:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "FRIDAY",
+                                          "timeRange": [
+                                                "8:30",
+                                                "9:20"
+                                          ]
+                                    }
+                              ]
+                        },
+                        {
+                              "professor": {
+                                    "id": 102,
+                                    "name": "Static Prof 3"
+                              },
+                              "capacity": 100,
+                              "timeSlots": [
+                                    {
+                                          "dayOfWeek": "TUESDAY",
+                                          "timeRange": [
+                                                "8:30",
+                                                "9:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "WEDNESDAY",
+                                          "timeRange": [
+                                                "8:30",
+                                                "9:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "FRIDAY",
+                                          "timeRange": [
+                                                "8:30",
+                                                "9:20"
+                                          ]
+                                    }
+                              ]
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "MATH109",
+                        "title": "Introduciton to Calculus",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 1
+                  },
+                  "sections": [
+                        {
+                              "professor": {
+                                    "id": 103,
+                                    "name": "Static Prof 4"
+                              },
+                              "capacity": 80,
+                              "timeSlots": [
+                                    {
+                                          "dayOfWeek": "MONDAY",
+                                          "timeRange": [
+                                                "8:30",
+                                                "9:50"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "THURSDAY",
+                                          "timeRange": [
+                                                "8:30",
+                                                "9:50"
+                                          ]
+                                    }
+                              ]
+                        },
+                        {
+                              "professor": {
+                                    "id": 103,
+                                    "name": "Static Prof 4"
+                              },
+                              "capacity": 100,
+                              "timeSlots": [
+                                    {
+                                          "dayOfWeek": "MONDAY",
+                                          "timeRange": [
+                                                "8:30",
+                                                "9:50"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "THURSDAY",
+                                          "timeRange": [
+                                                "8:30",
+                                                "9:50"
+                                          ]
+                                    }
+                              ]
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "ENGR141",
+                        "title": "Engineering Mechanics",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 1
+                  },
+                  "sections": [
+                        {
+                              "professor": {
+                                    "id": 107,
+                                    "name": "Static Prof 8"
+                              },
+                              "capacity": 120,
+                              "timeSlots": [
+                                    {
+                                          "dayOfWeek": "TUESDAY",
+                                          "timeRange": [
+                                                "9:30",
+                                                "10:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "WEDNESDAY",
+                                          "timeRange": [
+                                                "9:30",
+                                                "10:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "FRIDAY",
+                                          "timeRange": [
+                                                "9:30",
+                                                "10:20"
+                                          ]
+                                    }
+                              ]
+                        },
+                        {
+                              "professor": {
+                                    "id": 107,
+                                    "name": "Static Prof 8"
+                              },
+                              "capacity": 80,
+                              "timeSlots": [
+                                    {
+                                          "dayOfWeek": "TUESDAY",
+                                          "timeRange": [
+                                                "9:30",
+                                                "10:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "WEDNESDAY",
+                                          "timeRange": [
+                                                "9:30",
+                                                "10:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "FRIDAY",
+                                          "timeRange": [
+                                                "9:30",
+                                                "10:20"
+                                          ]
+                                    }
+                              ]
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "MATH101",
+                        "title": "Calculus II",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 1
+                  },
+                  "sections": [
+                        {
+                              "professor": {
+                                    "id": 108,
+                                    "name": "Static Prof 9"
+                              },
+                              "capacity": 120,
+                              "timeSlots": [
+                                    {
+                                          "dayOfWeek": "MONDAY",
+                                          "timeRange": [
+                                                "10:00",
+                                                "11:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "THURSDAY",
+                                          "timeRange": [
+                                                "10:00",
+                                                "11:20"
+                                          ]
+                                    }
+                              ]
+                        },
+                        {
+                              "professor": {
+                                    "id": 108,
+                                    "name": "Static Prof 9"
+                              },
+                              "capacity": 80,
+                              "timeSlots": [
+                                    {
+                                          "dayOfWeek": "MONDAY",
+                                          "timeRange": [
+                                                "10:00",
+                                                "11:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "THURSDAY",
+                                          "timeRange": [
+                                                "10:00",
+                                                "11:20"
+                                          ]
+                                    }
+                              ]
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "PHYS111",
+                        "title": "Introductory Physics II",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 1
+                  },
+                  "sections": [
+                        {
+                              "professor": {
+                                    "id": 109,
+                                    "name": "Static Prof 10"
+                              },
+                              "capacity": 60,
+                              "timeSlots": [
+                                    {
+                                          "dayOfWeek": "TUESDAY",
+                                          "timeRange": [
+                                                "10:30",
+                                                "11:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "WEDNESDAY",
+                                          "timeRange": [
+                                                "10:30",
+                                                "11:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "FRIDAY",
+                                          "timeRange": [
+                                                "10:30",
+                                                "11:20"
+                                          ]
+                                    }
+                              ]
+                        },
+                        {
+                              "professor": {
+                                    "id": 109,
+                                    "name": "Static Prof 10"
+                              },
+                              "capacity": 140,
+                              "timeSlots": [
+                                    {
+                                          "dayOfWeek": "TUESDAY",
+                                          "timeRange": [
+                                                "10:30",
+                                                "11:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "WEDNESDAY",
+                                          "timeRange": [
+                                                "10:30",
+                                                "11:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "FRIDAY",
+                                          "timeRange": [
+                                                "10:30",
+                                                "11:20"
+                                          ]
+                                    }
+                              ]
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "CHEM101",
+                        "title": "Properties of Materials",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 2
+                  },
+                  "sections": [
+                        {
+                              "professor": {
+                                    "id": 110,
+                                    "name": "Static Prof 11"
+                              },
+                              "capacity": 100,
+                              "timeSlots": [
+                                    {
+                                          "dayOfWeek": "TUESDAY",
+                                          "timeRange": [
+                                                "8:30",
+                                                "9:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "WEDNESDAY",
+                                          "timeRange": [
+                                                "8:30",
+                                                "9:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "FRIDAY",
+                                          "timeRange": [
+                                                "8:30",
+                                                "9:20"
+                                          ]
+                                    }
+                              ]
+                        },
+                        {
+                              "professor": {
+                                    "id": 110,
+                                    "name": "Static Prof 11"
+                              },
+                              "capacity": 100,
+                              "timeSlots": [
+                                    {
+                                          "dayOfWeek": "TUESDAY",
+                                          "timeRange": [
+                                                "8:30",
+                                                "9:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "WEDNESDAY",
+                                          "timeRange": [
+                                                "8:30",
+                                                "9:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "FRIDAY",
+                                          "timeRange": [
+                                                "8:30",
+                                                "9:20"
+                                          ]
+                                    }
+                              ]
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "MATH122",
+                        "title": "Logic and Foundations",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 2
+                  },
+                  "sections": [
+                        {
+                              "professor": {
+                                    "id": 111,
+                                    "name": "Static Prof 12"
+                              },
+                              "capacity": 120,
+                              "timeSlots": [
+                                    {
+                                          "dayOfWeek": "MONDAY",
+                                          "timeRange": [
+                                                "8:30",
+                                                "9:50"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "THURSDAY",
+                                          "timeRange": [
+                                                "8:30",
+                                                "9:50"
+                                          ]
+                                    }
+                              ]
+                        },
+                        {
+                              "professor": {
+                                    "id": 111,
+                                    "name": "Static Prof 12"
+                              },
+                              "capacity": 80,
+                              "timeSlots": [
+                                    {
+                                          "dayOfWeek": "MONDAY",
+                                          "timeRange": [
+                                                "8:30",
+                                                "9:50"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "THURSDAY",
+                                          "timeRange": [
+                                                "8:30",
+                                                "9:50"
+                                          ]
+                                    }
+                              ]
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "STAT260",
+                        "title": "Introduction to Probability and Statistics I",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 2
+                  },
+                  "sections": [
+                        {
+                              "professor": {
+                                    "id": 112,
+                                    "name": "Static Prof 13"
+                              },
+                              "capacity": 80,
+                              "timeSlots": [
+                                    {
+                                          "dayOfWeek": "TUESDAY",
+                                          "timeRange": [
+                                                "9:30",
+                                                "10:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "WEDNESDAY",
+                                          "timeRange": [
+                                                "9:30",
+                                                "10:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "FRIDAY",
+                                          "timeRange": [
+                                                "9:30",
+                                                "10:20"
+                                          ]
+                                    }
+                              ]
+                        },
+                        {
+                              "professor": {
+                                    "id": 112,
+                                    "name": "Static Prof 13"
+                              },
+                              "capacity": 120,
+                              "timeSlots": [
+                                    {
+                                          "dayOfWeek": "TUESDAY",
+                                          "timeRange": [
+                                                "9:30",
+                                                "10:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "WEDNESDAY",
+                                          "timeRange": [
+                                                "9:30",
+                                                "10:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "FRIDAY",
+                                          "timeRange": [
+                                                "9:30",
+                                                "10:20"
+                                          ]
+                                    }
+                              ]
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "ECON180",
+                        "title": "Introduction to Principles of Microeconomics and Financial Project Evaluation",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 2
+                  },
+                  "sections": [
+                        {
+                              "professor": {
+                                    "id": 113,
+                                    "name": "Static Prof 14"
+                              },
+                              "capacity": 140,
+                              "timeSlots": [
+                                    {
+                                          "dayOfWeek": "MONDAY",
+                                          "timeRange": [
+                                                "10:00",
+                                                "11:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "THURSDAY",
+                                          "timeRange": [
+                                                "10:00",
+                                                "11:20"
+                                          ]
+                                    }
+                              ]
+                        },
+                        {
+                              "professor": {
+                                    "id": 113,
+                                    "name": "Static Prof 14"
+                              },
+                              "capacity": 80,
+                              "timeSlots": [
+                                    {
+                                          "dayOfWeek": "MONDAY",
+                                          "timeRange": [
+                                                "10:00",
+                                                "11:20"
+                                          ]
+                                    },
+                                    {
+                                          "dayOfWeek": "THURSDAY",
+                                          "timeRange": [
+                                                "10:00",
+                                                "11:20"
+                                          ]
+                                    }
+                              ]
+                        }
+                  ]
+            }
+      ]
+}
