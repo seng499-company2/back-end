@@ -51,7 +51,7 @@ def get_professor_dict():
 
 
 def get_professor_dict_mock():
-    with open("resources/professor_object_(alg1_input).json") as json_file:
+    with open("resources/professor_object.json") as json_file:
         return json.load(json_file)
 
 
