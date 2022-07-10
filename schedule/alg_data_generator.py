@@ -28,7 +28,6 @@ def get_schedule():
                 "spring": spring_course_offerings,
                 "summer": summer_course_offerings
                 }
-    print(schedule)
     return schedule
 
 
