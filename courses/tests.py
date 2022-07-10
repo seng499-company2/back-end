@@ -9,22 +9,22 @@ from .permissions import IsAdmin
 from .views import CourseView, AllCoursesView
 
 #Serializer Testing
-class AppUserSerializerTest(TestCase):
+class CourseSerializerTest(TestCase):
     @classmethod
     def setUp(self):
-        #build AppUser and AppUserSerializer instances
+        #build Course and CourseSerializer instances
         self.course_attributes = {
             "course_code": "SENG499",
-            "section": "A01",
+            "num_sections": 2,
             "course_title": "Design Project 2",
             "fall_offering": True,
             "spring_offering": True,
             "summer_offering": False,
-            "PENG_required": True,
+            "pengRequired": {"fall": False, "spring": True, "summer": True},
             "yearRequired": 4
         }
 
-        #serialize into an AppUser object
+        #serialize into a Course object
         self.course = Course.objects.create(**self.course_attributes)
         self.serializer = CourseSerializer(instance=self.course)
 
@@ -33,12 +33,12 @@ class AppUserSerializerTest(TestCase):
         data = self.serializer.data
         self.assertEqual(set(data.keys()), set([
             'course_code',
-            'section',
+            'num_sections',
             'course_title',
             'fall_offering',
             'spring_offering',
             'summer_offering',
-            'PENG_required',
+            'pengRequired',
             'yearRequired'
         ]))
 
@@ -46,12 +46,12 @@ class AppUserSerializerTest(TestCase):
     def test_valid_deserialization(self):
         serialized_data = {
             "course_code": "SENG499",
-            "section": "A02",
+            "num_sections": 2,
             "course_title": "Design Project 2",
             "fall_offering": True,
             "spring_offering": True,
             "summer_offering": False,
-            "PENG_required": True,
+            "pengRequired": {"fall": False, "spring": True, "summer": True},
             "yearRequired": 4
         }
 
@@ -62,12 +62,12 @@ class AppUserSerializerTest(TestCase):
     def test_create_course_object(self):
         serialized_data = {
             "course_code": "SENG321",
-            "section": "A01",
+            "num_sections": 2,
             "course_title": "Requirements Engineering",
             "fall_offering": False,
             "spring_offering": True,
             "summer_offering": False,
-            "PENG_required": True,
+            "pengRequired": {"fall": False, "spring": True, "summer": True},
             "yearRequired": 4
         }
 
@@ -88,12 +88,12 @@ class AppUserSerializerTest(TestCase):
         #update the Course order by referencing an existing instance
         new_serialized_data = {
             "course_code": "SENG499",
-            "section": "A01",
+            "num_sections": 2,
             "course_title": "Design Project 2 with daniella", #updated
             "fall_offering": True,
             "spring_offering": False, #updated
             "summer_offering": False,
-            "PENG_required": True,
+            "pengRequired": {"fall": False, "spring": True, "summer": True},
             "yearRequired": 4
         }
         serializer = CourseSerializer(instance=course_object, data=new_serialized_data)

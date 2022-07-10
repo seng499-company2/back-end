@@ -1,30 +1,24 @@
-
-
 from django.db import models
-
-
 from users.models import AppUser
 
-# Create your models here.
 
 #Front-End Base Model
-
 class Course(models.Model):
-    course_code = models.CharField(max_length=9)
-    section = models.CharField(max_length=5)
+    course_code = models.CharField(
+        max_length=9,
+        primary_key=True
+    )
+    num_sections = models.PositiveIntegerField(default=1)
     course_title = models.TextField(blank=False)
-    fall_offering = models.BooleanField()
-    spring_offering = models.BooleanField()
-    summer_offering = models.BooleanField()
-    PENG_required = models.BooleanField()
+    fall_offering = models.BooleanField(default=False)
+    spring_offering = models.BooleanField(default=False)
+    summer_offering = models.BooleanField(default=False)
+    pengRequired = models.JSONField(default=dict) #Ex: {"fall": true, "spring": false, "summer": true}
     yearRequired = models.IntegerField(default=4)
 
     class Meta:
-        unique_together = ('course_code', 'section')
         managed = True  #auto creates tables
         db_table = 'Courses'
-
-
 
 
 #Algorithm Specific Models
