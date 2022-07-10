@@ -1,0 +1,6129 @@
+[
+      {
+            "id": "1",
+            "name": "Celina Berg",
+            "isPeng": false,
+            "facultyType": "teaching",
+            "teachingObligations": 2,
+            "coursePreferences": {
+                  "CSC111": 78,
+                  "CSC115": 20,
+                  "ECE255": 0,
+                  "CSC230": 20,
+                  "ECE260": 0,
+                  "SENG265": 20,
+                  "CSC225": 20,
+                  "ECE310": 0,
+                  "SENG275": 20,
+                  "SENG310": 78,
+                  "ECE458": 0,
+                  "CSC361": 0,
+                  "CSC226": 20,
+                  "ECE360": 0,
+                  "SENG321": 0,
+                  "SENG371": 0,
+                  "ECE355": 0,
+                  "CSC355": 0,
+                  "CSC320": 0,
+                  "CSC360": 0,
+                  "CSC370": 20,
+                  "SENG350": 20,
+                  "SENG360": 0,
+                  "SENG426": 0,
+                  "SENG440": 0,
+                  "SENG499": 0,
+                  "ECE455": 0,
+                  "CSC460": 0,
+                  "SENG401": 0
+            },
+            "preferredTimes": {
+                  "fall": {
+                        "monday": [
+                              [
+                                    "8:30",
+                                    "18:30"
+                              ],
+                              [
+                                    "19:30",
+                                    "20:30"
+                              ]
+                        ],
+                        "tuesday": [
+                              [
+                                    "8:30",
+                                    "18:30"
+                              ]
+                        ],
+                        "wednesday": [
+                              [
+                                    "8:30",
+                                    "18:30"
+                              ]
+                        ],
+                        "thursday": [
+                              [
+                                    "8:30",
+                                    "18:30"
+                              ]
+                        ],
+                        "friday": [
+                              [
+                                    "8:30",
+                                    "18:30"
+                              ]
+                        ]
+                  },
+                  "spring": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              [
+                                    "8:30",
+                                    "18:30"
+                              ]
+                        ],
+                        "wednesday": [
+                              [
+                                    "8:30",
+                                    "18:30"
+                              ]
+                        ],
+                        "thursday": [
+                              [
+                                    "8:30",
+                                    "18:30"
+                              ]
+                        ],
+                        "friday": [
+                              [
+                                    "8:30",
+                                    "18:30"
+                              ]
+                        ]
+                  },
+                  "summer": {
+                        "monday": [
+                              [
+                                    "8:30",
+                                    "18:30"
+                              ]
+                        ],
+                        "tuesday": [
+                              [
+                                    "8:30",
+                                    "18:30"
+                              ]
+                        ],
+                        "wednesday": [
+                              [
+                                    "8:30",
+                                    "18:30"
+                              ]
+                        ],
+                        "thursday": [
+                              [
+                                    "8:30",
+                                    "18:30"
+                              ]
+                        ],
+                        "friday": [
+                              [
+                                    "8:30",
+                                    "18:30"
+                              ]
+                        ]
+                  }
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 0,
+                  "spring": 1,
+                  "summer": 1
+            },
+            "preferredNonTeachingSemester": "spring",
+            "preferredCourseDaySpreads": [
+                  "TWF",
+                  "T",
+                  "W",
+                  "F"
+            ]
+      },
+      {
+            "id": "2",
+            "name": "Bill Bird",
+            "isPeng": false,
+            "facultyType": "research",
+            "teachingObligations": 1,
+            "coursePreferences": {
+                  "CSC111": 78,
+                  "CSC115": 20,
+                  "ECE255": 0,
+                  "CSC230": 20,
+                  "ECE260": 0,
+                  "SENG265": 0,
+                  "CSC225": 20,
+                  "ECE310": 0,
+                  "SENG275": 0,
+                  "SENG310": 195,
+                  "ECE458": 0,
+                  "CSC361": 0,
+                  "CSC226": 20,
+                  "ECE360": 0,
+                  "SENG321": 0,
+                  "SENG371": 0,
+                  "ECE355": 0,
+                  "CSC355": 78,
+                  "CSC320": 0,
+                  "CSC360": 20,
+                  "CSC370": 20,
+                  "SENG350": 0,
+                  "SENG360": 0,
+                  "SENG426": 0,
+                  "SENG440": 0,
+                  "SENG499": 0,
+                  "ECE455": 0,
+                  "CSC460": 0,
+                  "SENG401": 0
+            },
+            "preferredTimes": {
+                  "fall": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "spring": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "summer": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  }
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 0,
+                  "spring": 1,
+                  "summer": 0
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": null
+      },
+      {
+            "id": "3",
+            "name": "Sean Chester",
+            "isPeng": false,
+            "facultyType": "teaching",
+            "teachingObligations": 6,
+            "coursePreferences": {
+                  "CSC111": 40,
+                  "CSC115": 40,
+                  "ECE255": 0,
+                  "CSC230": 0,
+                  "ECE260": 0,
+                  "SENG265": 0,
+                  "CSC225": 0,
+                  "ECE310": 0,
+                  "SENG275": 195,
+                  "SENG310": 0,
+                  "ECE458": 0,
+                  "CSC361": 78,
+                  "CSC226": 0,
+                  "ECE360": 0,
+                  "SENG321": 0,
+                  "SENG371": 0,
+                  "ECE355": 0,
+                  "CSC355": 0,
+                  "CSC320": 0,
+                  "CSC360": 0,
+                  "CSC370": 0,
+                  "SENG350": 0,
+                  "SENG360": 0,
+                  "SENG426": 0,
+                  "SENG440": 0,
+                  "SENG499": 0,
+                  "ECE455": 0,
+                  "CSC460": 78,
+                  "SENG401": 0
+            },
+            "preferredTimes": {
+                  "fall": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "spring": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "summer": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  }
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 2,
+                  "spring": 1,
+                  "summer": 3
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": null
+      },
+      {
+            "id": "4",
+            "name": "Jason Corless",
+            "isPeng": false,
+            "facultyType": "teaching",
+            "teachingObligations": 6,
+            "coursePreferences": {
+                  "CSC111": 195,
+                  "CSC115": 40,
+                  "ECE255": 0,
+                  "CSC230": 40,
+                  "ECE260": 0,
+                  "SENG265": 0,
+                  "CSC225": 40,
+                  "ECE310": 0,
+                  "SENG275": 0,
+                  "SENG310": 0,
+                  "ECE458": 0,
+                  "CSC361": 78,
+                  "CSC226": 40,
+                  "ECE360": 0,
+                  "SENG321": 0,
+                  "SENG371": 0,
+                  "ECE355": 0,
+                  "CSC355": 195,
+                  "CSC320": 0,
+                  "CSC360": 0,
+                  "CSC370": 0,
+                  "SENG350": 0,
+                  "SENG360": 0,
+                  "SENG426": 0,
+                  "SENG440": 0,
+                  "SENG499": 0,
+                  "ECE455": 0,
+                  "CSC460": 78,
+                  "SENG401": 0
+            },
+            "preferredTimes": {
+                  "fall": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "spring": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "summer": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  }
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 3,
+                  "spring": 2,
+                  "summer": 1
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": null
+      },
+      {
+            "id": "5",
+            "name": "Daniela Damian",
+            "isPeng": true,
+            "facultyType": "teaching",
+            "teachingObligations": 3,
+            "coursePreferences": {
+                  "CSC111": 78,
+                  "CSC115": 20,
+                  "ECE255": 0,
+                  "CSC230": 195,
+                  "ECE260": 0,
+                  "SENG265": 20,
+                  "CSC225": 195,
+                  "ECE310": 0,
+                  "SENG275": 0,
+                  "SENG310": 0,
+                  "ECE458": 0,
+                  "CSC361": 0,
+                  "CSC226": 20,
+                  "ECE360": 0,
+                  "SENG321": 39,
+                  "SENG371": 0,
+                  "ECE355": 0,
+                  "CSC355": 40,
+                  "CSC320": 20,
+                  "CSC360": 78,
+                  "CSC370": 78,
+                  "SENG350": 0,
+                  "SENG360": 0,
+                  "SENG426": 0,
+                  "SENG440": 0,
+                  "SENG499": 0,
+                  "ECE455": 0,
+                  "CSC460": 0,
+                  "SENG401": 0
+            },
+            "preferredTimes": {
+                  "fall": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "spring": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "summer": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  }
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 1,
+                  "spring": 2,
+                  "summer": 0
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": null
+      },
+      {
+            "id": "6",
+            "name": "Neil Ernst",
+            "isPeng": false,
+            "facultyType": "teaching",
+            "teachingObligations": 3,
+            "coursePreferences": {
+                  "CSC111": 78,
+                  "CSC115": 78,
+                  "ECE255": 0,
+                  "CSC230": 78,
+                  "ECE260": 0,
+                  "SENG265": 0,
+                  "CSC225": 40,
+                  "ECE310": 0,
+                  "SENG275": 20,
+                  "SENG310": 78,
+                  "ECE458": 0,
+                  "CSC361": 0,
+                  "CSC226": 20,
+                  "ECE360": 0,
+                  "SENG321": 20,
+                  "SENG371": 0,
+                  "ECE355": 0,
+                  "CSC355": 78,
+                  "CSC320": 20,
+                  "CSC360": 40,
+                  "CSC370": 20,
+                  "SENG350": 0,
+                  "SENG360": 20,
+                  "SENG426": 0,
+                  "SENG440": 0,
+                  "SENG499": 0,
+                  "ECE455": 0,
+                  "CSC460": 0,
+                  "SENG401": 40
+            },
+            "preferredTimes": {
+                  "fall": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "spring": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "summer": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  }
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 3,
+                  "spring": 0,
+                  "summer": 0
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": null
+      },
+      {
+            "id": "7",
+            "name": "Anthony Estey",
+            "isPeng": false,
+            "facultyType": "research",
+            "teachingObligations": 2,
+            "coursePreferences": {
+                  "CSC111": 0,
+                  "CSC115": 78,
+                  "ECE255": 0,
+                  "CSC230": 0,
+                  "ECE260": 0,
+                  "SENG265": 0,
+                  "CSC225": 0,
+                  "ECE310": 0,
+                  "SENG275": 78,
+                  "SENG310": 0,
+                  "ECE458": 0,
+                  "CSC361": 0,
+                  "CSC226": 78,
+                  "ECE360": 0,
+                  "SENG321": 0,
+                  "SENG371": 0,
+                  "ECE355": 0,
+                  "CSC355": 0,
+                  "CSC320": 0,
+                  "CSC360": 0,
+                  "CSC370": 0,
+                  "SENG350": 0,
+                  "SENG360": 0,
+                  "SENG426": 0,
+                  "SENG440": 0,
+                  "SENG499": 0,
+                  "ECE455": 0,
+                  "CSC460": 0,
+                  "SENG401": 0
+            },
+            "preferredTimes": {
+                  "fall": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "spring": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "summer": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  }
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 0,
+                  "spring": 2,
+                  "summer": 0
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": null
+      },
+      {
+            "id": "8",
+            "name": "Sudhakar Ganti",
+            "isPeng": false,
+            "facultyType": "research",
+            "teachingObligations": 1,
+            "coursePreferences": {
+                  "CSC111": 78,
+                  "CSC115": 195,
+                  "ECE255": 0,
+                  "CSC230": 20,
+                  "ECE260": 0,
+                  "SENG265": 0,
+                  "CSC225": 0,
+                  "ECE310": 0,
+                  "SENG275": 20,
+                  "SENG310": 0,
+                  "ECE458": 0,
+                  "CSC361": 0,
+                  "CSC226": 0,
+                  "ECE360": 0,
+                  "SENG321": 0,
+                  "SENG371": 0,
+                  "ECE355": 0,
+                  "CSC355": 78,
+                  "CSC320": 0,
+                  "CSC360": 0,
+                  "CSC370": 0,
+                  "SENG350": 0,
+                  "SENG360": 0,
+                  "SENG426": 0,
+                  "SENG440": 0,
+                  "SENG499": 0,
+                  "ECE455": 0,
+                  "CSC460": 0,
+                  "SENG401": 0
+            },
+            "preferredTimes": {
+                  "fall": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "spring": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "summer": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  }
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 0,
+                  "spring": 0,
+                  "summer": 1
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": null
+      },
+      {
+            "id": "9",
+            "name": "Daniel German",
+            "isPeng": false,
+            "facultyType": "teaching",
+            "teachingObligations": 2,
+            "coursePreferences": {
+                  "CSC111": 78,
+                  "CSC115": 0,
+                  "ECE255": 0,
+                  "CSC230": 78,
+                  "ECE260": 0,
+                  "SENG265": 78,
+                  "CSC225": 0,
+                  "ECE310": 0,
+                  "SENG275": 0,
+                  "SENG310": 20,
+                  "ECE458": 0,
+                  "CSC361": 40,
+                  "CSC226": 0,
+                  "ECE360": 0,
+                  "SENG321": 195,
+                  "SENG371": 20,
+                  "ECE355": 0,
+                  "CSC355": 20,
+                  "CSC320": 0,
+                  "CSC360": 0,
+                  "CSC370": 0,
+                  "SENG350": 195,
+                  "SENG360": 20,
+                  "SENG426": 0,
+                  "SENG440": 0,
+                  "SENG499": 0,
+                  "ECE455": 0,
+                  "CSC460": 40,
+                  "SENG401": 195
+            },
+            "preferredTimes": {
+                  "fall": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "spring": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "summer": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  }
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 2,
+                  "spring": 0,
+                  "summer": 0
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": null
+      },
+      {
+            "id": "10",
+            "name": "Brandon Haworth",
+            "isPeng": false,
+            "facultyType": "teaching",
+            "teachingObligations": 6,
+            "coursePreferences": {
+                  "CSC111": 40,
+                  "CSC115": 40,
+                  "ECE255": 0,
+                  "CSC230": 0,
+                  "ECE260": 0,
+                  "SENG265": 0,
+                  "CSC225": 20,
+                  "ECE310": 0,
+                  "SENG275": 0,
+                  "SENG310": 0,
+                  "ECE458": 0,
+                  "CSC361": 0,
+                  "CSC226": 40,
+                  "ECE360": 0,
+                  "SENG321": 0,
+                  "SENG371": 0,
+                  "ECE355": 0,
+                  "CSC355": 40,
+                  "CSC320": 0,
+                  "CSC360": 195,
+                  "CSC370": 0,
+                  "SENG350": 0,
+                  "SENG360": 0,
+                  "SENG426": 0,
+                  "SENG440": 0,
+                  "SENG499": 0,
+                  "ECE455": 0,
+                  "CSC460": 0,
+                  "SENG401": 0
+            },
+            "preferredTimes": {
+                  "fall": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "spring": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "summer": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  }
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 3,
+                  "spring": 3,
+                  "summer": 0
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": null
+      },
+      {
+            "id": "11",
+            "name": "Hosna Jabbari",
+            "isPeng": false,
+            "facultyType": "research",
+            "teachingObligations": 2,
+            "coursePreferences": {
+                  "CSC111": 40,
+                  "CSC115": 0,
+                  "ECE255": 0,
+                  "CSC230": 0,
+                  "ECE260": 0,
+                  "SENG265": 0,
+                  "CSC225": 0,
+                  "ECE310": 0,
+                  "SENG275": 0,
+                  "SENG310": 0,
+                  "ECE458": 0,
+                  "CSC361": 0,
+                  "CSC226": 0,
+                  "ECE360": 0,
+                  "SENG321": 0,
+                  "SENG371": 0,
+                  "ECE355": 0,
+                  "CSC355": 0,
+                  "CSC320": 0,
+                  "CSC360": 0,
+                  "CSC370": 0,
+                  "SENG350": 0,
+                  "SENG360": 0,
+                  "SENG426": 0,
+                  "SENG440": 0,
+                  "SENG499": 0,
+                  "ECE455": 0,
+                  "CSC460": 0,
+                  "SENG401": 0
+            },
+            "preferredTimes": {
+                  "fall": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "spring": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "summer": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  }
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 2,
+                  "spring": 0,
+                  "summer": 0
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": null
+      },
+      {
+            "id": "12",
+            "name": "LillAnne Jackson",
+            "isPeng": true,
+            "facultyType": "research",
+            "teachingObligations": 3,
+            "coursePreferences": {
+                  "CSC111": 40,
+                  "CSC115": 78,
+                  "ECE255": 0,
+                  "CSC230": 0,
+                  "ECE260": 0,
+                  "SENG265": 0,
+                  "CSC225": 40,
+                  "ECE310": 0,
+                  "SENG275": 0,
+                  "SENG310": 0,
+                  "ECE458": 0,
+                  "CSC361": 0,
+                  "CSC226": 40,
+                  "ECE360": 0,
+                  "SENG321": 0,
+                  "SENG371": 195,
+                  "ECE355": 0,
+                  "CSC355": 0,
+                  "CSC320": 0,
+                  "CSC360": 0,
+                  "CSC370": 0,
+                  "SENG350": 0,
+                  "SENG360": 0,
+                  "SENG426": 0,
+                  "SENG440": 0,
+                  "SENG499": 0,
+                  "ECE455": 0,
+                  "CSC460": 0,
+                  "SENG401": 0
+            },
+            "preferredTimes": {
+                  "fall": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "spring": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "summer": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  }
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 0,
+                  "spring": 0,
+                  "summer": 3
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": null
+      },
+      {
+            "id": "13",
+            "name": "Bruce Kapron",
+            "isPeng": false,
+            "facultyType": "teaching",
+            "teachingObligations": 6,
+            "coursePreferences": {
+                  "CSC111": 40,
+                  "CSC115": 20,
+                  "ECE255": 0,
+                  "CSC230": 0,
+                  "ECE260": 0,
+                  "SENG265": 0,
+                  "CSC225": 40,
+                  "ECE310": 0,
+                  "SENG275": 0,
+                  "SENG310": 0,
+                  "ECE458": 0,
+                  "CSC361": 195,
+                  "CSC226": 20,
+                  "ECE360": 0,
+                  "SENG321": 0,
+                  "SENG371": 20,
+                  "ECE355": 0,
+                  "CSC355": 78,
+                  "CSC320": 20,
+                  "CSC360": 20,
+                  "CSC370": 195,
+                  "SENG350": 0,
+                  "SENG360": 0,
+                  "SENG426": 0,
+                  "SENG440": 0,
+                  "SENG499": 0,
+                  "ECE455": 0,
+                  "CSC460": 0,
+                  "SENG401": 0
+            },
+            "preferredTimes": {
+                  "fall": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "spring": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "summer": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  }
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 4,
+                  "spring": 0,
+                  "summer": 2
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": null
+      },
+      {
+            "id": "14",
+            "name": "Valerie King",
+            "isPeng": false,
+            "facultyType": "teaching",
+            "teachingObligations": 3,
+            "coursePreferences": {
+                  "CSC111": 20,
+                  "CSC115": 0,
+                  "ECE255": 0,
+                  "CSC230": 40,
+                  "ECE260": 0,
+                  "SENG265": 40,
+                  "CSC225": 0,
+                  "ECE310": 0,
+                  "SENG275": 0,
+                  "SENG310": 0,
+                  "ECE458": 0,
+                  "CSC361": 0,
+                  "CSC226": 0,
+                  "ECE360": 0,
+                  "SENG321": 40,
+                  "SENG371": 0,
+                  "ECE355": 0,
+                  "CSC355": 20,
+                  "CSC320": 0,
+                  "CSC360": 0,
+                  "CSC370": 40,
+                  "SENG350": 195,
+                  "SENG360": 195,
+                  "SENG426": 0,
+                  "SENG440": 0,
+                  "SENG499": 0,
+                  "ECE455": 0,
+                  "CSC460": 0,
+                  "SENG401": 78
+            },
+            "preferredTimes": {
+                  "fall": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "spring": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "summer": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  }
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 3,
+                  "spring": 0,
+                  "summer": 0
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": null
+      },
+      {
+            "id": "15",
+            "name": "Sajin Koroth",
+            "isPeng": false,
+            "facultyType": "research",
+            "teachingObligations": 1,
+            "coursePreferences": {
+                  "CSC111": 78,
+                  "CSC115": 20,
+                  "ECE255": 0,
+                  "CSC230": 20,
+                  "ECE260": 0,
+                  "SENG265": 0,
+                  "CSC225": 20,
+                  "ECE310": 0,
+                  "SENG275": 0,
+                  "SENG310": 195,
+                  "ECE458": 0,
+                  "CSC361": 0,
+                  "CSC226": 20,
+                  "ECE360": 0,
+                  "SENG321": 0,
+                  "SENG371": 0,
+                  "ECE355": 0,
+                  "CSC355": 78,
+                  "CSC320": 0,
+                  "CSC360": 20,
+                  "CSC370": 20,
+                  "SENG350": 0,
+                  "SENG360": 0,
+                  "SENG426": 0,
+                  "SENG440": 0,
+                  "SENG499": 0,
+                  "ECE455": 0,
+                  "CSC460": 0,
+                  "SENG401": 0
+            },
+            "preferredTimes": {
+                  "fall": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "spring": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "summer": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  }
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 0,
+                  "spring": 1,
+                  "summer": 0
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": null
+      },
+      {
+            "id": "16",
+            "name": "Rich Little",
+            "isPeng": false,
+            "facultyType": "teaching",
+            "teachingObligations": 2,
+            "coursePreferences": {
+                  "CSC111": 20,
+                  "CSC115": 20,
+                  "ECE255": 0,
+                  "CSC230": 20,
+                  "ECE260": 0,
+                  "SENG265": 195,
+                  "CSC225": 0,
+                  "ECE310": 0,
+                  "SENG275": 0,
+                  "SENG310": 195,
+                  "ECE458": 0,
+                  "CSC361": 0,
+                  "CSC226": 20,
+                  "ECE360": 0,
+                  "SENG321": 20,
+                  "SENG371": 0,
+                  "ECE355": 0,
+                  "CSC355": 20,
+                  "CSC320": 0,
+                  "CSC360": 0,
+                  "CSC370": 20,
+                  "SENG350": 0,
+                  "SENG360": 0,
+                  "SENG426": 0,
+                  "SENG440": 0,
+                  "SENG499": 0,
+                  "ECE455": 0,
+                  "CSC460": 40,
+                  "SENG401": 20
+            },
+            "preferredTimes": {
+                  "fall": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "spring": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "summer": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  }
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 1,
+                  "spring": 1,
+                  "summer": 0
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": null
+      },
+      {
+            "id": "17",
+            "name": "Nishant Mehta",
+            "isPeng": false,
+            "facultyType": "teaching",
+            "teachingObligations": 2,
+            "coursePreferences": {
+                  "CSC111": 20,
+                  "CSC115": 40,
+                  "ECE255": 0,
+                  "CSC230": 0,
+                  "ECE260": 0,
+                  "SENG265": 0,
+                  "CSC225": 0,
+                  "ECE310": 0,
+                  "SENG275": 195,
+                  "SENG310": 0,
+                  "ECE458": 0,
+                  "CSC361": 0,
+                  "CSC226": 40,
+                  "ECE360": 0,
+                  "SENG321": 0,
+                  "SENG371": 0,
+                  "ECE355": 0,
+                  "CSC355": 20,
+                  "CSC320": 0,
+                  "CSC360": 0,
+                  "CSC370": 0,
+                  "SENG350": 0,
+                  "SENG360": 0,
+                  "SENG426": 0,
+                  "SENG440": 0,
+                  "SENG499": 0,
+                  "ECE455": 0,
+                  "CSC460": 0,
+                  "SENG401": 0
+            },
+            "preferredTimes": {
+                  "fall": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "spring": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "summer": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  }
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 1,
+                  "spring": 0,
+                  "summer": 1
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": null
+      },
+      {
+            "id": "18",
+            "name": "Hausi Muller",
+            "isPeng": true,
+            "facultyType": "research",
+            "teachingObligations": 2,
+            "coursePreferences": {
+                  "CSC111": 195,
+                  "CSC115": 195,
+                  "ECE255": 0,
+                  "CSC230": 195,
+                  "ECE260": 0,
+                  "SENG265": 40,
+                  "CSC225": 195,
+                  "ECE310": 0,
+                  "SENG275": 40,
+                  "SENG310": 0,
+                  "ECE458": 0,
+                  "CSC361": 0,
+                  "CSC226": 195,
+                  "ECE360": 0,
+                  "SENG321": 0,
+                  "SENG371": 0,
+                  "ECE355": 0,
+                  "CSC355": 78,
+                  "CSC320": 40,
+                  "CSC360": 40,
+                  "CSC370": 0,
+                  "SENG350": 0,
+                  "SENG360": 0,
+                  "SENG426": 0,
+                  "SENG440": 0,
+                  "SENG499": 0,
+                  "ECE455": 0,
+                  "CSC460": 0,
+                  "SENG401": 0
+            },
+            "preferredTimes": {
+                  "fall": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "spring": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "summer": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  }
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 2,
+                  "spring": 0,
+                  "summer": 0
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": null
+      },
+      {
+            "id": "19",
+            "name": "Miguel Nacenta",
+            "isPeng": false,
+            "facultyType": "teaching",
+            "teachingObligations": 3,
+            "coursePreferences": {
+                  "CSC111": 20,
+                  "CSC115": 20,
+                  "ECE255": 0,
+                  "CSC230": 40,
+                  "ECE260": 0,
+                  "SENG265": 20,
+                  "CSC225": 0,
+                  "ECE310": 0,
+                  "SENG275": 0,
+                  "SENG310": 195,
+                  "ECE458": 0,
+                  "CSC361": 0,
+                  "CSC226": 0,
+                  "ECE360": 0,
+                  "SENG321": 40,
+                  "SENG371": 0,
+                  "ECE355": 0,
+                  "CSC355": 20,
+                  "CSC320": 0,
+                  "CSC360": 0,
+                  "CSC370": 0,
+                  "SENG350": 0,
+                  "SENG360": 0,
+                  "SENG426": 0,
+                  "SENG440": 0,
+                  "SENG499": 0,
+                  "ECE455": 0,
+                  "CSC460": 0,
+                  "SENG401": 0
+            },
+            "preferredTimes": {
+                  "fall": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "spring": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "summer": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  }
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 0,
+                  "spring": 3,
+                  "summer": 0
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": null
+      },
+      {
+            "id": "20",
+            "name": "Ibrahim Numanagi\u0107",
+            "isPeng": false,
+            "facultyType": "research",
+            "teachingObligations": 1,
+            "coursePreferences": {
+                  "CSC111": 20,
+                  "CSC115": 0,
+                  "ECE255": 0,
+                  "CSC230": 0,
+                  "ECE260": 0,
+                  "SENG265": 0,
+                  "CSC225": 0,
+                  "ECE310": 0,
+                  "SENG275": 0,
+                  "SENG310": 195,
+                  "ECE458": 0,
+                  "CSC361": 0,
+                  "CSC226": 0,
+                  "ECE360": 0,
+                  "SENG321": 0,
+                  "SENG371": 0,
+                  "ECE355": 0,
+                  "CSC355": 20,
+                  "CSC320": 0,
+                  "CSC360": 0,
+                  "CSC370": 0,
+                  "SENG350": 0,
+                  "SENG360": 0,
+                  "SENG426": 0,
+                  "SENG440": 0,
+                  "SENG499": 0,
+                  "ECE455": 0,
+                  "CSC460": 0,
+                  "SENG401": 0
+            },
+            "preferredTimes": {
+                  "fall": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "spring": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "summer": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  }
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 0,
+                  "spring": 0,
+                  "summer": 1
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": null
+      },
+      {
+            "id": "21",
+            "name": "Jianping Pan",
+            "isPeng": false,
+            "facultyType": "teaching",
+            "teachingObligations": 2,
+            "coursePreferences": {
+                  "CSC111": 0,
+                  "CSC115": 20,
+                  "ECE255": 0,
+                  "CSC230": 0,
+                  "ECE260": 0,
+                  "SENG265": 0,
+                  "CSC225": 0,
+                  "ECE310": 0,
+                  "SENG275": 0,
+                  "SENG310": 0,
+                  "ECE458": 0,
+                  "CSC361": 0,
+                  "CSC226": 78,
+                  "ECE360": 0,
+                  "SENG321": 0,
+                  "SENG371": 195,
+                  "ECE355": 0,
+                  "CSC355": 0,
+                  "CSC320": 0,
+                  "CSC360": 0,
+                  "CSC370": 0,
+                  "SENG350": 0,
+                  "SENG360": 0,
+                  "SENG426": 0,
+                  "SENG440": 0,
+                  "SENG499": 0,
+                  "ECE455": 0,
+                  "CSC460": 0,
+                  "SENG401": 0
+            },
+            "preferredTimes": {
+                  "fall": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "spring": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "summer": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  }
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 0,
+                  "spring": 1,
+                  "summer": 1
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": null
+      },
+      {
+            "id": "22",
+            "name": "Charles Perin",
+            "isPeng": false,
+            "facultyType": "research",
+            "teachingObligations": 3,
+            "coursePreferences": {
+                  "CSC111": 40,
+                  "CSC115": 195,
+                  "ECE255": 0,
+                  "CSC230": 0,
+                  "ECE260": 0,
+                  "SENG265": 0,
+                  "CSC225": 40,
+                  "ECE310": 0,
+                  "SENG275": 195,
+                  "SENG310": 0,
+                  "ECE458": 0,
+                  "CSC361": 0,
+                  "CSC226": 195,
+                  "ECE360": 0,
+                  "SENG321": 0,
+                  "SENG371": 0,
+                  "ECE355": 0,
+                  "CSC355": 40,
+                  "CSC320": 0,
+                  "CSC360": 0,
+                  "CSC370": 40,
+                  "SENG350": 0,
+                  "SENG360": 0,
+                  "SENG426": 0,
+                  "SENG440": 0,
+                  "SENG499": 0,
+                  "ECE455": 0,
+                  "CSC460": 0,
+                  "SENG401": 0
+            },
+            "preferredTimes": {
+                  "fall": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "spring": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "summer": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  }
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 1,
+                  "spring": 1,
+                  "summer": 1
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": null
+      },
+      {
+            "id": "23",
+            "name": "Teseo Schneider",
+            "isPeng": false,
+            "facultyType": "teaching",
+            "teachingObligations": 3,
+            "coursePreferences": {
+                  "CSC111": 20,
+                  "CSC115": 195,
+                  "ECE255": 0,
+                  "CSC230": 78,
+                  "ECE260": 0,
+                  "SENG265": 0,
+                  "CSC225": 0,
+                  "ECE310": 0,
+                  "SENG275": 20,
+                  "SENG310": 0,
+                  "ECE458": 0,
+                  "CSC361": 40,
+                  "CSC226": 195,
+                  "ECE360": 0,
+                  "SENG321": 40,
+                  "SENG371": 0,
+                  "ECE355": 0,
+                  "CSC355": 78,
+                  "CSC320": 0,
+                  "CSC360": 0,
+                  "CSC370": 0,
+                  "SENG350": 0,
+                  "SENG360": 0,
+                  "SENG426": 0,
+                  "SENG440": 0,
+                  "SENG499": 0,
+                  "ECE455": 0,
+                  "CSC460": 0,
+                  "SENG401": 40
+            },
+            "preferredTimes": {
+                  "fall": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "spring": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "summer": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  }
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 3,
+                  "spring": 0,
+                  "summer": 0
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": null
+      },
+      {
+            "id": "24",
+            "name": "Sowmya Somanath",
+            "isPeng": false,
+            "facultyType": "teaching",
+            "teachingObligations": 3,
+            "coursePreferences": {
+                  "CSC111": 195,
+                  "CSC115": 78,
+                  "ECE255": 0,
+                  "CSC230": 40,
+                  "ECE260": 0,
+                  "SENG265": 0,
+                  "CSC225": 195,
+                  "ECE310": 0,
+                  "SENG275": 0,
+                  "SENG310": 0,
+                  "ECE458": 0,
+                  "CSC361": 40,
+                  "CSC226": 20,
+                  "ECE360": 0,
+                  "SENG321": 0,
+                  "SENG371": 0,
+                  "ECE355": 0,
+                  "CSC355": 78,
+                  "CSC320": 195,
+                  "CSC360": 40,
+                  "CSC370": 0,
+                  "SENG350": 40,
+                  "SENG360": 0,
+                  "SENG426": 0,
+                  "SENG440": 0,
+                  "SENG499": 0,
+                  "ECE455": 0,
+                  "CSC460": 0,
+                  "SENG401": 0
+            },
+            "preferredTimes": {
+                  "fall": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "spring": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "summer": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  }
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 1,
+                  "spring": 2,
+                  "summer": 0
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": null
+      },
+      {
+            "id": "25",
+            "name": "Venkatesh Srinivasan",
+            "isPeng": false,
+            "facultyType": "teaching",
+            "teachingObligations": 6,
+            "coursePreferences": {
+                  "CSC111": 20,
+                  "CSC115": 0,
+                  "ECE255": 0,
+                  "CSC230": 0,
+                  "ECE260": 0,
+                  "SENG265": 0,
+                  "CSC225": 195,
+                  "ECE310": 0,
+                  "SENG275": 0,
+                  "SENG310": 0,
+                  "ECE458": 0,
+                  "CSC361": 0,
+                  "CSC226": 0,
+                  "ECE360": 0,
+                  "SENG321": 0,
+                  "SENG371": 0,
+                  "ECE355": 0,
+                  "CSC355": 78,
+                  "CSC320": 195,
+                  "CSC360": 40,
+                  "CSC370": 0,
+                  "SENG350": 40,
+                  "SENG360": 0,
+                  "SENG426": 0,
+                  "SENG440": 0,
+                  "SENG499": 0,
+                  "ECE455": 0,
+                  "CSC460": 0,
+                  "SENG401": 0
+            },
+            "preferredTimes": {
+                  "fall": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "spring": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "summer": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  }
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 1,
+                  "spring": 5,
+                  "summer": 0
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": null
+      },
+      {
+            "id": "26",
+            "name": "Ulrike Stege",
+            "isPeng": false,
+            "facultyType": "teaching",
+            "teachingObligations": 2,
+            "coursePreferences": {
+                  "CSC111": 0,
+                  "CSC115": 40,
+                  "ECE255": 0,
+                  "CSC230": 0,
+                  "ECE260": 0,
+                  "SENG265": 0,
+                  "CSC225": 0,
+                  "ECE310": 0,
+                  "SENG275": 20,
+                  "SENG310": 0,
+                  "ECE458": 0,
+                  "CSC361": 0,
+                  "CSC226": 0,
+                  "ECE360": 0,
+                  "SENG321": 0,
+                  "SENG371": 20,
+                  "ECE355": 0,
+                  "CSC355": 0,
+                  "CSC320": 0,
+                  "CSC360": 0,
+                  "CSC370": 0,
+                  "SENG350": 0,
+                  "SENG360": 0,
+                  "SENG426": 0,
+                  "SENG440": 0,
+                  "SENG499": 0,
+                  "ECE455": 0,
+                  "CSC460": 0,
+                  "SENG401": 0
+            },
+            "preferredTimes": {
+                  "fall": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "spring": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "summer": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  }
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 0,
+                  "spring": 0,
+                  "summer": 2
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": null
+      },
+      {
+            "id": "27",
+            "name": "Margaret-Anne Storey",
+            "isPeng": false,
+            "facultyType": "teaching",
+            "teachingObligations": 6,
+            "coursePreferences": {
+                  "CSC111": 0,
+                  "CSC115": 20,
+                  "ECE255": 0,
+                  "CSC230": 0,
+                  "ECE260": 0,
+                  "SENG265": 0,
+                  "CSC225": 0,
+                  "ECE310": 0,
+                  "SENG275": 0,
+                  "SENG310": 0,
+                  "ECE458": 0,
+                  "CSC361": 0,
+                  "CSC226": 78,
+                  "ECE360": 0,
+                  "SENG321": 0,
+                  "SENG371": 195,
+                  "ECE355": 0,
+                  "CSC355": 0,
+                  "CSC320": 0,
+                  "CSC360": 0,
+                  "CSC370": 0,
+                  "SENG350": 0,
+                  "SENG360": 0,
+                  "SENG426": 0,
+                  "SENG440": 0,
+                  "SENG499": 0,
+                  "ECE455": 0,
+                  "CSC460": 0,
+                  "SENG401": 0
+            },
+            "preferredTimes": {
+                  "fall": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "spring": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "summer": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  }
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 4,
+                  "spring": 0,
+                  "summer": 2
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": null
+      },
+      {
+            "id": "28",
+            "name": "Cecilia Summers",
+            "isPeng": false,
+            "facultyType": "teaching",
+            "teachingObligations": 6,
+            "coursePreferences": {
+                  "CSC111": 0,
+                  "CSC115": 0,
+                  "ECE255": 0,
+                  "CSC230": 0,
+                  "ECE260": 0,
+                  "SENG265": 0,
+                  "CSC225": 0,
+                  "ECE310": 0,
+                  "SENG275": 195,
+                  "SENG310": 0,
+                  "ECE458": 0,
+                  "CSC361": 0,
+                  "CSC226": 78,
+                  "ECE360": 0,
+                  "SENG321": 0,
+                  "SENG371": 0,
+                  "ECE355": 0,
+                  "CSC355": 0,
+                  "CSC320": 0,
+                  "CSC360": 0,
+                  "CSC370": 0,
+                  "SENG350": 0,
+                  "SENG360": 0,
+                  "SENG426": 0,
+                  "SENG440": 0,
+                  "SENG499": 0,
+                  "ECE455": 0,
+                  "CSC460": 0,
+                  "SENG401": 0
+            },
+            "preferredTimes": {
+                  "fall": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "spring": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "summer": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  }
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 4,
+                  "spring": 0,
+                  "summer": 2
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": null
+      },
+      {
+            "id": "29",
+            "name": "Alex Thomo",
+            "isPeng": false,
+            "facultyType": "research",
+            "teachingObligations": 3,
+            "coursePreferences": {
+                  "CSC111": 40,
+                  "CSC115": 40,
+                  "ECE255": 0,
+                  "CSC230": 0,
+                  "ECE260": 0,
+                  "SENG265": 0,
+                  "CSC225": 0,
+                  "ECE310": 0,
+                  "SENG275": 0,
+                  "SENG310": 0,
+                  "ECE458": 0,
+                  "CSC361": 0,
+                  "CSC226": 40,
+                  "ECE360": 0,
+                  "SENG321": 0,
+                  "SENG371": 195,
+                  "ECE355": 0,
+                  "CSC355": 0,
+                  "CSC320": 0,
+                  "CSC360": 0,
+                  "CSC370": 195,
+                  "SENG350": 0,
+                  "SENG360": 0,
+                  "SENG426": 0,
+                  "SENG440": 0,
+                  "SENG499": 0,
+                  "ECE455": 0,
+                  "CSC460": 0,
+                  "SENG401": 0
+            },
+            "preferredTimes": {
+                  "fall": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "spring": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "summer": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  }
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 1,
+                  "spring": 0,
+                  "summer": 2
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": null
+      },
+      {
+            "id": "30",
+            "name": "George Tzanetakis",
+            "isPeng": false,
+            "facultyType": "research",
+            "teachingObligations": 1,
+            "coursePreferences": {
+                  "CSC111": 0,
+                  "CSC115": 40,
+                  "ECE255": 0,
+                  "CSC230": 0,
+                  "ECE260": 0,
+                  "SENG265": 20,
+                  "CSC225": 0,
+                  "ECE310": 0,
+                  "SENG275": 0,
+                  "SENG310": 0,
+                  "ECE458": 0,
+                  "CSC361": 20,
+                  "CSC226": 20,
+                  "ECE360": 0,
+                  "SENG321": 0,
+                  "SENG371": 40,
+                  "ECE355": 0,
+                  "CSC355": 40,
+                  "CSC320": 0,
+                  "CSC360": 0,
+                  "CSC370": 78,
+                  "SENG350": 0,
+                  "SENG360": 0,
+                  "SENG426": 0,
+                  "SENG440": 0,
+                  "SENG499": 0,
+                  "ECE455": 0,
+                  "CSC460": 20,
+                  "SENG401": 0
+            },
+            "preferredTimes": {
+                  "fall": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "spring": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "summer": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  }
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 1,
+                  "spring": 0,
+                  "summer": 0
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": null
+      },
+      {
+            "id": "31",
+            "name": "Jens Weber",
+            "isPeng": true,
+            "facultyType": "teaching",
+            "teachingObligations": 3,
+            "coursePreferences": {
+                  "CSC111": 0,
+                  "CSC115": 0,
+                  "ECE255": 0,
+                  "CSC230": 40,
+                  "ECE260": 0,
+                  "SENG265": 0,
+                  "CSC225": 0,
+                  "ECE310": 0,
+                  "SENG275": 0,
+                  "SENG310": 0,
+                  "ECE458": 0,
+                  "CSC361": 39,
+                  "CSC226": 0,
+                  "ECE360": 0,
+                  "SENG321": 78,
+                  "SENG371": 0,
+                  "ECE355": 0,
+                  "CSC355": 0,
+                  "CSC320": 0,
+                  "CSC360": 0,
+                  "CSC370": 0,
+                  "SENG350": 0,
+                  "SENG360": 0,
+                  "SENG426": 0,
+                  "SENG440": 0,
+                  "SENG499": 0,
+                  "ECE455": 0,
+                  "CSC460": 39,
+                  "SENG401": 0
+            },
+            "preferredTimes": {
+                  "fall": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "spring": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "summer": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  }
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 0,
+                  "spring": 1,
+                  "summer": 2
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": null
+      },
+      {
+            "id": "32",
+            "name": "Kui Wu",
+            "isPeng": true,
+            "facultyType": "teaching",
+            "teachingObligations": 6,
+            "coursePreferences": {
+                  "CSC111": 195,
+                  "CSC115": 0,
+                  "ECE255": 0,
+                  "CSC230": 195,
+                  "ECE260": 0,
+                  "SENG265": 20,
+                  "CSC225": 195,
+                  "ECE310": 0,
+                  "SENG275": 0,
+                  "SENG310": 0,
+                  "ECE458": 0,
+                  "CSC361": 0,
+                  "CSC226": 0,
+                  "ECE360": 0,
+                  "SENG321": 0,
+                  "SENG371": 0,
+                  "ECE355": 0,
+                  "CSC355": 78,
+                  "CSC320": 0,
+                  "CSC360": 195,
+                  "CSC370": 0,
+                  "SENG350": 0,
+                  "SENG360": 40,
+                  "SENG426": 0,
+                  "SENG440": 0,
+                  "SENG499": 0,
+                  "ECE455": 0,
+                  "CSC460": 0,
+                  "SENG401": 0
+            },
+            "preferredTimes": {
+                  "fall": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "spring": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "summer": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  }
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 4,
+                  "spring": 0,
+                  "summer": 2
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": null
+      },
+      {
+            "id": "33",
+            "name": "Michael Zastre",
+            "isPeng": true,
+            "facultyType": "research",
+            "teachingObligations": 4,
+            "coursePreferences": {
+                  "CSC111": 40,
+                  "CSC115": 78,
+                  "ECE255": 0,
+                  "CSC230": 195,
+                  "ECE260": 0,
+                  "SENG265": 20,
+                  "CSC225": 78,
+                  "ECE310": 0,
+                  "SENG275": 40,
+                  "SENG310": 40,
+                  "ECE458": 0,
+                  "CSC361": 0,
+                  "CSC226": 40,
+                  "ECE360": 0,
+                  "SENG321": 0,
+                  "SENG371": 0,
+                  "ECE355": 0,
+                  "CSC355": 195,
+                  "CSC320": 0,
+                  "CSC360": 78,
+                  "CSC370": 39,
+                  "SENG350": 0,
+                  "SENG360": 0,
+                  "SENG426": 0,
+                  "SENG440": 0,
+                  "SENG499": 0,
+                  "ECE455": 0,
+                  "CSC460": 0,
+                  "SENG401": 0
+            },
+            "preferredTimes": {
+                  "fall": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "spring": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "summer": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  }
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 2,
+                  "spring": 0,
+                  "summer": 0
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": null
+      },
+      {
+            "id": "34",
+            "name": "Michael Adams",
+            "isPeng": true,
+            "facultyType": "teaching",
+            "teachingObligations": 2,
+            "coursePreferences": {
+                  "CSC111": 0,
+                  "CSC115": 0,
+                  "ECE255": 0,
+                  "CSC230": 0,
+                  "ECE260": 195,
+                  "SENG265": 0,
+                  "CSC225": 0,
+                  "ECE310": 100,
+                  "SENG275": 0,
+                  "SENG310": 0,
+                  "ECE458": 0,
+                  "CSC361": 0,
+                  "CSC226": 0,
+                  "ECE360": 40,
+                  "SENG321": 0,
+                  "SENG371": 0,
+                  "ECE355": 0,
+                  "CSC355": 0,
+                  "CSC320": 0,
+                  "CSC360": 0,
+                  "CSC370": 0,
+                  "SENG350": 0,
+                  "SENG360": 0,
+                  "SENG426": 0,
+                  "SENG440": 0,
+                  "SENG499": 20,
+                  "ECE455": 0,
+                  "CSC460": 0,
+                  "SENG401": 0
+            },
+            "preferredTimes": {
+                  "fall": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "spring": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "summer": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  }
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 1,
+                  "spring": 0,
+                  "summer": 1
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": null
+      },
+      {
+            "id": "35",
+            "name": "Panajotis Agathoklis",
+            "isPeng": true,
+            "facultyType": "teaching",
+            "teachingObligations": 2,
+            "coursePreferences": {
+                  "CSC111": 0,
+                  "CSC115": 0,
+                  "ECE255": 0,
+                  "CSC230": 0,
+                  "ECE260": 0,
+                  "SENG265": 0,
+                  "CSC225": 0,
+                  "ECE310": 40,
+                  "SENG275": 0,
+                  "SENG310": 0,
+                  "ECE458": 0,
+                  "CSC361": 0,
+                  "CSC226": 0,
+                  "ECE360": 195,
+                  "SENG321": 0,
+                  "SENG371": 0,
+                  "ECE355": 0,
+                  "CSC355": 0,
+                  "CSC320": 0,
+                  "CSC360": 0,
+                  "CSC370": 0,
+                  "SENG350": 0,
+                  "SENG360": 0,
+                  "SENG426": 0,
+                  "SENG440": 0,
+                  "SENG499": 0,
+                  "ECE455": 0,
+                  "CSC460": 0,
+                  "SENG401": 0
+            },
+            "preferredTimes": {
+                  "fall": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "spring": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "summer": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  }
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 0,
+                  "spring": 1,
+                  "summer": 1
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": null
+      },
+      {
+            "id": "36",
+            "name": "Riham AlTawy",
+            "isPeng": true,
+            "facultyType": "research",
+            "teachingObligations": 2,
+            "coursePreferences": {
+                  "CSC111": 0,
+                  "CSC115": 0,
+                  "ECE255": 78,
+                  "CSC230": 0,
+                  "ECE260": 20,
+                  "SENG265": 0,
+                  "CSC225": 0,
+                  "ECE310": 40,
+                  "SENG275": 0,
+                  "SENG310": 0,
+                  "ECE458": 40,
+                  "CSC361": 0,
+                  "CSC226": 0,
+                  "ECE360": 0,
+                  "SENG321": 0,
+                  "SENG371": 0,
+                  "ECE355": 40,
+                  "CSC355": 0,
+                  "CSC320": 0,
+                  "CSC360": 0,
+                  "CSC370": 0,
+                  "SENG350": 0,
+                  "SENG360": 0,
+                  "SENG426": 0,
+                  "SENG440": 0,
+                  "SENG499": 20,
+                  "ECE455": 0,
+                  "CSC460": 0,
+                  "SENG401": 0
+            },
+            "preferredTimes": {
+                  "fall": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "spring": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "summer": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  }
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 1,
+                  "spring": 1,
+                  "summer": 0
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": null
+      },
+      {
+            "id": "37",
+            "name": "Amirali Baniasadi",
+            "isPeng": true,
+            "facultyType": "research",
+            "teachingObligations": 2,
+            "coursePreferences": {
+                  "CSC111": 0,
+                  "CSC115": 0,
+                  "ECE255": 100,
+                  "CSC230": 0,
+                  "ECE260": 0,
+                  "SENG265": 0,
+                  "CSC225": 0,
+                  "ECE310": 78,
+                  "SENG275": 0,
+                  "SENG310": 0,
+                  "ECE458": 40,
+                  "CSC361": 0,
+                  "CSC226": 0,
+                  "ECE360": 0,
+                  "SENG321": 0,
+                  "SENG371": 0,
+                  "ECE355": 100,
+                  "CSC355": 0,
+                  "CSC320": 0,
+                  "CSC360": 0,
+                  "CSC370": 0,
+                  "SENG350": 0,
+                  "SENG360": 0,
+                  "SENG426": 0,
+                  "SENG440": 0,
+                  "SENG499": 0,
+                  "ECE455": 100,
+                  "CSC460": 0,
+                  "SENG401": 0
+            },
+            "preferredTimes": {
+                  "fall": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "spring": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "summer": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  }
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 2,
+                  "spring": 0,
+                  "summer": 0
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": null
+      },
+      {
+            "id": "38",
+            "name": "Jens Bornemann",
+            "isPeng": false,
+            "facultyType": "research",
+            "teachingObligations": 3,
+            "coursePreferences": {
+                  "CSC111": 0,
+                  "CSC115": 0,
+                  "ECE255": 0,
+                  "CSC230": 0,
+                  "ECE260": 20,
+                  "SENG265": 0,
+                  "CSC225": 0,
+                  "ECE310": 78,
+                  "SENG275": 0,
+                  "SENG310": 0,
+                  "ECE458": 0,
+                  "CSC361": 0,
+                  "CSC226": 0,
+                  "ECE360": 0,
+                  "SENG321": 0,
+                  "SENG371": 0,
+                  "ECE355": 0,
+                  "CSC355": 0,
+                  "CSC320": 0,
+                  "CSC360": 0,
+                  "CSC370": 0,
+                  "SENG350": 0,
+                  "SENG360": 0,
+                  "SENG426": 0,
+                  "SENG440": 0,
+                  "SENG499": 0,
+                  "ECE455": 0,
+                  "CSC460": 0,
+                  "SENG401": 0
+            },
+            "preferredTimes": {
+                  "fall": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "spring": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "summer": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  }
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 1,
+                  "spring": 0,
+                  "summer": 2
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": null
+      },
+      {
+            "id": "39",
+            "name": "Alexandra Branzan Albu",
+            "isPeng": true,
+            "facultyType": "research",
+            "teachingObligations": 1,
+            "coursePreferences": {
+                  "CSC111": 0,
+                  "CSC115": 0,
+                  "ECE255": 20,
+                  "CSC230": 0,
+                  "ECE260": 100,
+                  "SENG265": 0,
+                  "CSC225": 0,
+                  "ECE310": 100,
+                  "SENG275": 0,
+                  "SENG310": 0,
+                  "ECE458": 40,
+                  "CSC361": 0,
+                  "CSC226": 0,
+                  "ECE360": 0,
+                  "SENG321": 0,
+                  "SENG371": 0,
+                  "ECE355": 0,
+                  "CSC355": 0,
+                  "CSC320": 0,
+                  "CSC360": 0,
+                  "CSC370": 0,
+                  "SENG350": 0,
+                  "SENG360": 0,
+                  "SENG426": 0,
+                  "SENG440": 0,
+                  "SENG499": 20,
+                  "ECE455": 0,
+                  "CSC460": 0,
+                  "SENG401": 0
+            },
+            "preferredTimes": {
+                  "fall": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "spring": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "summer": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  }
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 0,
+                  "spring": 0,
+                  "summer": 1
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": null
+      },
+      {
+            "id": "40",
+            "name": "Lin Cai",
+            "isPeng": true,
+            "facultyType": "research",
+            "teachingObligations": 1,
+            "coursePreferences": {
+                  "CSC111": 0,
+                  "CSC115": 0,
+                  "ECE255": 0,
+                  "CSC230": 0,
+                  "ECE260": 40,
+                  "SENG265": 0,
+                  "CSC225": 0,
+                  "ECE310": 20,
+                  "SENG275": 0,
+                  "SENG310": 0,
+                  "ECE458": 195,
+                  "CSC361": 0,
+                  "CSC226": 0,
+                  "ECE360": 0,
+                  "SENG321": 0,
+                  "SENG371": 0,
+                  "ECE355": 0,
+                  "CSC355": 0,
+                  "CSC320": 0,
+                  "CSC360": 0,
+                  "CSC370": 0,
+                  "SENG350": 0,
+                  "SENG360": 0,
+                  "SENG426": 0,
+                  "SENG440": 0,
+                  "SENG499": 0,
+                  "ECE455": 0,
+                  "CSC460": 0,
+                  "SENG401": 0
+            },
+            "preferredTimes": {
+                  "fall": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "spring": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "summer": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  }
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 1,
+                  "spring": 0,
+                  "summer": 0
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": null
+      },
+      {
+            "id": "41",
+            "name": "David Capson",
+            "isPeng": true,
+            "facultyType": "research",
+            "teachingObligations": 1,
+            "coursePreferences": {
+                  "CSC111": 0,
+                  "CSC115": 0,
+                  "ECE255": 100,
+                  "CSC230": 0,
+                  "ECE260": 0,
+                  "SENG265": 0,
+                  "CSC225": 0,
+                  "ECE310": 39,
+                  "SENG275": 0,
+                  "SENG310": 0,
+                  "ECE458": 0,
+                  "CSC361": 0,
+                  "CSC226": 0,
+                  "ECE360": 195,
+                  "SENG321": 0,
+                  "SENG371": 0,
+                  "ECE355": 100,
+                  "CSC355": 0,
+                  "CSC320": 0,
+                  "CSC360": 0,
+                  "CSC370": 0,
+                  "SENG350": 0,
+                  "SENG360": 0,
+                  "SENG426": 0,
+                  "SENG440": 0,
+                  "SENG499": 0,
+                  "ECE455": 40,
+                  "CSC460": 0,
+                  "SENG401": 0
+            },
+            "preferredTimes": {
+                  "fall": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "spring": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "summer": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  }
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 1,
+                  "spring": 0,
+                  "summer": 0
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": null
+      },
+      {
+            "id": "42",
+            "name": "Ted Darcie",
+            "isPeng": true,
+            "facultyType": "teaching",
+            "teachingObligations": 6,
+            "coursePreferences": {
+                  "CSC111": 0,
+                  "CSC115": 0,
+                  "ECE255": 0,
+                  "CSC230": 0,
+                  "ECE260": 0,
+                  "SENG265": 0,
+                  "CSC225": 0,
+                  "ECE310": 0,
+                  "SENG275": 0,
+                  "SENG310": 0,
+                  "ECE458": 0,
+                  "CSC361": 0,
+                  "CSC226": 0,
+                  "ECE360": 0,
+                  "SENG321": 0,
+                  "SENG371": 0,
+                  "ECE355": 0,
+                  "CSC355": 0,
+                  "CSC320": 0,
+                  "CSC360": 0,
+                  "CSC370": 0,
+                  "SENG350": 0,
+                  "SENG360": 0,
+                  "SENG426": 0,
+                  "SENG440": 0,
+                  "SENG499": 0,
+                  "ECE455": 0,
+                  "CSC460": 0,
+                  "SENG401": 0
+            },
+            "preferredTimes": {
+                  "fall": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "spring": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "summer": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  }
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 1,
+                  "spring": 4,
+                  "summer": 1
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": null
+      },
+      {
+            "id": "43",
+            "name": "Nikitas Dimopoulos",
+            "isPeng": true,
+            "facultyType": "research",
+            "teachingObligations": 3,
+            "coursePreferences": {
+                  "CSC111": 0,
+                  "CSC115": 0,
+                  "ECE255": 40,
+                  "CSC230": 0,
+                  "ECE260": 0,
+                  "SENG265": 0,
+                  "CSC225": 0,
+                  "ECE310": 0,
+                  "SENG275": 0,
+                  "SENG310": 0,
+                  "ECE458": 40,
+                  "CSC361": 0,
+                  "CSC226": 0,
+                  "ECE360": 0,
+                  "SENG321": 0,
+                  "SENG371": 0,
+                  "ECE355": 40,
+                  "CSC355": 0,
+                  "CSC320": 0,
+                  "CSC360": 0,
+                  "CSC370": 0,
+                  "SENG350": 0,
+                  "SENG360": 0,
+                  "SENG426": 0,
+                  "SENG440": 0,
+                  "SENG499": 0,
+                  "ECE455": 195,
+                  "CSC460": 0,
+                  "SENG401": 0
+            },
+            "preferredTimes": {
+                  "fall": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "spring": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "summer": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  }
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 3,
+                  "spring": 0,
+                  "summer": 0
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": null
+      },
+      {
+            "id": "44",
+            "name": "Xiaodai Dong",
+            "isPeng": true,
+            "facultyType": "teaching",
+            "teachingObligations": 2,
+            "coursePreferences": {
+                  "CSC111": 0,
+                  "CSC115": 0,
+                  "ECE255": 0,
+                  "CSC230": 0,
+                  "ECE260": 40,
+                  "SENG265": 0,
+                  "CSC225": 0,
+                  "ECE310": 100,
+                  "SENG275": 0,
+                  "SENG310": 0,
+                  "ECE458": 0,
+                  "CSC361": 0,
+                  "CSC226": 0,
+                  "ECE360": 39,
+                  "SENG321": 0,
+                  "SENG371": 0,
+                  "ECE355": 0,
+                  "CSC355": 0,
+                  "CSC320": 0,
+                  "CSC360": 0,
+                  "CSC370": 0,
+                  "SENG350": 0,
+                  "SENG360": 0,
+                  "SENG426": 0,
+                  "SENG440": 0,
+                  "SENG499": 0,
+                  "ECE455": 0,
+                  "CSC460": 0,
+                  "SENG401": 0
+            },
+            "preferredTimes": {
+                  "fall": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "spring": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "summer": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  }
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 0,
+                  "spring": 1,
+                  "summer": 1
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": null
+      },
+      {
+            "id": "45",
+            "name": "Peter Driessen",
+            "isPeng": true,
+            "facultyType": "research",
+            "teachingObligations": 3,
+            "coursePreferences": {
+                  "CSC111": 0,
+                  "CSC115": 0,
+                  "ECE255": 40,
+                  "CSC230": 0,
+                  "ECE260": 40,
+                  "SENG265": 0,
+                  "CSC225": 0,
+                  "ECE310": 20,
+                  "SENG275": 0,
+                  "SENG310": 0,
+                  "ECE458": 195,
+                  "CSC361": 0,
+                  "CSC226": 0,
+                  "ECE360": 195,
+                  "SENG321": 0,
+                  "SENG371": 0,
+                  "ECE355": 40,
+                  "CSC355": 0,
+                  "CSC320": 0,
+                  "CSC360": 0,
+                  "CSC370": 0,
+                  "SENG350": 0,
+                  "SENG360": 0,
+                  "SENG426": 0,
+                  "SENG440": 0,
+                  "SENG499": 0,
+                  "ECE455": 0,
+                  "CSC460": 0,
+                  "SENG401": 0
+            },
+            "preferredTimes": {
+                  "fall": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "spring": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "summer": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  }
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 0,
+                  "spring": 2,
+                  "summer": 1
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": null
+      },
+      {
+            "id": "46",
+            "name": "Fayez Gebali",
+            "isPeng": true,
+            "facultyType": "teaching",
+            "teachingObligations": 6,
+            "coursePreferences": {
+                  "CSC111": 0,
+                  "CSC115": 0,
+                  "ECE255": 78,
+                  "CSC230": 0,
+                  "ECE260": 40,
+                  "SENG265": 0,
+                  "CSC225": 0,
+                  "ECE310": 40,
+                  "SENG275": 0,
+                  "SENG310": 0,
+                  "ECE458": 0,
+                  "CSC361": 0,
+                  "CSC226": 0,
+                  "ECE360": 78,
+                  "SENG321": 0,
+                  "SENG371": 0,
+                  "ECE355": 78,
+                  "CSC355": 0,
+                  "CSC320": 0,
+                  "CSC360": 0,
+                  "CSC370": 0,
+                  "SENG350": 0,
+                  "SENG360": 0,
+                  "SENG426": 0,
+                  "SENG440": 0,
+                  "SENG499": 0,
+                  "ECE455": 0,
+                  "CSC460": 0,
+                  "SENG401": 0
+            },
+            "preferredTimes": {
+                  "fall": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "spring": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "summer": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  }
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 0,
+                  "spring": 3,
+                  "summer": 3
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": null
+      },
+      {
+            "id": "47",
+            "name": "Reuven Gordon",
+            "isPeng": true,
+            "facultyType": "teaching",
+            "teachingObligations": 2,
+            "coursePreferences": {
+                  "CSC111": 0,
+                  "CSC115": 0,
+                  "ECE255": 0,
+                  "CSC230": 0,
+                  "ECE260": 40,
+                  "SENG265": 0,
+                  "CSC225": 0,
+                  "ECE310": 20,
+                  "SENG275": 0,
+                  "SENG310": 0,
+                  "ECE458": 0,
+                  "CSC361": 0,
+                  "CSC226": 0,
+                  "ECE360": 0,
+                  "SENG321": 0,
+                  "SENG371": 0,
+                  "ECE355": 0,
+                  "CSC355": 0,
+                  "CSC320": 0,
+                  "CSC360": 0,
+                  "CSC370": 0,
+                  "SENG350": 0,
+                  "SENG360": 0,
+                  "SENG426": 0,
+                  "SENG440": 0,
+                  "SENG499": 0,
+                  "ECE455": 0,
+                  "CSC460": 0,
+                  "SENG401": 0
+            },
+            "preferredTimes": {
+                  "fall": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "spring": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "summer": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  }
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 2,
+                  "spring": 0,
+                  "summer": 0
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": null
+      },
+      {
+            "id": "48",
+            "name": "Aaron Gulliver",
+            "isPeng": true,
+            "facultyType": "teaching",
+            "teachingObligations": 6,
+            "coursePreferences": {
+                  "CSC111": 0,
+                  "CSC115": 0,
+                  "ECE255": 0,
+                  "CSC230": 0,
+                  "ECE260": 39,
+                  "SENG265": 0,
+                  "CSC225": 0,
+                  "ECE310": 39,
+                  "SENG275": 0,
+                  "SENG310": 0,
+                  "ECE458": 0,
+                  "CSC361": 0,
+                  "CSC226": 0,
+                  "ECE360": 0,
+                  "SENG321": 0,
+                  "SENG371": 0,
+                  "ECE355": 0,
+                  "CSC355": 0,
+                  "CSC320": 0,
+                  "CSC360": 0,
+                  "CSC370": 0,
+                  "SENG350": 0,
+                  "SENG360": 0,
+                  "SENG426": 0,
+                  "SENG440": 0,
+                  "SENG499": 0,
+                  "ECE455": 0,
+                  "CSC460": 0,
+                  "SENG401": 0
+            },
+            "preferredTimes": {
+                  "fall": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "spring": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "summer": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  }
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 5,
+                  "spring": 0,
+                  "summer": 1
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": null
+      },
+      {
+            "id": "49",
+            "name": "Kin Fun Li",
+            "isPeng": true,
+            "facultyType": "teaching",
+            "teachingObligations": 6,
+            "coursePreferences": {
+                  "CSC111": 0,
+                  "CSC115": 0,
+                  "ECE255": 195,
+                  "CSC230": 0,
+                  "ECE260": 0,
+                  "SENG265": 0,
+                  "CSC225": 0,
+                  "ECE310": 0,
+                  "SENG275": 0,
+                  "SENG310": 0,
+                  "ECE458": 0,
+                  "CSC361": 0,
+                  "CSC226": 0,
+                  "ECE360": 0,
+                  "SENG321": 0,
+                  "SENG371": 0,
+                  "ECE355": 78,
+                  "CSC355": 0,
+                  "CSC320": 0,
+                  "CSC360": 0,
+                  "CSC370": 0,
+                  "SENG350": 0,
+                  "SENG360": 0,
+                  "SENG426": 0,
+                  "SENG440": 0,
+                  "SENG499": 0,
+                  "ECE455": 78,
+                  "CSC460": 0,
+                  "SENG401": 0
+            },
+            "preferredTimes": {
+                  "fall": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "spring": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "summer": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  }
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 0,
+                  "spring": 3,
+                  "summer": 3
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": null
+      },
+      {
+            "id": "50",
+            "name": "Tao Lu",
+            "isPeng": true,
+            "facultyType": "research",
+            "teachingObligations": 2,
+            "coursePreferences": {
+                  "CSC111": 0,
+                  "CSC115": 0,
+                  "ECE255": 0,
+                  "CSC230": 0,
+                  "ECE260": 20,
+                  "SENG265": 0,
+                  "CSC225": 0,
+                  "ECE310": 20,
+                  "SENG275": 0,
+                  "SENG310": 0,
+                  "ECE458": 0,
+                  "CSC361": 0,
+                  "CSC226": 0,
+                  "ECE360": 78,
+                  "SENG321": 0,
+                  "SENG371": 0,
+                  "ECE355": 0,
+                  "CSC355": 0,
+                  "CSC320": 0,
+                  "CSC360": 0,
+                  "CSC370": 0,
+                  "SENG350": 0,
+                  "SENG360": 0,
+                  "SENG426": 0,
+                  "SENG440": 0,
+                  "SENG499": 0,
+                  "ECE455": 0,
+                  "CSC460": 0,
+                  "SENG401": 0
+            },
+            "preferredTimes": {
+                  "fall": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "spring": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "summer": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  }
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 0,
+                  "spring": 0,
+                  "summer": 2
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": null
+      },
+      {
+            "id": "51",
+            "name": "Michael McGuire",
+            "isPeng": true,
+            "facultyType": "teaching",
+            "teachingObligations": 2,
+            "coursePreferences": {
+                  "CSC111": 0,
+                  "CSC115": 0,
+                  "ECE255": 0,
+                  "CSC230": 0,
+                  "ECE260": 78,
+                  "SENG265": 0,
+                  "CSC225": 0,
+                  "ECE310": 195,
+                  "SENG275": 0,
+                  "SENG310": 0,
+                  "ECE458": 0,
+                  "CSC361": 0,
+                  "CSC226": 0,
+                  "ECE360": 78,
+                  "SENG321": 0,
+                  "SENG371": 0,
+                  "ECE355": 0,
+                  "CSC355": 0,
+                  "CSC320": 0,
+                  "CSC360": 0,
+                  "CSC370": 0,
+                  "SENG350": 0,
+                  "SENG360": 0,
+                  "SENG426": 0,
+                  "SENG440": 0,
+                  "SENG499": 0,
+                  "ECE455": 0,
+                  "CSC460": 0,
+                  "SENG401": 0
+            },
+            "preferredTimes": {
+                  "fall": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "spring": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "summer": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  }
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 1,
+                  "spring": 0,
+                  "summer": 1
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": null
+      },
+      {
+            "id": "52",
+            "name": "Stephen Neville",
+            "isPeng": true,
+            "facultyType": "teaching",
+            "teachingObligations": 6,
+            "coursePreferences": {
+                  "CSC111": 0,
+                  "CSC115": 0,
+                  "ECE255": 0,
+                  "CSC230": 0,
+                  "ECE260": 0,
+                  "SENG265": 0,
+                  "CSC225": 0,
+                  "ECE310": 0,
+                  "SENG275": 78,
+                  "SENG310": 0,
+                  "ECE458": 40,
+                  "CSC361": 0,
+                  "CSC226": 0,
+                  "ECE360": 195,
+                  "SENG321": 0,
+                  "SENG371": 0,
+                  "ECE355": 40,
+                  "CSC355": 0,
+                  "CSC320": 0,
+                  "CSC360": 0,
+                  "CSC370": 0,
+                  "SENG350": 0,
+                  "SENG360": 0,
+                  "SENG426": 78,
+                  "SENG440": 0,
+                  "SENG499": 20,
+                  "ECE455": 0,
+                  "CSC460": 0,
+                  "SENG401": 0
+            },
+            "preferredTimes": {
+                  "fall": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "spring": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "summer": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  }
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 5,
+                  "spring": 0,
+                  "summer": 1
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": null
+      },
+      {
+            "id": "53",
+            "name": "Christo Papadopoulos",
+            "isPeng": true,
+            "facultyType": "teaching",
+            "teachingObligations": 3,
+            "coursePreferences": {
+                  "CSC111": 0,
+                  "CSC115": 0,
+                  "ECE255": 0,
+                  "CSC230": 0,
+                  "ECE260": 0,
+                  "SENG265": 0,
+                  "CSC225": 0,
+                  "ECE310": 0,
+                  "SENG275": 0,
+                  "SENG310": 0,
+                  "ECE458": 0,
+                  "CSC361": 0,
+                  "CSC226": 0,
+                  "ECE360": 0,
+                  "SENG321": 0,
+                  "SENG371": 0,
+                  "ECE355": 0,
+                  "CSC355": 0,
+                  "CSC320": 0,
+                  "CSC360": 0,
+                  "CSC370": 0,
+                  "SENG350": 0,
+                  "SENG360": 0,
+                  "SENG426": 0,
+                  "SENG440": 0,
+                  "SENG499": 0,
+                  "ECE455": 0,
+                  "CSC460": 0,
+                  "SENG401": 0
+            },
+            "preferredTimes": {
+                  "fall": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "spring": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "summer": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  }
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 2,
+                  "spring": 1,
+                  "summer": 0
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": null
+      },
+      {
+            "id": "54",
+            "name": "Dr. Navneet Popli",
+            "isPeng": true,
+            "facultyType": "teaching",
+            "teachingObligations": 6,
+            "coursePreferences": {
+                  "CSC111": 0,
+                  "CSC115": 0,
+                  "ECE255": 78,
+                  "CSC230": 0,
+                  "ECE260": 0,
+                  "SENG265": 0,
+                  "CSC225": 0,
+                  "ECE310": 78,
+                  "SENG275": 0,
+                  "SENG310": 0,
+                  "ECE458": 20,
+                  "CSC361": 0,
+                  "CSC226": 0,
+                  "ECE360": 0,
+                  "SENG321": 0,
+                  "SENG371": 0,
+                  "ECE355": 40,
+                  "CSC355": 0,
+                  "CSC320": 0,
+                  "CSC360": 0,
+                  "CSC370": 0,
+                  "SENG350": 0,
+                  "SENG360": 0,
+                  "SENG426": 0,
+                  "SENG440": 20,
+                  "SENG499": 20,
+                  "ECE455": 40,
+                  "CSC460": 0,
+                  "SENG401": 0
+            },
+            "preferredTimes": {
+                  "fall": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "spring": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "summer": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  }
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 2,
+                  "spring": 1,
+                  "summer": 3
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": null
+      },
+      {
+            "id": "55",
+            "name": "Daler Rakhmatov",
+            "isPeng": true,
+            "facultyType": "research",
+            "teachingObligations": 1,
+            "coursePreferences": {
+                  "CSC111": 0,
+                  "CSC115": 0,
+                  "ECE255": 78,
+                  "CSC230": 0,
+                  "ECE260": 0,
+                  "SENG265": 0,
+                  "CSC225": 0,
+                  "ECE310": 78,
+                  "SENG275": 0,
+                  "SENG310": 0,
+                  "ECE458": 0,
+                  "CSC361": 0,
+                  "CSC226": 0,
+                  "ECE360": 78,
+                  "SENG321": 0,
+                  "SENG371": 0,
+                  "ECE355": 195,
+                  "CSC355": 0,
+                  "CSC320": 0,
+                  "CSC360": 0,
+                  "CSC370": 0,
+                  "SENG350": 0,
+                  "SENG360": 0,
+                  "SENG426": 0,
+                  "SENG440": 0,
+                  "SENG499": 0,
+                  "ECE455": 78,
+                  "CSC460": 0,
+                  "SENG401": 0
+            },
+            "preferredTimes": {
+                  "fall": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "spring": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "summer": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  }
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 0,
+                  "spring": 0,
+                  "summer": 1
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": null
+      },
+      {
+            "id": "56",
+            "name": "Makhsud Saidaminov",
+            "isPeng": false,
+            "facultyType": "teaching",
+            "teachingObligations": 6,
+            "coursePreferences": {
+                  "CSC111": 0,
+                  "CSC115": 0,
+                  "ECE255": 0,
+                  "CSC230": 0,
+                  "ECE260": 0,
+                  "SENG265": 0,
+                  "CSC225": 0,
+                  "ECE310": 0,
+                  "SENG275": 0,
+                  "SENG310": 0,
+                  "ECE458": 0,
+                  "CSC361": 0,
+                  "CSC226": 0,
+                  "ECE360": 0,
+                  "SENG321": 0,
+                  "SENG371": 0,
+                  "ECE355": 0,
+                  "CSC355": 0,
+                  "CSC320": 0,
+                  "CSC360": 0,
+                  "CSC370": 0,
+                  "SENG350": 0,
+                  "SENG360": 0,
+                  "SENG426": 0,
+                  "SENG440": 0,
+                  "SENG499": 0,
+                  "ECE455": 0,
+                  "CSC460": 0,
+                  "SENG401": 0
+            },
+            "preferredTimes": {
+                  "fall": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "spring": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "summer": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  }
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 2,
+                  "spring": 0,
+                  "summer": 4
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": null
+      },
+      {
+            "id": "57",
+            "name": "Mihai Sima",
+            "isPeng": true,
+            "facultyType": "research",
+            "teachingObligations": 2,
+            "coursePreferences": {
+                  "CSC111": 0,
+                  "CSC115": 0,
+                  "ECE255": 40,
+                  "CSC230": 0,
+                  "ECE260": 0,
+                  "SENG265": 0,
+                  "CSC225": 0,
+                  "ECE310": 78,
+                  "SENG275": 0,
+                  "SENG310": 0,
+                  "ECE458": 0,
+                  "CSC361": 0,
+                  "CSC226": 0,
+                  "ECE360": 0,
+                  "SENG321": 0,
+                  "SENG371": 0,
+                  "ECE355": 40,
+                  "CSC355": 0,
+                  "CSC320": 0,
+                  "CSC360": 0,
+                  "CSC370": 0,
+                  "SENG350": 0,
+                  "SENG360": 0,
+                  "SENG426": 0,
+                  "SENG440": 195,
+                  "SENG499": 0,
+                  "ECE455": 78,
+                  "CSC460": 0,
+                  "SENG401": 0
+            },
+            "preferredTimes": {
+                  "fall": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "spring": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "summer": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  }
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 2,
+                  "spring": 0,
+                  "summer": 0
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": null
+      },
+      {
+            "id": "58",
+            "name": "Levi Smith",
+            "isPeng": true,
+            "facultyType": "teaching",
+            "teachingObligations": 6,
+            "coursePreferences": {
+                  "CSC111": 0,
+                  "CSC115": 0,
+                  "ECE255": 0,
+                  "CSC230": 0,
+                  "ECE260": 0,
+                  "SENG265": 0,
+                  "CSC225": 0,
+                  "ECE310": 0,
+                  "SENG275": 0,
+                  "SENG310": 0,
+                  "ECE458": 0,
+                  "CSC361": 0,
+                  "CSC226": 0,
+                  "ECE360": 0,
+                  "SENG321": 0,
+                  "SENG371": 0,
+                  "ECE355": 0,
+                  "CSC355": 0,
+                  "CSC320": 0,
+                  "CSC360": 0,
+                  "CSC370": 0,
+                  "SENG350": 0,
+                  "SENG360": 0,
+                  "SENG426": 0,
+                  "SENG440": 0,
+                  "SENG499": 0,
+                  "ECE455": 0,
+                  "CSC460": 0,
+                  "SENG401": 0
+            },
+            "preferredTimes": {
+                  "fall": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "spring": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "summer": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  }
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 4,
+                  "spring": 0,
+                  "summer": 2
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": null
+      },
+      {
+            "id": "59",
+            "name": "Poman So",
+            "isPeng": false,
+            "facultyType": "teaching",
+            "teachingObligations": 2,
+            "coursePreferences": {
+                  "CSC111": 0,
+                  "CSC115": 0,
+                  "ECE255": 0,
+                  "CSC230": 0,
+                  "ECE260": 0,
+                  "SENG265": 0,
+                  "CSC225": 0,
+                  "ECE310": 0,
+                  "SENG275": 0,
+                  "SENG310": 0,
+                  "ECE458": 40,
+                  "CSC361": 0,
+                  "CSC226": 0,
+                  "ECE360": 40,
+                  "SENG321": 0,
+                  "SENG371": 0,
+                  "ECE355": 0,
+                  "CSC355": 0,
+                  "CSC320": 0,
+                  "CSC360": 0,
+                  "CSC370": 0,
+                  "SENG350": 0,
+                  "SENG360": 0,
+                  "SENG426": 0,
+                  "SENG440": 0,
+                  "SENG499": 0,
+                  "ECE455": 0,
+                  "CSC460": 0,
+                  "SENG401": 0
+            },
+            "preferredTimes": {
+                  "fall": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "spring": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "summer": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  }
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 0,
+                  "spring": 1,
+                  "summer": 1
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": null
+      },
+      {
+            "id": "60",
+            "name": "Ilamparithi Thirumarai Chelvan",
+            "isPeng": true,
+            "facultyType": "teaching",
+            "teachingObligations": 3,
+            "coursePreferences": {
+                  "CSC111": 0,
+                  "CSC115": 0,
+                  "ECE255": 0,
+                  "CSC230": 0,
+                  "ECE260": 0,
+                  "SENG265": 0,
+                  "CSC225": 0,
+                  "ECE310": 0,
+                  "SENG275": 0,
+                  "SENG310": 0,
+                  "ECE458": 0,
+                  "CSC361": 0,
+                  "CSC226": 0,
+                  "ECE360": 78,
+                  "SENG321": 0,
+                  "SENG371": 0,
+                  "ECE355": 0,
+                  "CSC355": 0,
+                  "CSC320": 0,
+                  "CSC360": 0,
+                  "CSC370": 0,
+                  "SENG350": 0,
+                  "SENG360": 0,
+                  "SENG426": 0,
+                  "SENG440": 0,
+                  "SENG499": 0,
+                  "ECE455": 0,
+                  "CSC460": 0,
+                  "SENG401": 0
+            },
+            "preferredTimes": {
+                  "fall": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "spring": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "summer": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  }
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 3,
+                  "spring": 0,
+                  "summer": 0
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": null
+      },
+      {
+            "id": "61",
+            "name": "Issa Traore",
+            "isPeng": true,
+            "facultyType": "research",
+            "teachingObligations": 1,
+            "coursePreferences": {
+                  "CSC111": 0,
+                  "CSC115": 0,
+                  "ECE255": 0,
+                  "CSC230": 0,
+                  "ECE260": 0,
+                  "SENG265": 0,
+                  "CSC225": 0,
+                  "ECE310": 0,
+                  "SENG275": 0,
+                  "SENG310": 0,
+                  "ECE458": 40,
+                  "CSC361": 0,
+                  "CSC226": 0,
+                  "ECE360": 0,
+                  "SENG321": 0,
+                  "SENG371": 0,
+                  "ECE355": 0,
+                  "CSC355": 0,
+                  "CSC320": 0,
+                  "CSC360": 0,
+                  "CSC370": 0,
+                  "SENG350": 0,
+                  "SENG360": 0,
+                  "SENG426": 195,
+                  "SENG440": 0,
+                  "SENG499": 20,
+                  "ECE455": 0,
+                  "CSC460": 0,
+                  "SENG401": 0
+            },
+            "preferredTimes": {
+                  "fall": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "spring": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "summer": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  }
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 0,
+                  "spring": 1,
+                  "summer": 0
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": null
+      },
+      {
+            "id": "62",
+            "name": "Hong-Chuan Yang",
+            "isPeng": true,
+            "facultyType": "teaching",
+            "teachingObligations": 2,
+            "coursePreferences": {
+                  "CSC111": 0,
+                  "CSC115": 0,
+                  "ECE255": 0,
+                  "CSC230": 0,
+                  "ECE260": 78,
+                  "SENG265": 0,
+                  "CSC225": 0,
+                  "ECE310": 78,
+                  "SENG275": 0,
+                  "SENG310": 0,
+                  "ECE458": 40,
+                  "CSC361": 0,
+                  "CSC226": 0,
+                  "ECE360": 195,
+                  "SENG321": 0,
+                  "SENG371": 0,
+                  "ECE355": 0,
+                  "CSC355": 0,
+                  "CSC320": 0,
+                  "CSC360": 0,
+                  "CSC370": 0,
+                  "SENG350": 0,
+                  "SENG360": 0,
+                  "SENG426": 0,
+                  "SENG440": 0,
+                  "SENG499": 0,
+                  "ECE455": 0,
+                  "CSC460": 0,
+                  "SENG401": 0
+            },
+            "preferredTimes": {
+                  "fall": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "spring": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  },
+                  "summer": {
+                        "monday": [
+                              null
+                        ],
+                        "tuesday": [
+                              null
+                        ],
+                        "wednesday": [
+                              null
+                        ],
+                        "thursday": [
+                              null
+                        ],
+                        "friday": [
+                              null
+                        ]
+                  }
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 1,
+                  "spring": 0,
+                  "summer": 1
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": null
+      }
+]

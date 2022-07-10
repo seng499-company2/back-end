@@ -38,6 +38,7 @@ class AllCoursesView(APIView):
         serializer = CourseSerializer(data=request_data)
         
         if serializer.is_valid():
+            # TODO: update ALG_course here as well
             serializer.create(serializer.validated_data)
             return HttpResponse(json.dumps(serializer.data), status=status.HTTP_200_OK)
         
@@ -67,6 +68,7 @@ class CourseView(APIView):
             return HttpResponse(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
         try:
+            # TODO: update ALG_course here as well
             course = Course.objects.get(course_code=course_code, section=section)
             if course is None or not isinstance(course, Course):
                 return HttpResponse(status=status.HTTP_404_NOT_FOUND)
@@ -76,6 +78,7 @@ class CourseView(APIView):
         serializer = CourseSerializer(course, data=request_data)
         if serializer.is_valid():
 
+            # TODO: update ALG_course here as well
             serializer.update(course, serializer.validated_data)
             return HttpResponse(json.dumps(serializer.data), status=status.HTTP_200_OK)
         return HttpResponse(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
@@ -85,6 +88,7 @@ class CourseView(APIView):
         if request.method != "DELETE":
             return HttpResponse(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
         try:
+            # TODO: update ALG_course here as well
             course = Course.objects.get(course_code=course_code, section=section)
         except courses.models.Course.DoesNotExist:
             return HttpResponse(status=status.HTTP_404_NOT_FOUND)
