@@ -29,7 +29,6 @@ class Preferences(models.Model):
     courses_preferences = models.JSONField(default=dict)
     preferred_non_teaching_semester = models.CharField(max_length=10,  blank=True, default='')
     preferred_courses_per_semester = models.JSONField(default=dict)
-    preferred_number_teaching_days = models.JSONField(default=dict)
     preferred_course_day_spreads = ArrayField(models.CharField(max_length=5, blank=False), default=list)
    
     class Meta:
