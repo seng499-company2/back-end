@@ -104,16 +104,15 @@ def parse_schedules_data(csv_file):
             year_required = int(row[CSV_COLUMNS.YEAR_REQUIRED])
 
             #create Django models & store to DB
-            for day in days_list:
-                obj, created = A_Course.objects.get_or_create(
-                    code=course_code,
-                    title=title,
-                    pengRequired=peng_required,
-                    yearRequired=year_required
-                )
+            obj, _ = A_Course.objects.get_or_create(
+                code=course_code,
+                title=title,
+                pengRequired=peng_required,
+                yearRequired=year_required
+            )
 
             
-        #Step 3 - build CourseSection objects
+        #Step 3 - build CourseSection objects *(For Static courses only)*
         for row in csv_list:
             if row[CSV_COLUMNS.PROF_ID]:
                 
@@ -157,7 +156,29 @@ def parse_schedules_data(csv_file):
             def __str__(self):
                 return 'id: ' + str(self.id) + ', ' + str(self.course.code) + ', Number of Sections: ' + str(len(self.sections.all()))
         """
-        #TODO...
+        for row in csv_list:
+            #get associated Course object foreign key to create CourseOffering, then save to DB
+            course_code = row[CSV_COLUMNS.CODE]
+            obj = A_Course.objects.get(code=course_code)
+
+            if obj is not None:
+                courseOffering = A_CourseOffering.objects.create(course=obj)
+
+                #get the associated CourseSection for a many-to-many relationship, if a section exists (static courses only)
+                days_list = get_days_of_the_week(row[CSV_COLUMNS.DAYS_OF_WEEK])
+                time_range = str(row[CSV_COLUMNS.TIME_RANGE]).split('~')
+                time_slots = []
+                for day in days_list:
+                    #get TimeSlot obj
+                    obj, _ = A_TimeSlot.objects.get_or_create(
+                        dayOfWeek=day,
+                        timeRange=time_range
+                    )
+                    time_slots.append(obj)
+
+                section = A_CourseSection.objects.get(professor=professor, capacity=capacity, timeSlots=time_slots)
+                
+                #TODO: must fix the above logic ^ and update all previous work to work with updated Schedule.csv
 
 
 
