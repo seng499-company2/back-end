@@ -18,7 +18,7 @@ from rest_framework.permissions import IsAuthenticated
 def get_alg_course(course: Course) -> A_Course:
     try:
         a_course = A_Course.objects.get(code=course.course_code)
-    except:
+    except A_Course.DoesNotExist:
         a_course = A_Course()
     a_course.code = course.course_code
     a_course.title = course.course_title
