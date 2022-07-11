@@ -4,7 +4,8 @@ import pickle
 from courses.models import Course
 from users.models import AppUser
 from preferences.models import Preferences
-from schedule.adapter import course_to_alg_dictionary
+from schedule.adapter import course_to_alg_dictionary, course_to_alg_course, a_course_offering_to_dict
+from schedule.Schedule_models import A_Course, A_CourseOffering, A_Schedule, A_TimeSlot, A_CourseSection
 
 
 def get_historic_course_data() -> typing.Dict[str, str]:
@@ -19,28 +20,84 @@ def get_program_enrollment_data() -> typing.Dict[str, str]:
 
 def get_schedule():
     courses = Course.objects.all()
+    align_all_courses(courses)
     fall_courses: [Course] = list(filter(lambda course: course.spring_offering, courses))
     spring_courses: [Course] = list(filter(lambda course: course.spring_offering, courses))
     summer_courses: [Course] = list(filter(lambda course: course.summer_offering, courses))
-    fall_course_offerings = get_course_offerings(fall_courses)
-    spring_course_offerings = get_course_offerings(spring_courses)
-    summer_course_offerings = get_course_offerings(summer_courses)
-    schedule = {"fall": fall_course_offerings,
-                "spring": spring_course_offerings,
-                "summer": summer_course_offerings
+    fall_course_offerings: [A_CourseOffering] = get_course_offerings(fall_courses)
+    spring_course_offerings: [A_CourseOffering] = get_course_offerings(spring_courses)
+    summer_course_offerings: [A_CourseOffering] = get_course_offerings(summer_courses)
+    fall_course_offerings_dict = list(map(a_course_offering_to_dict, fall_course_offerings))
+    spring_course_offerings_dict = list(map(a_course_offering_to_dict, spring_course_offerings))
+    summer_course_offerings_dict = list(map(a_course_offering_to_dict, summer_course_offerings))
+    schedule = {"fall": fall_course_offerings_dict,
+                "spring": spring_course_offerings_dict,
+                "summer": summer_course_offerings_dict
                 }
     return schedule
 
 
+def align_all_courses(courses: [Course]):
+    courses = list(map(course_to_alg_course, courses))
+    map((lambda alg_course: alg_course.save), courses)
+
+
 def get_course_offerings(courses):
-    alg_course_dicts = list(map(course_to_alg_dictionary, courses))
-    course_offerings = []
-    for alg_course_dict in alg_course_dicts:
-        section1 = {"professor": "", "capacity": "", "timeslots": ""}
-        section2 = {"professor": "", "capacity": "", "timeslots": ""}
-        course_offering = {"course": alg_course_dict, "sections": [section1, section2]}
-        course_offerings.append(course_offering)
-    return course_offerings
+    course_offerings: [A_CourseOffering] = A_CourseOffering.objects.all()
+    a_course_offerings_filtered = []
+    for course_offering in course_offerings:
+        # checks if the course offering's course is in the list of courses passed in as a param
+        # so courses with fall course offerings end up in the fall_course_offerings list
+        a_course = course_offering.course
+        for course in courses:
+            if a_course is not None and a_course.code == course.course_code:
+                a_course_offerings_filtered.append(course_offering)
+
+    if len(courses) == len(a_course_offerings_filtered):
+        # Every course already has a course offering, no problems!
+        return a_course_offerings_filtered
+
+    courses_without_offerings = []
+    for course in courses:
+        for course_offering in a_course_offerings_filtered:
+            if course.course_code == course_offering.course:
+                break
+        courses_without_offerings.append(course)
+
+    # Create course offerings for courses without offerings
+    for course in courses_without_offerings:
+        a_course_offerings_filtered.append(create_course_offering(course))
+    return a_course_offerings_filtered
+
+
+def create_course_offering(course: Course):
+    a_course_offering: A_CourseOffering = A_CourseOffering()
+    a_course_offering.course = course_to_alg_course(course)
+    a_course_offering.course.save()
+    default_A01_section = A_CourseSection()
+    default_A01_section.professor = ''
+    default_A01_section.capacity = 0
+    default_A01_section.save()
+    default_A02_section = A_CourseSection()
+    default_A02_section.professor = ''
+    default_A02_section.capacity = 0
+    default_A02_section.save()
+    a_course_offering.save()
+    a_course_offering.sections.set([default_A01_section])
+    a_course_offering.save()
+    return a_course_offering
+
+    #
+    # print(vars(course_offerings))
+    # alg_course_dicts = list(map(course_to_alg_dictionary, courses))
+    #
+    # course_offerings = []
+    # for alg_course_dict in alg_course_dicts:
+    #     section1 = {"professor": "", "capacity": "", "timeslots": ""}
+    #     section2 = {"professor": "", "capacity": "", "timeslots": ""}
+    #     course_offering = {"course": alg_course_dict, "sections": [section1, section2]}
+    #     course_offerings.append(course_offering)
+    # return course_offerings
 
 
 def get_professor_dict():
