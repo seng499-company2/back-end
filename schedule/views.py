@@ -11,8 +11,8 @@ from c1algo2.forecaster import forecast as c1alg2
 
 from schedule.alg_data_generator import get_historic_course_data
 from schedule.alg_data_generator import get_program_enrollment_data
-from schedule.alg_data_generator import get_schedule, get_schedule_object_company1, get_professor_object_company1, \
-    get_professor_dict_mock, get_schedule_alg1_mock, get_schedule_alg2_mock
+from schedule.alg_data_generator import get_professor_object_company1, get_schedule_alg1_mock, \
+    get_professor_dict_mock, get_schedule_alg2_mock
 
 import traceback
 import json
@@ -30,13 +30,12 @@ class Schedule(APIView):
         professors_company1 = get_professor_object_company1()
 
         try:
-            schedule = c1alg2(historical_data, previous_enrollment, schedule) if requested_company_alg == 1 \
+            alg_2_output = c1alg2(historical_data, previous_enrollment, schedule) if requested_company_alg == 1 \
                  else c2alg2(historical_data, previous_enrollment, schedule)
             if requested_company_alg == 1:
-                schedule, error = c1alg1.generate_schedule(professors_company1, schedule)
+                schedule, error = c1alg1.generate_schedule(professors_company1, alg_2_output)
             else:
-                schedule = c2alg1(professors, schedule)
-                error = None
+                schedule, error = c2alg1(professors, schedule, False)
             if error is not None and error != "":
                 return HttpResponse("ERROR WITH ALGORITHMS: " + error, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
             return HttpResponse(json.dumps(schedule), status=status.HTTP_200_OK)
