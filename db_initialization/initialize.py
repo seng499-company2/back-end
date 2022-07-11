@@ -27,12 +27,19 @@ class CSV_COLUMNS(Enum):
     PENG_REQUIRED_SPRING = 4
     PENG_REQUIRED_SUMMER = 5
     YEAR_REQUIRED = 6
-    PROF_ID = 7
-    PROF_NAME = 8
-    CAPACITY = 9
-    CAPACITY_TWO = 10
-    DAYS_OF_WEEK = 11
-    TIME_RANGE = 12
+    NUM_SECTIONS = 7
+    
+    SECTION1_PROF_ID = 8
+    SECTION1_PROF_NAME = 9
+    SECTION1_CAPACITY = 10
+    SECTION1_DAYS_OF_WEEK = 11
+    SECTION1_TIME_RANGE = 12
+
+    SECTION2_PROF_ID = 13
+    SECTION2_PROF_NAME = 14
+    SECTION2_CAPACITY = 15
+    SECTION2_DAYS_OF_WEEK = 16
+    SECTION2_TIME_RANGE = 17
 
 
 def get_days_of_the_week(days_str):
@@ -78,11 +85,12 @@ def parse_schedules_data(csv_file):
 
         #Step 1 - build TimeSlot objects
         for row in csv_list:
-            if row[CSV_COLUMNS.PROF_ID]:
+            #handling TimeSlots for course with 1 section
+            if row[CSV_COLUMNS.SECTION1_TIME_RANGE]:
                 
                 #parse the DaysOfTheWeek CSV string into distinct enum values + TimeRange splittings
-                days_list = get_days_of_the_week(row[CSV_COLUMNS.DAYS_OF_WEEK])
-                time_range = str(row[CSV_COLUMNS.TIME_RANGE]).split('~')
+                days_list = get_days_of_the_week(row[CSV_COLUMNS.SECTION1_DAYS_OF_WEEK])
+                time_range = str(row[CSV_COLUMNS.SECTION1_TIME_RANGE]).split('~')
 
                 #create Django models & store to DB
                 for day in days_list:
@@ -90,6 +98,21 @@ def parse_schedules_data(csv_file):
                         dayOfWeek=day,
                         timeRange=time_range
                     )
+
+            #extra case - handling TimeSlots for course with 2 sections
+            if row[CSV_COLUMNS.NUM_SECTIONS] == 2:
+                if row[CSV_COLUMNS.SECTION2_TIME_RANGE]:
+                    
+                    #parse the DaysOfTheWeek CSV string into distinct enum values + TimeRange splittings
+                    days_list = get_days_of_the_week(row[CSV_COLUMNS.SECTION2_DAYS_OF_WEEK])
+                    time_range = str(row[CSV_COLUMNS.SECTION2_TIME_RANGE]).split('~')
+
+                    #create Django models & store to DB
+                    for day in days_list:
+                        _, _ = A_TimeSlot.objects.get_or_create(
+                            dayOfWeek=day,
+                            timeRange=time_range
+                        )
 
 
         #Step 2 - build Course objects
@@ -104,7 +127,7 @@ def parse_schedules_data(csv_file):
             year_required = int(row[CSV_COLUMNS.YEAR_REQUIRED])
 
             #create Django models & store to DB
-            obj, _ = A_Course.objects.get_or_create(
+            _, _ = A_Course.objects.get_or_create(
                 code=course_code,
                 title=title,
                 pengRequired=peng_required,
@@ -113,22 +136,49 @@ def parse_schedules_data(csv_file):
 
             
         #Step 3 - build CourseSection objects *(For Static courses only)*
-        for row in csv_list:
-            if row[CSV_COLUMNS.PROF_ID]:
-                
+        for row in csv_list:                
+            if row[CSV_COLUMNS.SECTION1_PROF_ID]:
                 professor = {
-                    "id" : int(row[CSV_COLUMNS.PROF_ID]),
-                    "name" : row[CSV_COLUMNS.PROF_NAME]
+                    "id" : row[CSV_COLUMNS.SECTION1_PROF_ID] ,
+                    "name" : row[CSV_COLUMNS.SECTION1_PROF_NAME]
                 }
-                capacity = row[CSV_COLUMNS.CAPACITY]
+            else:
+                professor = None
+            
+            if row[CSV_COLUMNS.SECTION1_CAPACITY]:
+                capacity = int(row[CSV_COLUMNS.SECTION1_CAPACITY])
+            else:
+                capacity = 0
+
+            #create Django models & store to DB
+            courseSection1, created = A_CourseSection.objects.get_or_create(
+                professor=professor,
+                capacity=capacity
+            )
+            
+            #Section 2 prof id
+            if row[CSV_COLUMNS.NUM_SECTIONS] == 2:
+                if row[CSV_COLUMNS.SECTION2_PROF_ID]:
+                    professor = {
+                        "id" : row[CSV_COLUMNS.SECTION2_PROF_ID] ,
+                        "name" : row[CSV_COLUMNS.SECTION2_PROF_NAME]
+                    }
+                else:
+                    professor = None
+                
+                if row[CSV_COLUMNS.SECTION2_CAPACITY]:
+                    capacity = int(row[CSV_COLUMNS.SECTION2_CAPACITY])
+                else:
+                    capacity = 0
 
                 #create Django models & store to DB
-                courseSection, created = A_CourseSection.objects.get_or_create(
+                courseSection2, created = A_CourseSection.objects.get_or_create(
                     professor=professor,
                     capacity=capacity
                 )
 
-                #create the TimeSlots many-to-many relationship
+            #create the TimeSlots many-to-many relationship, if exists
+            if row[CSV_COLUMNS.SECTION1_DAYS_OF_WEEK] and :
                 days_list = get_days_of_the_week(row[CSV_COLUMNS.DAYS_OF_WEEK])
                 time_range = str(row[CSV_COLUMNS.TIME_RANGE]).split('~')
                 time_slots = []
@@ -144,6 +194,7 @@ def parse_schedules_data(csv_file):
 
                 courseSection.timeSlots.set(time_slots)
 
+                #
         
         #Step 4 - build CourseOffering objects
         """
