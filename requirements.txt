@@ -7,7 +7,7 @@ pyjwt==2.4.0
 
 
 # algorithms
-coursescheduler==0.1.5 #Company 2 alg 1
+coursescheduler==0.0.5 #Company 2 alg 1
 c1algo1==2.0.2 # Company 1 alg 1
 
 --extra-index-url https://test.pypi.org/simple/
