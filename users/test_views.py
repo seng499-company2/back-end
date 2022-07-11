@@ -46,6 +46,20 @@ class TestProfessorsList(TestCase):
             'is_form_submitted': False,
         }
 
+        #default data containing no password field for the serializer
+        self.no_password_serializer_data = {
+            'user': {
+                'username': 'abcdef',
+                'first_name': 'Abc',
+                'last_name': 'Def',
+                'email': 'abc@uvic.ca',
+                'is_superuser': False
+            },
+            'prof_type': AppUser.TeachingType.TEACHING_PROF,
+            'is_peng': False,
+            'is_form_submitted': False,
+        }
+
         self.app_user = AppUser.objects.create(**self.app_user_attributes)
         self.serializer = AppUserSerializer(instance=self.app_user)
 
@@ -64,8 +78,16 @@ class TestProfessorsList(TestCase):
         if serializer.is_valid():
             serializer.save()
 
+    @classmethod
+    #save an AppUser instance using data that does not contain a password
+    def save_default_user_no_password(self):
+        serializer = AppUserSerializer(data=self.no_password_serializer_data)
+        if serializer.is_valid():
+            serializer.save()
+
     def test_prof_update_POST(self):
-        self.save_default_user()
+        #assures that the serializer does not need a password field during .update()
+        self.save_default_user_no_password()
         response = self.get_APIClient().post('/api/users/abcdef/', data=self.default_serializer_data, format='json')
         self.assertIsNotNone(response)
         self.assertEqual(status.HTTP_200_OK, response.status_code)
