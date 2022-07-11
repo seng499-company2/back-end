@@ -35,7 +35,7 @@ class Schedule(APIView):
             if requested_company_alg == 1:
                 schedule, error = c1alg1.generate_schedule(professors_company1, alg_2_output)
             else:
-                schedule, error = c2alg1(professors, schedule, False)
+                schedule, error = c2alg1(professors, alg_2_output, False)
             if error is not None and error != "":
                 return HttpResponse("ERROR WITH ALGORITHMS: " + error, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
             return HttpResponse(json.dumps(schedule), status=status.HTTP_200_OK)
