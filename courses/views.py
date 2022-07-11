@@ -106,7 +106,7 @@ class CourseView(APIView):
             course = Course.objects.get(course_code=course_code)
         except courses.models.Course.DoesNotExist:
             return HttpResponse(status=status.HTTP_404_NOT_FOUND)
-        course = course.delete()
         alg_course = get_alg_course(course)
+        course.delete()
         alg_course.delete()
         return HttpResponse(status=status.HTTP_204_NO_CONTENT)
