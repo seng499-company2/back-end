@@ -1,5 +1,6 @@
 import typing
 import json
+import pickle
 from courses.models import Course
 from users.models import AppUser
 from preferences.models import Preferences
@@ -80,4 +81,26 @@ def get_schedule_alg1_mock():
 
 def get_schedule_alg2_mock():
     with open("resources/schedule_object_no_capacities_(alg2_input).json") as json_file:
+        return json.load(json_file)
+
+
+def get_professor_object_company1():
+    prof_data = open("resources/professors_updated", 'rb')
+    professors = pickle.load(prof_data)
+    return professors
+
+
+def get_schedule_object_company1():
+    schedule_data = open("resources/schedule_updated", 'rb')
+    schedule = pickle.load(schedule_data)
+    return schedule
+
+
+def get_schedule_error():
+    with open("resources/schedule_object_error_case.json") as json_file:
+        return json.load(json_file)
+
+
+def get_profs_error():
+    with open("resources/professor_object_error_case.json") as json_file:
         return json.load(json_file)

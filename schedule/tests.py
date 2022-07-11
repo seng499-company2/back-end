@@ -43,6 +43,11 @@ class ViewTest(TestCase):
         self.assertIsNotNone(response)
         self.assertEquals(status.HTTP_200_OK, response.status_code)
 
+    def test_GET_company_2_error(self):
+        response = self.client.get('/schedule/2022/FALL/2?use_mock_data=true', format='json')
+        self.assertIsNotNone(response)
+        self.assertEquals(status.HTTP_500_INTERNAL_SERVER_ERROR, response.status_code)
+
     def test_POST_company_2(self):
         response = self.client.post('/schedule/schedule_id/course_id/2', format='json')
         self.assertIsNotNone(response)

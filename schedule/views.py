@@ -11,10 +11,8 @@ from c1algo2.forecaster import forecast as c1alg2
 
 from schedule.alg_data_generator import get_historic_course_data
 from schedule.alg_data_generator import get_program_enrollment_data
-from schedule.alg_data_generator import get_schedule
-from schedule.alg_data_generator import get_professor_dict_mock
-from schedule.alg_data_generator import get_schedule_alg1_mock
-from schedule.alg_data_generator import get_schedule_alg2_mock
+from schedule.alg_data_generator import get_professor_object_company1, get_schedule_alg1_mock, \
+    get_professor_dict_mock, get_schedule_alg2_mock, get_schedule_error, get_profs_error
 
 import traceback
 import json
@@ -23,19 +21,29 @@ import json
 class Schedule(APIView):
     # GET / schedule / {year - semester}
     def get(self, request: HttpRequest, year: int, semester: str, requested_company_alg: int) -> HttpResponse:
+        print("received GET request to Schedule API Endpoint")
 
         # Create params for algorithms packages
         historical_data = get_historic_course_data()
         previous_enrollment = get_program_enrollment_data()
         schedule = get_schedule_alg2_mock()
         professors = get_professor_dict_mock()
-        schedule_1 = get_schedule_alg1_mock()
+        professors_company1 = get_professor_object_company1()
+
+        # GET / schedule / {year - semester}/?use_mock_data=true
+        if "use_mock_data" in request.query_params and request.query_params["use_mock_data"] == 'true':
+            professors = get_profs_error()
+            schedule = get_schedule_error()
 
         try:
-            schedule = c1alg2(historical_data, previous_enrollment, schedule) if requested_company_alg == 1 \
-                 else c2alg2(historical_data, previous_enrollment, None)
-            schedule = c1alg1.generate_schedule(professors, schedule_1) if requested_company_alg == 1 \
-                else c2alg1(None, schedule_1, True)
+            alg_2_output = c1alg2(historical_data, previous_enrollment, schedule) if requested_company_alg == 1 \
+                 else c2alg2(historical_data, previous_enrollment, schedule)
+            if requested_company_alg == 1:
+                schedule, error = c1alg1.generate_schedule(professors_company1, alg_2_output)
+            else:
+                schedule, error = c2alg1(professors, alg_2_output, False)
+            if error is not None and error != "":
+                return HttpResponse("ERROR WITH ALGORITHMS: " + error, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
             return HttpResponse(json.dumps(schedule), status=status.HTTP_200_OK)
         except Exception as err:
             print(traceback.format_exception(err))
@@ -43,6 +51,7 @@ class Schedule(APIView):
 
     # POST / schedule / {scheduleId} / {courseId}
     def post(self, request: HttpRequest, schedule_id: str, course_id: str,  company_alg: int) -> HttpResponse:
+        print("received POST request to Schedule API Endpoint")
         body = "GENERATED SCHEDULE FROM COMPANY %d ALGORITHM" % company_alg
         return HttpResponse(body, status=status.HTTP_200_OK)
 
@@ -50,5 +59,6 @@ class Schedule(APIView):
 class ScheduleFile(APIView):
     # GET / schedules / files / {scheduleId}
     def get(self, request: HttpRequest, schedule_id: str,  company_alg: int) -> HttpResponse:
+        print("received GET request to ScheduleFile API Endpoint")
         body = "GENERATED SCHEDULE FROM COMPANY %d ALGORITHM" % company_alg
         return HttpResponse(body, status=status.HTTP_200_OK)

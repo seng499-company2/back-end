@@ -3,8 +3,8 @@
             "id": "1",
             "name": "Celina Berg",
             "isPeng": false,
-            "facultyType": "TEACHING",
-            "teachingObligations": 2,
+            "facultyType": "RESEARCH",
+            "teachingObligations": 3,
             "coursePreferences": [
                   {
                         "courseCode": "CSC111",
@@ -221,9 +221,9 @@
                   }
             },
             "preferredCoursesPerSemester": {
-                  "fall": 0,
-                  "spring": 1,
-                  "summer": 1
+                  "fall": 3,
+                  "spring": 0,
+                  "summer": 0
             },
             "preferredNonTeachingSemester": "SPRING",
             "preferredCourseDaySpreads": [
@@ -237,153 +237,16 @@
             "id": "2",
             "name": "Bill Bird",
             "isPeng": false,
-            "facultyType": "RESEARCH",
-            "teachingObligations": 1,
-            "coursePreferences": [
-                  {
-                        "courseCode": "CSC111",
-                        "enthusiasmScore": 78
-                  },
-                  {
-                        "courseCode": "CSC115",
-                        "enthusiasmScore": 20
-                  },
-                  {
-                        "courseCode": "ECE255",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC230",
-                        "enthusiasmScore": 20
-                  },
-                  {
-                        "courseCode": "ECE260",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG265",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC225",
-                        "enthusiasmScore": 20
-                  },
-                  {
-                        "courseCode": "ECE310",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG275",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG310",
-                        "enthusiasmScore": 195
-                  },
-                  {
-                        "courseCode": "ECE458",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC361",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC226",
-                        "enthusiasmScore": 20
-                  },
-                  {
-                        "courseCode": "ECE360",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG321",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG371",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE355",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC355",
-                        "enthusiasmScore": 78
-                  },
-                  {
-                        "courseCode": "CSC320",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC360",
-                        "enthusiasmScore": 20
-                  },
-                  {
-                        "courseCode": "CSC370",
-                        "enthusiasmScore": 20
-                  },
-                  {
-                        "courseCode": "SENG350",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG360",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG426",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG440",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG499",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE455",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC460",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG401",
-                        "enthusiasmScore": 0
-                  }
-            ],
-            "preferredTimes": {
-                  "fall": null,
-                  "spring": null,
-                  "summer": null
-            },
-            "preferredCoursesPerSemester": {
-                  "fall": 0,
-                  "spring": 1,
-                  "summer": 0
-            },
-            "preferredNonTeachingSemester": null,
-            "preferredCourseDaySpreads": []
-      },
-      {
-            "id": "3",
-            "name": "Sean Chester",
-            "isPeng": false,
             "facultyType": "TEACHING",
-            "teachingObligations": 6,
+            "teachingObligations": 2,
             "coursePreferences": [
                   {
                         "courseCode": "CSC111",
-                        "enthusiasmScore": 40
+                        "enthusiasmScore": 78
                   },
                   {
                         "courseCode": "CSC115",
-                        "enthusiasmScore": 40
+                        "enthusiasmScore": 20
                   },
                   {
                         "courseCode": "ECE255",
@@ -391,7 +254,7 @@
                   },
                   {
                         "courseCode": "CSC230",
-                        "enthusiasmScore": 0
+                        "enthusiasmScore": 20
                   },
                   {
                         "courseCode": "ECE260",
@@ -403,7 +266,7 @@
                   },
                   {
                         "courseCode": "CSC225",
-                        "enthusiasmScore": 0
+                        "enthusiasmScore": 20
                   },
                   {
                         "courseCode": "ECE310",
@@ -411,11 +274,11 @@
                   },
                   {
                         "courseCode": "SENG275",
-                        "enthusiasmScore": 195
+                        "enthusiasmScore": 0
                   },
                   {
                         "courseCode": "SENG310",
-                        "enthusiasmScore": 0
+                        "enthusiasmScore": 195
                   },
                   {
                         "courseCode": "ECE458",
@@ -423,11 +286,11 @@
                   },
                   {
                         "courseCode": "CSC361",
-                        "enthusiasmScore": 78
+                        "enthusiasmScore": 0
                   },
                   {
                         "courseCode": "CSC226",
-                        "enthusiasmScore": 0
+                        "enthusiasmScore": 20
                   },
                   {
                         "courseCode": "ECE360",
@@ -447,7 +310,7 @@
                   },
                   {
                         "courseCode": "CSC355",
-                        "enthusiasmScore": 0
+                        "enthusiasmScore": 78
                   },
                   {
                         "courseCode": "CSC320",
@@ -455,11 +318,11 @@
                   },
                   {
                         "courseCode": "CSC360",
-                        "enthusiasmScore": 0
+                        "enthusiasmScore": 20
                   },
                   {
                         "courseCode": "CSC370",
-                        "enthusiasmScore": 0
+                        "enthusiasmScore": 20
                   },
                   {
                         "courseCode": "SENG350",
@@ -487,7 +350,7 @@
                   },
                   {
                         "courseCode": "CSC460",
-                        "enthusiasmScore": 78
+                        "enthusiasmScore": 0
                   },
                   {
                         "courseCode": "SENG401",
@@ -501,22 +364,22 @@
             },
             "preferredCoursesPerSemester": {
                   "fall": 2,
-                  "spring": 1,
-                  "summer": 3
+                  "spring": 0,
+                  "summer": 0
             },
             "preferredNonTeachingSemester": null,
             "preferredCourseDaySpreads": []
       },
       {
-            "id": "4",
-            "name": "Jason Corless",
+            "id": "3",
+            "name": "Sean Chester",
             "isPeng": false,
-            "facultyType": "TEACHING",
-            "teachingObligations": 6,
+            "facultyType": "RESEARCH",
+            "teachingObligations": 3,
             "coursePreferences": [
                   {
                         "courseCode": "CSC111",
-                        "enthusiasmScore": 195
+                        "enthusiasmScore": 40
                   },
                   {
                         "courseCode": "CSC115",
@@ -528,7 +391,7 @@
                   },
                   {
                         "courseCode": "CSC230",
-                        "enthusiasmScore": 40
+                        "enthusiasmScore": 0
                   },
                   {
                         "courseCode": "ECE260",
@@ -540,7 +403,7 @@
                   },
                   {
                         "courseCode": "CSC225",
-                        "enthusiasmScore": 40
+                        "enthusiasmScore": 0
                   },
                   {
                         "courseCode": "ECE310",
@@ -548,7 +411,7 @@
                   },
                   {
                         "courseCode": "SENG275",
-                        "enthusiasmScore": 0
+                        "enthusiasmScore": 195
                   },
                   {
                         "courseCode": "SENG310",
@@ -564,7 +427,7 @@
                   },
                   {
                         "courseCode": "CSC226",
-                        "enthusiasmScore": 40
+                        "enthusiasmScore": 0
                   },
                   {
                         "courseCode": "ECE360",
@@ -584,7 +447,7 @@
                   },
                   {
                         "courseCode": "CSC355",
-                        "enthusiasmScore": 195
+                        "enthusiasmScore": 0
                   },
                   {
                         "courseCode": "CSC320",
@@ -638,8 +501,145 @@
             },
             "preferredCoursesPerSemester": {
                   "fall": 3,
-                  "spring": 2,
-                  "summer": 1
+                  "spring": 0,
+                  "summer": 0
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": []
+      },
+      {
+            "id": "4",
+            "name": "Jason Corless",
+            "isPeng": false,
+            "facultyType": "RESEARCH",
+            "teachingObligations": 2,
+            "coursePreferences": [
+                  {
+                        "courseCode": "CSC111",
+                        "enthusiasmScore": 195
+                  },
+                  {
+                        "courseCode": "CSC115",
+                        "enthusiasmScore": 40
+                  },
+                  {
+                        "courseCode": "ECE255",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC230",
+                        "enthusiasmScore": 40
+                  },
+                  {
+                        "courseCode": "ECE260",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG265",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC225",
+                        "enthusiasmScore": 40
+                  },
+                  {
+                        "courseCode": "ECE310",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG275",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG310",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE458",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC361",
+                        "enthusiasmScore": 78
+                  },
+                  {
+                        "courseCode": "CSC226",
+                        "enthusiasmScore": 40
+                  },
+                  {
+                        "courseCode": "ECE360",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG321",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG371",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE355",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC355",
+                        "enthusiasmScore": 195
+                  },
+                  {
+                        "courseCode": "CSC320",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC360",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC370",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG350",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG360",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG426",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG440",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG499",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE455",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC460",
+                        "enthusiasmScore": 78
+                  },
+                  {
+                        "courseCode": "SENG401",
+                        "enthusiasmScore": 0
+                  }
+            ],
+            "preferredTimes": {
+                  "fall": null,
+                  "spring": null,
+                  "summer": null
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 1,
+                  "spring": 1,
+                  "summer": 0
             },
             "preferredNonTeachingSemester": null,
             "preferredCourseDaySpreads": []
@@ -648,8 +648,8 @@
             "id": "5",
             "name": "Daniela Damian",
             "isPeng": true,
-            "facultyType": "TEACHING",
-            "teachingObligations": 3,
+            "facultyType": "RESEARCH",
+            "teachingObligations": 1,
             "coursePreferences": [
                   {
                         "courseCode": "CSC111",
@@ -775,7 +775,7 @@
             },
             "preferredCoursesPerSemester": {
                   "fall": 1,
-                  "spring": 2,
+                  "spring": 0,
                   "summer": 0
             },
             "preferredNonTeachingSemester": null,
@@ -786,563 +786,15 @@
             "name": "Neil Ernst",
             "isPeng": false,
             "facultyType": "TEACHING",
-            "teachingObligations": 3,
-            "coursePreferences": [
-                  {
-                        "courseCode": "CSC111",
-                        "enthusiasmScore": 78
-                  },
-                  {
-                        "courseCode": "CSC115",
-                        "enthusiasmScore": 78
-                  },
-                  {
-                        "courseCode": "ECE255",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC230",
-                        "enthusiasmScore": 78
-                  },
-                  {
-                        "courseCode": "ECE260",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG265",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC225",
-                        "enthusiasmScore": 40
-                  },
-                  {
-                        "courseCode": "ECE310",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG275",
-                        "enthusiasmScore": 20
-                  },
-                  {
-                        "courseCode": "SENG310",
-                        "enthusiasmScore": 78
-                  },
-                  {
-                        "courseCode": "ECE458",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC361",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC226",
-                        "enthusiasmScore": 20
-                  },
-                  {
-                        "courseCode": "ECE360",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG321",
-                        "enthusiasmScore": 20
-                  },
-                  {
-                        "courseCode": "SENG371",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE355",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC355",
-                        "enthusiasmScore": 78
-                  },
-                  {
-                        "courseCode": "CSC320",
-                        "enthusiasmScore": 20
-                  },
-                  {
-                        "courseCode": "CSC360",
-                        "enthusiasmScore": 40
-                  },
-                  {
-                        "courseCode": "CSC370",
-                        "enthusiasmScore": 20
-                  },
-                  {
-                        "courseCode": "SENG350",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG360",
-                        "enthusiasmScore": 20
-                  },
-                  {
-                        "courseCode": "SENG426",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG440",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG499",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE455",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC460",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG401",
-                        "enthusiasmScore": 40
-                  }
-            ],
-            "preferredTimes": {
-                  "fall": null,
-                  "spring": null,
-                  "summer": null
-            },
-            "preferredCoursesPerSemester": {
-                  "fall": 3,
-                  "spring": 0,
-                  "summer": 0
-            },
-            "preferredNonTeachingSemester": null,
-            "preferredCourseDaySpreads": []
-      },
-      {
-            "id": "7",
-            "name": "Anthony Estey",
-            "isPeng": false,
-            "facultyType": "RESEARCH",
-            "teachingObligations": 2,
-            "coursePreferences": [
-                  {
-                        "courseCode": "CSC111",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC115",
-                        "enthusiasmScore": 78
-                  },
-                  {
-                        "courseCode": "ECE255",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC230",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE260",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG265",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC225",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE310",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG275",
-                        "enthusiasmScore": 78
-                  },
-                  {
-                        "courseCode": "SENG310",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE458",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC361",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC226",
-                        "enthusiasmScore": 78
-                  },
-                  {
-                        "courseCode": "ECE360",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG321",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG371",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE355",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC355",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC320",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC360",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC370",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG350",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG360",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG426",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG440",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG499",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE455",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC460",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG401",
-                        "enthusiasmScore": 0
-                  }
-            ],
-            "preferredTimes": {
-                  "fall": null,
-                  "spring": null,
-                  "summer": null
-            },
-            "preferredCoursesPerSemester": {
-                  "fall": 0,
-                  "spring": 2,
-                  "summer": 0
-            },
-            "preferredNonTeachingSemester": null,
-            "preferredCourseDaySpreads": []
-      },
-      {
-            "id": "8",
-            "name": "Sudhakar Ganti",
-            "isPeng": false,
-            "facultyType": "RESEARCH",
-            "teachingObligations": 1,
-            "coursePreferences": [
-                  {
-                        "courseCode": "CSC111",
-                        "enthusiasmScore": 78
-                  },
-                  {
-                        "courseCode": "CSC115",
-                        "enthusiasmScore": 195
-                  },
-                  {
-                        "courseCode": "ECE255",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC230",
-                        "enthusiasmScore": 20
-                  },
-                  {
-                        "courseCode": "ECE260",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG265",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC225",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE310",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG275",
-                        "enthusiasmScore": 20
-                  },
-                  {
-                        "courseCode": "SENG310",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE458",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC361",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC226",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE360",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG321",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG371",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE355",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC355",
-                        "enthusiasmScore": 78
-                  },
-                  {
-                        "courseCode": "CSC320",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC360",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC370",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG350",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG360",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG426",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG440",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG499",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE455",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC460",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG401",
-                        "enthusiasmScore": 0
-                  }
-            ],
-            "preferredTimes": {
-                  "fall": null,
-                  "spring": null,
-                  "summer": null
-            },
-            "preferredCoursesPerSemester": {
-                  "fall": 0,
-                  "spring": 0,
-                  "summer": 1
-            },
-            "preferredNonTeachingSemester": null,
-            "preferredCourseDaySpreads": []
-      },
-      {
-            "id": "9",
-            "name": "Daniel German",
-            "isPeng": false,
-            "facultyType": "TEACHING",
-            "teachingObligations": 2,
-            "coursePreferences": [
-                  {
-                        "courseCode": "CSC111",
-                        "enthusiasmScore": 78
-                  },
-                  {
-                        "courseCode": "CSC115",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE255",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC230",
-                        "enthusiasmScore": 78
-                  },
-                  {
-                        "courseCode": "ECE260",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG265",
-                        "enthusiasmScore": 78
-                  },
-                  {
-                        "courseCode": "CSC225",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE310",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG275",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG310",
-                        "enthusiasmScore": 20
-                  },
-                  {
-                        "courseCode": "ECE458",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC361",
-                        "enthusiasmScore": 40
-                  },
-                  {
-                        "courseCode": "CSC226",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE360",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG321",
-                        "enthusiasmScore": 195
-                  },
-                  {
-                        "courseCode": "SENG371",
-                        "enthusiasmScore": 20
-                  },
-                  {
-                        "courseCode": "ECE355",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC355",
-                        "enthusiasmScore": 20
-                  },
-                  {
-                        "courseCode": "CSC320",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC360",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC370",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG350",
-                        "enthusiasmScore": 195
-                  },
-                  {
-                        "courseCode": "SENG360",
-                        "enthusiasmScore": 20
-                  },
-                  {
-                        "courseCode": "SENG426",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG440",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG499",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE455",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC460",
-                        "enthusiasmScore": 40
-                  },
-                  {
-                        "courseCode": "SENG401",
-                        "enthusiasmScore": 195
-                  }
-            ],
-            "preferredTimes": {
-                  "fall": null,
-                  "spring": null,
-                  "summer": null
-            },
-            "preferredCoursesPerSemester": {
-                  "fall": 2,
-                  "spring": 0,
-                  "summer": 0
-            },
-            "preferredNonTeachingSemester": null,
-            "preferredCourseDaySpreads": []
-      },
-      {
-            "id": "10",
-            "name": "Brandon Haworth",
-            "isPeng": false,
-            "facultyType": "TEACHING",
             "teachingObligations": 6,
             "coursePreferences": [
                   {
                         "courseCode": "CSC111",
-                        "enthusiasmScore": 40
+                        "enthusiasmScore": 78
                   },
                   {
                         "courseCode": "CSC115",
-                        "enthusiasmScore": 40
+                        "enthusiasmScore": 78
                   },
                   {
                         "courseCode": "ECE255",
@@ -1350,7 +802,7 @@
                   },
                   {
                         "courseCode": "CSC230",
-                        "enthusiasmScore": 0
+                        "enthusiasmScore": 78
                   },
                   {
                         "courseCode": "ECE260",
@@ -1362,7 +814,7 @@
                   },
                   {
                         "courseCode": "CSC225",
-                        "enthusiasmScore": 20
+                        "enthusiasmScore": 40
                   },
                   {
                         "courseCode": "ECE310",
@@ -1370,11 +822,11 @@
                   },
                   {
                         "courseCode": "SENG275",
-                        "enthusiasmScore": 0
+                        "enthusiasmScore": 20
                   },
                   {
                         "courseCode": "SENG310",
-                        "enthusiasmScore": 0
+                        "enthusiasmScore": 78
                   },
                   {
                         "courseCode": "ECE458",
@@ -1386,7 +838,7 @@
                   },
                   {
                         "courseCode": "CSC226",
-                        "enthusiasmScore": 40
+                        "enthusiasmScore": 20
                   },
                   {
                         "courseCode": "ECE360",
@@ -1394,7 +846,7 @@
                   },
                   {
                         "courseCode": "SENG321",
-                        "enthusiasmScore": 0
+                        "enthusiasmScore": 20
                   },
                   {
                         "courseCode": "SENG371",
@@ -1406,19 +858,19 @@
                   },
                   {
                         "courseCode": "CSC355",
-                        "enthusiasmScore": 40
+                        "enthusiasmScore": 78
                   },
                   {
                         "courseCode": "CSC320",
-                        "enthusiasmScore": 0
+                        "enthusiasmScore": 20
                   },
                   {
                         "courseCode": "CSC360",
-                        "enthusiasmScore": 195
+                        "enthusiasmScore": 40
                   },
                   {
                         "courseCode": "CSC370",
-                        "enthusiasmScore": 0
+                        "enthusiasmScore": 20
                   },
                   {
                         "courseCode": "SENG350",
@@ -1426,7 +878,7 @@
                   },
                   {
                         "courseCode": "SENG360",
-                        "enthusiasmScore": 0
+                        "enthusiasmScore": 20
                   },
                   {
                         "courseCode": "SENG426",
@@ -1450,7 +902,7 @@
                   },
                   {
                         "courseCode": "SENG401",
-                        "enthusiasmScore": 0
+                        "enthusiasmScore": 40
                   }
             ],
             "preferredTimes": {
@@ -1467,11 +919,559 @@
             "preferredCourseDaySpreads": []
       },
       {
-            "id": "11",
-            "name": "Hosna Jabbari",
+            "id": "7",
+            "name": "Anthony Estey",
+            "isPeng": false,
+            "facultyType": "RESEARCH",
+            "teachingObligations": 3,
+            "coursePreferences": [
+                  {
+                        "courseCode": "CSC111",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC115",
+                        "enthusiasmScore": 78
+                  },
+                  {
+                        "courseCode": "ECE255",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC230",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE260",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG265",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC225",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE310",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG275",
+                        "enthusiasmScore": 78
+                  },
+                  {
+                        "courseCode": "SENG310",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE458",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC361",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC226",
+                        "enthusiasmScore": 78
+                  },
+                  {
+                        "courseCode": "ECE360",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG321",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG371",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE355",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC355",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC320",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC360",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC370",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG350",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG360",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG426",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG440",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG499",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE455",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC460",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG401",
+                        "enthusiasmScore": 0
+                  }
+            ],
+            "preferredTimes": {
+                  "fall": null,
+                  "spring": null,
+                  "summer": null
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 1,
+                  "spring": 2,
+                  "summer": 0
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": []
+      },
+      {
+            "id": "8",
+            "name": "Sudhakar Ganti",
             "isPeng": false,
             "facultyType": "RESEARCH",
             "teachingObligations": 2,
+            "coursePreferences": [
+                  {
+                        "courseCode": "CSC111",
+                        "enthusiasmScore": 78
+                  },
+                  {
+                        "courseCode": "CSC115",
+                        "enthusiasmScore": 195
+                  },
+                  {
+                        "courseCode": "ECE255",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC230",
+                        "enthusiasmScore": 20
+                  },
+                  {
+                        "courseCode": "ECE260",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG265",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC225",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE310",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG275",
+                        "enthusiasmScore": 20
+                  },
+                  {
+                        "courseCode": "SENG310",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE458",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC361",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC226",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE360",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG321",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG371",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE355",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC355",
+                        "enthusiasmScore": 78
+                  },
+                  {
+                        "courseCode": "CSC320",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC360",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC370",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG350",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG360",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG426",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG440",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG499",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE455",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC460",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG401",
+                        "enthusiasmScore": 0
+                  }
+            ],
+            "preferredTimes": {
+                  "fall": null,
+                  "spring": null,
+                  "summer": null
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 0,
+                  "spring": 2,
+                  "summer": 0
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": []
+      },
+      {
+            "id": "9",
+            "name": "Daniel German",
+            "isPeng": false,
+            "facultyType": "TEACHING",
+            "teachingObligations": 6,
+            "coursePreferences": [
+                  {
+                        "courseCode": "CSC111",
+                        "enthusiasmScore": 78
+                  },
+                  {
+                        "courseCode": "CSC115",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE255",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC230",
+                        "enthusiasmScore": 78
+                  },
+                  {
+                        "courseCode": "ECE260",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG265",
+                        "enthusiasmScore": 78
+                  },
+                  {
+                        "courseCode": "CSC225",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE310",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG275",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG310",
+                        "enthusiasmScore": 20
+                  },
+                  {
+                        "courseCode": "ECE458",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC361",
+                        "enthusiasmScore": 40
+                  },
+                  {
+                        "courseCode": "CSC226",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE360",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG321",
+                        "enthusiasmScore": 195
+                  },
+                  {
+                        "courseCode": "SENG371",
+                        "enthusiasmScore": 20
+                  },
+                  {
+                        "courseCode": "ECE355",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC355",
+                        "enthusiasmScore": 20
+                  },
+                  {
+                        "courseCode": "CSC320",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC360",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC370",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG350",
+                        "enthusiasmScore": 195
+                  },
+                  {
+                        "courseCode": "SENG360",
+                        "enthusiasmScore": 20
+                  },
+                  {
+                        "courseCode": "SENG426",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG440",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG499",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE455",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC460",
+                        "enthusiasmScore": 40
+                  },
+                  {
+                        "courseCode": "SENG401",
+                        "enthusiasmScore": 195
+                  }
+            ],
+            "preferredTimes": {
+                  "fall": null,
+                  "spring": null,
+                  "summer": null
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 0,
+                  "spring": 2,
+                  "summer": 4
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": []
+      },
+      {
+            "id": "10",
+            "name": "Brandon Haworth",
+            "isPeng": false,
+            "facultyType": "TEACHING",
+            "teachingObligations": 3,
+            "coursePreferences": [
+                  {
+                        "courseCode": "CSC111",
+                        "enthusiasmScore": 40
+                  },
+                  {
+                        "courseCode": "CSC115",
+                        "enthusiasmScore": 40
+                  },
+                  {
+                        "courseCode": "ECE255",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC230",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE260",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG265",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC225",
+                        "enthusiasmScore": 20
+                  },
+                  {
+                        "courseCode": "ECE310",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG275",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG310",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE458",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC361",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC226",
+                        "enthusiasmScore": 40
+                  },
+                  {
+                        "courseCode": "ECE360",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG321",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG371",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE355",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC355",
+                        "enthusiasmScore": 40
+                  },
+                  {
+                        "courseCode": "CSC320",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC360",
+                        "enthusiasmScore": 195
+                  },
+                  {
+                        "courseCode": "CSC370",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG350",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG360",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG426",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG440",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG499",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE455",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC460",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG401",
+                        "enthusiasmScore": 0
+                  }
+            ],
+            "preferredTimes": {
+                  "fall": null,
+                  "spring": null,
+                  "summer": null
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 1,
+                  "spring": 0,
+                  "summer": 2
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": []
+      },
+      {
+            "id": "11",
+            "name": "Hosna Jabbari",
+            "isPeng": false,
+            "facultyType": "TEACHING",
+            "teachingObligations": 3,
             "coursePreferences": [
                   {
                         "courseCode": "CSC111",
@@ -1598,7 +1598,7 @@
             "preferredCoursesPerSemester": {
                   "fall": 2,
                   "spring": 0,
-                  "summer": 0
+                  "summer": 1
             },
             "preferredNonTeachingSemester": null,
             "preferredCourseDaySpreads": []
@@ -1607,143 +1607,6 @@
             "id": "12",
             "name": "LillAnne Jackson",
             "isPeng": true,
-            "facultyType": "RESEARCH",
-            "teachingObligations": 3,
-            "coursePreferences": [
-                  {
-                        "courseCode": "CSC111",
-                        "enthusiasmScore": 40
-                  },
-                  {
-                        "courseCode": "CSC115",
-                        "enthusiasmScore": 78
-                  },
-                  {
-                        "courseCode": "ECE255",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC230",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE260",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG265",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC225",
-                        "enthusiasmScore": 40
-                  },
-                  {
-                        "courseCode": "ECE310",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG275",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG310",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE458",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC361",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC226",
-                        "enthusiasmScore": 40
-                  },
-                  {
-                        "courseCode": "ECE360",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG321",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG371",
-                        "enthusiasmScore": 195
-                  },
-                  {
-                        "courseCode": "ECE355",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC355",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC320",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC360",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC370",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG350",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG360",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG426",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG440",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG499",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE455",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC460",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG401",
-                        "enthusiasmScore": 0
-                  }
-            ],
-            "preferredTimes": {
-                  "fall": null,
-                  "spring": null,
-                  "summer": null
-            },
-            "preferredCoursesPerSemester": {
-                  "fall": 0,
-                  "spring": 0,
-                  "summer": 3
-            },
-            "preferredNonTeachingSemester": null,
-            "preferredCourseDaySpreads": []
-      },
-      {
-            "id": "13",
-            "name": "Bruce Kapron",
-            "isPeng": false,
             "facultyType": "TEACHING",
             "teachingObligations": 6,
             "coursePreferences": [
@@ -1753,6 +1616,143 @@
                   },
                   {
                         "courseCode": "CSC115",
+                        "enthusiasmScore": 78
+                  },
+                  {
+                        "courseCode": "ECE255",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC230",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE260",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG265",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC225",
+                        "enthusiasmScore": 40
+                  },
+                  {
+                        "courseCode": "ECE310",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG275",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG310",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE458",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC361",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC226",
+                        "enthusiasmScore": 40
+                  },
+                  {
+                        "courseCode": "ECE360",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG321",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG371",
+                        "enthusiasmScore": 195
+                  },
+                  {
+                        "courseCode": "ECE355",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC355",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC320",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC360",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC370",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG350",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG360",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG426",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG440",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG499",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE455",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC460",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG401",
+                        "enthusiasmScore": 0
+                  }
+            ],
+            "preferredTimes": {
+                  "fall": null,
+                  "spring": null,
+                  "summer": null
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 6,
+                  "spring": 0,
+                  "summer": 0
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": []
+      },
+      {
+            "id": "13",
+            "name": "Bruce Kapron",
+            "isPeng": false,
+            "facultyType": "RESEARCH",
+            "teachingObligations": 3,
+            "coursePreferences": [
+                  {
+                        "courseCode": "CSC111",
+                        "enthusiasmScore": 40
+                  },
+                  {
+                        "courseCode": "CSC115",
                         "enthusiasmScore": 20
                   },
                   {
@@ -1870,7 +1870,7 @@
                   "summer": null
             },
             "preferredCoursesPerSemester": {
-                  "fall": 4,
+                  "fall": 1,
                   "spring": 0,
                   "summer": 2
             },
@@ -2019,7 +2019,7 @@
             "name": "Sajin Koroth",
             "isPeng": false,
             "facultyType": "RESEARCH",
-            "teachingObligations": 1,
+            "teachingObligations": 2,
             "coursePreferences": [
                   {
                         "courseCode": "CSC111",
@@ -2144,8 +2144,8 @@
                   "summer": null
             },
             "preferredCoursesPerSemester": {
-                  "fall": 0,
-                  "spring": 1,
+                  "fall": 2,
+                  "spring": 0,
                   "summer": 0
             },
             "preferredNonTeachingSemester": null,
@@ -2155,7 +2155,7 @@
             "id": "16",
             "name": "Rich Little",
             "isPeng": false,
-            "facultyType": "TEACHING",
+            "facultyType": "RESEARCH",
             "teachingObligations": 2,
             "coursePreferences": [
                   {
@@ -2281,8 +2281,8 @@
                   "summer": null
             },
             "preferredCoursesPerSemester": {
-                  "fall": 1,
-                  "spring": 1,
+                  "fall": 2,
+                  "spring": 0,
                   "summer": 0
             },
             "preferredNonTeachingSemester": null,
@@ -2292,8 +2292,8 @@
             "id": "17",
             "name": "Nishant Mehta",
             "isPeng": false,
-            "facultyType": "TEACHING",
-            "teachingObligations": 2,
+            "facultyType": "RESEARCH",
+            "teachingObligations": 1,
             "coursePreferences": [
                   {
                         "courseCode": "CSC111",
@@ -2420,7 +2420,7 @@
             "preferredCoursesPerSemester": {
                   "fall": 1,
                   "spring": 0,
-                  "summer": 1
+                  "summer": 0
             },
             "preferredNonTeachingSemester": null,
             "preferredCourseDaySpreads": []
@@ -2566,8 +2566,8 @@
             "id": "19",
             "name": "Miguel Nacenta",
             "isPeng": false,
-            "facultyType": "TEACHING",
-            "teachingObligations": 3,
+            "facultyType": "RESEARCH",
+            "teachingObligations": 2,
             "coursePreferences": [
                   {
                         "courseCode": "CSC111",
@@ -2692,16 +2692,16 @@
                   "summer": null
             },
             "preferredCoursesPerSemester": {
-                  "fall": 0,
-                  "spring": 3,
-                  "summer": 0
+                  "fall": 1,
+                  "spring": 0,
+                  "summer": 1
             },
             "preferredNonTeachingSemester": null,
             "preferredCourseDaySpreads": []
       },
       {
             "id": "20",
-            "name": "Ibrahim Numanagi\u00c4\u2021",
+            "name": "Ibrahim Numanagi\u0107",
             "isPeng": false,
             "facultyType": "RESEARCH",
             "teachingObligations": 1,
@@ -2830,8 +2830,8 @@
             },
             "preferredCoursesPerSemester": {
                   "fall": 0,
-                  "spring": 0,
-                  "summer": 1
+                  "spring": 1,
+                  "summer": 0
             },
             "preferredNonTeachingSemester": null,
             "preferredCourseDaySpreads": []
@@ -2841,7 +2841,7 @@
             "name": "Jianping Pan",
             "isPeng": false,
             "facultyType": "TEACHING",
-            "teachingObligations": 2,
+            "teachingObligations": 6,
             "coursePreferences": [
                   {
                         "courseCode": "CSC111",
@@ -2967,8 +2967,8 @@
             },
             "preferredCoursesPerSemester": {
                   "fall": 0,
-                  "spring": 1,
-                  "summer": 1
+                  "spring": 4,
+                  "summer": 2
             },
             "preferredNonTeachingSemester": null,
             "preferredCourseDaySpreads": []
@@ -2977,8 +2977,8 @@
             "id": "22",
             "name": "Charles Perin",
             "isPeng": false,
-            "facultyType": "RESEARCH",
-            "teachingObligations": 3,
+            "facultyType": "TEACHING",
+            "teachingObligations": 6,
             "coursePreferences": [
                   {
                         "courseCode": "CSC111",
@@ -3103,9 +3103,9 @@
                   "summer": null
             },
             "preferredCoursesPerSemester": {
-                  "fall": 1,
-                  "spring": 1,
-                  "summer": 1
+                  "fall": 6,
+                  "spring": 0,
+                  "summer": 0
             },
             "preferredNonTeachingSemester": null,
             "preferredCourseDaySpreads": []
@@ -3115,7 +3115,7 @@
             "name": "Teseo Schneider",
             "isPeng": false,
             "facultyType": "TEACHING",
-            "teachingObligations": 3,
+            "teachingObligations": 6,
             "coursePreferences": [
                   {
                         "courseCode": "CSC111",
@@ -3232,6 +3232,280 @@
                   {
                         "courseCode": "SENG401",
                         "enthusiasmScore": 40
+                  }
+            ],
+            "preferredTimes": {
+                  "fall": null,
+                  "spring": null,
+                  "summer": null
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 2,
+                  "spring": 2,
+                  "summer": 2
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": []
+      },
+      {
+            "id": "24",
+            "name": "Sowmya Somanath",
+            "isPeng": false,
+            "facultyType": "RESEARCH",
+            "teachingObligations": 2,
+            "coursePreferences": [
+                  {
+                        "courseCode": "CSC111",
+                        "enthusiasmScore": 195
+                  },
+                  {
+                        "courseCode": "CSC115",
+                        "enthusiasmScore": 78
+                  },
+                  {
+                        "courseCode": "ECE255",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC230",
+                        "enthusiasmScore": 40
+                  },
+                  {
+                        "courseCode": "ECE260",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG265",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC225",
+                        "enthusiasmScore": 195
+                  },
+                  {
+                        "courseCode": "ECE310",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG275",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG310",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE458",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC361",
+                        "enthusiasmScore": 40
+                  },
+                  {
+                        "courseCode": "CSC226",
+                        "enthusiasmScore": 20
+                  },
+                  {
+                        "courseCode": "ECE360",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG321",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG371",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE355",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC355",
+                        "enthusiasmScore": 78
+                  },
+                  {
+                        "courseCode": "CSC320",
+                        "enthusiasmScore": 195
+                  },
+                  {
+                        "courseCode": "CSC360",
+                        "enthusiasmScore": 40
+                  },
+                  {
+                        "courseCode": "CSC370",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG350",
+                        "enthusiasmScore": 40
+                  },
+                  {
+                        "courseCode": "SENG360",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG426",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG440",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG499",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE455",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC460",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG401",
+                        "enthusiasmScore": 0
+                  }
+            ],
+            "preferredTimes": {
+                  "fall": null,
+                  "spring": null,
+                  "summer": null
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 0,
+                  "spring": 2,
+                  "summer": 0
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": []
+      },
+      {
+            "id": "25",
+            "name": "Venkatesh Srinivasan",
+            "isPeng": false,
+            "facultyType": "RESEARCH",
+            "teachingObligations": 3,
+            "coursePreferences": [
+                  {
+                        "courseCode": "CSC111",
+                        "enthusiasmScore": 20
+                  },
+                  {
+                        "courseCode": "CSC115",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE255",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC230",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE260",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG265",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC225",
+                        "enthusiasmScore": 195
+                  },
+                  {
+                        "courseCode": "ECE310",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG275",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG310",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE458",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC361",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC226",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE360",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG321",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG371",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE355",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC355",
+                        "enthusiasmScore": 78
+                  },
+                  {
+                        "courseCode": "CSC320",
+                        "enthusiasmScore": 195
+                  },
+                  {
+                        "courseCode": "CSC360",
+                        "enthusiasmScore": 40
+                  },
+                  {
+                        "courseCode": "CSC370",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG350",
+                        "enthusiasmScore": 40
+                  },
+                  {
+                        "courseCode": "SENG360",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG426",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG440",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG499",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE455",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC460",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG401",
+                        "enthusiasmScore": 0
                   }
             ],
             "preferredTimes": {
@@ -3248,284 +3522,10 @@
             "preferredCourseDaySpreads": []
       },
       {
-            "id": "24",
-            "name": "Sowmya Somanath",
-            "isPeng": false,
-            "facultyType": "TEACHING",
-            "teachingObligations": 3,
-            "coursePreferences": [
-                  {
-                        "courseCode": "CSC111",
-                        "enthusiasmScore": 195
-                  },
-                  {
-                        "courseCode": "CSC115",
-                        "enthusiasmScore": 78
-                  },
-                  {
-                        "courseCode": "ECE255",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC230",
-                        "enthusiasmScore": 40
-                  },
-                  {
-                        "courseCode": "ECE260",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG265",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC225",
-                        "enthusiasmScore": 195
-                  },
-                  {
-                        "courseCode": "ECE310",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG275",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG310",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE458",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC361",
-                        "enthusiasmScore": 40
-                  },
-                  {
-                        "courseCode": "CSC226",
-                        "enthusiasmScore": 20
-                  },
-                  {
-                        "courseCode": "ECE360",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG321",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG371",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE355",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC355",
-                        "enthusiasmScore": 78
-                  },
-                  {
-                        "courseCode": "CSC320",
-                        "enthusiasmScore": 195
-                  },
-                  {
-                        "courseCode": "CSC360",
-                        "enthusiasmScore": 40
-                  },
-                  {
-                        "courseCode": "CSC370",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG350",
-                        "enthusiasmScore": 40
-                  },
-                  {
-                        "courseCode": "SENG360",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG426",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG440",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG499",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE455",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC460",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG401",
-                        "enthusiasmScore": 0
-                  }
-            ],
-            "preferredTimes": {
-                  "fall": null,
-                  "spring": null,
-                  "summer": null
-            },
-            "preferredCoursesPerSemester": {
-                  "fall": 1,
-                  "spring": 2,
-                  "summer": 0
-            },
-            "preferredNonTeachingSemester": null,
-            "preferredCourseDaySpreads": []
-      },
-      {
-            "id": "25",
-            "name": "Venkatesh Srinivasan",
-            "isPeng": false,
-            "facultyType": "TEACHING",
-            "teachingObligations": 6,
-            "coursePreferences": [
-                  {
-                        "courseCode": "CSC111",
-                        "enthusiasmScore": 20
-                  },
-                  {
-                        "courseCode": "CSC115",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE255",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC230",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE260",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG265",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC225",
-                        "enthusiasmScore": 195
-                  },
-                  {
-                        "courseCode": "ECE310",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG275",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG310",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE458",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC361",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC226",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE360",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG321",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG371",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE355",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC355",
-                        "enthusiasmScore": 78
-                  },
-                  {
-                        "courseCode": "CSC320",
-                        "enthusiasmScore": 195
-                  },
-                  {
-                        "courseCode": "CSC360",
-                        "enthusiasmScore": 40
-                  },
-                  {
-                        "courseCode": "CSC370",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG350",
-                        "enthusiasmScore": 40
-                  },
-                  {
-                        "courseCode": "SENG360",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG426",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG440",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG499",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE455",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC460",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG401",
-                        "enthusiasmScore": 0
-                  }
-            ],
-            "preferredTimes": {
-                  "fall": null,
-                  "spring": null,
-                  "summer": null
-            },
-            "preferredCoursesPerSemester": {
-                  "fall": 1,
-                  "spring": 5,
-                  "summer": 0
-            },
-            "preferredNonTeachingSemester": null,
-            "preferredCourseDaySpreads": []
-      },
-      {
             "id": "26",
             "name": "Ulrike Stege",
             "isPeng": false,
-            "facultyType": "TEACHING",
+            "facultyType": "RESEARCH",
             "teachingObligations": 2,
             "coursePreferences": [
                   {
@@ -3651,9 +3651,9 @@
                   "summer": null
             },
             "preferredCoursesPerSemester": {
-                  "fall": 0,
+                  "fall": 2,
                   "spring": 0,
-                  "summer": 2
+                  "summer": 0
             },
             "preferredNonTeachingSemester": null,
             "preferredCourseDaySpreads": []
@@ -3662,8 +3662,8 @@
             "id": "27",
             "name": "Margaret-Anne Storey",
             "isPeng": false,
-            "facultyType": "TEACHING",
-            "teachingObligations": 6,
+            "facultyType": "RESEARCH",
+            "teachingObligations": 1,
             "coursePreferences": [
                   {
                         "courseCode": "CSC111",
@@ -3788,9 +3788,9 @@
                   "summer": null
             },
             "preferredCoursesPerSemester": {
-                  "fall": 4,
+                  "fall": 1,
                   "spring": 0,
-                  "summer": 2
+                  "summer": 0
             },
             "preferredNonTeachingSemester": null,
             "preferredCourseDaySpreads": []
@@ -3800,7 +3800,7 @@
             "name": "Cecilia Summers",
             "isPeng": false,
             "facultyType": "TEACHING",
-            "teachingObligations": 6,
+            "teachingObligations": 3,
             "coursePreferences": [
                   {
                         "courseCode": "CSC111",
@@ -3925,9 +3925,9 @@
                   "summer": null
             },
             "preferredCoursesPerSemester": {
-                  "fall": 4,
+                  "fall": 3,
                   "spring": 0,
-                  "summer": 2
+                  "summer": 0
             },
             "preferredNonTeachingSemester": null,
             "preferredCourseDaySpreads": []
@@ -4062,9 +4062,9 @@
                   "summer": null
             },
             "preferredCoursesPerSemester": {
-                  "fall": 1,
-                  "spring": 0,
-                  "summer": 2
+                  "fall": 2,
+                  "spring": 1,
+                  "summer": 0
             },
             "preferredNonTeachingSemester": null,
             "preferredCourseDaySpreads": []
@@ -4074,143 +4074,6 @@
             "name": "George Tzanetakis",
             "isPeng": false,
             "facultyType": "RESEARCH",
-            "teachingObligations": 1,
-            "coursePreferences": [
-                  {
-                        "courseCode": "CSC111",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC115",
-                        "enthusiasmScore": 40
-                  },
-                  {
-                        "courseCode": "ECE255",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC230",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE260",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG265",
-                        "enthusiasmScore": 20
-                  },
-                  {
-                        "courseCode": "CSC225",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE310",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG275",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG310",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE458",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC361",
-                        "enthusiasmScore": 20
-                  },
-                  {
-                        "courseCode": "CSC226",
-                        "enthusiasmScore": 20
-                  },
-                  {
-                        "courseCode": "ECE360",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG321",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG371",
-                        "enthusiasmScore": 40
-                  },
-                  {
-                        "courseCode": "ECE355",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC355",
-                        "enthusiasmScore": 40
-                  },
-                  {
-                        "courseCode": "CSC320",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC360",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC370",
-                        "enthusiasmScore": 78
-                  },
-                  {
-                        "courseCode": "SENG350",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG360",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG426",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG440",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG499",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE455",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC460",
-                        "enthusiasmScore": 20
-                  },
-                  {
-                        "courseCode": "SENG401",
-                        "enthusiasmScore": 0
-                  }
-            ],
-            "preferredTimes": {
-                  "fall": null,
-                  "spring": null,
-                  "summer": null
-            },
-            "preferredCoursesPerSemester": {
-                  "fall": 1,
-                  "spring": 0,
-                  "summer": 0
-            },
-            "preferredNonTeachingSemester": null,
-            "preferredCourseDaySpreads": []
-      },
-      {
-            "id": "31",
-            "name": "Jens Weber",
-            "isPeng": true,
-            "facultyType": "TEACHING",
             "teachingObligations": 3,
             "coursePreferences": [
                   {
@@ -4219,7 +4082,7 @@
                   },
                   {
                         "courseCode": "CSC115",
-                        "enthusiasmScore": 0
+                        "enthusiasmScore": 40
                   },
                   {
                         "courseCode": "ECE255",
@@ -4227,7 +4090,7 @@
                   },
                   {
                         "courseCode": "CSC230",
-                        "enthusiasmScore": 40
+                        "enthusiasmScore": 0
                   },
                   {
                         "courseCode": "ECE260",
@@ -4235,7 +4098,7 @@
                   },
                   {
                         "courseCode": "SENG265",
-                        "enthusiasmScore": 0
+                        "enthusiasmScore": 20
                   },
                   {
                         "courseCode": "CSC225",
@@ -4259,11 +4122,11 @@
                   },
                   {
                         "courseCode": "CSC361",
-                        "enthusiasmScore": 39
+                        "enthusiasmScore": 20
                   },
                   {
                         "courseCode": "CSC226",
-                        "enthusiasmScore": 0
+                        "enthusiasmScore": 20
                   },
                   {
                         "courseCode": "ECE360",
@@ -4271,11 +4134,11 @@
                   },
                   {
                         "courseCode": "SENG321",
-                        "enthusiasmScore": 78
+                        "enthusiasmScore": 0
                   },
                   {
                         "courseCode": "SENG371",
-                        "enthusiasmScore": 0
+                        "enthusiasmScore": 40
                   },
                   {
                         "courseCode": "ECE355",
@@ -4283,7 +4146,7 @@
                   },
                   {
                         "courseCode": "CSC355",
-                        "enthusiasmScore": 0
+                        "enthusiasmScore": 40
                   },
                   {
                         "courseCode": "CSC320",
@@ -4295,7 +4158,7 @@
                   },
                   {
                         "courseCode": "CSC370",
-                        "enthusiasmScore": 0
+                        "enthusiasmScore": 78
                   },
                   {
                         "courseCode": "SENG350",
@@ -4323,7 +4186,7 @@
                   },
                   {
                         "courseCode": "CSC460",
-                        "enthusiasmScore": 39
+                        "enthusiasmScore": 20
                   },
                   {
                         "courseCode": "SENG401",
@@ -4344,11 +4207,148 @@
             "preferredCourseDaySpreads": []
       },
       {
-            "id": "32",
-            "name": "Kui Wu",
+            "id": "31",
+            "name": "Jens Weber",
             "isPeng": true,
             "facultyType": "TEACHING",
             "teachingObligations": 6,
+            "coursePreferences": [
+                  {
+                        "courseCode": "CSC111",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC115",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE255",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC230",
+                        "enthusiasmScore": 40
+                  },
+                  {
+                        "courseCode": "ECE260",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG265",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC225",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE310",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG275",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG310",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE458",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC361",
+                        "enthusiasmScore": 39
+                  },
+                  {
+                        "courseCode": "CSC226",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE360",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG321",
+                        "enthusiasmScore": 78
+                  },
+                  {
+                        "courseCode": "SENG371",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE355",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC355",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC320",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC360",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC370",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG350",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG360",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG426",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG440",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG499",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE455",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC460",
+                        "enthusiasmScore": 39
+                  },
+                  {
+                        "courseCode": "SENG401",
+                        "enthusiasmScore": 0
+                  }
+            ],
+            "preferredTimes": {
+                  "fall": null,
+                  "spring": null,
+                  "summer": null
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 1,
+                  "spring": 1,
+                  "summer": 4
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": []
+      },
+      {
+            "id": "32",
+            "name": "Kui Wu",
+            "isPeng": true,
+            "facultyType": "RESEARCH",
+            "teachingObligations": 3,
             "coursePreferences": [
                   {
                         "courseCode": "CSC111",
@@ -4473,9 +4473,9 @@
                   "summer": null
             },
             "preferredCoursesPerSemester": {
-                  "fall": 4,
-                  "spring": 0,
-                  "summer": 2
+                  "fall": 2,
+                  "spring": 1,
+                  "summer": 0
             },
             "preferredNonTeachingSemester": null,
             "preferredCourseDaySpreads": []
@@ -4483,9 +4483,9 @@
       {
             "id": "33",
             "name": "Michael Zastre",
-            "isPeng": true,
-            "facultyType": "RESEARCH",
-            "teachingObligations": 4,
+            "isPeng": false,
+            "facultyType": "TEACHING",
+            "teachingObligations": 2,
             "coursePreferences": [
                   {
                         "courseCode": "CSC111",
@@ -4611,8 +4611,8 @@
             },
             "preferredCoursesPerSemester": {
                   "fall": 2,
-                  "spring": 0,
-                  "summer": 0
+                  "spring": 3,
+                  "summer": 1
             },
             "preferredNonTeachingSemester": null,
             "preferredCourseDaySpreads": []
@@ -4622,7 +4622,7 @@
             "name": "Michael Adams",
             "isPeng": true,
             "facultyType": "TEACHING",
-            "teachingObligations": 2,
+            "teachingObligations": 6,
             "coursePreferences": [
                   {
                         "courseCode": "CSC111",
@@ -4747,9 +4747,9 @@
                   "summer": null
             },
             "preferredCoursesPerSemester": {
-                  "fall": 1,
+                  "fall": 6,
                   "spring": 0,
-                  "summer": 1
+                  "summer": 0
             },
             "preferredNonTeachingSemester": null,
             "preferredCourseDaySpreads": []
@@ -4885,8 +4885,8 @@
             },
             "preferredCoursesPerSemester": {
                   "fall": 0,
-                  "spring": 1,
-                  "summer": 1
+                  "spring": 0,
+                  "summer": 2
             },
             "preferredNonTeachingSemester": null,
             "preferredCourseDaySpreads": []
@@ -4895,8 +4895,8 @@
             "id": "36",
             "name": "Riham AlTawy",
             "isPeng": true,
-            "facultyType": "RESEARCH",
-            "teachingObligations": 2,
+            "facultyType": "TEACHING",
+            "teachingObligations": 6,
             "coursePreferences": [
                   {
                         "courseCode": "CSC111",
@@ -5022,8 +5022,8 @@
             },
             "preferredCoursesPerSemester": {
                   "fall": 1,
-                  "spring": 1,
-                  "summer": 0
+                  "spring": 2,
+                  "summer": 3
             },
             "preferredNonTeachingSemester": null,
             "preferredCourseDaySpreads": []
@@ -5158,8 +5158,8 @@
                   "summer": null
             },
             "preferredCoursesPerSemester": {
-                  "fall": 2,
-                  "spring": 0,
+                  "fall": 1,
+                  "spring": 1,
                   "summer": 0
             },
             "preferredNonTeachingSemester": null,
@@ -5169,8 +5169,8 @@
             "id": "38",
             "name": "Jens Bornemann",
             "isPeng": false,
-            "facultyType": "RESEARCH",
-            "teachingObligations": 3,
+            "facultyType": "TEACHING",
+            "teachingObligations": 2,
             "coursePreferences": [
                   {
                         "courseCode": "CSC111",
@@ -5295,7 +5295,7 @@
                   "summer": null
             },
             "preferredCoursesPerSemester": {
-                  "fall": 1,
+                  "fall": 0,
                   "spring": 0,
                   "summer": 2
             },
@@ -5305,554 +5305,6 @@
       {
             "id": "39",
             "name": "Alexandra Branzan Albu",
-            "isPeng": true,
-            "facultyType": "RESEARCH",
-            "teachingObligations": 1,
-            "coursePreferences": [
-                  {
-                        "courseCode": "CSC111",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC115",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE255",
-                        "enthusiasmScore": 20
-                  },
-                  {
-                        "courseCode": "CSC230",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE260",
-                        "enthusiasmScore": 100
-                  },
-                  {
-                        "courseCode": "SENG265",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC225",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE310",
-                        "enthusiasmScore": 100
-                  },
-                  {
-                        "courseCode": "SENG275",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG310",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE458",
-                        "enthusiasmScore": 40
-                  },
-                  {
-                        "courseCode": "CSC361",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC226",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE360",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG321",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG371",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE355",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC355",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC320",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC360",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC370",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG350",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG360",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG426",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG440",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG499",
-                        "enthusiasmScore": 20
-                  },
-                  {
-                        "courseCode": "ECE455",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC460",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG401",
-                        "enthusiasmScore": 0
-                  }
-            ],
-            "preferredTimes": {
-                  "fall": null,
-                  "spring": null,
-                  "summer": null
-            },
-            "preferredCoursesPerSemester": {
-                  "fall": 0,
-                  "spring": 0,
-                  "summer": 1
-            },
-            "preferredNonTeachingSemester": null,
-            "preferredCourseDaySpreads": []
-      },
-      {
-            "id": "40",
-            "name": "Lin Cai",
-            "isPeng": true,
-            "facultyType": "RESEARCH",
-            "teachingObligations": 1,
-            "coursePreferences": [
-                  {
-                        "courseCode": "CSC111",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC115",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE255",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC230",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE260",
-                        "enthusiasmScore": 40
-                  },
-                  {
-                        "courseCode": "SENG265",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC225",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE310",
-                        "enthusiasmScore": 20
-                  },
-                  {
-                        "courseCode": "SENG275",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG310",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE458",
-                        "enthusiasmScore": 195
-                  },
-                  {
-                        "courseCode": "CSC361",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC226",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE360",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG321",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG371",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE355",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC355",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC320",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC360",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC370",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG350",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG360",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG426",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG440",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG499",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE455",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC460",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG401",
-                        "enthusiasmScore": 0
-                  }
-            ],
-            "preferredTimes": {
-                  "fall": null,
-                  "spring": null,
-                  "summer": null
-            },
-            "preferredCoursesPerSemester": {
-                  "fall": 1,
-                  "spring": 0,
-                  "summer": 0
-            },
-            "preferredNonTeachingSemester": null,
-            "preferredCourseDaySpreads": []
-      },
-      {
-            "id": "41",
-            "name": "David Capson",
-            "isPeng": true,
-            "facultyType": "RESEARCH",
-            "teachingObligations": 1,
-            "coursePreferences": [
-                  {
-                        "courseCode": "CSC111",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC115",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE255",
-                        "enthusiasmScore": 100
-                  },
-                  {
-                        "courseCode": "CSC230",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE260",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG265",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC225",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE310",
-                        "enthusiasmScore": 39
-                  },
-                  {
-                        "courseCode": "SENG275",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG310",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE458",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC361",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC226",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE360",
-                        "enthusiasmScore": 195
-                  },
-                  {
-                        "courseCode": "SENG321",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG371",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE355",
-                        "enthusiasmScore": 100
-                  },
-                  {
-                        "courseCode": "CSC355",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC320",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC360",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC370",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG350",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG360",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG426",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG440",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG499",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE455",
-                        "enthusiasmScore": 40
-                  },
-                  {
-                        "courseCode": "CSC460",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG401",
-                        "enthusiasmScore": 0
-                  }
-            ],
-            "preferredTimes": {
-                  "fall": null,
-                  "spring": null,
-                  "summer": null
-            },
-            "preferredCoursesPerSemester": {
-                  "fall": 1,
-                  "spring": 0,
-                  "summer": 0
-            },
-            "preferredNonTeachingSemester": null,
-            "preferredCourseDaySpreads": []
-      },
-      {
-            "id": "42",
-            "name": "Ted Darcie",
-            "isPeng": true,
-            "facultyType": "TEACHING",
-            "teachingObligations": 6,
-            "coursePreferences": [
-                  {
-                        "courseCode": "CSC111",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC115",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE255",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC230",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE260",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG265",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC225",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE310",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG275",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG310",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE458",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC361",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC226",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE360",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG321",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG371",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE355",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC355",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC320",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC360",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC370",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG350",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG360",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG426",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG440",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG499",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE455",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC460",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG401",
-                        "enthusiasmScore": 0
-                  }
-            ],
-            "preferredTimes": {
-                  "fall": null,
-                  "spring": null,
-                  "summer": null
-            },
-            "preferredCoursesPerSemester": {
-                  "fall": 1,
-                  "spring": 4,
-                  "summer": 1
-            },
-            "preferredNonTeachingSemester": null,
-            "preferredCourseDaySpreads": []
-      },
-      {
-            "id": "43",
-            "name": "Nikitas Dimopoulos",
             "isPeng": true,
             "facultyType": "RESEARCH",
             "teachingObligations": 3,
@@ -5867,7 +5319,7 @@
                   },
                   {
                         "courseCode": "ECE255",
-                        "enthusiasmScore": 40
+                        "enthusiasmScore": 20
                   },
                   {
                         "courseCode": "CSC230",
@@ -5875,7 +5327,7 @@
                   },
                   {
                         "courseCode": "ECE260",
-                        "enthusiasmScore": 0
+                        "enthusiasmScore": 100
                   },
                   {
                         "courseCode": "SENG265",
@@ -5887,7 +5339,7 @@
                   },
                   {
                         "courseCode": "ECE310",
-                        "enthusiasmScore": 0
+                        "enthusiasmScore": 100
                   },
                   {
                         "courseCode": "SENG275",
@@ -5923,7 +5375,7 @@
                   },
                   {
                         "courseCode": "ECE355",
-                        "enthusiasmScore": 40
+                        "enthusiasmScore": 0
                   },
                   {
                         "courseCode": "CSC355",
@@ -5959,11 +5411,11 @@
                   },
                   {
                         "courseCode": "SENG499",
-                        "enthusiasmScore": 0
+                        "enthusiasmScore": 20
                   },
                   {
                         "courseCode": "ECE455",
-                        "enthusiasmScore": 195
+                        "enthusiasmScore": 0
                   },
                   {
                         "courseCode": "CSC460",
@@ -5980,16 +5432,16 @@
                   "summer": null
             },
             "preferredCoursesPerSemester": {
-                  "fall": 3,
+                  "fall": 2,
                   "spring": 0,
-                  "summer": 0
+                  "summer": 1
             },
             "preferredNonTeachingSemester": null,
             "preferredCourseDaySpreads": []
       },
       {
-            "id": "44",
-            "name": "Xiaodai Dong",
+            "id": "40",
+            "name": "Lin Cai",
             "isPeng": true,
             "facultyType": "TEACHING",
             "teachingObligations": 2,
@@ -6024,7 +5476,144 @@
                   },
                   {
                         "courseCode": "ECE310",
+                        "enthusiasmScore": 20
+                  },
+                  {
+                        "courseCode": "SENG275",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG310",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE458",
+                        "enthusiasmScore": 195
+                  },
+                  {
+                        "courseCode": "CSC361",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC226",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE360",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG321",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG371",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE355",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC355",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC320",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC360",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC370",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG350",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG360",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG426",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG440",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG499",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE455",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC460",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG401",
+                        "enthusiasmScore": 0
+                  }
+            ],
+            "preferredTimes": {
+                  "fall": null,
+                  "spring": null,
+                  "summer": null
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 2,
+                  "spring": 0,
+                  "summer": 0
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": []
+      },
+      {
+            "id": "41",
+            "name": "David Capson",
+            "isPeng": true,
+            "facultyType": "RESEARCH",
+            "teachingObligations": 3,
+            "coursePreferences": [
+                  {
+                        "courseCode": "CSC111",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC115",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE255",
                         "enthusiasmScore": 100
+                  },
+                  {
+                        "courseCode": "CSC230",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE260",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG265",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC225",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE310",
+                        "enthusiasmScore": 39
                   },
                   {
                         "courseCode": "SENG275",
@@ -6048,7 +5637,144 @@
                   },
                   {
                         "courseCode": "ECE360",
-                        "enthusiasmScore": 39
+                        "enthusiasmScore": 195
+                  },
+                  {
+                        "courseCode": "SENG321",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG371",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE355",
+                        "enthusiasmScore": 100
+                  },
+                  {
+                        "courseCode": "CSC355",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC320",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC360",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC370",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG350",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG360",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG426",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG440",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG499",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE455",
+                        "enthusiasmScore": 40
+                  },
+                  {
+                        "courseCode": "CSC460",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG401",
+                        "enthusiasmScore": 0
+                  }
+            ],
+            "preferredTimes": {
+                  "fall": null,
+                  "spring": null,
+                  "summer": null
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 1,
+                  "spring": 0,
+                  "summer": 2
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": []
+      },
+      {
+            "id": "42",
+            "name": "Ted Darcie",
+            "isPeng": true,
+            "facultyType": "RESEARCH",
+            "teachingObligations": 2,
+            "coursePreferences": [
+                  {
+                        "courseCode": "CSC111",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC115",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE255",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC230",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE260",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG265",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC225",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE310",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG275",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG310",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE458",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC361",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC226",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE360",
+                        "enthusiasmScore": 0
                   },
                   {
                         "courseCode": "SENG321",
@@ -6125,11 +5851,285 @@
             "preferredCourseDaySpreads": []
       },
       {
+            "id": "43",
+            "name": "Nikitas Dimopoulos",
+            "isPeng": true,
+            "facultyType": "RESEARCH",
+            "teachingObligations": 2,
+            "coursePreferences": [
+                  {
+                        "courseCode": "CSC111",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC115",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE255",
+                        "enthusiasmScore": 40
+                  },
+                  {
+                        "courseCode": "CSC230",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE260",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG265",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC225",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE310",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG275",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG310",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE458",
+                        "enthusiasmScore": 40
+                  },
+                  {
+                        "courseCode": "CSC361",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC226",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE360",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG321",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG371",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE355",
+                        "enthusiasmScore": 40
+                  },
+                  {
+                        "courseCode": "CSC355",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC320",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC360",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC370",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG350",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG360",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG426",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG440",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG499",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE455",
+                        "enthusiasmScore": 195
+                  },
+                  {
+                        "courseCode": "CSC460",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG401",
+                        "enthusiasmScore": 0
+                  }
+            ],
+            "preferredTimes": {
+                  "fall": null,
+                  "spring": null,
+                  "summer": null
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 2,
+                  "spring": 0,
+                  "summer": 0
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": []
+      },
+      {
+            "id": "44",
+            "name": "Xiaodai Dong",
+            "isPeng": true,
+            "facultyType": "RESEARCH",
+            "teachingObligations": 3,
+            "coursePreferences": [
+                  {
+                        "courseCode": "CSC111",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC115",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE255",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC230",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE260",
+                        "enthusiasmScore": 40
+                  },
+                  {
+                        "courseCode": "SENG265",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC225",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE310",
+                        "enthusiasmScore": 100
+                  },
+                  {
+                        "courseCode": "SENG275",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG310",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE458",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC361",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC226",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE360",
+                        "enthusiasmScore": 39
+                  },
+                  {
+                        "courseCode": "SENG321",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG371",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE355",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC355",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC320",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC360",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC370",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG350",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG360",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG426",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG440",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG499",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE455",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC460",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG401",
+                        "enthusiasmScore": 0
+                  }
+            ],
+            "preferredTimes": {
+                  "fall": null,
+                  "spring": null,
+                  "summer": null
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 2,
+                  "spring": 0,
+                  "summer": 1
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": []
+      },
+      {
             "id": "45",
             "name": "Peter Driessen",
             "isPeng": true,
             "facultyType": "RESEARCH",
-            "teachingObligations": 3,
+            "teachingObligations": 1,
             "coursePreferences": [
                   {
                         "courseCode": "CSC111",
@@ -6255,8 +6255,8 @@
             },
             "preferredCoursesPerSemester": {
                   "fall": 0,
-                  "spring": 2,
-                  "summer": 1
+                  "spring": 1,
+                  "summer": 0
             },
             "preferredNonTeachingSemester": null,
             "preferredCourseDaySpreads": []
@@ -6265,8 +6265,8 @@
             "id": "46",
             "name": "Fayez Gebali",
             "isPeng": true,
-            "facultyType": "TEACHING",
-            "teachingObligations": 6,
+            "facultyType": "RESEARCH",
+            "teachingObligations": 1,
             "coursePreferences": [
                   {
                         "courseCode": "CSC111",
@@ -6392,8 +6392,8 @@
             },
             "preferredCoursesPerSemester": {
                   "fall": 0,
-                  "spring": 3,
-                  "summer": 3
+                  "spring": 0,
+                  "summer": 1
             },
             "preferredNonTeachingSemester": null,
             "preferredCourseDaySpreads": []
@@ -6402,7 +6402,7 @@
             "id": "47",
             "name": "Reuven Gordon",
             "isPeng": true,
-            "facultyType": "TEACHING",
+            "facultyType": "RESEARCH",
             "teachingObligations": 2,
             "coursePreferences": [
                   {
@@ -6539,8 +6539,8 @@
             "id": "48",
             "name": "Aaron Gulliver",
             "isPeng": true,
-            "facultyType": "TEACHING",
-            "teachingObligations": 6,
+            "facultyType": "RESEARCH",
+            "teachingObligations": 3,
             "coursePreferences": [
                   {
                         "courseCode": "CSC111",
@@ -6665,7 +6665,7 @@
                   "summer": null
             },
             "preferredCoursesPerSemester": {
-                  "fall": 5,
+                  "fall": 2,
                   "spring": 0,
                   "summer": 1
             },
@@ -6676,8 +6676,8 @@
             "id": "49",
             "name": "Kin Fun Li",
             "isPeng": true,
-            "facultyType": "TEACHING",
-            "teachingObligations": 6,
+            "facultyType": "RESEARCH",
+            "teachingObligations": 1,
             "coursePreferences": [
                   {
                         "courseCode": "CSC111",
@@ -6803,8 +6803,8 @@
             },
             "preferredCoursesPerSemester": {
                   "fall": 0,
-                  "spring": 3,
-                  "summer": 3
+                  "spring": 0,
+                  "summer": 1
             },
             "preferredNonTeachingSemester": null,
             "preferredCourseDaySpreads": []
@@ -6812,6 +6812,143 @@
       {
             "id": "50",
             "name": "Tao Lu",
+            "isPeng": true,
+            "facultyType": "TEACHING",
+            "teachingObligations": 2,
+            "coursePreferences": [
+                  {
+                        "courseCode": "CSC111",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC115",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE255",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC230",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE260",
+                        "enthusiasmScore": 20
+                  },
+                  {
+                        "courseCode": "SENG265",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC225",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE310",
+                        "enthusiasmScore": 20
+                  },
+                  {
+                        "courseCode": "SENG275",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG310",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE458",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC361",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC226",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE360",
+                        "enthusiasmScore": 78
+                  },
+                  {
+                        "courseCode": "SENG321",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG371",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE355",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC355",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC320",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC360",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC370",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG350",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG360",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG426",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG440",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG499",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "ECE455",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "CSC460",
+                        "enthusiasmScore": 0
+                  },
+                  {
+                        "courseCode": "SENG401",
+                        "enthusiasmScore": 0
+                  }
+            ],
+            "preferredTimes": {
+                  "fall": null,
+                  "spring": null,
+                  "summer": null
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 2,
+                  "spring": 0,
+                  "summer": 0
+            },
+            "preferredNonTeachingSemester": null,
+            "preferredCourseDaySpreads": []
+      },
+      {
+            "id": "51",
+            "name": "Michael McGuire",
             "isPeng": true,
             "facultyType": "RESEARCH",
             "teachingObligations": 2,
@@ -6834,143 +6971,6 @@
                   },
                   {
                         "courseCode": "ECE260",
-                        "enthusiasmScore": 20
-                  },
-                  {
-                        "courseCode": "SENG265",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC225",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE310",
-                        "enthusiasmScore": 20
-                  },
-                  {
-                        "courseCode": "SENG275",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG310",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE458",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC361",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC226",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE360",
-                        "enthusiasmScore": 78
-                  },
-                  {
-                        "courseCode": "SENG321",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG371",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE355",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC355",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC320",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC360",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC370",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG350",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG360",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG426",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG440",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG499",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE455",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC460",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "SENG401",
-                        "enthusiasmScore": 0
-                  }
-            ],
-            "preferredTimes": {
-                  "fall": null,
-                  "spring": null,
-                  "summer": null
-            },
-            "preferredCoursesPerSemester": {
-                  "fall": 0,
-                  "spring": 0,
-                  "summer": 2
-            },
-            "preferredNonTeachingSemester": null,
-            "preferredCourseDaySpreads": []
-      },
-      {
-            "id": "51",
-            "name": "Michael McGuire",
-            "isPeng": true,
-            "facultyType": "TEACHING",
-            "teachingObligations": 2,
-            "coursePreferences": [
-                  {
-                        "courseCode": "CSC111",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC115",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE255",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "CSC230",
-                        "enthusiasmScore": 0
-                  },
-                  {
-                        "courseCode": "ECE260",
                         "enthusiasmScore": 78
                   },
                   {
@@ -7076,8 +7076,8 @@
                   "summer": null
             },
             "preferredCoursesPerSemester": {
-                  "fall": 1,
-                  "spring": 0,
+                  "fall": 0,
+                  "spring": 1,
                   "summer": 1
             },
             "preferredNonTeachingSemester": null,
@@ -7213,9 +7213,9 @@
                   "summer": null
             },
             "preferredCoursesPerSemester": {
-                  "fall": 5,
+                  "fall": 6,
                   "spring": 0,
-                  "summer": 1
+                  "summer": 0
             },
             "preferredNonTeachingSemester": null,
             "preferredCourseDaySpreads": []
@@ -7350,9 +7350,9 @@
                   "summer": null
             },
             "preferredCoursesPerSemester": {
-                  "fall": 2,
+                  "fall": 0,
                   "spring": 1,
-                  "summer": 0
+                  "summer": 2
             },
             "preferredNonTeachingSemester": null,
             "preferredCourseDaySpreads": []
@@ -7361,8 +7361,8 @@
             "id": "54",
             "name": "Dr. Navneet Popli",
             "isPeng": true,
-            "facultyType": "TEACHING",
-            "teachingObligations": 6,
+            "facultyType": "RESEARCH",
+            "teachingObligations": 3,
             "coursePreferences": [
                   {
                         "courseCode": "CSC111",
@@ -7487,8 +7487,8 @@
                   "summer": null
             },
             "preferredCoursesPerSemester": {
-                  "fall": 2,
-                  "spring": 1,
+                  "fall": 0,
+                  "spring": 0,
                   "summer": 3
             },
             "preferredNonTeachingSemester": null,
@@ -7624,9 +7624,9 @@
                   "summer": null
             },
             "preferredCoursesPerSemester": {
-                  "fall": 0,
+                  "fall": 1,
                   "spring": 0,
-                  "summer": 1
+                  "summer": 0
             },
             "preferredNonTeachingSemester": null,
             "preferredCourseDaySpreads": []
@@ -7635,8 +7635,8 @@
             "id": "56",
             "name": "Makhsud Saidaminov",
             "isPeng": false,
-            "facultyType": "TEACHING",
-            "teachingObligations": 6,
+            "facultyType": "RESEARCH",
+            "teachingObligations": 3,
             "coursePreferences": [
                   {
                         "courseCode": "CSC111",
@@ -7761,9 +7761,9 @@
                   "summer": null
             },
             "preferredCoursesPerSemester": {
-                  "fall": 2,
-                  "spring": 0,
-                  "summer": 4
+                  "fall": 0,
+                  "spring": 3,
+                  "summer": 0
             },
             "preferredNonTeachingSemester": null,
             "preferredCourseDaySpreads": []
@@ -7773,7 +7773,7 @@
             "name": "Mihai Sima",
             "isPeng": true,
             "facultyType": "RESEARCH",
-            "teachingObligations": 2,
+            "teachingObligations": 1,
             "coursePreferences": [
                   {
                         "courseCode": "CSC111",
@@ -7898,7 +7898,7 @@
                   "summer": null
             },
             "preferredCoursesPerSemester": {
-                  "fall": 2,
+                  "fall": 1,
                   "spring": 0,
                   "summer": 0
             },
@@ -7910,7 +7910,7 @@
             "name": "Levi Smith",
             "isPeng": true,
             "facultyType": "TEACHING",
-            "teachingObligations": 6,
+            "teachingObligations": 3,
             "coursePreferences": [
                   {
                         "courseCode": "CSC111",
@@ -8035,8 +8035,8 @@
                   "summer": null
             },
             "preferredCoursesPerSemester": {
-                  "fall": 4,
-                  "spring": 0,
+                  "fall": 0,
+                  "spring": 1,
                   "summer": 2
             },
             "preferredNonTeachingSemester": null,
@@ -8046,7 +8046,7 @@
             "id": "59",
             "name": "Poman So",
             "isPeng": false,
-            "facultyType": "TEACHING",
+            "facultyType": "RESEARCH",
             "teachingObligations": 2,
             "coursePreferences": [
                   {
@@ -8172,9 +8172,9 @@
                   "summer": null
             },
             "preferredCoursesPerSemester": {
-                  "fall": 0,
-                  "spring": 1,
-                  "summer": 1
+                  "fall": 2,
+                  "spring": 0,
+                  "summer": 0
             },
             "preferredNonTeachingSemester": null,
             "preferredCourseDaySpreads": []
@@ -8183,8 +8183,8 @@
             "id": "60",
             "name": "Ilamparithi Thirumarai Chelvan",
             "isPeng": true,
-            "facultyType": "TEACHING",
-            "teachingObligations": 3,
+            "facultyType": "RESEARCH",
+            "teachingObligations": 1,
             "coursePreferences": [
                   {
                         "courseCode": "CSC111",
@@ -8309,8 +8309,8 @@
                   "summer": null
             },
             "preferredCoursesPerSemester": {
-                  "fall": 3,
-                  "spring": 0,
+                  "fall": 0,
+                  "spring": 1,
                   "summer": 0
             },
             "preferredNonTeachingSemester": null,
@@ -8321,7 +8321,7 @@
             "name": "Issa Traore",
             "isPeng": true,
             "facultyType": "RESEARCH",
-            "teachingObligations": 1,
+            "teachingObligations": 2,
             "coursePreferences": [
                   {
                         "courseCode": "CSC111",
@@ -8446,9 +8446,9 @@
                   "summer": null
             },
             "preferredCoursesPerSemester": {
-                  "fall": 0,
-                  "spring": 1,
-                  "summer": 0
+                  "fall": 1,
+                  "spring": 0,
+                  "summer": 1
             },
             "preferredNonTeachingSemester": null,
             "preferredCourseDaySpreads": []
@@ -8457,7 +8457,7 @@
             "id": "62",
             "name": "Hong-Chuan Yang",
             "isPeng": true,
-            "facultyType": "TEACHING",
+            "facultyType": "RESEARCH",
             "teachingObligations": 2,
             "coursePreferences": [
                   {
@@ -8583,9 +8583,9 @@
                   "summer": null
             },
             "preferredCoursesPerSemester": {
-                  "fall": 1,
-                  "spring": 0,
-                  "summer": 1
+                  "fall": 0,
+                  "spring": 2,
+                  "summer": 0
             },
             "preferredNonTeachingSemester": null,
             "preferredCourseDaySpreads": []

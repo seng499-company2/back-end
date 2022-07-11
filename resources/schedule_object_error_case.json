@@ -14,12 +14,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": 140,
+                              "capacity": 80,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": 60,
+                              "capacity": 120,
                               "timeSlots": []
                         }
                   ]
@@ -43,7 +43,7 @@
                         },
                         {
                               "professor": null,
-                              "capacity": 100,
+                              "capacity": 140,
                               "timeSlots": []
                         }
                   ]
@@ -67,7 +67,7 @@
                         },
                         {
                               "professor": null,
-                              "capacity": 120,
+                              "capacity": 60,
                               "timeSlots": []
                         }
                   ]
@@ -86,12 +86,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": 140,
+                              "capacity": 80,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": 120,
+                              "capacity": 60,
                               "timeSlots": []
                         }
                   ]
@@ -110,12 +110,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": 80,
+                              "capacity": 120,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": 60,
+                              "capacity": 80,
                               "timeSlots": []
                         }
                   ]
@@ -139,7 +139,7 @@
                         },
                         {
                               "professor": null,
-                              "capacity": 120,
+                              "capacity": 60,
                               "timeSlots": []
                         }
                   ]
@@ -158,12 +158,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": 120,
+                              "capacity": 100,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": 60,
+                              "capacity": 100,
                               "timeSlots": []
                         }
                   ]
@@ -187,7 +187,7 @@
                         },
                         {
                               "professor": null,
-                              "capacity": 120,
+                              "capacity": 80,
                               "timeSlots": []
                         }
                   ]
@@ -206,12 +206,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": 60,
+                              "capacity": 100,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": 120,
+                              "capacity": 60,
                               "timeSlots": []
                         }
                   ]
@@ -230,12 +230,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": 120,
+                              "capacity": 80,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": 80,
+                              "capacity": 140,
                               "timeSlots": []
                         }
                   ]
@@ -259,7 +259,7 @@
                         },
                         {
                               "professor": null,
-                              "capacity": 60,
+                              "capacity": 100,
                               "timeSlots": []
                         }
                   ]
@@ -283,7 +283,7 @@
                         },
                         {
                               "professor": null,
-                              "capacity": 60,
+                              "capacity": 100,
                               "timeSlots": []
                         }
                   ]
@@ -307,7 +307,7 @@
                         },
                         {
                               "professor": null,
-                              "capacity": 100,
+                              "capacity": 140,
                               "timeSlots": []
                         }
                   ]
@@ -331,7 +331,7 @@
                         },
                         {
                               "professor": null,
-                              "capacity": 140,
+                              "capacity": 60,
                               "timeSlots": []
                         }
                   ]
@@ -350,12 +350,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": 100,
+                              "capacity": 80,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": 140,
+                              "capacity": 60,
                               "timeSlots": []
                         }
                   ]
@@ -374,12 +374,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": 60,
+                              "capacity": 80,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": 140,
+                              "capacity": 60,
                               "timeSlots": []
                         }
                   ]
@@ -403,7 +403,7 @@
                         },
                         {
                               "professor": null,
-                              "capacity": 80,
+                              "capacity": 120,
                               "timeSlots": []
                         }
                   ]
@@ -427,7 +427,7 @@
                         },
                         {
                               "professor": null,
-                              "capacity": 60,
+                              "capacity": 80,
                               "timeSlots": []
                         }
                   ]
@@ -451,7 +451,7 @@
                         },
                         {
                               "professor": null,
-                              "capacity": 120,
+                              "capacity": 140,
                               "timeSlots": []
                         }
                   ]
@@ -473,7 +473,7 @@
                                     "id": "100",
                                     "name": "Static Prof 1"
                               },
-                              "capacity": 140,
+                              "capacity": 60,
                               "timeSlots": [
                                     {
                                           "dayOfWeek": "TUESDAY",
@@ -503,7 +503,7 @@
                                     "id": "100",
                                     "name": "Static Prof 1"
                               },
-                              "capacity": 80,
+                              "capacity": 60,
                               "timeSlots": [
                                     {
                                           "dayOfWeek": "TUESDAY",
@@ -547,7 +547,7 @@
                                     "id": "101",
                                     "name": "Static Prof 2"
                               },
-                              "capacity": 140,
+                              "capacity": 60,
                               "timeSlots": [
                                     {
                                           "dayOfWeek": "MONDAY",
@@ -570,7 +570,7 @@
                                     "id": "101",
                                     "name": "Static Prof 2"
                               },
-                              "capacity": 120,
+                              "capacity": 60,
                               "timeSlots": [
                                     {
                                           "dayOfWeek": "MONDAY",
@@ -607,7 +607,7 @@
                                     "id": "102",
                                     "name": "Static Prof 3"
                               },
-                              "capacity": 80,
+                              "capacity": 100,
                               "timeSlots": [
                                     {
                                           "dayOfWeek": "TUESDAY",
@@ -681,7 +681,7 @@
                                     "id": "103",
                                     "name": "Static Prof 4"
                               },
-                              "capacity": 140,
+                              "capacity": 100,
                               "timeSlots": [
                                     {
                                           "dayOfWeek": "MONDAY",
@@ -704,7 +704,7 @@
                                     "id": "103",
                                     "name": "Static Prof 4"
                               },
-                              "capacity": 140,
+                              "capacity": 100,
                               "timeSlots": [
                                     {
                                           "dayOfWeek": "MONDAY",
@@ -741,7 +741,7 @@
                                     "id": "104",
                                     "name": "Static Prof 5"
                               },
-                              "capacity": 120,
+                              "capacity": 140,
                               "timeSlots": [
                                     {
                                           "dayOfWeek": "TUESDAY",
@@ -771,7 +771,7 @@
                                     "id": "104",
                                     "name": "Static Prof 5"
                               },
-                              "capacity": 80,
+                              "capacity": 120,
                               "timeSlots": [
                                     {
                                           "dayOfWeek": "TUESDAY",
@@ -815,7 +815,7 @@
                                     "id": "105",
                                     "name": "Static Prof 6"
                               },
-                              "capacity": 140,
+                              "capacity": 120,
                               "timeSlots": [
                                     {
                                           "dayOfWeek": "MONDAY",
@@ -838,7 +838,7 @@
                                     "id": "105",
                                     "name": "Static Prof 6"
                               },
-                              "capacity": 100,
+                              "capacity": 80,
                               "timeSlots": [
                                     {
                                           "dayOfWeek": "MONDAY",
@@ -875,7 +875,7 @@
                                     "id": "108",
                                     "name": "Static Prof 9"
                               },
-                              "capacity": 100,
+                              "capacity": 60,
                               "timeSlots": [
                                     {
                                           "dayOfWeek": "TUESDAY",
@@ -905,7 +905,7 @@
                                     "id": "108",
                                     "name": "Static Prof 9"
                               },
-                              "capacity": 100,
+                              "capacity": 120,
                               "timeSlots": [
                                     {
                                           "dayOfWeek": "TUESDAY",
@@ -949,7 +949,7 @@
                                     "id": "110",
                                     "name": "Static Prof 11"
                               },
-                              "capacity": 140,
+                              "capacity": 100,
                               "timeSlots": [
                                     {
                                           "dayOfWeek": "TUESDAY",
@@ -979,7 +979,7 @@
                                     "id": "110",
                                     "name": "Static Prof 11"
                               },
-                              "capacity": 80,
+                              "capacity": 60,
                               "timeSlots": [
                                     {
                                           "dayOfWeek": "TUESDAY",
@@ -1023,7 +1023,7 @@
                                     "id": "111",
                                     "name": "Static Prof 12"
                               },
-                              "capacity": 140,
+                              "capacity": 60,
                               "timeSlots": [
                                     {
                                           "dayOfWeek": "MONDAY",
@@ -1046,7 +1046,7 @@
                                     "id": "111",
                                     "name": "Static Prof 12"
                               },
-                              "capacity": 60,
+                              "capacity": 120,
                               "timeSlots": [
                                     {
                                           "dayOfWeek": "MONDAY",
@@ -1083,7 +1083,7 @@
                                     "id": "112",
                                     "name": "Static Prof 13"
                               },
-                              "capacity": 120,
+                              "capacity": 80,
                               "timeSlots": [
                                     {
                                           "dayOfWeek": "TUESDAY",
@@ -1113,7 +1113,7 @@
                                     "id": "112",
                                     "name": "Static Prof 13"
                               },
-                              "capacity": 140,
+                              "capacity": 80,
                               "timeSlots": [
                                     {
                                           "dayOfWeek": "TUESDAY",
@@ -1157,7 +1157,7 @@
                                     "id": "113",
                                     "name": "Static Prof 14"
                               },
-                              "capacity": 80,
+                              "capacity": 100,
                               "timeSlots": [
                                     {
                                           "dayOfWeek": "MONDAY",
@@ -1180,7 +1180,7 @@
                                     "id": "113",
                                     "name": "Static Prof 14"
                               },
-                              "capacity": 140,
+                              "capacity": 60,
                               "timeSlots": [
                                     {
                                           "dayOfWeek": "MONDAY",
@@ -1221,7 +1221,7 @@
                         },
                         {
                               "professor": null,
-                              "capacity": 80,
+                              "capacity": 100,
                               "timeSlots": []
                         }
                   ]
@@ -1240,12 +1240,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": 80,
+                              "capacity": 60,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": 80,
+                              "capacity": 140,
                               "timeSlots": []
                         }
                   ]
@@ -1264,12 +1264,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": 60,
+                              "capacity": 100,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": 60,
+                              "capacity": 140,
                               "timeSlots": []
                         }
                   ]
@@ -1293,7 +1293,7 @@
                         },
                         {
                               "professor": null,
-                              "capacity": 140,
+                              "capacity": 100,
                               "timeSlots": []
                         }
                   ]
@@ -1312,12 +1312,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": 120,
+                              "capacity": 80,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": 100,
+                              "capacity": 60,
                               "timeSlots": []
                         }
                   ]
@@ -1336,12 +1336,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": 80,
+                              "capacity": 140,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": 140,
+                              "capacity": 80,
                               "timeSlots": []
                         }
                   ]
@@ -1360,12 +1360,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": 100,
+                              "capacity": 60,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": 100,
+                              "capacity": 80,
                               "timeSlots": []
                         }
                   ]
@@ -1384,12 +1384,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": 80,
+                              "capacity": 120,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": 80,
+                              "capacity": 140,
                               "timeSlots": []
                         }
                   ]
@@ -1408,12 +1408,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": 100,
+                              "capacity": 120,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": 120,
+                              "capacity": 80,
                               "timeSlots": []
                         }
                   ]
@@ -1432,12 +1432,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": 100,
+                              "capacity": 120,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": 120,
+                              "capacity": 100,
                               "timeSlots": []
                         }
                   ]
@@ -1456,12 +1456,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": 140,
+                              "capacity": 60,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": 120,
+                              "capacity": 100,
                               "timeSlots": []
                         }
                   ]
@@ -1480,12 +1480,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": 120,
+                              "capacity": 100,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": 80,
+                              "capacity": 60,
                               "timeSlots": []
                         }
                   ]
@@ -1504,12 +1504,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": 120,
+                              "capacity": 100,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": 140,
+                              "capacity": 100,
                               "timeSlots": []
                         }
                   ]
@@ -1528,12 +1528,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": 140,
+                              "capacity": 80,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": 60,
+                              "capacity": 140,
                               "timeSlots": []
                         }
                   ]
@@ -1552,12 +1552,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": 120,
+                              "capacity": 60,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": 120,
+                              "capacity": 100,
                               "timeSlots": []
                         }
                   ]
@@ -1576,12 +1576,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": 140,
+                              "capacity": 80,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": 120,
+                              "capacity": 140,
                               "timeSlots": []
                         }
                   ]
@@ -1600,12 +1600,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": 120,
+                              "capacity": 100,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": 100,
+                              "capacity": 140,
                               "timeSlots": []
                         }
                   ]
@@ -1624,12 +1624,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": 100,
+                              "capacity": 60,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": 60,
+                              "capacity": 100,
                               "timeSlots": []
                         }
                   ]
@@ -1648,12 +1648,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": 100,
+                              "capacity": 60,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": 140,
+                              "capacity": 120,
                               "timeSlots": []
                         }
                   ]
@@ -1699,7 +1699,7 @@
                                     "id": "101",
                                     "name": "Static Prof 2"
                               },
-                              "capacity": 100,
+                              "capacity": 120,
                               "timeSlots": [
                                     {
                                           "dayOfWeek": "TUESDAY",
@@ -1729,7 +1729,7 @@
                                     "id": "101",
                                     "name": "Static Prof 2"
                               },
-                              "capacity": 120,
+                              "capacity": 100,
                               "timeSlots": [
                                     {
                                           "dayOfWeek": "TUESDAY",
@@ -1773,7 +1773,7 @@
                                     "id": "102",
                                     "name": "Static Prof 3"
                               },
-                              "capacity": 140,
+                              "capacity": 120,
                               "timeSlots": [
                                     {
                                           "dayOfWeek": "MONDAY",
@@ -1833,7 +1833,7 @@
                                     "id": "103",
                                     "name": "Static Prof 4"
                               },
-                              "capacity": 60,
+                              "capacity": 120,
                               "timeSlots": [
                                     {
                                           "dayOfWeek": "TUESDAY",
@@ -1863,7 +1863,7 @@
                                     "id": "103",
                                     "name": "Static Prof 4"
                               },
-                              "capacity": 100,
+                              "capacity": 120,
                               "timeSlots": [
                                     {
                                           "dayOfWeek": "TUESDAY",
@@ -1907,7 +1907,7 @@
                                     "id": "105",
                                     "name": "Static Prof 6"
                               },
-                              "capacity": 140,
+                              "capacity": 120,
                               "timeSlots": [
                                     {
                                           "dayOfWeek": "MONDAY",
@@ -1930,7 +1930,7 @@
                                     "id": "105",
                                     "name": "Static Prof 6"
                               },
-                              "capacity": 100,
+                              "capacity": 80,
                               "timeSlots": [
                                     {
                                           "dayOfWeek": "MONDAY",
@@ -1997,7 +1997,7 @@
                                     "id": "106",
                                     "name": "Static Prof 7"
                               },
-                              "capacity": 100,
+                              "capacity": 80,
                               "timeSlots": [
                                     {
                                           "dayOfWeek": "TUESDAY",
@@ -2041,7 +2041,7 @@
                                     "id": "107",
                                     "name": "Static Prof 8"
                               },
-                              "capacity": 140,
+                              "capacity": 80,
                               "timeSlots": [
                                     {
                                           "dayOfWeek": "MONDAY",
@@ -2064,7 +2064,7 @@
                                     "id": "107",
                                     "name": "Static Prof 8"
                               },
-                              "capacity": 60,
+                              "capacity": 80,
                               "timeSlots": [
                                     {
                                           "dayOfWeek": "MONDAY",
@@ -2101,7 +2101,7 @@
                                     "id": "108",
                                     "name": "Static Prof 9"
                               },
-                              "capacity": 100,
+                              "capacity": 140,
                               "timeSlots": [
                                     {
                                           "dayOfWeek": "TUESDAY",
@@ -2131,7 +2131,7 @@
                                     "id": "108",
                                     "name": "Static Prof 9"
                               },
-                              "capacity": 100,
+                              "capacity": 80,
                               "timeSlots": [
                                     {
                                           "dayOfWeek": "TUESDAY",
@@ -2175,7 +2175,7 @@
                                     "id": "109",
                                     "name": "Static Prof 10"
                               },
-                              "capacity": 140,
+                              "capacity": 80,
                               "timeSlots": [
                                     {
                                           "dayOfWeek": "MONDAY",
@@ -2265,7 +2265,7 @@
                                     "id": "111",
                                     "name": "Static Prof 12"
                               },
-                              "capacity": 60,
+                              "capacity": 80,
                               "timeSlots": [
                                     {
                                           "dayOfWeek": "TUESDAY",
@@ -2309,7 +2309,7 @@
                                     "id": "112",
                                     "name": "Static Prof 13"
                               },
-                              "capacity": 100,
+                              "capacity": 140,
                               "timeSlots": [
                                     {
                                           "dayOfWeek": "MONDAY",
@@ -2332,7 +2332,7 @@
                                     "id": "112",
                                     "name": "Static Prof 13"
                               },
-                              "capacity": 80,
+                              "capacity": 60,
                               "timeSlots": [
                                     {
                                           "dayOfWeek": "MONDAY",
@@ -2373,7 +2373,7 @@
                         },
                         {
                               "professor": null,
-                              "capacity": 140,
+                              "capacity": 100,
                               "timeSlots": []
                         }
                   ]
@@ -2384,6 +2384,78 @@
                         "title": "Introduction to Computer Architecture",
                         "pengRequired": {
                               "fall": true,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 2
+                  },
+                  "sections": [
+                        {
+                              "professor": null,
+                              "capacity": 120,
+                              "timeSlots": []
+                        },
+                        {
+                              "professor": null,
+                              "capacity": 120,
+                              "timeSlots": []
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "ECE260",
+                        "title": "Continuous-Time Signals and Systems",
+                        "pengRequired": {
+                              "fall": false,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 2
+                  },
+                  "sections": [
+                        {
+                              "professor": null,
+                              "capacity": 100,
+                              "timeSlots": []
+                        },
+                        {
+                              "professor": null,
+                              "capacity": 120,
+                              "timeSlots": []
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "SENG265",
+                        "title": "Software Development Methods",
+                        "pengRequired": {
+                              "fall": true,
+                              "spring": false,
+                              "summer": false
+                        },
+                        "yearRequired": 2
+                  },
+                  "sections": [
+                        {
+                              "professor": null,
+                              "capacity": 120,
+                              "timeSlots": []
+                        },
+                        {
+                              "professor": null,
+                              "capacity": 140,
+                              "timeSlots": []
+                        }
+                  ]
+            },
+            {
+                  "course": {
+                        "code": "CSC225",
+                        "title": "Algorithms and Data Structures I",
+                        "pengRequired": {
+                              "fall": false,
                               "spring": false,
                               "summer": false
                         },
@@ -2404,78 +2476,6 @@
             },
             {
                   "course": {
-                        "code": "ECE260",
-                        "title": "Continuous-Time Signals and Systems",
-                        "pengRequired": {
-                              "fall": false,
-                              "spring": false,
-                              "summer": false
-                        },
-                        "yearRequired": 2
-                  },
-                  "sections": [
-                        {
-                              "professor": null,
-                              "capacity": 120,
-                              "timeSlots": []
-                        },
-                        {
-                              "professor": null,
-                              "capacity": 60,
-                              "timeSlots": []
-                        }
-                  ]
-            },
-            {
-                  "course": {
-                        "code": "SENG265",
-                        "title": "Software Development Methods",
-                        "pengRequired": {
-                              "fall": true,
-                              "spring": false,
-                              "summer": false
-                        },
-                        "yearRequired": 2
-                  },
-                  "sections": [
-                        {
-                              "professor": null,
-                              "capacity": 60,
-                              "timeSlots": []
-                        },
-                        {
-                              "professor": null,
-                              "capacity": 80,
-                              "timeSlots": []
-                        }
-                  ]
-            },
-            {
-                  "course": {
-                        "code": "CSC225",
-                        "title": "Algorithms and Data Structures I",
-                        "pengRequired": {
-                              "fall": false,
-                              "spring": false,
-                              "summer": false
-                        },
-                        "yearRequired": 2
-                  },
-                  "sections": [
-                        {
-                              "professor": null,
-                              "capacity": 120,
-                              "timeSlots": []
-                        },
-                        {
-                              "professor": null,
-                              "capacity": 60,
-                              "timeSlots": []
-                        }
-                  ]
-            },
-            {
-                  "course": {
                         "code": "ECE310",
                         "title": "Digital Signal Processing I",
                         "pengRequired": {
@@ -2488,7 +2488,7 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": 120,
+                              "capacity": 100,
                               "timeSlots": []
                         },
                         {
@@ -2517,7 +2517,7 @@
                         },
                         {
                               "professor": null,
-                              "capacity": 120,
+                              "capacity": 100,
                               "timeSlots": []
                         }
                   ]
@@ -2536,12 +2536,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": 140,
+                              "capacity": 80,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": 100,
+                              "capacity": 80,
                               "timeSlots": []
                         }
                   ]
@@ -2560,12 +2560,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": 60,
+                              "capacity": 80,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": 120,
+                              "capacity": 80,
                               "timeSlots": []
                         }
                   ]
@@ -2584,12 +2584,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": 80,
+                              "capacity": 100,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": 140,
+                              "capacity": 60,
                               "timeSlots": []
                         }
                   ]
@@ -2613,7 +2613,7 @@
                         },
                         {
                               "professor": null,
-                              "capacity": 80,
+                              "capacity": 120,
                               "timeSlots": []
                         }
                   ]
@@ -2656,12 +2656,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": 100,
+                              "capacity": 80,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": 120,
+                              "capacity": 60,
                               "timeSlots": []
                         }
                   ]
@@ -2680,7 +2680,7 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": 140,
+                              "capacity": 60,
                               "timeSlots": []
                         },
                         {
@@ -2704,12 +2704,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": 60,
+                              "capacity": 80,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": 140,
+                              "capacity": 60,
                               "timeSlots": []
                         }
                   ]
@@ -2731,7 +2731,7 @@
                                     "id": "102",
                                     "name": "Static Prof 3"
                               },
-                              "capacity": 120,
+                              "capacity": 60,
                               "timeSlots": [
                                     {
                                           "dayOfWeek": "TUESDAY",
@@ -2761,7 +2761,7 @@
                                     "id": "102",
                                     "name": "Static Prof 3"
                               },
-                              "capacity": 100,
+                              "capacity": 60,
                               "timeSlots": [
                                     {
                                           "dayOfWeek": "TUESDAY",
@@ -2805,7 +2805,7 @@
                                     "id": "103",
                                     "name": "Static Prof 4"
                               },
-                              "capacity": 80,
+                              "capacity": 60,
                               "timeSlots": [
                                     {
                                           "dayOfWeek": "MONDAY",
@@ -2828,7 +2828,7 @@
                                     "id": "103",
                                     "name": "Static Prof 4"
                               },
-                              "capacity": 100,
+                              "capacity": 80,
                               "timeSlots": [
                                     {
                                           "dayOfWeek": "MONDAY",
@@ -2865,7 +2865,7 @@
                                     "id": "107",
                                     "name": "Static Prof 8"
                               },
-                              "capacity": 120,
+                              "capacity": 100,
                               "timeSlots": [
                                     {
                                           "dayOfWeek": "TUESDAY",
@@ -2939,7 +2939,7 @@
                                     "id": "108",
                                     "name": "Static Prof 9"
                               },
-                              "capacity": 120,
+                              "capacity": 100,
                               "timeSlots": [
                                     {
                                           "dayOfWeek": "MONDAY",
@@ -2962,7 +2962,7 @@
                                     "id": "108",
                                     "name": "Static Prof 9"
                               },
-                              "capacity": 80,
+                              "capacity": 100,
                               "timeSlots": [
                                     {
                                           "dayOfWeek": "MONDAY",
@@ -2999,7 +2999,7 @@
                                     "id": "109",
                                     "name": "Static Prof 10"
                               },
-                              "capacity": 60,
+                              "capacity": 80,
                               "timeSlots": [
                                     {
                                           "dayOfWeek": "TUESDAY",
@@ -3029,7 +3029,7 @@
                                     "id": "109",
                                     "name": "Static Prof 10"
                               },
-                              "capacity": 140,
+                              "capacity": 100,
                               "timeSlots": [
                                     {
                                           "dayOfWeek": "TUESDAY",
@@ -3073,7 +3073,7 @@
                                     "id": "110",
                                     "name": "Static Prof 11"
                               },
-                              "capacity": 100,
+                              "capacity": 120,
                               "timeSlots": [
                                     {
                                           "dayOfWeek": "TUESDAY",
@@ -3103,7 +3103,7 @@
                                     "id": "110",
                                     "name": "Static Prof 11"
                               },
-                              "capacity": 100,
+                              "capacity": 120,
                               "timeSlots": [
                                     {
                                           "dayOfWeek": "TUESDAY",
@@ -3147,7 +3147,7 @@
                                     "id": "111",
                                     "name": "Static Prof 12"
                               },
-                              "capacity": 120,
+                              "capacity": 60,
                               "timeSlots": [
                                     {
                                           "dayOfWeek": "MONDAY",
@@ -3170,7 +3170,7 @@
                                     "id": "111",
                                     "name": "Static Prof 12"
                               },
-                              "capacity": 80,
+                              "capacity": 60,
                               "timeSlots": [
                                     {
                                           "dayOfWeek": "MONDAY",
@@ -3207,7 +3207,7 @@
                                     "id": "112",
                                     "name": "Static Prof 13"
                               },
-                              "capacity": 80,
+                              "capacity": 60,
                               "timeSlots": [
                                     {
                                           "dayOfWeek": "TUESDAY",
@@ -3237,7 +3237,7 @@
                                     "id": "112",
                                     "name": "Static Prof 13"
                               },
-                              "capacity": 120,
+                              "capacity": 100,
                               "timeSlots": [
                                     {
                                           "dayOfWeek": "TUESDAY",
@@ -3281,7 +3281,7 @@
                                     "id": "113",
                                     "name": "Static Prof 14"
                               },
-                              "capacity": 140,
+                              "capacity": 60,
                               "timeSlots": [
                                     {
                                           "dayOfWeek": "MONDAY",
@@ -3304,7 +3304,7 @@
                                     "id": "113",
                                     "name": "Static Prof 14"
                               },
-                              "capacity": 80,
+                              "capacity": 120,
                               "timeSlots": [
                                     {
                                           "dayOfWeek": "MONDAY",
