@@ -23,7 +23,6 @@ import json
 class Schedule(APIView):
     # GET / schedule / {year - semester}
     def get(self, request: HttpRequest, year: int, semester: str, requested_company_alg: int) -> HttpResponse:
-        requested_company_alg = 2
 
         # Create params for algorithms packages
         historical_data = get_historic_course_data()
