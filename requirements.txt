@@ -4,15 +4,18 @@ psycopg2==2.9.3
 djangorestframework-simplejwt==5.2.0
 django-cors-headers==3.13.0
 pyjwt==2.4.0
-# Algorithms versions should be updated regularly
-coursescheduler #Company 2 alg 1
-c1algo1 # Company 1 alg 1
+
+
+# algorithms
+coursescheduler==0.0.5 #Company 2 alg 1
+c1algo1==2.0.2 # Company 1 alg 1
 
 --extra-index-url https://test.pypi.org/simple/
-capacityforecaster #Company 2 alg 2 (from pypi.org/simple/ index)
+capacityforecaster==0.2.6 #Company 2 alg 2 (from pypi.org/simple/ index)
 
 --extra-index-url https://test.pypi.org/simple/
-c1algo2 #Company 1 alg 2 (from pypi.org/simple/ index)
+c1algo2==0.0.7 #Company 1 alg 2 (from pypi.org/simple/ index)
+
 
 # dependencies from c1algo2
 numpy
