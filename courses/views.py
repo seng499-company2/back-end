@@ -32,6 +32,7 @@ class AllCoursesView(APIView):
     permission_classes = [IsAdmin, IsAuthenticated]
 
     def get(self, request):
+        print("received GET request to AllCoursesView API Endpoint")
         if request.method != "GET":
             return HttpResponse(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
         
@@ -40,6 +41,7 @@ class AllCoursesView(APIView):
 
 
     def post(self, request: HttpRequest) -> HttpResponse:
+        print("received POST request to AllCoursesView API Endpoint")
         if request.method != "POST":
             return HttpResponse(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
@@ -61,6 +63,7 @@ class CourseView(APIView):
     permission_classes = [IsAdmin, IsAuthenticated]
 
     def get(self, request: HttpRequest, course_code: str):
+        print("received GET request to CourseView API Endpoint")
         if request.method != "GET":
             return HttpResponse(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
@@ -75,6 +78,7 @@ class CourseView(APIView):
 
 
     def post(self, request: HttpRequest, course_code: str, format=None) -> HttpResponse:
+        print("received POST request to CourseView API Endpoint")
         if request.method != "POST":
             return HttpResponse(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
@@ -95,6 +99,7 @@ class CourseView(APIView):
 
     
     def delete(self, request: HttpRequest, course_code: str, format=None) -> HttpResponse:
+        print("received DELETE request to CourseView API Endpoint")
         if request.method != "DELETE":
             return HttpResponse(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
         try:
