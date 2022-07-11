@@ -23,6 +23,7 @@ import json
 class Schedule(APIView):
     # GET / schedule / {year - semester}
     def get(self, request: HttpRequest, year: int, semester: str, requested_company_alg: int) -> HttpResponse:
+        requested_company_alg = 2
 
         # Create params for algorithms packages
         historical_data = get_historic_course_data()
@@ -33,9 +34,9 @@ class Schedule(APIView):
 
         try:
             schedule = c1alg2(historical_data, previous_enrollment, schedule) if requested_company_alg == 1 \
-                 else c2alg2(historical_data, previous_enrollment, None)
-            schedule = c1alg1.generate_schedule(professors, schedule_1) if requested_company_alg == 1 \
-                else c2alg1(None, schedule_1, True)
+                 else c2alg2(historical_data, previous_enrollment, schedule)
+            schedule = c1alg1.generate_schedule(professors, schedule) if requested_company_alg == 1 \
+                else c2alg1(professors, schedule)
             return HttpResponse(json.dumps(schedule), status=status.HTTP_200_OK)
         except Exception as err:
             print(traceback.format_exception(err))
