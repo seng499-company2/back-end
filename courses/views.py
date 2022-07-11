@@ -15,6 +15,10 @@ from .permissions import IsAdmin
 from rest_framework.permissions import IsAuthenticated
 
 
+from users.models import AppUser
+from preferences.models import Preferences
+
+
 def get_alg_course(course: Course) -> A_Course:
     try:
         a_course = A_Course.objects.get(code=course.course_code)
@@ -66,6 +70,7 @@ class CourseView(APIView):
 
         try:
             course = Course.objects.get(course_code=course_code)
+            is_willing = Preferences.objects.filter()
             if course is None or not isinstance(course, Course):
                 return HttpResponse(status=status.HTTP_404_NOT_FOUND)
         except courses.models.Course.DoesNotExist:
