@@ -35,8 +35,12 @@ class ProfessorsList(APIView):
     def post(self, request: HttpRequest, format=None) -> HttpResponse:
         if request.method != "POST":
             return HttpResponse(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-
         request_data = JSONParser().parse(request)
+
+        #upon Prof creation, manually assert that a password was provided in the request body
+        if 'password' not in request_data['user']:
+            return HttpResponse("No password was provided for the new Professor account!", status=status.HTTP_400_BAD_REQUEST)
+
         serializer = AppUserSerializer(data=request_data)
         if serializer.is_valid():
             serializer.save()
