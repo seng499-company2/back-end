@@ -57,6 +57,7 @@ def get_course_offerings(courses):
         # Every course already has a course offering, no problems!
         return a_course_offerings_filtered
 
+    # Create course offerings for courses without course offerings
     courses_without_offerings = []
     for course in courses:
         for course_offering in a_course_offerings_filtered:
@@ -75,20 +76,11 @@ def create_course_offering(course: Course):
     a_course_offering.course = course_to_alg_course(course)
     a_course_offering.course.save()
 
-    # create defaut sections
-    default_A01_section = A_CourseSection()
-    default_A01_section.professor = ''
-    default_A01_section.capacity = 0
-    default_A01_section.save()
-    default_A02_section = A_CourseSection()
-    default_A02_section.professor = ''
-    default_A02_section.capacity = 0
-    default_A02_section.save()
+    default_A01_section = create_default_section()
+    default_A02_section = create_default_section()
 
     # create default time slots
-    default_time_section = A_TimeSlot()
-    default_time_section.dayOfWeek = ''
-    default_time_section.timeRange = ['', '']
+    default_time_section, _ = A_TimeSlot.objects.get_or_create(dayOfWeek='', timeRange=['', ''])
     default_time_section.save()
 
     # add timeslots
@@ -104,17 +96,13 @@ def create_course_offering(course: Course):
     a_course_offering.save()
     return a_course_offering
 
-    #
-    # print(vars(course_offerings))
-    # alg_course_dicts = list(map(course_to_alg_dictionary, courses))
-    #
-    # course_offerings = []
-    # for alg_course_dict in alg_course_dicts:
-    #     section1 = {"professor": "", "capacity": "", "timeslots": ""}
-    #     section2 = {"professor": "", "capacity": "", "timeslots": ""}
-    #     course_offering = {"course": alg_course_dict, "sections": [section1, section2]}
-    #     course_offerings.append(course_offering)
-    # return course_offerings
+
+def create_default_section():
+    default_section = A_CourseSection()
+    default_section.professor = ''
+    default_section.capacity = 0
+    default_section.save()
+    return default_section
 
 
 def get_professor_dict():
