@@ -135,8 +135,12 @@ def parse_schedules_data(csv_file):
             )
 
             
-        #Step 3 - build CourseSection objects *(For Static courses only)*
-        for row in csv_list:                
+        #Step 3 - build CourseSection objects *(For both Dynamic + Static courses)*
+        #store CourseSections objects in memory for easy access
+        course_sections_list = []
+
+        for row in csv_list:
+            #handling of Section 1                
             if row[CSV_COLUMNS.SECTION1_PROF_ID]:
                 professor = {
                     "id" : row[CSV_COLUMNS.SECTION1_PROF_ID] ,
@@ -150,13 +154,32 @@ def parse_schedules_data(csv_file):
             else:
                 capacity = 0
 
-            #create Django models & store to DB
-            courseSection1, created = A_CourseSection.objects.get_or_create(
+            #forced creation of Django model & store to DB
+            courseSection1 = A_CourseSection.objects.create(
                 professor=professor,
                 capacity=capacity
             )
+            courseSection1.save()
+
+            #create the TimeSlots many-to-many relationship, if exists
+            if row[CSV_COLUMNS.SECTION1_DAYS_OF_WEEK] and row[CSV_COLUMNS.SECTION1_TIME_RANGE]:
+                days_list = get_days_of_the_week(row[CSV_COLUMNS.SECTION1_DAYS_OF_WEEK])
+                time_range = str(row[CSV_COLUMNS.SECTION1_TIME_RANGE]).split('~')
+                time_slots = []
+                for day in days_list:
+                    #get TimeSlot obj
+                    obj, _ = A_TimeSlot.objects.get_or_create(
+                        dayOfWeek=day,
+                        timeRange=time_range
+                    )
+
+                    #associate the TimeSlot
+                    time_slots.append(obj)
+
+                courseSection1.timeSlots.set(time_slots)
+                course_sections_list.append(courseSection1)
             
-            #Section 2 prof id
+            #handling of Section 2, if exists
             if row[CSV_COLUMNS.NUM_SECTIONS] == 2:
                 if row[CSV_COLUMNS.SECTION2_PROF_ID]:
                     professor = {
@@ -171,67 +194,79 @@ def parse_schedules_data(csv_file):
                 else:
                     capacity = 0
 
-                #create Django models & store to DB
-                courseSection2, created = A_CourseSection.objects.get_or_create(
+                #forced creation of Django model & store to DB
+                courseSection2 = A_CourseSection.objects.create(
                     professor=professor,
                     capacity=capacity
                 )
+                courseSection2.save()
 
-            #create the TimeSlots many-to-many relationship, if exists
-            if row[CSV_COLUMNS.SECTION1_DAYS_OF_WEEK] and :
-                days_list = get_days_of_the_week(row[CSV_COLUMNS.DAYS_OF_WEEK])
-                time_range = str(row[CSV_COLUMNS.TIME_RANGE]).split('~')
-                time_slots = []
-                for day in days_list:
-                    #get TimeSlot obj
-                    obj, _ = A_TimeSlot.objects.get_or_create(
-                        dayOfWeek=day,
-                        timeRange=time_range
-                    )
+                #create the TimeSlots many-to-many relationship, if exists
+                if row[CSV_COLUMNS.SECTION2_DAYS_OF_WEEK] and row[CSV_COLUMNS.SECTION2_TIME_RANGE]:
+                    days_list = get_days_of_the_week(row[CSV_COLUMNS.SECTION2_DAYS_OF_WEEK])
+                    time_range = str(row[CSV_COLUMNS.SECTION2_TIME_RANGE]).split('~')
+                    time_slots = []
+                    for day in days_list:
+                        #get TimeSlot obj
+                        obj, _ = A_TimeSlot.objects.get_or_create(
+                            dayOfWeek=day,
+                            timeRange=time_range
+                        )
 
-                    #associate the TimeSlot
-                    time_slots.append(obj)
+                        #associate the TimeSlot
+                        time_slots.append(obj)
 
-                courseSection.timeSlots.set(time_slots)
-
-                #
+                    courseSection2.timeSlots.set(time_slots)
+                    course_sections_list.append(courseSection2)
         
-        #Step 4 - build CourseOffering objects
-        """
-        #one instance of this class should represent a single Course & CourseSection pair
-        '''PRIMARY KEY: id (Django auto)'''
-        class A_CourseOffering(models.Model):
-            course = models.ForeignKey(A_Course, related_name='courseOfferings', blank=True, null=True, on_delete=models.CASCADE)    #One-to-Many: course to courseOfferings
-            sections = models.ManyToManyField(A_CourseSection, related_name='courseOfferings')
 
-            def __str__(self):
-                return 'id: ' + str(self.id) + ', ' + str(self.course.code) + ', Number of Sections: ' + str(len(self.sections.all()))
-        """
+        #Step 4 - build CourseOffering objects
+        fall_offerings = []
+        spring_offerings = []
+        summer_offerings = []
+
+        #index to traverse the CourseSections list
+        i = 0
         for row in csv_list:
             #get associated Course object foreign key to create CourseOffering, then save to DB
             course_code = row[CSV_COLUMNS.CODE]
-            obj = A_Course.objects.get(code=course_code)
+            course_obj = A_Course.objects.get(code=course_code)
 
-            if obj is not None:
-                courseOffering = A_CourseOffering.objects.create(course=obj)
+            if row[CSV_COLUMNS.CODE] and course_obj is not None:
+                courseOffering = A_CourseOffering.objects.create(course=course_obj)
+                courseOffering.save()
 
-                #get the associated CourseSection for a many-to-many relationship, if a section exists (static courses only)
-                days_list = get_days_of_the_week(row[CSV_COLUMNS.DAYS_OF_WEEK])
-                time_range = str(row[CSV_COLUMNS.TIME_RANGE]).split('~')
-                time_slots = []
-                for day in days_list:
-                    #get TimeSlot obj
-                    obj, _ = A_TimeSlot.objects.get_or_create(
-                        dayOfWeek=day,
-                        timeRange=time_range
-                    )
-                    time_slots.append(obj)
+                #get the associated CourseSection(s) for many-to-many (in memory)
+                courseOffering.sections.add(course_sections_list[i])
+                i += 1
+                if row[CSV_COLUMNS.NUM_SECTIONS] == 2:
+                    courseOffering.sections.add(course_sections_list[i])
+                    i += 1
 
-                section = A_CourseSection.objects.get(professor=professor, capacity=capacity, timeSlots=time_slots)
-                
-                #TODO: must fix the above logic ^ and update all previous work to work with updated Schedule.csv
+                #finally, save the CourseOffering in memory to the correct semester
+                if row[CSV_COLUMNS.SEMESTER] == 'fall':
+                    fall_offerings.append(courseOffering)
+                elif row[CSV_COLUMNS.SEMESTER] == 'spring':
+                    spring_offerings.append(courseOffering)
+                elif row[CSV_COLUMNS.SEMESTER] == 'summer':
+                    summer_offerings.append(courseOffering)
 
 
+        #Step 5 - build the final Schedule object
+        schedule = A_Schedule.objects.create()
+        schedule.save()
+
+        #build fall, spring, and summer CourseOffering[] lists
+        for offering in fall_offerings:
+            schedule.fall.add(offering)
+        for offering in spring_offerings:
+            schedule.spring.add(offering)
+        for offering in summer_offerings:
+            schedule.summer.add(offering)
+
+        #DB should contain an entire, correctly-associated Schedule object now, that should be retrievable & serializable via:
+        #   serializer = A_ScheduleSerializer(instance=schedule)
+        #   serializer.data
 
     return
 
