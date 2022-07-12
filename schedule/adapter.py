@@ -49,8 +49,7 @@ def clean_dict(input_dict):
     useless_attributes = ["id", "_state", "_constructor_args", "creation_counter", "_db", "_hints", "core_filters",
                          "instance", "courseOfferings__id", "reverse", "pk_field_names", "prefetch_cache_name",
                          "query_field_name", "related_val", "source_field", "source_field_name", "symmetrical",
-                         "target_field", "target_field_name", "target_field_name", "through", "name", "model",
-                         "sections"]
+                         "target_field", "target_field_name", "target_field_name", "through", "name", "model"]
     for useless_attribute in useless_attributes:
         try:
             del(input_dict[useless_attribute])
