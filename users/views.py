@@ -23,6 +23,7 @@ class ProfessorsList(APIView):
 
     # (Admin) return all profs within the system.
     def get(self, request):
+        print("received GET request to ProfessorsList API Endpoint")
         if request.method != "GET":
             return HttpResponse(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
@@ -33,10 +34,15 @@ class ProfessorsList(APIView):
 
     # (Admin) create a new professor record.
     def post(self, request: HttpRequest, format=None) -> HttpResponse:
+        print("received POST request to ProfessorsList API Endpoint")
         if request.method != "POST":
             return HttpResponse(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-
         request_data = JSONParser().parse(request)
+
+        #upon Prof creation, manually assert that a password was provided in the request body
+        if 'password' not in request_data['user']:
+            return HttpResponse("No password was provided for the new Professor account!", status=status.HTTP_400_BAD_REQUEST)
+
         serializer = AppUserSerializer(data=request_data)
         if serializer.is_valid():
             serializer.save()
@@ -53,6 +59,7 @@ class Professor(APIView):
 
     # (Admin) update an existing user/professor record.
     def post(self, request: HttpRequest, professor_id: str, format=None) -> HttpResponse:
+        print("received POST request to Professors API Endpoint")
         if request.method != "POST":
             return HttpResponse(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
@@ -71,6 +78,7 @@ class Professor(APIView):
 
     # delete an existing user/professor record.
     def delete(self, request: HttpRequest, professor_id: str, format=None) -> HttpResponse:
+        print("received DELETE request to Professors API Endpoint")
         if request.method != "DELETE":
             return HttpResponse(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
         try:
@@ -89,6 +97,7 @@ class UserDetail(APIView):
     permission_classes = [IsAuthenticated]
     
     def get(self, request):
+        print("received GET request to UserDetail API Endpoint")
         token_user_username = request.user.username
         if request.method != "GET":
             return HttpResponse(status=status.HTTP_500_INTERNAL_SERVER_ERROR)

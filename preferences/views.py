@@ -26,6 +26,7 @@ class PreferencesRecord(APIView):
 
     # (Admin) return the unique Preferences record for a professor.
     def get(self, request: HttpRequest, professor_id: str):
+        print("received GET request to PreferencesRecord API Endpoint")
         if request.method != "GET":
             return HttpResponse(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
@@ -47,6 +48,7 @@ class PreferencesRecord(APIView):
 
     # (Admin) update the unique Preferences record for a professor.
     def post(self, request: HttpRequest, professor_id: str, format=None) -> HttpResponse:
+        print("received POST request to PreferencesRecord API Endpoint")
         if request.method != "POST":
             return HttpResponse(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
@@ -69,8 +71,9 @@ class PreferencesView(APIView):
     permission_classes = [IsAuthenticated]
 
     # GET api/preferences
-    def get(self, request: HttpRequest) -> HttpResponse: 
-        if "GET" != request.method: 
+    def get(self, request: HttpRequest) -> HttpResponse:
+        print("received GET request to PreferencesView API Endpoint")
+        if "GET" != request.method:
             return HttpResponse(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
         professor_id = request.user.username
         try:
@@ -89,7 +92,7 @@ class PreferencesView(APIView):
             return HttpResponse(status=status.HTTP_404_NOT_FOUND)
 
 
-    def save_preferences(self, request_data) -> HttpResponse: 
+    def save_preferences(self, request_data) -> HttpResponse:
         serializer = PreferencesSerializer(data=request_data)
         if serializer.is_valid(): 
             serializer.save()
@@ -117,8 +120,9 @@ class PreferencesView(APIView):
             prof.save()
 
     # POST api/preferences
-    def post(self, request: HttpRequest) -> HttpResponse: 
-        if "POST" != request.method: 
+    def post(self, request: HttpRequest) -> HttpResponse:
+        print("received POST request to PreferencesView API Endpoint")
+        if "POST" != request.method:
             return HttpResponse(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
         request_data = JSONParser().parse(request)
