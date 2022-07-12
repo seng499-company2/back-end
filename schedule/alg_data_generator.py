@@ -74,6 +74,8 @@ def create_course_offering(course: Course):
     a_course_offering: A_CourseOffering = A_CourseOffering()
     a_course_offering.course = course_to_alg_course(course)
     a_course_offering.course.save()
+
+    # create defaut sections
     default_A01_section = A_CourseSection()
     default_A01_section.professor = ''
     default_A01_section.capacity = 0
@@ -82,8 +84,23 @@ def create_course_offering(course: Course):
     default_A02_section.professor = ''
     default_A02_section.capacity = 0
     default_A02_section.save()
+
+    # create default time slots
+    default_time_section = A_TimeSlot()
+    default_time_section.dayOfWeek = ''
+    default_time_section.timeRange = ['', '']
+    default_time_section.save()
+
+    # add timeslots
+    default_A01_section.timeSlots.set([default_time_section])
+    default_A02_section.timeSlots.set([default_time_section])
+    default_A01_section.save()
+    default_A02_section.save()
+
+    # save course offering then set the sections
+    # both must be saved before .sections.set() is called
     a_course_offering.save()
-    a_course_offering.sections.set([default_A01_section])
+    a_course_offering.sections.set([default_A01_section, default_A02_section])
     a_course_offering.save()
     return a_course_offering
 

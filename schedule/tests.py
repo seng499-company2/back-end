@@ -3,11 +3,9 @@ from rest_framework import status
 from rest_framework.test import APIClient
 from rest_framework_simplejwt.tokens import SlidingToken
 from django.contrib.auth.models import User
-from schedule.adapter import course_to_alg_dictionary
+from schedule.adapter import course_to_alg_dictionary, course_to_alg_course, a_course_offering_to_dict
 from courses.models import Course
-from schedule.alg_data_generator import get_historic_course_data
-from schedule.alg_data_generator import get_program_enrollment_data
-from schedule.alg_data_generator import get_schedule
+from schedule.alg_data_generator import get_historic_course_data, get_program_enrollment_data, get_schedule
 from schedule.Schedule_models import A_Schedule, A_TimeSlot, A_CourseSection, A_Course, A_CourseOffering
 from schedule.Schedule_serializers import A_ScheduleSerializer
 
@@ -22,6 +20,50 @@ class ViewTest(TestCase):
         token = SlidingToken.for_user(user)
         self.client.credentials(HTTP_AUTHORIZATION=f'Bearer {token}')
         self.maxDiff = None
+
+    def init_course(self):
+        try:
+            self.course = Course.objects.get(course_code="SENG499")
+        except:
+            self.course_attributes = {
+                "course_code": "SENG499",
+                "num_sections": 2,
+                "course_title": "Design Project 2",
+                "fall_offering": True,
+                "spring_offering": True,
+                "summer_offering": True,
+                "pengRequired": {"fall": True, "spring": True, "summer": True},
+                "yearRequired": 4
+            }
+            self.course = Course.objects.create(**self.course_attributes)
+
+    def get_one_course_dict(self):
+        expected = \
+            {"course":
+                {
+                    "code": "SENG499",
+                    "title": "Design Project 2",
+                    "pengRequired": {
+                        "fall": True,
+                        "spring": True,
+                        "summer": True
+                    },
+                    "yearRequired": 4
+                },
+                "sections": [
+                    {
+                        "professor": "",
+                        "capacity": 0,
+                        "timeslots": []
+                    },
+                    {
+                        "professor": "",
+                        "capacity": 0,
+                        "timeslots": []
+                    },
+                ]
+            }
+        return expected
 
 # IGNORE to ignore test while agl2 fixes their bugs
     def IGNORE_test_GET_company_1(self):
@@ -65,23 +107,14 @@ class ViewTest(TestCase):
         course_dict = course_to_alg_dictionary(None)
         self.assertIsNone(course_dict)
 
-    def test_trivial(self):
-        course_attributes = {
-            "course_code": "SENG499",
-            "num_sections": 2,
-            "course_title": "Design Project 2",
-            "fall_offering": True,
-            "spring_offering": True,
-            "summer_offering": False,
-            "pengRequired": {"fall": False, "spring": True, "summer": True},
-            "yearRequired": 4
-        }
-        course = Course.objects.create(**course_attributes)
+    def test_trivial_course_to_alg_dict(self):
+        self.init_course()
+        course = self.course
         course_dict = course_to_alg_dictionary(course)
         self.assertIsNotNone(course_dict)
         self.assertEquals("SENG499", course_dict["code"])
         self.assertEquals("Design Project 2", course_dict["title"])
-        self.assertEquals(False, course_dict["pengRequired"]["fall"])
+        self.assertEquals(True, course_dict["pengRequired"]["fall"])
         self.assertEquals(4, course_dict["yearRequired"])
         try:
             state = course_dict["_state"]
@@ -90,6 +123,41 @@ class ViewTest(TestCase):
         except KeyError:
             # expected behaviour is throwing a KeyError
             pass
+
+    def test_a_course_offering_to_dict(self):
+        self.init_course()
+        a_course_offering: A_CourseOffering = A_CourseOffering()
+        a_course_offering.course = course_to_alg_course(self.course)
+        a_course_offering.course.save()
+
+        # create defaut sections
+        default_A01_section = A_CourseSection()
+        default_A01_section.professor = ''
+        default_A01_section.capacity = 0
+        default_A01_section.save()
+        default_A02_section = A_CourseSection()
+        default_A02_section.professor = ''
+        default_A02_section.capacity = 0
+        default_A02_section.save()
+
+        # create default time slots
+        default_time_section = A_TimeSlot()
+        default_time_section.dayOfWeek = ''
+        default_time_section.timeRange = ['', '']
+        default_time_section.save()
+
+        # add timeslots
+        default_A01_section.timeSlots.set([default_time_section])
+        default_A02_section.timeSlots.set([default_time_section])
+
+        default_A01_section.save()
+        default_A02_section.save()
+        a_course_offering.save()
+        a_course_offering.sections.set([default_A01_section, default_A02_section])
+        a_course_offering.save()
+        expected = self.get_one_course_dict()
+        self.assertDictEqual(expected, a_course_offering_to_dict(a_course_offering))
+
 
 # alg2_data_generator TESTS
 
@@ -107,70 +175,14 @@ class ViewTest(TestCase):
         self.assertDictEqual(expected, schedule)
 
     def test_get_schedule_one_course(self):
-        self.course_attributes = {
-            "course_code": "SENG499",
-            "num_sections": 2,
-            "course_title": "Design Project 2",
-            "fall_offering": True,
-            "spring_offering": True,
-            "summer_offering": True,
-            "pengRequired": {"fall": False, "spring": True, "summer": True},
-            "yearRequired": 4
-        }
-        self.course = Course.objects.create(**self.course_attributes)
-
+        self.init_course()
         schedule = get_schedule()
-        expected = {'fall': [{'course': {'code': 'SENG499', 'title': 'Design Project 2', 'pengRequired': {'fall': False, 'spring': True, 'summer': True}, 'yearRequired': 4}, 'sections': [{'professor': '', 'capacity': '', 'timeslots': ''}, {'professor': '', 'capacity': '', 'timeslots': ''}]}], 'spring': [{'course': {'code': 'SENG499', 'title': 'Design Project 2', 'pengRequired': {'fall': False, 'spring': True, 'summer': True}, 'yearRequired': 4}, 'sections': [{'professor': '', 'capacity': '', 'timeslots': ''}, {'professor': '', 'capacity': '', 'timeslots': ''}]}], 'summer': [{'course': {'code': 'SENG499', 'title': 'Design Project 2', 'pengRequired': {'fall': False, 'spring': True, 'summer': True}, 'yearRequired': 4}, 'sections': [{'professor': '', 'capacity': '', 'timeslots': ''}, {'professor': '', 'capacity': '', 'timeslots': ''}]}]}
-        print("\n\n\n\n")
-        print(schedule)
-        print("\n\n\n\n")
+        expected_course_offering = self.get_one_course_dict()
+        expected = {'fall': [expected_course_offering], 'spring': [expected_course_offering], 'summer': [expected_course_offering]}
         self.assertDictEqual(expected, schedule)
 
     def test_get_schedule_many_courses(self):
-        saved_schedule = self.get_schedule_object()
+        # TODO
         schedule = get_schedule()
         expected = {"fall": [], "spring": [], "summer": []}
         self.assertEquals(expected, schedule)
-
-
-    def get_schedule_object(self):
-        #build TimeSlot objects
-        t1 = A_TimeSlot.objects.create(dayOfWeek='MONDAY', timeRange=["12:00", "13:00"])
-        t2 = A_TimeSlot.objects.create(dayOfWeek='TUESDAY', timeRange=["13:00", "14:00"])
-        t1.save()   #NOTE: Many-to-many relationships cannot be created without saving BOTH entity objects first
-        t2.save()
-
-        return {}
-        #build CourseSection objects
-        # cs1 = A_CourseSection(professor={"id": "mzastre", "name":"Michael Zastre"}, capacity=0)
-        # cs1.save()
-        # cs1.timeSlots.add(t1, t2)
-        #
-        # #build Course objects
-        # c1 = A_Course(code="CSC225", title="Algorithms and Data Structures I", pengRequired={"fall": True, "spring": False, "summer": True}, yearRequired=3)
-        # c1.save()
-        #
-        # #build CourseOffering objects
-        # co_fall = A_CourseOffering()
-        # co_fall.save()
-        # co_fall.course.add(c1)
-        # co_fall.sections.add(cs1)
-        #
-        # co_spring = A_CourseOffering()
-        # co_spring.save()
-        # co_spring.course.add(c1)
-        # co_spring.sections.add(cs1)
-        #
-        # co_summer = A_CourseOffering()
-        # co_summer.save()
-        # co_summer.course.add(c1)
-        # co_summer.sections.add(cs1)
-        #
-        # #finally, build Schedule object
-        # schedule = A_Schedule()
-        # schedule.save()
-        # schedule.fall.add(co_fall)
-        # schedule.spring.add(co_spring)
-        # schedule.summer.add(co_summer)
-        # schedule.save()
-        # return schedule
