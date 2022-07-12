@@ -21,7 +21,7 @@ def get_program_enrollment_data() -> typing.Dict[str, str]:
 def get_schedule():
     courses = Course.objects.all()
     align_all_courses(courses)
-    fall_courses: [Course] = list(filter(lambda course: course.spring_offering, courses))
+    fall_courses: [Course] = list(filter(lambda course: course.fall_offering, courses))
     spring_courses: [Course] = list(filter(lambda course: course.spring_offering, courses))
     summer_courses: [Course] = list(filter(lambda course: course.summer_offering, courses))
     fall_course_offerings: [A_CourseOffering] = get_course_offerings(fall_courses)
