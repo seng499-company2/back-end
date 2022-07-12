@@ -16,10 +16,8 @@ RUN pip install --upgrade pip
 COPY ./requirements.txt .
 RUN pip install -r requirements.txt
 
-# IDK why but that's needed.
-# You have no idea how desperate I was to try that
-RUN pip uninstall -y coursescheduler
-RUN pip install coursescheduler
+COPY ./requirements-testpypi.txt .
+RUN pip install -r requirements-testpypi.txt
 
 # Copy entrypoint.sh
 COPY ./entrypoint.sh /scheduler_service/entrypoint.sh
