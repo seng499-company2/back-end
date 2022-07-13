@@ -3,3 +3,4 @@ __pycache__/
 data/
 .idea/
 .env.*
+/schedule.json

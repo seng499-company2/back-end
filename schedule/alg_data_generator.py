@@ -76,3 +76,13 @@ def get_schedule_object_company1():
     schedule_data = open("resources/schedule_updated", 'rb')
     schedule = pickle.load(schedule_data)
     return schedule
+
+
+def get_schedule_error():
+    with open("resources/schedule_object_error_case.json") as json_file:
+        return json.load(json_file)
+
+
+def get_profs_error():
+    with open("resources/professor_object_error_case.json") as json_file:
+        return json.load(json_file)
