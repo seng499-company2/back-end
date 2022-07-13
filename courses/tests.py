@@ -6,9 +6,10 @@ from django.contrib.auth.models import User
 from .models import Course
 from .serializers import CourseSerializer
 from .permissions import IsAdmin
-from .views import CourseView, AllCoursesView, get_alg_course
+from .views import CourseView, AllCoursesView
 from schedule.Schedule_models import A_Course
 from django.db import models
+from schedule.utils import get_alg_course
 
 #Serializer Testing
 class CourseSerializerTest(TestCase):

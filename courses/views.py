@@ -3,7 +3,7 @@ import courses
 
 
 from .models import Course
-from schedule.Schedule_models import A_Course
+from schedule.Schedule_models import A_Course, A_CourseOffering
 from rest_framework.parsers import JSONParser
 from .serializers import CourseSerializer
 from django.http import HttpResponse
@@ -14,17 +14,12 @@ from rest_framework import status
 from .permissions import IsAdmin
 from rest_framework.permissions import IsAuthenticated
 
+from schedule.adapter import course_to_course_offering, add_course_offering_to_schedule
 
-def get_alg_course(course: Course) -> A_Course:
-    try:
-        a_course = A_Course.objects.get(code=course.course_code)
-    except A_Course.DoesNotExist:
-        a_course = A_Course()
-    a_course.code = course.course_code
-    a_course.title = course.course_title
-    a_course.pengRequired = course.pengRequired
-    a_course.yearRequired = course.yearRequired
-    return a_course
+
+def get_alg_course_offering(course: Course) -> A_CourseOffering:
+    course_offering = course_to_course_offering(course)
+    return course_offering
 
 
 class AllCoursesView(APIView):
@@ -39,7 +34,6 @@ class AllCoursesView(APIView):
         serializer = CourseSerializer(Course.objects, many=True)
         return HttpResponse(json.dumps(serializer.data), status=status.HTTP_200_OK)
 
-
     def post(self, request: HttpRequest) -> HttpResponse:
         print("received POST request to AllCoursesView API Endpoint")
         if request.method != "POST":
@@ -50,12 +44,12 @@ class AllCoursesView(APIView):
         
         if serializer.is_valid():
             course = serializer.create(serializer.validated_data)
-            a_course = get_alg_course(course)
-            a_course.save()
+            a_course_offering = get_alg_course_offering(course)
+            a_course_offering.save()
+            add_course_offering_to_schedule(course, a_course_offering)
             return HttpResponse(json.dumps(serializer.data), status=status.HTTP_200_OK)
         
         return HttpResponse(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
 
 
 class CourseView(APIView):
@@ -76,7 +70,6 @@ class CourseView(APIView):
         serializer = CourseSerializer(course)
         return HttpResponse(json.dumps(serializer.data), status=status.HTTP_200_OK)
 
-
     def post(self, request: HttpRequest, course_code: str, format=None) -> HttpResponse:
         print("received POST request to CourseView API Endpoint")
         if request.method != "POST":
@@ -92,12 +85,12 @@ class CourseView(APIView):
         serializer = CourseSerializer(course, data=request_data)
         if serializer.is_valid():
             course = serializer.update(course, serializer.validated_data)
-            alg_course = get_alg_course(course)
-            alg_course.save()
+            alg_course_offering = get_alg_course_offering(course)
+            alg_course_offering.save()
+            add_course_offering_to_schedule(course, alg_course_offering)
             return HttpResponse(json.dumps(serializer.data), status=status.HTTP_200_OK)
         return HttpResponse(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    
     def delete(self, request: HttpRequest, course_code: str, format=None) -> HttpResponse:
         print("received DELETE request to CourseView API Endpoint")
         if request.method != "DELETE":
@@ -106,7 +99,7 @@ class CourseView(APIView):
             course = Course.objects.get(course_code=course_code)
         except courses.models.Course.DoesNotExist:
             return HttpResponse(status=status.HTTP_404_NOT_FOUND)
-        alg_course = get_alg_course(course)
+        alg_course_offering = get_alg_course_offering(course)
         course.delete()
-        alg_course.delete()
+        alg_course_offering.delete()
         return HttpResponse(status=status.HTTP_204_NO_CONTENT)

@@ -6,6 +6,7 @@ from users.models import AppUser
 from preferences.models import Preferences
 from schedule.adapter import course_to_alg_dictionary, course_to_alg_course, a_course_offering_to_dict
 from schedule.Schedule_models import A_Course, A_CourseOffering, A_Schedule, A_TimeSlot, A_CourseSection
+from schedule.utils import create_default_section
 
 
 def get_historic_course_data() -> typing.Dict[str, str]:
@@ -95,14 +96,6 @@ def create_course_offering(course: Course):
     a_course_offering.sections.set([default_A01_section, default_A02_section])
     a_course_offering.save()
     return a_course_offering
-
-
-def create_default_section():
-    default_section = A_CourseSection()
-    default_section.professor = ''
-    default_section.capacity = 0
-    default_section.save()
-    return default_section
 
 
 def get_professor_dict():
