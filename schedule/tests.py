@@ -83,35 +83,29 @@ class ViewTest(TestCase):
                 {
                     "code": "SENG499",
                     "title": "Design Project 2",
-                    "pengRequired": True,
+                    "pengRequired": {"fall": True, "spring": True, "summer": True},
                     "yearRequired": 4
                 },
                 "sections": [
                     {
-                        "professor": "",
+                        "professor": None,
                         "capacity": 0,
-                        "timeslots": []
+                        "timeSlots": []
                     },
                     {
-                        "professor": "",
+                        "professor": None,
                         "capacity": 0,
-                        "timeslots": []
+                        "timeSlots": []
                     },
                 ]
             }
         return expected
 
-    def get_course2_ordered_dict(self):
-        expected = OrderedDict()
-        expected_course = OrderedDict()
-        expected_course["code"] = "SENG321"
-        expected_course["title"] = "Requirements Engineering"
-        expected_course["pengRequired"] = {"fall": False, "spring": False, "summer": False}
-        expected_course["yearRequired"] = 3
-        expected_section1 = OrderedDict()
-        expected_section1["professor"] = ""
-        expected_section1["capacity"] = 0
-        expected_section1["timeSlots"] = []
+    def get_course2_dict(self):
+        expected = {}
+        expected_course = {"code": "SENG321", "title": "Requirements Engineering",
+                           "pengRequired": {"fall": False, "spring": False, "summer": False}, "yearRequired": 3}
+        expected_section1 = {"professor": None, "capacity": 0, "timeSlots": []}
         expected["course"] = expected_course
         expected["sections"] = [expected_section1, expected_section1]
         return expected
@@ -178,29 +172,21 @@ class ViewTest(TestCase):
         expected = {"fall": [], "spring": [], "summer": []}
         self.assertDictEqual(expected, schedule)
 
-    def IGNORE_test_get_schedule_one_course(self):
+    def test_get_schedule_one_course(self):
         self.init_course1()
         schedule = get_schedule()
-        expected_course_offering: typing.Dict = self.get_course1_ordered_dict()
+        expected_course_offering: typing.Dict = self.get_course1_dict()
         expected = {}
         expected["fall"] = [expected_course_offering]
         expected["spring"] = [expected_course_offering]
         expected["summer"] = [expected_course_offering]
         self.assertDictEqual(expected, schedule)
 
-    def IGNORE_dict_to_ordered_dict(self, dict, ordered_dict):
-        for key in dict.keys():
-            value = dict[key]
-            if "dict" == type(value):
-                value = self.dict_to_ordered_dict(value, OrderedDict())
-            ordered_dict[key] = value
-        return ordered_dict
-
     def test_get_schedule_many_courses(self):
         self.init_course1()
         self.init_course2()
-        expected_course_offering = self.get_course1_ordered_dict()
-        expected_course_offering2 = self.get_course2_ordered_dict()
+        expected_course_offering = self.get_course1_dict()
+        expected_course_offering2 = self.get_course2_dict()
         expected = {'fall': [expected_course_offering, expected_course_offering2],
                     'spring': [expected_course_offering, expected_course_offering2],
                     'summer': [expected_course_offering, expected_course_offering2]}
