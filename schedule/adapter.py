@@ -1,20 +1,6 @@
-import typing
-
 from courses.models import Course
 from schedule.Schedule_models import A_Course, A_CourseOffering, A_CourseSection, A_Schedule
 from schedule.utils import create_default_section
-
-
-# def course_to_alg_dictionary(course: Course) -> None or typing.Dict[str, str or bool]:
-#     if course is None:
-#         return None
-#     a_course_fall = course_to_alg_course(course, "fall")
-#     a_course_spring = course_to_alg_course(course, "spring")
-#     a_course_summer = course_to_alg_course(course, "summer")
-#     course_dict = vars(a_course)
-#     # the state of the django.models object should not be returned
-#     del(course_dict["_state"])
-#     return course_dict
 
 
 def course_to_alg_course(course: Course, semester: str) -> A_Course:
@@ -27,14 +13,6 @@ def course_to_alg_course(course: Course, semester: str) -> A_Course:
                                                  title=course.course_title,
                                                  pengRequired=course.pengRequired[semester],
                                                  yearRequired=course.yearRequired)
-    # a_course.code = course.course_code
-    # a_course.title = course.course_title
-    # print("-=-=-=-=----=-=--=-=---=-")
-    # print(course.pengRequired[semester])
-    # print(course.pengRequired)
-    # print("-=-=-=-=----=-=--=-=---=-")
-    # a_course.pengRequired = course.pengRequired[semester]
-    # a_course.yearRequired = course.yearRequired
     a_course.save()
     return a_course
 
@@ -115,8 +93,3 @@ def course_to_alg_course_offerings(course: Course) -> [A_CourseOffering]:
         a_course_offering = course_to_course_offering(course, semester)
         course_offerings.append(a_course_offering)
     return course_offerings
-
-
-# def get_alg_course_offering(course: Course, semester) -> A_CourseOffering:
-#     course_offering = course_to_course_offering(course, semester)
-#     return course_offering
