@@ -17,10 +17,6 @@ from rest_framework.permissions import IsAuthenticated
 from schedule.adapter import course_to_course_offering, add_course_offering_to_schedule
 
 
-def get_alg_course_offering(course: Course) -> A_CourseOffering:
-    course_offering = course_to_course_offering(course)
-    return course_offering
-
 
 class AllCoursesView(APIView):
 
@@ -44,9 +40,9 @@ class AllCoursesView(APIView):
         
         if serializer.is_valid():
             course = serializer.create(serializer.validated_data)
-            a_course_offering = get_alg_course_offering(course)
-            a_course_offering.save()
-            add_course_offering_to_schedule(course, a_course_offering)
+            for course_offering in get_alg_course_offerings(course):
+                course_offering.save()
+                add_course_offering_to_schedule(course, course_offering)
             return HttpResponse(json.dumps(serializer.data), status=status.HTTP_200_OK)
         
         return HttpResponse(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

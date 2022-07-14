@@ -5,25 +5,36 @@ from schedule.Schedule_models import A_Course, A_CourseOffering, A_CourseSection
 from schedule.utils import create_default_section
 
 
-def course_to_alg_dictionary(course: Course) -> None or typing.Dict[str, str or bool]:
-    if course is None:
-        return None
-    a_course = course_to_alg_course(course)
-    course_dict = vars(a_course)
-    # the state of the django.models object should not be returned
-    del(course_dict["_state"])
-    return course_dict
+# def course_to_alg_dictionary(course: Course) -> None or typing.Dict[str, str or bool]:
+#     if course is None:
+#         return None
+#     a_course_fall = course_to_alg_course(course, "fall")
+#     a_course_spring = course_to_alg_course(course, "spring")
+#     a_course_summer = course_to_alg_course(course, "summer")
+#     course_dict = vars(a_course)
+#     # the state of the django.models object should not be returned
+#     del(course_dict["_state"])
+#     return course_dict
 
 
-def course_to_alg_course(course: Course) -> None or A_Course:
-    try:
-        a_course = A_Course.objects.get(code=course.course_code)
-    except A_Course.DoesNotExist:
-        a_course = A_Course()
-    a_course.code = course.course_code
-    a_course.title = course.course_title
-    a_course.pengRequired = course.pengRequired
-    a_course.yearRequired = course.yearRequired
+def course_to_alg_course(course: Course, semester: str) -> A_Course:
+    valid_semesters = ["fall", "spring", "summer"]
+    if semester not in valid_semesters:
+        raise ValueError("semester must be a string of any of: " + str(valid_semesters))
+    if course.pengRequired[semester] is None:
+        raise Exception("Course must be in a valid semester")
+    a_course, _ = A_Course.objects.get_or_create(code=course.course_code,
+                                                 title=course.course_title,
+                                                 pengRequired=course.pengRequired[semester],
+                                                 yearRequired=course.yearRequired)
+    # a_course.code = course.course_code
+    # a_course.title = course.course_title
+    # print("-=-=-=-=----=-=--=-=---=-")
+    # print(course.pengRequired[semester])
+    # print(course.pengRequired)
+    # print("-=-=-=-=----=-=--=-=---=-")
+    # a_course.pengRequired = course.pengRequired[semester]
+    # a_course.yearRequired = course.yearRequired
     a_course.save()
     return a_course
 
@@ -62,9 +73,9 @@ def clean_dict(input_dict):
     return input_dict
 
 
-def course_to_course_offering(course: Course) -> A_CourseOffering:
-    a_course = course_to_alg_course(course)
-    course_offering = A_CourseOffering.objects.get_or_create(course=a_course)
+def course_to_course_offering(course: Course, semester: str) -> A_CourseOffering:
+    a_course = course_to_alg_course(course, semester)
+    course_offering, _ = A_CourseOffering.objects.get_or_create(course=a_course)
     if len(course_offering.sections.all()) == 0:
         course_offering.save()
         a01 = create_default_section()
@@ -76,10 +87,36 @@ def course_to_course_offering(course: Course) -> A_CourseOffering:
 
 
 def add_course_offering_to_schedule(course: Course, a_course_offering: A_CourseOffering):
-    schedule = A_Schedule.objects.get(id=0)
+    schedule, _ = A_Schedule.objects.get_or_create(id=0)
     if course.fall_offering:
         schedule.fall.add(a_course_offering)
     if course.spring_offering:
         schedule.spring.add(a_course_offering)
     if course.summer_offering:
         schedule.summer.add(a_course_offering)
+    schedule.save()
+
+
+def get_alg_course(course: Course) -> A_Course:
+    try:
+        a_course = A_Course.objects.get(code=course.course_code)
+    except A_Course.DoesNotExist:
+        a_course = A_Course()
+    a_course.code = course.course_code
+    a_course.title = course.course_title
+    a_course.pengRequired = course.pengRequired
+    a_course.yearRequired = course.yearRequired
+    return a_course
+
+
+def course_to_alg_course_offerings(course: Course) -> [A_CourseOffering]:
+    course_offerings = []
+    for semester in ["fall", "spring", "summer"]:
+        a_course_offering = course_to_course_offering(course, semester)
+        course_offerings.append(a_course_offering)
+    return course_offerings
+
+
+# def get_alg_course_offering(course: Course, semester) -> A_CourseOffering:
+#     course_offering = course_to_course_offering(course, semester)
+#     return course_offering

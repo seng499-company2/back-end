@@ -9,7 +9,8 @@ from .permissions import IsAdmin
 from .views import CourseView, AllCoursesView
 from schedule.Schedule_models import A_Course
 from django.db import models
-from schedule.utils import get_alg_course
+from schedule.adapter import get_alg_course
+
 
 #Serializer Testing
 class CourseSerializerTest(TestCase):

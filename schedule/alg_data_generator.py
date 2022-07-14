@@ -4,9 +4,10 @@ import pickle
 from courses.models import Course
 from users.models import AppUser
 from preferences.models import Preferences
-from schedule.adapter import course_to_alg_dictionary, course_to_alg_course, a_course_offering_to_dict
+from schedule.adapter import course_to_alg_course, a_course_offering_to_dict
 from schedule.Schedule_models import A_Course, A_CourseOffering, A_Schedule, A_TimeSlot, A_CourseSection
 from schedule.utils import create_default_section
+from schedule.Schedule_serializers import A_ScheduleSerializer
 
 
 def get_historic_course_data() -> typing.Dict[str, str]:
@@ -20,6 +21,12 @@ def get_program_enrollment_data() -> typing.Dict[str, str]:
 
 
 def get_schedule():
+    schedule, _ = A_Schedule.objects.get_or_create(id=0)
+    schedule_serializer = A_ScheduleSerializer(instance=schedule)
+    return schedule_serializer.data
+
+
+def get_schedule_iteration_1():
     courses = Course.objects.all()
     align_all_courses(courses)
     fall_courses: [Course] = list(filter(lambda course: course.fall_offering, courses))
