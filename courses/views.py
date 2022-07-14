@@ -40,9 +40,9 @@ class AllCoursesView(APIView):
         
         if serializer.is_valid():
             course = serializer.create(serializer.validated_data)
-            for course_offering in get_alg_course_offerings(course):
-                course_offering.save()
-                add_course_offering_to_schedule(course, course_offering)
+            course_offering = course_to_course_offering(course)
+            course_offering.save()
+            add_course_offering_to_schedule(course, course_offering)
             return HttpResponse(json.dumps(serializer.data), status=status.HTTP_200_OK)
         
         return HttpResponse(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
@@ -81,7 +81,7 @@ class CourseView(APIView):
         serializer = CourseSerializer(course, data=request_data)
         if serializer.is_valid():
             course = serializer.update(course, serializer.validated_data)
-            alg_course_offering = get_alg_course_offering(course)
+            alg_course_offering = course_to_course_offering(course)
             alg_course_offering.save()
             add_course_offering_to_schedule(course, alg_course_offering)
             return HttpResponse(json.dumps(serializer.data), status=status.HTTP_200_OK)
@@ -95,7 +95,7 @@ class CourseView(APIView):
             course = Course.objects.get(course_code=course_code)
         except courses.models.Course.DoesNotExist:
             return HttpResponse(status=status.HTTP_404_NOT_FOUND)
-        alg_course_offering = get_alg_course_offering(course)
+        alg_course_offering = course_to_course_offering(course)
         course.delete()
         alg_course_offering.delete()
         return HttpResponse(status=status.HTTP_204_NO_CONTENT)

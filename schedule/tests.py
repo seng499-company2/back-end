@@ -5,12 +5,11 @@ from rest_framework import status
 from rest_framework.test import APIClient
 from rest_framework_simplejwt.tokens import SlidingToken
 from django.contrib.auth.models import User
-from schedule.adapter import course_to_alg_course, a_course_offering_to_dict, \
-    add_course_offering_to_schedule, course_to_alg_course_offerings
+from schedule.adapter import add_course_offering_to_schedule, course_to_course_offering
 from courses.models import Course
 from schedule.alg_data_generator import get_historic_course_data, get_program_enrollment_data, \
     get_schedule
-from schedule.Schedule_models import A_TimeSlot, A_CourseSection, A_CourseOffering
+from schedule.Schedule_models import A_CourseOffering
 from collections import OrderedDict
 
 quick_test_mode = False
@@ -27,16 +26,6 @@ class ViewTest(TestCase):
         self.maxDiff = None
 
     def init_course1(self):
-        course_attributes = {
-            "course_code": "SENG499",
-            "num_sections": 2,
-            "course_title": "Design Project 2",
-            "fall_offering": True,
-            "spring_offering": True,
-            "summer_offering": True,
-            "pengRequired": {"fall": True, "spring": True, "summer": True},
-            "yearRequired": 4
-        }
         try:
             self.course = Course.objects.get(course_code="SENG499")
         except Course.DoesNotExist:
@@ -52,9 +41,8 @@ class ViewTest(TestCase):
             }
             self.course = Course.objects.create(**course_attributes)
             self.course.save()
-        alg_courses: [A_CourseOffering] = course_to_alg_course_offerings(self.course)
-        for alg_course_offering in alg_courses:
-            add_course_offering_to_schedule(self.course, alg_course_offering)
+        alg_course_offering = course_to_course_offering(self.course)
+        add_course_offering_to_schedule(self.course, alg_course_offering)
 
     def init_course2(self):
         try:
@@ -71,16 +59,15 @@ class ViewTest(TestCase):
                 "yearRequired": 3
             }
             self.course2 = Course.objects.create(**course_attributes)
-            alg_courses: [A_CourseOffering] = course_to_alg_course_offerings(self.course2)
-            for alg_course_offering in alg_courses:
-                add_course_offering_to_schedule(self.course, alg_course_offering)
+            alg_course_offering = course_to_course_offering(self.course2)
+            add_course_offering_to_schedule(self.course, alg_course_offering)
 
     def get_course1_ordered_dict(self):
         expected = OrderedDict()
         expected_course = OrderedDict()
         expected_course["code"] = "SENG499"
         expected_course["title"] = "Design Project 2"
-        expected_course["pengRequired"] = True
+        expected_course["pengRequired"] = {"fall": True, "spring": True, "summer": True}
         expected_course["yearRequired"] = 4
         expected_section1 = OrderedDict()
         expected_section1["professor"] = ""
@@ -114,35 +101,22 @@ class ViewTest(TestCase):
             }
         return expected
 
-    def get_course2_dict(self):
-        expected = \
-            {"course":
-                {
-                    "code": "SENG321",
-                    "title": "Requirements Engineering",
-                    "pengRequired": {
-                        "fall": False,
-                        "spring": False,
-                        "summer": False
-                    },
-                    "yearRequired": 3
-                },
-                "sections": [
-                    {
-                        "professor": "",
-                        "capacity": 0,
-                        "timeslots": []
-                    },
-                    {
-                        "professor": "",
-                        "capacity": 0,
-                        "timeslots": []
-                    },
-                ]
-            }
+    def get_course2_ordered_dict(self):
+        expected = OrderedDict()
+        expected_course = OrderedDict()
+        expected_course["code"] = "SENG321"
+        expected_course["title"] = "Requirements Engineering"
+        expected_course["pengRequired"] = {"fall": False, "spring": False, "summer": False}
+        expected_course["yearRequired"] = 3
+        expected_section1 = OrderedDict()
+        expected_section1["professor"] = ""
+        expected_section1["capacity"] = 0
+        expected_section1["timeSlots"] = []
+        expected["course"] = expected_course
+        expected["sections"] = [expected_section1, expected_section1]
         return expected
 
-    def test_GET_company_1(self):
+    def test_GET_company_1_no_courses(self):
         if quick_test_mode:
             return
         response = self.client.get('/schedule/2022/FALL/1', format='json')
@@ -159,9 +133,18 @@ class ViewTest(TestCase):
         self.assertIsNotNone(response)
         self.assertEquals(status.HTTP_200_OK, response.status_code)
 
-    def test_GET_company_2(self):
+    def test_GET_company_2_no_courses(self):
         if quick_test_mode:
             return
+        response = self.client.get('/schedule/2022/FALL/2', format='json')
+        self.assertIsNotNone(response)
+        self.assertEquals(status.HTTP_200_OK, response.status_code)
+
+    def IGNORE_test_GET_company_2_two_courses(self):
+        if quick_test_mode:
+            return
+        self.init_course1()
+        self.init_course2()
         response = self.client.get('/schedule/2022/FALL/2', format='json')
         self.assertIsNotNone(response)
         self.assertEquals(status.HTTP_200_OK, response.status_code)
@@ -180,41 +163,6 @@ class ViewTest(TestCase):
         response = self.client.get('/schedule/files/schedule_id/2', format='json')
         self.assertIsNotNone(response)
         self.assertEquals(status.HTTP_200_OK, response.status_code)
-
-# ADAPTER TESTS
-    def test_a_course_offering_to_dict(self):
-        self.init_course1()
-        a_course_offering: A_CourseOffering = A_CourseOffering()
-        a_course_offering.course = course_to_alg_course(self.course, "fall")
-        a_course_offering.course.save()
-
-        # create defaut sections
-        default_A01_section = A_CourseSection()
-        default_A01_section.professor = ''
-        default_A01_section.capacity = 0
-        default_A01_section.save()
-        default_A02_section = A_CourseSection()
-        default_A02_section.professor = ''
-        default_A02_section.capacity = 0
-        default_A02_section.save()
-
-        # create default time slots
-        default_time_section = A_TimeSlot()
-        default_time_section.dayOfWeek = ''
-        default_time_section.timeRange = ['', '']
-        default_time_section.save()
-
-        # add timeslots
-        default_A01_section.timeSlots.set([default_time_section])
-        default_A02_section.timeSlots.set([default_time_section])
-
-        default_A01_section.save()
-        default_A02_section.save()
-        a_course_offering.save()
-        a_course_offering.sections.set([default_A01_section, default_A02_section])
-        a_course_offering.save()
-        expected = self.get_course1_dict()
-        self.assertDictEqual(expected, a_course_offering_to_dict(a_course_offering))
 
 # alg2_data_generator TESTS
     def test_historic_course_data(self):
@@ -248,11 +196,11 @@ class ViewTest(TestCase):
             ordered_dict[key] = value
         return ordered_dict
 
-    def IGNORE_test_get_schedule_many_courses(self):
+    def test_get_schedule_many_courses(self):
         self.init_course1()
         self.init_course2()
-        expected_course_offering = self.get_course1_dict()
-        expected_course_offering2 = self.get_course2_dict()
+        expected_course_offering = self.get_course1_ordered_dict()
+        expected_course_offering2 = self.get_course2_ordered_dict()
         expected = {'fall': [expected_course_offering, expected_course_offering2],
                     'spring': [expected_course_offering, expected_course_offering2],
                     'summer': [expected_course_offering, expected_course_offering2]}
