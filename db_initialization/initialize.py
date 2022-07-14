@@ -1,3 +1,11 @@
+import os
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "scheduler.settings")
+
+import django
+django.setup()
+
+from django.core.management import call_command
+
 import csv
 import pprint
 import json
@@ -7,7 +15,7 @@ from enum import Enum
 from schedule.Schedule_models import A_Schedule, A_TimeSlot, A_CourseSection, A_Course, A_CourseOffering
 
 #CSV files containing relevant to be parsed
-SCHEDULES_CSV_FILE = '' #TODO
+SCHEDULES_CSV_FILE = 'schedule_courses.csv' #TODO
 PROFESSORS_CSV_FILE = '' #TODO
 HISTORICAL_CAPACITIES_CSV_FILE = '' #TODO
 
@@ -281,10 +289,15 @@ def parse_professors_data(csv_file):
 
 def main():
     # Convert the schedule data CSV into Django model instances stored in the DB
-    parse_schedules_data(SCHEDULES_CSV_FILE)
+    with open('schedule_courses.csv', newline='') as csvfile:
+        spamreader = csv.reader(csvfile, delimiter=' ', quotechar='|')
+        for row in spamreader:
+            print(', '.join(row))
+
+    # parse_schedules_data(SCHEDULES_CSV_FILE)
 
     # Convert the professors data CSV into Django model instances stored in the DB
-    parse_professors_data(PROFESSORS_CSV_FILE)
+    # parse_professors_data(PROFESSORS_CSV_FILE)
 
     #TODO: Probably add parsing methods for the other required data (Historical data + Enrolment data)
     return

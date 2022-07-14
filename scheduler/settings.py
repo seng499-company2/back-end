@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'preferences',
     'courses',
     'schedule',
+    'db_initialization'
 ]
 
 MIDDLEWARE = [
