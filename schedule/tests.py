@@ -9,7 +9,7 @@ from schedule.adapter import course_to_alg_course, a_course_offering_to_dict, \
     add_course_offering_to_schedule, course_to_alg_course_offerings
 from courses.models import Course
 from schedule.alg_data_generator import get_historic_course_data, get_program_enrollment_data, \
-    get_schedule, get_course_offerings, create_default_section
+    get_schedule
 from schedule.Schedule_models import A_TimeSlot, A_CourseSection, A_CourseOffering
 from collections import OrderedDict
 
@@ -259,57 +259,3 @@ class ViewTest(TestCase):
 
         schedule = get_schedule()
         self.assertEquals(expected, schedule)
-
-    def test_get_course_offerings_no_courses(self):
-        a = get_course_offerings([])
-        self.assertEquals([], a)
-
-    def test_get_course_offerings_one_course(self):
-        self.init_course1()
-        actual_course_offering = get_course_offerings([self.course])
-        expected_a_course_offering = A_CourseOffering()
-        expected_course = course_to_alg_course(self.course, "fall")
-        expected_a_course_offering.course = expected_course
-        expected_a_course_offering.save()
-        expected_section_1 = create_default_section()
-        expected_section_2 = create_default_section()
-        expected_sections = [expected_section_1, expected_section_2]
-        expected_a_course_offering.sections.set(expected_sections)
-        self.assertEquals(1, len(actual_course_offering))
-        self.assertEquals(expected_course, actual_course_offering[0].course)
-        i = 0
-        for section in actual_course_offering[0].sections.all():
-            self.assertEquals(expected_sections[i].professor, section.professor)
-            self.assertEquals(expected_sections[i].capacity, section.capacity)
-            i += 1
-
-    def test_get_course_offerings_many_courses(self):
-        self.init_course1()
-        self.init_course2()
-        actual_course_offering = get_course_offerings([self.course, self.course2])
-        expected_a_course_offering1 = A_CourseOffering()
-        expected_a_course_offering2 = A_CourseOffering()
-        expected_course1 = course_to_alg_course(self.course, "fall")
-        expected_course2 = course_to_alg_course(self.course2, "fall")
-        expected_a_course_offering1.course = expected_course1
-        expected_a_course_offering2.course = expected_course2
-        expected_a_course_offering1.save()
-        expected_a_course_offering2.save()
-        expected_section_1 = create_default_section()
-        expected_section_2 = create_default_section()
-        expected_sections = [expected_section_1, expected_section_2]
-        expected_a_course_offering1.sections.set(expected_sections)
-        expected_a_course_offering2.sections.set(expected_sections)
-        self.assertEquals(2, len(actual_course_offering))
-        self.assertEquals(expected_course1, actual_course_offering[0].course)
-        self.assertEquals(expected_course2, actual_course_offering[1].course)
-        i = 0
-        for section in actual_course_offering[0].sections.all():
-            self.assertEquals(expected_sections[i].professor, section.professor)
-            self.assertEquals(expected_sections[i].capacity, section.capacity)
-            i += 1
-        i = 0
-        for section in actual_course_offering[1].sections.all():
-            self.assertEquals(expected_sections[i].professor, section.professor)
-            self.assertEquals(expected_sections[i].capacity, section.capacity)
-            i += 1

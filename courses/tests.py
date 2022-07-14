@@ -1,22 +1,17 @@
-from django.test import TestCase
 
-from django.test import TestCase, RequestFactory    #**tests that interact with a database require subclassing of this class**
+from django.test import TestCase #**tests that interact with a database require subclassing of this class**
 
-from django.contrib.auth.models import User
 from .models import Course
 from .serializers import CourseSerializer
-from .permissions import IsAdmin
-from .views import CourseView, AllCoursesView
 from schedule.Schedule_models import A_Course
-from django.db import models
 from schedule.adapter import get_alg_course
 
 
-#Serializer Testing
+# Serializer Testing
 class CourseSerializerTest(TestCase):
     @classmethod
     def setUp(self):
-        #build Course and CourseSerializer instances
+        # build Course and CourseSerializer instances
         self.course_attributes = {
             "course_code": "SENG499",
             "num_sections": 2,
@@ -28,7 +23,7 @@ class CourseSerializerTest(TestCase):
             "yearRequired": 4
         }
 
-        #serialize into a Course object
+        # serialize into a Course object
         self.course = Course.objects.create(**self.course_attributes)
         self.serializer = CourseSerializer(instance=self.course)
 

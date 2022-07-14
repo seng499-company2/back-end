@@ -9,10 +9,8 @@ from forecaster.forecaster import forecast as c2alg2 # company 2 alg 2
 from c1algo1 import scheduler as c1alg1# company 1 alg 1
 from c1algo2.forecaster import forecast as c1alg2
 
-from schedule.alg_data_generator import get_historic_course_data
-from schedule.alg_data_generator import get_program_enrollment_data
-from schedule.alg_data_generator import get_professor_object_company1, get_schedule_alg1_mock, \
-    get_professor_dict_mock, get_schedule_alg2_mock, get_schedule_error, get_profs_error
+from schedule.alg_data_generator import get_historic_course_data, get_schedule, get_program_enrollment_data, \
+    get_professor_dict_mock, get_professor_object_company1, get_profs_error, get_schedule_error
 
 import traceback
 import json
@@ -26,7 +24,8 @@ class Schedule(APIView):
         # Create params for algorithms packages
         historical_data = get_historic_course_data()
         previous_enrollment = get_program_enrollment_data()
-        schedule = get_schedule_alg2_mock()
+        schedule = get_schedule()
+        # schedule = get_schedule_alg2_mock()
         professors = get_professor_dict_mock()
         professors_company1 = get_professor_object_company1()
 
