@@ -25,7 +25,6 @@ class Schedule(APIView):
         historical_data = get_historic_course_data()
         previous_enrollment = get_program_enrollment_data()
         schedule = get_schedule()
-        # schedule = get_schedule_alg2_mock()
         professors = get_professor_dict_mock()
         professors_company1 = get_professor_object_company1()
 

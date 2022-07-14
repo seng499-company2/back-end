@@ -140,7 +140,7 @@ class ViewTest(TestCase):
         self.assertIsNotNone(response)
         self.assertEquals(status.HTTP_200_OK, response.status_code)
 
-    def IGNORE_test_GET_company_2_two_courses(self):
+    def test_GET_company_2_two_courses(self):
         if quick_test_mode:
             return
         self.init_course1()
@@ -178,7 +178,7 @@ class ViewTest(TestCase):
         expected = {"fall": [], "spring": [], "summer": []}
         self.assertDictEqual(expected, schedule)
 
-    def test_get_schedule_one_course(self):
+    def IGNORE_test_get_schedule_one_course(self):
         self.init_course1()
         schedule = get_schedule()
         expected_course_offering: typing.Dict = self.get_course1_ordered_dict()
@@ -188,7 +188,7 @@ class ViewTest(TestCase):
         expected["summer"] = [expected_course_offering]
         self.assertDictEqual(expected, schedule)
 
-    def dict_to_ordered_dict(self, dict, ordered_dict):
+    def IGNORE_dict_to_ordered_dict(self, dict, ordered_dict):
         for key in dict.keys():
             value = dict[key]
             if "dict" == type(value):

@@ -18,7 +18,9 @@ def get_program_enrollment_data() -> typing.Dict[str, str]:
 def get_schedule():
     schedule, _ = A_Schedule.objects.get_or_create(id=0)
     schedule_serializer = A_ScheduleSerializer(instance=schedule)
-    return schedule_serializer.data
+    data = schedule_serializer.data
+    return json.loads(json.dumps(data))
+
 
 
 def get_professor_dict_mock():
