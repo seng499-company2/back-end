@@ -109,7 +109,7 @@ def parse_schedules_data(csv_file):
                     )
 
             #extra case - handling TimeSlots for course with 2 sections
-            if row[CSV_COLUMNS.NUM_SECTIONS.value] == 2:
+            if int(row[CSV_COLUMNS.NUM_SECTIONS.value]) == 2:
                 if row[CSV_COLUMNS.SECTION2_TIME_RANGE.value]:
                     
                     #parse the DaysOfTheWeek CSV string into distinct enum values + TimeRange splittings
@@ -117,6 +117,7 @@ def parse_schedules_data(csv_file):
                     time_range = str(row[CSV_COLUMNS.SECTION2_TIME_RANGE.value]).split('~')
 
                     #create Django models & store to DB
+                    #using try-except here as we cannot guarantee that all fields will be unique for the same course!
                     for day in days_list:
                         _, _ = A_TimeSlot.objects.get_or_create(
                             dayOfWeek=day,
@@ -158,7 +159,7 @@ def parse_schedules_data(csv_file):
             else:
                 professor = None
             
-            if row[CSV_COLUMNS.SECTION1_CAPACITY].value:
+            if row[CSV_COLUMNS.SECTION1_CAPACITY.value]:
                 capacity = int(row[CSV_COLUMNS.SECTION1_CAPACITY.value])
             else:
                 capacity = 0
@@ -186,10 +187,10 @@ def parse_schedules_data(csv_file):
                     time_slots.append(obj)
 
                 courseSection1.timeSlots.set(time_slots)
-                course_sections_list.append(courseSection1)
+            course_sections_list.append(courseSection1)
             
             #handling of Section 2, if exists
-            if row[CSV_COLUMNS.NUM_SECTIONS.value] == 2:
+            if int(row[CSV_COLUMNS.NUM_SECTIONS.value]) == 2:
                 if row[CSV_COLUMNS.SECTION2_PROF_ID.value]:
                     professor = {
                         "id" : row[CSV_COLUMNS.SECTION2_PROF_ID.value] ,
@@ -211,7 +212,7 @@ def parse_schedules_data(csv_file):
                 courseSection2.save()
 
                 #create the TimeSlots many-to-many relationship, if exists
-                if row[CSV_COLUMNS.SECTION2_DAYS_OF_WEEK] and row[CSV_COLUMNS.SECTION2_TIME_RANGE.value]:
+                if row[CSV_COLUMNS.SECTION2_DAYS_OF_WEEK.value] and row[CSV_COLUMNS.SECTION2_TIME_RANGE.value]:
                     days_list = get_days_of_the_week(row[CSV_COLUMNS.SECTION2_DAYS_OF_WEEK.value])
                     time_range = str(row[CSV_COLUMNS.SECTION2_TIME_RANGE.value]).split('~')
                     time_slots = []
@@ -226,7 +227,7 @@ def parse_schedules_data(csv_file):
                         time_slots.append(obj)
 
                     courseSection2.timeSlots.set(time_slots)
-                    course_sections_list.append(courseSection2)
+                course_sections_list.append(courseSection2)
         
 
         #Step 4 - build CourseOffering objects
@@ -248,7 +249,7 @@ def parse_schedules_data(csv_file):
                 #get the associated CourseSection(s) for many-to-many (in memory)
                 courseOffering.sections.add(course_sections_list[i])
                 i += 1
-                if row[CSV_COLUMNS.NUM_SECTIONS.value] == 2:
+                if int(row[CSV_COLUMNS.NUM_SECTIONS.value]) == 2:
                     courseOffering.sections.add(course_sections_list[i])
                     i += 1
 
@@ -276,7 +277,6 @@ def parse_schedules_data(csv_file):
         #DB should contain an entire, correctly-associated Schedule object now, that should be retrievable & serializable via:
         #   serializer = A_ScheduleSerializer(instance=schedule)
         #   serializer.data
-
     return
 
 
