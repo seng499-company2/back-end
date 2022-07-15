@@ -25,28 +25,43 @@ def get_schedule():
     return schedule
 
 
+def update_course_preferences(course_preferences):
+    coursePreferences = []
+    for keys, values in course_preferences.items():
+        preference = {}
+        preference['courseCode'] = keys
+        # Update with actual function
+        enthusiasmScore = values['willingness'] * values['difficulty']
+        preference['enthusiasmScore'] = enthusiasmScore
+        coursePreferences.append(preference)
+    print(coursePreferences)
+    return 0
+
+def update_preferred_times(preferred_times):
+    for day in preferred_times['fall']:
+        print(day)
+    return 0
+
+# take into consideration sabattical
+    
+
 def get_professor_dict():
     preferences: [Preferences] = Preferences.objects.all()
     professors: [] = []
     for preference in preferences:
-        user: AppUser = preference.professor
+        appUser: AppUser = preference.professor
         prof_dict = {}
-        prof_dict["id"] = user.id
-        prof_dict["isPeng"] = user.is_peng
-        prof_dict["facultyType"] = user.prof_type
-        prof_dict["coursePreferences"] = None # TODO: Does that exist?
-        prof_dict["teachingObligations"] = 3 if user.prof_type == "RP" else 6 # TODO: verify accuracy of calculation
-        prof_dict["preferredTimes"] = preference.preferred_hours
-        prof_dict["preferredCoursesPerSemester"] = preference.teaching_willingness  # TODO: Does that exist?
-        preferred_non_teaching_semester = None
-        if preference.is_unavailable_sem1:
-            preferred_non_teaching_semester = "FALL"
-        elif preference.is_unavailable_sem2:
-            preferred_non_teaching_semester = "SPRING"
-        elif preference.is_unavailable_sem3:
-            preferred_non_teaching_semester = "SUMMER"
-        prof_dict["preferredNonTeachingSemester"] = preferred_non_teaching_semester
-        prof_dict["preferredCourseDaySpreads"] = None # TODO: Does that exist?
+        prof_dict["id"] = appUser.user.id
+        prof_dict["name"] = appUser.user.first_name + ' ' + appUser.user.last_name
+        prof_dict["isPeng"] = appUser.is_peng
+        prof_dict["facultyType"] = appUser.prof_type
+        prof_dict["coursePreferences"] = update_course_preferences(preference.courses_preferences)
+        prof_dict["teachingObligations"] = 3 if appUser.prof_type == "RP" else 6 # TODO: verify accuracy of calculation
+        update_preferred_times(preference.preferred_times)
+        prof_dict["preferredTimes"] = preference.preferred_times
+        prof_dict["preferredCoursesPerSemester"] = preference.preferred_courses_per_semester  
+        prof_dict["preferredNonTeachingSemester"] = preference.preferred_non_teaching_semester
+        prof_dict["preferredCourseDaySpreads"] = preference.preferred_course_day_spreads
         professors.append(prof_dict)
     return professors
 
