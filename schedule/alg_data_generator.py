@@ -24,6 +24,29 @@ def get_schedule():
     schedule = courses_dict_list
     return schedule
 
+#difficulty: 1 = able, 2 = with effort, 0 = no selection
+#willingness: 1 = unwilling, 2 = willing, 3 = very willing, 0 = no selection
+
+def calculate_enthusiasm_score(difficulty, willingness):
+
+    enthusiasm_score = 0
+
+    if difficulty == 2 and willingness == 1:
+        enthusiasm_score = 20
+    elif difficulty == 1 and willingness == 1:
+        enthusiasm_score = 39
+    elif difficulty == 2 and willingness == 2:
+        enthusiasm_score = 40
+    elif difficulty == 1 and willingness == 2:
+        enthusiasm_score = 78
+    elif difficulty == 2 and willingness == 3:
+        enthusiasm_score = 100
+    elif difficulty == 1 and willingness == 3:
+        enthusiasm_score = 195
+
+    return enthusiasm_score
+
+
 
 def update_course_preferences(course_preferences):
     coursePreferences = []

@@ -15,6 +15,10 @@ from .permissions import IsAdmin
 from rest_framework.permissions import IsAuthenticated
 
 
+from users.models import AppUser
+from preferences.models import Preferences
+from preferences.serializers import PreferencesSerializer
+
 def get_alg_course(course: Course) -> A_Course:
     try:
         a_course = A_Course.objects.get(code=course.course_code)
@@ -66,15 +70,36 @@ class CourseView(APIView):
         print("received GET request to CourseView API Endpoint")
         if request.method != "GET":
             return HttpResponse(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-
         try:
             course = Course.objects.get(course_code=course_code)
+            willing_profs_obj = Preferences.objects.filter(courses_preferences__contains={course_code: {"willingness":2}}) 
+            very_willing_profs_obj = Preferences.objects.filter(courses_preferences__contains={course_code: {"willingness": 3}})
+
+            preferences_data = {}
+
+            for obj1 in willing_profs_obj.all():  
+
+                willing_json = {}
+                willing_json["username"] = obj1.professor.user.username
+                willing_json["name"] = obj1.professor.user.first_name + ' ' + obj1.professor.user.last_name
+                willing_json["willingness"] = 2
+                preferences_data[obj1.professor.user.id] = willing_json
+                
+            for obj2 in very_willing_profs_obj.all():  
+
+                very_willing_json = {}
+                very_willing_json["username"] = obj2.professor.user.username
+                very_willing_json["name"] = obj2.professor.user.first_name + ' ' + obj1.professor.user.last_name
+                very_willing_json["willingness"] = 3
+                preferences_data[obj2.professor.user.id] = very_willing_json
+
             if course is None or not isinstance(course, Course):
                 return HttpResponse(status=status.HTTP_404_NOT_FOUND)
         except courses.models.Course.DoesNotExist:
             return HttpResponse(status=status.HTTP_404_NOT_FOUND)
         serializer = CourseSerializer(course)
-        return HttpResponse(json.dumps(serializer.data), status=status.HTTP_200_OK)
+        result = {'Course':serializer.data, 'willingProfessors': preferences_data}
+        return HttpResponse(json.dumps(result), status=status.HTTP_200_OK)
 
 
     def post(self, request: HttpRequest, course_code: str, format=None) -> HttpResponse:
