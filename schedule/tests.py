@@ -143,6 +143,15 @@ class ViewTest(TestCase):
         self.assertIsNotNone(response)
         self.assertEquals(status.HTTP_200_OK, response.status_code)
 
+    def test_GET_company_1_two_courses(self):
+        if quick_test_mode:
+            return
+        self.init_course1()
+        self.init_course2()
+        response = self.client.get('/schedule/2022/FALL/1', format='json')
+        self.assertIsNotNone(response)
+        self.assertEquals(status.HTTP_200_OK, response.status_code)
+
     def test_GET_company_2_error(self):
         response = self.client.get('/schedule/2022/FALL/2?use_mock_data=true', format='json')
         self.assertIsNotNone(response)
