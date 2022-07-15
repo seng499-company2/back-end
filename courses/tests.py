@@ -4,7 +4,6 @@ from django.test import TestCase #**tests that interact with a database require 
 from .models import Course
 from .serializers import CourseSerializer
 from schedule.Schedule_models import A_Course
-from schedule.adapter import get_alg_course
 
 
 # Serializer Testing
@@ -104,55 +103,4 @@ class CourseSerializerTest(TestCase):
         # self.assertEquals(updated_obj_key, obj_key)
         self.assertEquals(Course.objects.get(pk=obj_key).course_title, new_serialized_data['course_title'])
         self.assertEquals(Course.objects.get(pk=obj_key).spring_offering, new_serialized_data['spring_offering'])
-
-    def test_get_alg_course_create(self):
-        course = self.course
-        alg_course = get_alg_course(course)
-        self.assertEquals(course.course_code, alg_course.code)
-        self.assertEquals(course.course_title, alg_course.title)
-        self.assertEquals(course.pengRequired, alg_course.pengRequired)
-        self.assertEquals(course.yearRequired, alg_course.yearRequired)
-
-    def test_get_alg_course_update(self):
-        course = self.course
-        alg_course = A_Course()
-        alg_course.code = course.course_code
-        self.assertEquals(course.course_code, alg_course.code)
-        self.assertNotEquals(course.course_title, alg_course.title)
-        self.assertNotEquals(course.pengRequired, alg_course.pengRequired)
-        self.assertNotEquals(course.yearRequired, alg_course.yearRequired)
-        alg_course = get_alg_course(course)
-        self.assertEquals(course.course_code, alg_course.code)
-        self.assertEquals(course.course_title, alg_course.title)
-        self.assertEquals(course.pengRequired, alg_course.pengRequired)
-        self.assertEquals(course.yearRequired, alg_course.yearRequired)
-        try:
-            alg_course2 = A_Course.objects.get(code=alg_course.code)
-            self.fail()
-        except A_Course.DoesNotExist:
-            pass  # expected behaviour
-        alg_course.save()
-        alg_course2 = A_Course.objects.get(code=alg_course.code)
-        self.assertEquals(course.course_code, alg_course2.code)
-        self.assertEquals(course.course_title, alg_course2.title)
-        self.assertEquals(course.pengRequired, alg_course2.pengRequired)
-        self.assertEquals(course.yearRequired, alg_course2.yearRequired)
-
-    def test_get_alg_course_delete(self):
-        course = self.course
-        alg_course = A_Course()
-        alg_course.code = course.course_code
-        self.assertEquals(course.course_code, alg_course.code)
-        self.assertNotEquals(course.course_title, alg_course.title)
-        self.assertNotEquals(course.pengRequired, alg_course.pengRequired)
-        self.assertNotEquals(course.yearRequired, alg_course.yearRequired)
-        alg_course = get_alg_course(course)
-        alg_course.save()
-        alg_course2 = A_Course.objects.get(code=alg_course.code)
-        alg_course.delete()
-        try:
-            alg_course2 = A_Course.objects.get(code=alg_course.code)
-            self.fail()
-        except A_Course.DoesNotExist:
-            pass  # expected behaviour
 

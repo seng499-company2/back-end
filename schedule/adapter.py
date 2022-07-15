@@ -34,23 +34,3 @@ def add_course_offering_to_schedule(course: Course, a_course_offering: A_CourseO
     if course.summer_offering:
         schedule.summer.add(a_course_offering)
     schedule.save()
-
-
-def get_alg_course(course: Course) -> A_Course:
-    try:
-        a_course = A_Course.objects.get(code=course.course_code)
-    except A_Course.DoesNotExist:
-        a_course = A_Course()
-    a_course.code = course.course_code
-    a_course.title = course.course_title
-    a_course.pengRequired = course.pengRequired
-    a_course.yearRequired = course.yearRequired
-    return a_course
-
-
-# def course_to_alg_course_offerings(course: Course) -> [A_CourseOffering]:
-#     course_offerings = []
-#     for semester in ["fall", "spring", "summer"]:
-#         a_course_offering = course_to_course_offering(course, semester)
-#         course_offerings.append(a_course_offering)
-#     return course_offerings
