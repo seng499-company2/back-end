@@ -32,6 +32,13 @@ BOOLEAN_MAP = {
     '': None
 }
 
+#maps PEngRequired CSV booleans to force False if not True
+PENG_REQUIRED_BOOLEAN_MAP = {
+    'TRUE': True,
+    'FALSE': False,
+    '': False
+}
+
 #maps Professor's facultyType to AppUser.TEACHING_TYPE enums
 FACULTY_TYPE_MAP = {
     'RESEARCH': AppUser.TeachingType.RESEARCH_PROF,
@@ -179,9 +186,9 @@ def parse_schedules_data(csv_file):
             course_code = row[CSV_COLUMNS.CODE.value]
             title = row[CSV_COLUMNS.TITLE.value]
             peng_required = {
-                "fall": BOOLEAN_MAP[row[CSV_COLUMNS.PENG_REQUIRED_FALL.value]],
-                "spring": BOOLEAN_MAP[row[CSV_COLUMNS.PENG_REQUIRED_SPRING.value]],
-                "summer": BOOLEAN_MAP[row[CSV_COLUMNS.PENG_REQUIRED_SUMMER.value]]
+                "fall": PENG_REQUIRED_BOOLEAN_MAP[row[CSV_COLUMNS.PENG_REQUIRED_FALL.value]],
+                "spring": PENG_REQUIRED_BOOLEAN_MAP[row[CSV_COLUMNS.PENG_REQUIRED_SPRING.value]],
+                "summer": PENG_REQUIRED_BOOLEAN_MAP[row[CSV_COLUMNS.PENG_REQUIRED_SUMMER.value]]
             }
             year_required = int(row[CSV_COLUMNS.YEAR_REQUIRED.value])
 
