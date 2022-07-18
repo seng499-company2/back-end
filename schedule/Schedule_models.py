@@ -55,7 +55,7 @@ class A_Course(models.Model):
     yearRequired = models.PositiveIntegerField()
 
     def __str__(self):
-        return str(self.code)
+        return str(self.code) + ' - ' + str(self.title)
 
 
 #one instance of this class should represent a single Course & CourseSection pair
