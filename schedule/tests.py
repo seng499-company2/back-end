@@ -9,7 +9,6 @@ from schedule.adapter import add_course_offering_to_schedule, course_to_course_o
 from courses.models import Course
 from schedule.alg_data_generator import get_historic_course_data, get_program_enrollment_data, \
     get_schedule
-from schedule.Schedule_models import A_CourseOffering
 from collections import OrderedDict
 
 quick_test_mode = False

@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'users',            # Add our apps
     'preferences',
     'courses',
-    'schedule',
+    'schedule'
 ]
 
 MIDDLEWARE = [

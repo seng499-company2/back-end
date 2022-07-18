@@ -38,9 +38,11 @@ class A_CourseSection(models.Model):
     capacity = models.PositiveIntegerField(default=0)
     timeSlots = models.ManyToManyField(A_TimeSlot, related_name='courseSections') #to associate multiple TimeSlot objects
 
-    def __str__(self):
+    '''def __str__(self):
         related_timeSlots = [str(slot) for slot in self.timeSlots.all()]
-        return 'Professor: ' + str(self.professor['name']) + ', Capacity: ' + str(self.capacity) + ', TimeSlots: ' + f'{" ".join(related_timeSlots)}'
+        prof = str(self.professor['name']) if not None else 'null'
+        return 'Professor: ' + prof + ', Capacity: ' + str(self.capacity) + ', TimeSlots: ' + f'{" ".join(related_timeSlots)}'
+    '''
 
 
 '''PRIMARY KEY: code'''

@@ -16,7 +16,7 @@ def get_program_enrollment_data() -> typing.Dict[str, str]:
 
 
 def get_schedule():
-    schedule, _ = A_Schedule.objects.get_or_create(id=0)
+    schedule, _ = A_Schedule.objects.get_or_create(id=1)
     schedule_serializer = A_ScheduleSerializer(instance=schedule)
     data = schedule_serializer.data
     return json.loads(json.dumps(data))
