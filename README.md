@@ -96,8 +96,8 @@ To populate the database with values, run the bash script
 ./init_db.sh
 ```
 
-The script populates the database and writes to the `data/` directory. The script makes sure the initialization is only one once.
-If run a second time, the script would skip the initialization step.
+The script populates the database and writes to the `data/` directory. The script makes sure the initialization is only run once.
+If run a second time, the script will skip the initialization step.
 
 To force an init, reset the database again (as described above)
 
