@@ -17,10 +17,6 @@ def get_program_enrollment_data() -> typing.Dict[str, str]:
 
 def get_schedule():
     schedule, created = A_Schedule.objects.get_or_create(id=1)
-    if created:
-        # Not in prod, which is 1-indexed. get the schedule from index 0 for unit tests
-        schedule, created = A_Schedule.objects.get_or_create(id=0)
-
     schedule_serializer = A_ScheduleSerializer(instance=schedule)
     data = schedule_serializer.data
     return json.loads(json.dumps(data))
@@ -47,6 +43,23 @@ def calculate_enthusiasm_score(difficulty, willingness):
 
     return enthusiasm_score
 
+
+def calculate_teaching_obligations(faculty_type, sebatical_length):
+   
+    if faculty_type == 'RP' and sebatical_length == 'FULL':
+        teaching_obligations = 0
+    elif faculty_type == 'RP' and sebatical_length == 'HALF':
+        teaching_obligations = 1
+    elif faculty_type == 'RP' and sebatical_length == 'NONE':
+        teaching_obligations = 3
+    elif faculty_type == 'TP' and sebatical_length == 'FULL':
+        teaching_obligations = 2
+    elif faculty_type == 'TP' and sebatical_length == 'HALF':
+        teaching_obligations = 3
+    elif faculty_type == 'TP' and sebatical_length == 'NONE':
+        teaching_obligations = 6
+
+    return teaching_obligations
 
 
 

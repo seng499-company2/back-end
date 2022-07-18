@@ -26,7 +26,7 @@ def course_to_course_offering(course: Course) -> A_CourseOffering:
 
 
 def add_course_offering_to_schedule(course: Course, a_course_offering: A_CourseOffering):
-    schedule, _ = A_Schedule.objects.get_or_create(id=0)
+    schedule, _ = A_Schedule.objects.get_or_create(id=1)
     if course.fall_offering:
         schedule.fall.add(a_course_offering)
     if course.spring_offering:
