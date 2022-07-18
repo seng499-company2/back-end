@@ -1,10 +1,9 @@
 import typing
 import json
 import pickle
-from courses.models import Course
-from users.models import AppUser
 from preferences.models import Preferences
-from schedule.adapter import course_to_alg_dictionary
+from schedule.Schedule_models import A_Schedule
+from schedule.Schedule_serializers import A_ScheduleSerializer
 
 
 def get_historic_course_data() -> typing.Dict[str, str]:
@@ -18,11 +17,10 @@ def get_program_enrollment_data() -> typing.Dict[str, str]:
 
 
 def get_schedule():
-    courses = Course.objects.all()
-    courses_dict_list = list(map(course_to_alg_dictionary, courses))
-    # TODO: format courses_dict_list into properly formatted schedule dictionary
-    schedule = courses_dict_list
-    return schedule
+    schedule, _ = A_Schedule.objects.get_or_create(id=0)
+    schedule_serializer = A_ScheduleSerializer(instance=schedule)
+    data = schedule_serializer.data
+    return json.loads(json.dumps(data))
 
 #difficulty: 1 = able, 2 = with effort, 0 = no selection
 #willingness: 1 = unwilling, 2 = willing, 3 = very willing, 0 = no selection
@@ -47,6 +45,22 @@ def calculate_enthusiasm_score(difficulty, willingness):
     return enthusiasm_score
 
 
+def calculate_teaching_obligations(faculty_type, sebatical_length):
+   
+    if faculty_type == 'RP' and sebatical_length == 'FULL':
+        teaching_obligations = 0
+    elif faculty_type == 'RP' and sebatical_length == 'HALF':
+        teaching_obligations = 1
+    elif faculty_type == 'RP' and sebatical_length == 'NONE':
+        teaching_obligations = 3
+    elif faculty_type == 'TP' and sebatical_length == 'FULL':
+        teaching_obligations = 2
+    elif faculty_type == 'TP' and sebatical_length == 'HALF':
+        teaching_obligations = 3
+    elif faculty_type == 'TP' and sebatical_length == 'NONE':
+        teaching_obligations = 6
+
+    return teaching_obligations
 
 def update_course_preferences(course_preferences):
     coursePreferences = []
@@ -106,26 +120,10 @@ def get_professor_dict_mock():
         return json.load(json_file)
 
 
-def get_schedule_alg1_mock():
-    with open("resources/schedule_object_capacities_(alg1_input).json") as json_file:
-        return json.load(json_file)
-
-
-def get_schedule_alg2_mock():
-    with open("resources/schedule_object_no_capacities_(alg2_input).json") as json_file:
-        return json.load(json_file)
-
-
 def get_professor_object_company1():
     prof_data = open("resources/professors_updated", 'rb')
     professors = pickle.load(prof_data)
     return professors
-
-
-def get_schedule_object_company1():
-    schedule_data = open("resources/schedule_updated", 'rb')
-    schedule = pickle.load(schedule_data)
-    return schedule
 
 
 def get_schedule_error():

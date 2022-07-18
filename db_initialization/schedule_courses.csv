@@ -1,0 +1,86 @@
+string,string,string,boolean (optional),boolean (optional),boolean (optional),integer,integer ( 1 or 2),string (optional),string (optional),integer (optional),"enum(""TWF"", ""MTh"", ""M"", ""T"", ""W"", ""Th"", ""F"") (optional)",custom (optional),string (optional),string (optional),integer (optional will be used for multiple section generation),"enum(""TWF"", ""MTh"", ""M"", ""T"", ""W"", ""Th"", ""F"") (optional)",custom (optional)
+semester,code,title,pengRequired.fall,pengRequired.spring,pengRequired.summer,yearRequired,numberOfSections,professor.id,professor.name,capacity,days (will be used to create dayOfTheWeek),timeRange (start and end separated by ~),professor.id,professor.name,capacity,days (will be used to create dayOfTheWeek),timeRange (start and end separated by ~)
+fall,CSC111,Fundamentals of Programming with Engineering Applications,TRUE,TRUE,,1,2,,,140,,,,,80,,
+spring,CSC111,Fundamentals of Programming with Engineering Applications,TRUE,TRUE,,1,2,,,60,,,,,100,,
+fall,CSC115,Fundamentals of Programming II,TRUE,TRUE,TRUE,1,2,,,60,,,,,60,,
+spring,CSC115,Fundamentals of Programming II,TRUE,TRUE,TRUE,1,2,,,60,,,,,80,,
+summer,CSC115,Fundamentals of Programming II,TRUE,TRUE,TRUE,1,2,,,120,,,,,60,,
+fall,CSC230,Introduction to Computer Architecture,TRUE,FALSE,FALSE,2,2,,,120,,,,,60,,
+spring,CSC230,Introduction to Computer Architecture,TRUE,FALSE,FALSE,2,2,,,140,,,,,60,,
+summer,CSC230,Introduction to Computer Architecture,TRUE,FALSE,FALSE,2,2,,,100,,,,,60,,
+fall,ECE255,Introduction to Computer Architecture,FALSE,FALSE,FALSE,2,2,,,120,,,,,140,,
+fall,ECE260,Continuous-Time Signals and Systems,FALSE,,FALSE,2,2,,,80,,,,,100,,
+summer,ECE260,Continuous-Time Signals and Systems,FALSE,,FALSE,2,2,,,100,,,,,80,,
+fall,SENG265,Software Development Methods,TRUE,FALSE,FALSE,2,2,,,140,,,,,80,,
+spring,SENG265,Software Development Methods,TRUE,FALSE,FALSE,2,2,,,120,,,,,80,,
+summer,SENG265,Software Development Methods,TRUE,FALSE,FALSE,2,2,,,120,,,,,120,,
+fall,CSC225,Algorithms and Data Structures I,FALSE,FALSE,FALSE,2,2,,,140,,,,,60,,
+spring,CSC225,Algorithms and Data Structures I,FALSE,FALSE,FALSE,2,2,,,120,,,,,100,,
+summer,CSC225,Algorithms and Data Structures I,FALSE,FALSE,FALSE,2,2,,,60,,,,,80,,
+spring,ECE310,Digital Signal Processing I,,FALSE,FALSE,2,2,,,80,,,,,100,,
+summer,ECE310,Digital Signal Processing I,,FALSE,FALSE,2,2,,,60,,,,,100,,
+spring,SENG275,Software Testing,,TRUE,TRUE,2,2,,,100,,,,,120,,
+summer,SENG275,Software Testing,,TRUE,TRUE,2,2,,,60,,,,,120,,
+fall,SENG310,Human Computer Interaction,TRUE,TRUE,TRUE,2,2,,,140,,,,,80,,
+spring,SENG310,Human Computer Interaction,TRUE,TRUE,TRUE,2,2,,,120,,,,,120,,
+summer,SENG310,Human Computer Interaction,TRUE,TRUE,TRUE,2,2,,,100,,,,,80,,
+spring,ECE458,Communication Networks,FALSE,FALSE,,3,2,,,60,,,,,60,,
+fall,CSC361,Computer Communications and Networks,FALSE,TRUE,,3,2,,,100,,,,,80,,
+spring,CSC361,Computer Communications and Networks,FALSE,TRUE,,3,2,,,120,,,,,140,,
+fall,CSC226,Algorithms and Data Structures II,FALSE,FALSE,FALSE,3,2,,,60,,,,,120,,
+spring,CSC226,Algorithms and Data Structures II,FALSE,FALSE,FALSE,3,2,,,140,,,,,100,,
+summer,CSC226,Algorithms and Data Structures II,FALSE,FALSE,FALSE,3,2,,,100,,,,,120,,
+fall,ECE360,Control Theory and Systems I,FALSE,FALSE,,3,2,,,60,,,,,60,,
+spring,ECE360,Control Theory and Systems I,FALSE,FALSE,,3,2,,,60,,,,,80,,
+fall,SENG321,Requirements Engineering,TRUE,TRUE,,3,2,,,60,,,,,120,,
+spring,SENG321,Requirements Engineering,TRUE,TRUE,,3,2,,,100,,,,,100,,
+spring,SENG371,Software Evolution,FALSE,TRUE,,3,2,,,80,,,,,100,,
+fall,ECE355,Microprocessor-Based Systems,FALSE,,,3,2,,,100,,,,,60,,
+fall,CSC355,Digital Logic and Computer Organization,FALSE,,,3,2,,,120,,,,,120,,
+fall,CSC320,Foundations of Computer Science,FALSE,FALSE,FALSE,3,2,,,140,,,,,140,,
+spring,CSC320,Foundations of Computer Science,FALSE,FALSE,FALSE,3,2,,,100,,,,,120,,
+summer,CSC320,Foundations of Computer Science,FALSE,FALSE,FALSE,3,2,,,120,,,,,80,,
+fall,CSC360,Operating Systems,TRUE,TRUE,FALSE,3,2,,,100,,,,,60,,
+spring,CSC360,Operating Systems,TRUE,TRUE,FALSE,3,2,,,100,,,,,140,,
+summer,CSC360,Operating Systems,TRUE,TRUE,FALSE,3,2,,,120,,,,,100,,
+fall,CSC370,Database Systems,FALSE,FALSE,FALSE,3,2,,,120,,,,,60,,
+spring,CSC370,Database Systems,FALSE,FALSE,FALSE,3,2,,,120,,,,,120,,
+summer,CSC370,Database Systems,FALSE,FALSE,FALSE,3,2,,,140,,,,,140,,
+fall,SENG350,Software Architecture and Design,FALSE,,,3,2,,,80,,,,,140,,
+fall,SENG360,Security Engineering,FALSE,,,3,2,,,140,,,,,120,,
+summer,SENG426,Software Quality Engineering,,,FALSE,4,2,,,60,,,,,140,,
+summer,SENG440,Embedded Systems,,,FALSE,4,2,,,100,,,,,80,,
+summer,SENG499,Design Project II,,,FALSE,4,2,,,60,,,,,140,,
+spring,ECE455,Real-Time Computer Systems Design Project,,FALSE,,4,2,,,60,,,,,100,,
+spring,CSC460,Design and Analysis of Real-time Systems,,TRUE,,4,2,,,100,,,,,60,,
+spring,SENG401,Social and Professional Issues,,FALSE,,4,2,,,120,,,,,100,,
+fall,ENGR110,Design and Communication I,,,,1,2,100,Static Prof 1,60,TWF,8:30~9:20,100,Static Prof 1,80,TWF,8:30~9:20
+fall,ENGR130,Introduction to Professional Practice,,,,1,2,101,Static Prof 2,100,MTh,8:30~9:50,101,Static Prof 2,80,MTh,8:30~9:50
+spring,ENGR130,Introduction to Professional Practice,,,,1,2,101,Static Prof 2,100,TWF,8:30~9:20,101,Static Prof 2,140,TWF,8:30~9:20
+fall,MATH100,Calculus I,,,,1,2,102,Static Prof 3,140,TWF,9:30~10:20,102,Static Prof 3,60,TWF,9:30~10:20
+spring,MATH100,Calculus I,,,,1,2,102,Static Prof 3,100,MTh,8:30~9:50,102,Static Prof 3,140,MTh,8:30~9:50
+summer,MATH100,Calculus I,,,,1,2,102,Static Prof 3,80,TWF,8:30~9:20,102,Static Prof 3,120,TWF,8:30~9:20
+fall,MATH109,Introduciton to Calculus,,,,1,2,103,Static Prof 4,120,MTh,10:00~11:20,103,Static Prof 4,100,MTh,10:00~11:20
+spring,MATH109,Introduciton to Calculus,,,,1,2,103,Static Prof 4,100,TWF,9:30~10:20,103,Static Prof 4,140,TWF,9:30~10:20
+summer,MATH109,Introduciton to Calculus,,,,1,2,103,Static Prof 4,80,MTh,8:30~9:50,103,Static Prof 4,120,MTh,8:30~9:50
+fall,MATH110,Matrix Algebra for Engineers,,,,1,2,104,Static Prof 5,120,TWF,10:30~11:20,104,Static Prof 5,140,TWF,10:30~11:20
+fall,PHYS110,Introductory Physics,,,,1,2,105,Static Prof 6,120,MTh,11:30~12:50,105,Static Prof 6,140,MTh,11:30~12:50
+spring,PHYS110,Introductory Physics,,,,1,2,105,Static Prof 6,120,MTh,10:00~11:20,105,Static Prof 6,60,MTh,10:00~11:20
+spring,ENGR120,Design and Communication II,,,,1,2,106,Static Prof 7,60,TWF,10:30~11:20,106,Static Prof 7,100,TWF,10:30~11:20
+spring,ENGR141,Engineering Mechanics,,,,1,2,107,Static Prof 8,80,MTh,11:30~12:50,107,Static Prof 8,100,MTh,11:30~12:50
+summer,ENGR141,Engineering Mechanics,,,,1,2,107,Static Prof 8,120,TWF,9:30~10:20,107,Static Prof 8,140,TWF,9:30~10:20
+fall,MATH101,Calculus II,,,,1,2,108,Static Prof 9,100,TWF,11:30~12:20,108,Static Prof 9,140,TWF,11:30~12:20
+spring,MATH101,Calculus II,,,,1,2,108,Static Prof 9,120,TWF,11:30~12:20,108,Static Prof 9,100,TWF,11:30~12:20
+summer,MATH101,Calculus II,,,,1,2,108,Static Prof 9,140,MTh,10:00~11:20,108,Static Prof 9,100,MTh,10:00~11:20
+spring,PHYS111,Introductory Physics II,,,,1,2,109,Static Prof 10,100,MTh,13:00~14:20,109,Static Prof 10,120,MTh,13:00~14:20
+summer,PHYS111,Introductory Physics II,,,,1,2,109,Static Prof 10,80,TWF,10:30~11:20,109,Static Prof 10,140,TWF,10:30~11:20
+fall,CHEM101,Properties of Materials,,,,2,2,110,Static Prof 11,60,TWF,8:30~9:20,110,Static Prof 11,60,TWF,8:30~9:20
+summer,CHEM101,Properties of Materials,,,,2,2,110,Static Prof 11,140,TWF,8:30~9:20,110,Static Prof 11,80,TWF,8:30~9:20
+fall,MATH122,Logic and Foundations,,,,2,2,111,Static Prof 12,100,MTh,8:30~9:50,111,Static Prof 12,100,MTh,8:30~9:50
+spring,MATH122,Logic and Foundations,,,,2,2,111,Static Prof 12,60,TWF,8:30~9:20,111,Static Prof 12,140,TWF,8:30~9:20
+summer,MATH122,Logic and Foundations,,,,2,2,111,Static Prof 12,140,MTh,8:30~9:50,111,Static Prof 12,100,MTh,8:30~9:50
+fall,STAT260,Introduction to Probability and Statistics I,,,,2,2,112,Static Prof 13,80,TWF,9:30~10:20,112,Static Prof 13,120,TWF,9:30~10:20
+spring,STAT260,Introduction to Probability and Statistics I,,,,2,2,112,Static Prof 13,140,MTh,8:30~9:50,112,Static Prof 13,120,MTh,8:30~9:50
+summer,STAT260,Introduction to Probability and Statistics I,,,,2,2,112,Static Prof 13,100,TWF,9:30~10:20,112,Static Prof 13,60,TWF,9:30~10:20
+fall,ECON180,Introduction to Principles of Microeconomics and Financial Project Evaluation,,,,2,2,113,Static Prof 14,100,MTh,10:00~11:20,113,Static Prof 14,80,MTh,10:00~11:20
+summer,ECON180,Introduction to Principles of Microeconomics and Financial Project Evaluation,,,,2,2,113,Static Prof 14,140,MTh,10:00~11:20,113,Static Prof 14,60,MTh,10:00~11:20
