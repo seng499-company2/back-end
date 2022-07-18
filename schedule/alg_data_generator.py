@@ -44,6 +44,23 @@ def calculate_enthusiasm_score(difficulty, willingness):
     return enthusiasm_score
 
 
+def calculate_teaching_obligations(faculty_type, sebatical_length):
+   
+    if faculty_type == 'RP' and sebatical_length == 'FULL':
+        teaching_obligations = 0
+    elif faculty_type == 'RP' and sebatical_length == 'HALF':
+        teaching_obligations = 1
+    elif faculty_type == 'RP' and sebatical_length == 'NONE':
+        teaching_obligations = 3
+    elif faculty_type == 'TP' and sebatical_length == 'FULL':
+        teaching_obligations = 2
+    elif faculty_type == 'TP' and sebatical_length == 'HALF':
+        teaching_obligations = 3
+    elif faculty_type == 'TP' and sebatical_length == 'NONE':
+        teaching_obligations = 6
+
+    return teaching_obligations
+
 
 
 def get_professor_dict_mock():
