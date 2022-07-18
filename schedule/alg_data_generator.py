@@ -16,7 +16,11 @@ def get_program_enrollment_data() -> typing.Dict[str, str]:
 
 
 def get_schedule():
-    schedule, _ = A_Schedule.objects.get_or_create(id=1)
+    schedule, created = A_Schedule.objects.get_or_create(id=1)
+    if created:
+        # Not in prod, which is 1-indexed. get the schedule from index 0 for unit tests
+        schedule, created = A_Schedule.objects.get_or_create(id=0)
+
     schedule_serializer = A_ScheduleSerializer(instance=schedule)
     data = schedule_serializer.data
     return json.loads(json.dumps(data))
