@@ -1,10 +1,8 @@
 import typing
 import json
 import pickle
-from courses.models import Course
-from users.models import AppUser
-from preferences.models import Preferences
-from schedule.adapter import course_to_alg_dictionary
+from schedule.Schedule_models import A_Schedule
+from schedule.Schedule_serializers import A_ScheduleSerializer
 
 
 def get_historic_course_data() -> typing.Dict[str, str]:
@@ -18,37 +16,34 @@ def get_program_enrollment_data() -> typing.Dict[str, str]:
 
 
 def get_schedule():
-    courses = Course.objects.all()
-    courses_dict_list = list(map(course_to_alg_dictionary, courses))
-    # TODO: format courses_dict_list into properly formatted schedule dictionary
-    schedule = courses_dict_list
-    return schedule
+    schedule, _ = A_Schedule.objects.get_or_create(id=0)
+    schedule_serializer = A_ScheduleSerializer(instance=schedule)
+    data = schedule_serializer.data
+    return json.loads(json.dumps(data))
+
+#difficulty: 1 = able, 2 = with effort, 0 = no selection
+#willingness: 1 = unwilling, 2 = willing, 3 = very willing, 0 = no selection
+
+def calculate_enthusiasm_score(difficulty, willingness):
+
+    enthusiasm_score = 0
+
+    if difficulty == 2 and willingness == 1:
+        enthusiasm_score = 20
+    elif difficulty == 1 and willingness == 1:
+        enthusiasm_score = 39
+    elif difficulty == 2 and willingness == 2:
+        enthusiasm_score = 40
+    elif difficulty == 1 and willingness == 2:
+        enthusiasm_score = 78
+    elif difficulty == 2 and willingness == 3:
+        enthusiasm_score = 100
+    elif difficulty == 1 and willingness == 3:
+        enthusiasm_score = 195
+
+    return enthusiasm_score
 
 
-def get_professor_dict():
-    preferences: [Preferences] = Preferences.objects.all()
-    professors: [] = []
-    for preference in preferences:
-        user: AppUser = preference.professor
-        prof_dict = {}
-        prof_dict["id"] = user.id
-        prof_dict["isPeng"] = user.is_peng
-        prof_dict["facultyType"] = user.prof_type
-        prof_dict["coursePreferences"] = None # TODO: Does that exist?
-        prof_dict["teachingObligations"] = 3 if user.prof_type == "RP" else 6 # TODO: verify accuracy of calculation
-        prof_dict["preferredTimes"] = preference.preferred_hours
-        prof_dict["preferredCoursesPerSemester"] = preference.teaching_willingness  # TODO: Does that exist?
-        preferred_non_teaching_semester = None
-        if preference.is_unavailable_sem1:
-            preferred_non_teaching_semester = "FALL"
-        elif preference.is_unavailable_sem2:
-            preferred_non_teaching_semester = "SPRING"
-        elif preference.is_unavailable_sem3:
-            preferred_non_teaching_semester = "SUMMER"
-        prof_dict["preferredNonTeachingSemester"] = preferred_non_teaching_semester
-        prof_dict["preferredCourseDaySpreads"] = None # TODO: Does that exist?
-        professors.append(prof_dict)
-    return professors
 
 
 def get_professor_dict_mock():
@@ -56,26 +51,10 @@ def get_professor_dict_mock():
         return json.load(json_file)
 
 
-def get_schedule_alg1_mock():
-    with open("resources/schedule_object_capacities_(alg1_input).json") as json_file:
-        return json.load(json_file)
-
-
-def get_schedule_alg2_mock():
-    with open("resources/schedule_object_no_capacities_(alg2_input).json") as json_file:
-        return json.load(json_file)
-
-
 def get_professor_object_company1():
     prof_data = open("resources/professors_updated", 'rb')
     professors = pickle.load(prof_data)
     return professors
-
-
-def get_schedule_object_company1():
-    schedule_data = open("resources/schedule_updated", 'rb')
-    schedule = pickle.load(schedule_data)
-    return schedule
 
 
 def get_schedule_error():

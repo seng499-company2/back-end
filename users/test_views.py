@@ -45,6 +45,20 @@ class TestProfessorsList(TestCase):
             'is_peng': False,
             'is_form_submitted': False,
         }
+        
+        # Update default data for the serializer, if needed
+        self.update_default_serializer_data = {
+            'user': {
+                'username': 'abcdef',
+                'first_name': 'Abc',
+                'last_name': 'Def',
+                'email': 'abc@uvic.ca',
+                'is_superuser': False
+            },
+            'prof_type': AppUser.TeachingType.TEACHING_PROF,
+            'is_peng': False,
+            'is_form_submitted': True, # Updated
+        }
 
         #default data containing no password field for the serializer
         self.no_password_serializer_data = {
@@ -91,6 +105,13 @@ class TestProfessorsList(TestCase):
         response = self.get_APIClient().post('/api/users/abcdef/', data=self.default_serializer_data, format='json')
         self.assertIsNotNone(response)
         self.assertEqual(status.HTTP_200_OK, response.status_code)
+    
+    def test_prof_update_POST__is_submitted_flag_set(self):
+        self.save_default_user()
+        response = self.get_APIClient().post('/api/users/abcdef/', data=self.update_default_serializer_data, format='json')
+        self.assertIsNotNone(response)
+        self.assertEqual(status.HTTP_200_OK, response.status_code)
+        self.assertContains(response, "\"is_form_submitted\": true")
 
     def test_prof_creation_POST(self):
         response = self.get_APIClient().post('/api/users/', data=self.default_serializer_data, format='json')

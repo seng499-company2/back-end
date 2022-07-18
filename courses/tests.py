@@ -1,20 +1,16 @@
-from django.test import TestCase
 
-from django.test import TestCase, RequestFactory    #**tests that interact with a database require subclassing of this class**
+from django.test import TestCase #**tests that interact with a database require subclassing of this class**
 
-from django.contrib.auth.models import User
 from .models import Course
 from .serializers import CourseSerializer
-from .permissions import IsAdmin
-from .views import CourseView, AllCoursesView, get_alg_course
 from schedule.Schedule_models import A_Course
-from django.db import models
 
-#Serializer Testing
+
+# Serializer Testing
 class CourseSerializerTest(TestCase):
     @classmethod
     def setUp(self):
-        #build Course and CourseSerializer instances
+        # build Course and CourseSerializer instances
         self.course_attributes = {
             "course_code": "SENG499",
             "num_sections": 2,
@@ -26,7 +22,7 @@ class CourseSerializerTest(TestCase):
             "yearRequired": 4
         }
 
-        #serialize into a Course object
+        # serialize into a Course object
         self.course = Course.objects.create(**self.course_attributes)
         self.serializer = CourseSerializer(instance=self.course)
 
@@ -107,55 +103,4 @@ class CourseSerializerTest(TestCase):
         # self.assertEquals(updated_obj_key, obj_key)
         self.assertEquals(Course.objects.get(pk=obj_key).course_title, new_serialized_data['course_title'])
         self.assertEquals(Course.objects.get(pk=obj_key).spring_offering, new_serialized_data['spring_offering'])
-
-    def test_get_alg_course_create(self):
-        course = self.course
-        alg_course = get_alg_course(course)
-        self.assertEquals(course.course_code, alg_course.code)
-        self.assertEquals(course.course_title, alg_course.title)
-        self.assertEquals(course.pengRequired, alg_course.pengRequired)
-        self.assertEquals(course.yearRequired, alg_course.yearRequired)
-
-    def test_get_alg_course_update(self):
-        course = self.course
-        alg_course = A_Course()
-        alg_course.code = course.course_code
-        self.assertEquals(course.course_code, alg_course.code)
-        self.assertNotEquals(course.course_title, alg_course.title)
-        self.assertNotEquals(course.pengRequired, alg_course.pengRequired)
-        self.assertNotEquals(course.yearRequired, alg_course.yearRequired)
-        alg_course = get_alg_course(course)
-        self.assertEquals(course.course_code, alg_course.code)
-        self.assertEquals(course.course_title, alg_course.title)
-        self.assertEquals(course.pengRequired, alg_course.pengRequired)
-        self.assertEquals(course.yearRequired, alg_course.yearRequired)
-        try:
-            alg_course2 = A_Course.objects.get(code=alg_course.code)
-            self.fail()
-        except A_Course.DoesNotExist:
-            pass  # expected behaviour
-        alg_course.save()
-        alg_course2 = A_Course.objects.get(code=alg_course.code)
-        self.assertEquals(course.course_code, alg_course2.code)
-        self.assertEquals(course.course_title, alg_course2.title)
-        self.assertEquals(course.pengRequired, alg_course2.pengRequired)
-        self.assertEquals(course.yearRequired, alg_course2.yearRequired)
-
-    def test_get_alg_course_delete(self):
-        course = self.course
-        alg_course = A_Course()
-        alg_course.code = course.course_code
-        self.assertEquals(course.course_code, alg_course.code)
-        self.assertNotEquals(course.course_title, alg_course.title)
-        self.assertNotEquals(course.pengRequired, alg_course.pengRequired)
-        self.assertNotEquals(course.yearRequired, alg_course.yearRequired)
-        alg_course = get_alg_course(course)
-        alg_course.save()
-        alg_course2 = A_Course.objects.get(code=alg_course.code)
-        alg_course.delete()
-        try:
-            alg_course2 = A_Course.objects.get(code=alg_course.code)
-            self.fail()
-        except A_Course.DoesNotExist:
-            pass  # expected behaviour
 
