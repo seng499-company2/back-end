@@ -146,7 +146,7 @@ class PreferencesSerializerTest(TestCase):
                 },
             },
             "preferred_non_teaching_semester": "fall",
-             "preferred_courses_per_semester": {
+            "preferred_courses_per_semester": {
                 "fall": "1",
                 "spring": "2",
                 "summer": "3"

@@ -10,7 +10,7 @@ from c1algo1 import scheduler as c1alg1# company 1 alg 1
 from c1algo2.forecaster import forecast as c1alg2
 
 from schedule.alg_data_generator import get_historic_course_data, get_schedule, get_program_enrollment_data, \
-    get_professor_dict_mock, get_professor_object_company1, get_profs_error, get_schedule_error
+    get_professor_dict, get_profs_error, get_schedule_error
 
 import traceback
 import json
@@ -25,8 +25,7 @@ class Schedule(APIView):
         historical_data = get_historic_course_data()
         previous_enrollment = get_program_enrollment_data()
         schedule = get_schedule()
-        professors = get_professor_dict_mock()
-        professors_company1 = get_professor_object_company1()
+        professors = get_professor_dict()
 
         # GET / schedule / {year - semester}/?use_mock_data=true
         if "use_mock_data" in request.query_params and request.query_params["use_mock_data"] == 'true':
@@ -37,7 +36,7 @@ class Schedule(APIView):
             alg_2_output = c1alg2(historical_data, previous_enrollment, schedule) if requested_company_alg == 1 \
                  else c2alg2(historical_data, previous_enrollment, schedule)
             if requested_company_alg == 1:
-                schedule, error = c1alg1.generate_schedule(professors_company1, alg_2_output)
+                schedule, error = c1alg1.generate_schedule(professors, alg_2_output)
             else:
                 schedule, error = c2alg1(professors, alg_2_output, False)
             if error is not None and error != "":
