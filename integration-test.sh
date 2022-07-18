@@ -8,7 +8,7 @@ docker-compose up -d
 
 sleep 3
 
-#./init_db.sh
+./init_db.sh
 
 sleep 3
 

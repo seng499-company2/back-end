@@ -14,6 +14,7 @@ from schedule.alg_data_generator import get_historic_course_data, get_schedule, 
 
 import traceback
 import json
+import logging
 
 
 class Schedule(APIView):
@@ -35,7 +36,7 @@ class Schedule(APIView):
 
         try:
             alg_2_output = c1alg2(historical_data, previous_enrollment, schedule) if requested_company_alg == 1 \
-                 else c2alg2(historical_data, previous_enrollment, schedule)
+                 else c2alg2(historical_data, previous_enrollment, schedule, 2, logging.DEBUG)
             if requested_company_alg == 1:
                 schedule, error = c1alg1.generate_schedule(professors_company1, alg_2_output)
             else:
