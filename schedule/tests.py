@@ -103,6 +103,7 @@ from users.serializers import AppUserSerializer
 class GetProfessorDictTest(TestCase):
     @classmethod
     def setUp(self): 
+        self.maxDiff = None
         #build AppUser instance
         self.user_attributes = {
             'username': 'johnd1',
@@ -116,9 +117,9 @@ class GetProfessorDictTest(TestCase):
 
         self.app_user_attributes = {
             'user': self.user,
-            'prof_type': 'RP',
-            'is_peng': True,
-            'is_form_submitted': False
+            'prof_type': 'TP',
+            'is_peng': False,
+            'is_form_submitted': True
         }
         self.app_user = AppUser.objects.create(**self.app_user_attributes)
         self.app_user_serializer = AppUserSerializer(instance=self.app_user)
@@ -128,42 +129,64 @@ class GetProfessorDictTest(TestCase):
             "professor": self.app_user,
             "is_submitted": True,
             "taking_sabbatical": True,
-            "sabbatical_length": "FULL",
-            "sabbatical_start_month": 1,
+            "sabbatical_length": "HALF",
+            "sabbatical_start_month": 5,
             "preferred_times": {
-                "fall": [
-                    {"day": 1, "time": 8},
-                    {"day": 1, "time": 9}
-                ],
-                "spring": [
-                    {"day": 3, "time": 8},
-                    {"day": 3, "time": 9},
-                ],
-                "summer": [
-                    {"day": 4, "time": 12},
-                ]
+                "fall": {
+                        "monday": [
+                              ["8:30", "18:30" ],
+                              ["19:30", "20:30"]
+                        ],
+                        "tuesday": [
+                              ["8:30", "18:30"]
+                        ],
+                        "wednesday": [
+                              ["8:30", "18:30"]
+                        ],
+                        "thursday": [
+                              ["8:30", "18:30"]
+                        ],
+                        "friday": [
+                              ["8:30", "18:30"]
+                        ]
+                  },
+                  "spring": {
+                        "monday": [],
+                        "tuesday": [
+                              ["8:30", "18:30"]
+                        ],
+                        "wednesday": [
+                              ["8:30", "18:30"]
+                        ],
+                        "thursday": [
+                              ["8:30", "18:30"]
+                        ],
+                        "friday": [
+                              ["8:30","18:30"]
+                        ]
+                  },
+                  "summer": {}
             },
             "courses_preferences": {
-                    "CSC 225": {
-                        "willingness": 1,
+                    "CSC111": {
+                        "willingness": 2,
                         "difficulty": 1
                     },
-                    "CSC 226": {
-                        "willingness": 2,
+                    "CSC115": {
+                        "willingness": 1,
                         "difficulty": 2
                     }
             },
-            "preferred_non_teaching_semester": "fall",
+            "preferred_non_teaching_semester": "summer",
             "preferred_courses_per_semester": {
-                    "fall": "1",
-                    "spring": "2",
-                    "summer": "3"
-                },
+                  "fall": 2,
+                  "spring": 1,
+                  "summer": 0
+            },
 
             "preferred_course_day_spreads": [
-                    "TWF",
-                    "Th"
-                ],
+                   "TWF", "T", "W", "F" 
+            ],
         }
         
         Preferences.objects.update(**self.preferences_attributes)
@@ -172,3 +195,66 @@ class GetProfessorDictTest(TestCase):
     def test_get_professor_dict(self):
         result = get_professor_dict()
         print(result)
+        expected = {
+            "id": "1",
+            "name": "John Doe",
+            "isPeng": False,
+            "facultyType": "TEACHING",
+            "teachingObligations": 3,
+            "coursePreferences": [
+                  {
+                        "courseCode": "CSC111",
+                        "enthusiasmScore": 78
+                  },
+                  {
+                        "courseCode": "CSC115",
+                        "enthusiasmScore": 20
+                  },
+            ],
+            "preferredTimes": {
+                  "fall": {
+                        "monday": [
+                              ["8:30", "18:30" ],
+                              ["19:30", "20:30"]
+                        ],
+                        "tuesday": [
+                              ["8:30", "18:30"]
+                        ],
+                        "wednesday": [
+                              ["8:30", "18:30"]
+                        ],
+                        "thursday": [
+                              ["8:30", "18:30"]
+                        ],
+                        "friday": [
+                              ["8:30", "18:30"]
+                        ]
+                  },
+                  "spring": {
+                        "monday": [],
+                        "tuesday": [
+                              ["8:30", "18:30"]
+                        ],
+                        "wednesday": [
+                              ["8:30", "18:30"]
+                        ],
+                        "thursday": [
+                              ["8:30", "18:30"]
+                        ],
+                        "friday": [
+                              ["8:30","18:30"]
+                        ]
+                  },
+                  "summer": {}
+            },
+            "preferredCoursesPerSemester": {
+                  "fall": 2,
+                  "spring": 1,
+                  "summer": 0
+            },
+            "preferredNonTeachingSemester": "SUMMER",
+            "preferredCourseDaySpreads": [
+                  "TWF", "T", "W", "F" 
+            ]
+        }
+        self.assertEqual(expected, result[0])
