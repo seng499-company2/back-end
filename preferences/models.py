@@ -30,6 +30,10 @@ class Preferences(models.Model):
     preferred_non_teaching_semester = models.CharField(max_length=10,  blank=True, default='')
     preferred_courses_per_semester = models.JSONField(default=dict)
     preferred_course_day_spreads = ArrayField(models.CharField(max_length=5, blank=False), default=list)
+    
+    def __str__(self):
+        return self.professor.first_name + ' ' + self.professor.last_name
+
    
     class Meta:
         managed = True  #auto creates tables
