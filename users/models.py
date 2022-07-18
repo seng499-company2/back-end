@@ -43,7 +43,7 @@ class AppUser(models.Model):
 
 
     def __str__(self):
-        return self.user.first_name + ' ' + self.user.last_name
+        return self.user.first_name + ' ' + self.user.last_name + ' (' + self.user.username + '@uvic.ca)'
 
 # Use Django signals to delete User instance when AppUser is deleted. Based on: https://stackoverflow.com/a/12754229
 @receiver(post_delete, sender=AppUser)

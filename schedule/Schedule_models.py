@@ -40,11 +40,11 @@ class A_CourseSection(models.Model):
 
     def __str__(self):
         related_timeSlots = [str(slot) for slot in self.timeSlots.all()]
-        id_str = '#' + str(self.id)  + ')'
+        id_str = '#' + str(self.id)  + ') '
         if self.professor is not None and len(related_timeSlots) != 0:
             return id_str + 'Professor: ' + str(self.professor['name']) + ', Capacity: ' + str(self.capacity) + ', TimeSlots: ' + f'{" ".join(related_timeSlots)}'
         
-        return id_str + 'A_Coursection(capacity: ' + self.capacity + ')'
+        return id_str + 'A_Coursection(capacity: ' + str(self.capacity) + ')'
 
 
 '''PRIMARY KEY: code'''
