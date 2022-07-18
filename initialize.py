@@ -11,6 +11,7 @@ import os
 from enum import Enum
 
 from schedule.Schedule_models import A_Schedule, A_TimeSlot, A_CourseSection, A_Course, A_CourseOffering
+from courses.models import Course
 from django.contrib.auth.models import User
 from users.models import AppUser
 from preferences.models import Preferences
@@ -181,7 +182,7 @@ def parse_schedules_data(csv_file):
                         )
 
 
-        #Step 2 - build Course objects
+        #Step 2 - build A_Course objects (algorithms-facing) & Course objects (FE-facing)
         for row in csv_list:
             course_code = row[CSV_COLUMNS.CODE.value]
             title = row[CSV_COLUMNS.TITLE.value]
@@ -192,13 +193,29 @@ def parse_schedules_data(csv_file):
             }
             year_required = int(row[CSV_COLUMNS.YEAR_REQUIRED.value])
 
-            #create Django models & store to DB
+            #create A_Course models & store to DB
             _, _ = A_Course.objects.get_or_create(
                 code=course_code,
                 title=title,
                 pengRequired=peng_required,
                 yearRequired=year_required
             )
+
+            num_sections = int(row[CSV_COLUMNS.NUM_SECTIONS.value])
+
+            #create Course models & store to DB
+            #** assign .offering flags later, when scanning for CourseOfferings
+            _, _ = Course.objects.get_or_create(
+                course_code=course_code,
+                num_sections=num_sections,
+                course_title=title,
+                fall_offering=False,
+                spring_offering=False,
+                summer_offering=False, 
+                pengRequired=peng_required,
+                yearRequired=year_required
+            )
+
 
             
         #Step 3 - build CourseSection objects *(For both Dynamic + Static courses)*
@@ -297,6 +314,7 @@ def parse_schedules_data(csv_file):
             #get associated Course object foreign key to create CourseOffering, then save to DB
             course_code = row[CSV_COLUMNS.CODE.value]
             course_obj = A_Course.objects.get(code=course_code)
+            frontend_course_obj = Course.objects.get(course_code=course_code)
 
             if row[CSV_COLUMNS.CODE.value] and course_obj is not None:
                 courseOffering = A_CourseOffering.objects.create(course=course_obj)
@@ -310,12 +328,23 @@ def parse_schedules_data(csv_file):
                     i += 1
 
                 #finally, save the CourseOffering in memory to the correct semester
+                # **assign FE Course.offering flags here **
                 if row[CSV_COLUMNS.SEMESTER.value] == 'fall':
                     fall_offerings.append(courseOffering)
+                    frontend_course_obj.fall_offering = True
+                    frontend_course_obj.save()
+
                 elif row[CSV_COLUMNS.SEMESTER.value] == 'spring':
                     spring_offerings.append(courseOffering)
+                    frontend_course_obj.spring_offering = True
+                    frontend_course_obj.save()
+
                 elif row[CSV_COLUMNS.SEMESTER.value] == 'summer':
                     summer_offerings.append(courseOffering)
+                    frontend_course_obj.summer_offering = True
+                    frontend_course_obj.save()
+
+
 
 
         #Step 5 - build the final Schedule object
