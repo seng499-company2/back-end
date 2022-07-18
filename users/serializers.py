@@ -34,7 +34,7 @@ class AppUserSerializer(serializers.ModelSerializer):
     user = UserSerializer()
     prof_type = serializers.ChoiceField(choices=AppUser.TeachingType, default=AppUser.TeachingType.TEACHING_PROF)
     is_peng = serializers.BooleanField(default=False)
-    is_form_submitted = serializers.BooleanField(default=False)
+    is_form_submitted = serializers.BooleanField()
 
     class Meta: 
         model = AppUser 
