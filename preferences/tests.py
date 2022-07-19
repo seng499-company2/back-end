@@ -43,24 +43,16 @@ class PreferencesSerializerTest(TestCase):
             "sabbatical_start_month": 1,
             "preferred_times": {
                 "fall": {
-                    "monday": [
-                        ["10:00", "11:00"]
-                    ],
-                    "tuesday": [
-                        ["10:00", "11:00"]
-                    ],
-                    "wednesday": [
-                        ["10:00", "11:00"]
-                    ],
-                    "thursday": [
-                        ["10:00", "11:00"]
-                    ],
-                    "friday": [
-                        ["10:00", "11:00"]
-                    ]
+                    "monday": [["10:00", "11:00"]],
+                    "tuesday": [["10:00", "11:00"]],
                 },
-                "spring":{},
-                "summer": {}
+                "spring": {
+                    "monday": [["10:00", "11:00"]],
+                    "tuesday": [["10:00", "11:00"]], 
+                },
+                "summer": {
+                    "friday": [["10:00", "11:00"]]
+                }
             },
            "courses_preferences": {
                 "CSC 225": {
@@ -117,24 +109,10 @@ class PreferencesSerializerTest(TestCase):
             "taking_sabbatical": True,
             "sabbatical_length": "FULL",
             "sabbatical_start_month": 1,
-            "sabbatical_start_month": 1,
             "preferred_times": {
                 "fall": {
-                    "monday": [
-                        ["10:00", "11:00"]
-                    ],
-                    "tuesday": [
-                        ["10:00", "11:00"]
-                    ],
-                    "wednesday": [
-                        ["10:00", "11:00"]
-                    ],
-                    "thursday": [
-                        ["10:00", "11:00"]
-                    ],
-                    "friday": [
-                        ["10:00", "11:00"]
-                    ]
+                    "monday": [["10:00", "11:00"]],
+                    "tuesday": [["10:00", "11:00"]],
                 },
                 "spring": {},
                 "summer": {}
@@ -197,26 +175,11 @@ class PreferencesSerializerTest(TestCase):
             "sabbatical_start_month": 1,
             "preferred_times": {
                 "fall": {
-                    "monday": [
-                        ["10:00", "11:00"]
-                    ],
-                    "tuesday": [
-                        ["10:00", "11:00"]
-                    ],
+                    "monday": [["10:00", "11:00"]],
+                    "tuesday": [["10:00", "11:00"]],
                 },
-                "spring": {
-                    "monday": [
-                        ["10:00", "11:00"]
-                    ],
-                    "tuesday": [
-                        ["10:00", "11:00"]
-                    ],    
-                },
-                "summer": {
-                    "friday": [
-                        ["10:00", "11:00"]
-                    ]
-                }
+                "spring": {},
+                "summer": {}
             },
             "courses_preferences": {
                 "CSC 226": {
@@ -326,24 +289,16 @@ class AdminSidePreferencesRecordViewTest(TestCase):
             "sabbatical_start_month": 1,
             "preferred_times": {
                 "fall": {
-                    "monday": [
-                        ["10:00", "11:00"]
-                    ],
-                    "tuesday": [
-                        ["10:00", "11:00"]
-                    ],
-                    "wednesday": [
-                        ["10:00", "11:00"]
-                    ],
-                    "thursday": [
-                        ["10:00", "11:00"]
-                    ],
-                    "friday": [
-                        ["10:00", "11:00"]
-                    ]
+                    "monday": [["10:00", "11:00"]],
+                    "tuesday": [["10:00", "11:00"]],
                 },
-                "spring": {},
-                "summer": {}
+                "spring": {
+                    "monday": [["10:00", "11:00"]],
+                    "tuesday": [["10:00", "11:00"]], 
+                },
+                "summer": {
+                    "friday": [["10:00", "11:00"]]
+                }
             },
             "courses_preferences": {
                     "CSC 225": {
@@ -381,25 +336,15 @@ class AdminSidePreferencesRecordViewTest(TestCase):
             'sabbatical_start_month': 1,
             "preferred_times": {
                 "fall": {
-                    "monday": [
-                        ["10:00", "11:00"]
-                    ],
-                    "tuesday": [
-                        ["10:00", "11:00"]
-                    ],
+                    "monday": [["10:00", "11:00"]],
+                    "tuesday": [["10:00", "11:00"]],
                 },
                 "spring": {
-                    "monday": [
-                        ["10:00", "11:00"]
-                    ],
-                    "tuesday": [
-                        ["10:00", "11:00"]
-                    ],    
+                    "monday": [["10:00", "11:00"]],
+                    "tuesday": [["10:00", "11:00"]], 
                 },
                 "summer": {
-                    "friday": [
-                        ["10:00", "11:00"]
-                    ]
+                    "friday": [["10:00", "11:00"]]
                 }
             },
             "courses_preferences": {
@@ -521,25 +466,15 @@ class UserSidePreferencesRecordViewTest(TestCase):
             "sabbatical_start_month": 1,
             "preferred_times": {
                 "fall": {
-                    "monday": [
-                        ["10:00", "11:00"]
-                    ],
-                    "tuesday": [
-                        ["10:00", "11:00"]
-                    ],
+                    "monday": [["10:00", "11:00"]],
+                    "tuesday": [["10:00", "11:00"]],
                 },
                 "spring": {
-                    "monday": [
-                        ["10:00", "11:00"]
-                    ],
-                    "tuesday": [
-                        ["10:00", "11:00"]
-                    ],    
+                    "monday": [["10:00", "11:00"]],
+                    "tuesday": [["10:00", "11:00"]], 
                 },
                 "summer": {
-                    "friday": [
-                        ["10:00", "11:00"]
-                    ]
+                    "friday": [["10:00", "11:00"]]
                 }
             },
             "courses_preferences": {
@@ -574,25 +509,15 @@ class UserSidePreferencesRecordViewTest(TestCase):
             'sabbatical_start_month': 1,
             "preferred_times": {
                 "fall": {
-                    "monday": [
-                        ["10:00", "11:00"]
-                    ],
-                    "tuesday": [
-                        ["10:00", "11:00"]
-                    ],
+                    "monday": [["10:00", "11:00"]],
+                    "tuesday": [["10:00", "11:00"]],
                 },
                 "spring": {
-                    "monday": [
-                        ["10:00", "11:00"]
-                    ],
-                    "tuesday": [
-                        ["10:00", "11:00"]
-                    ],    
+                    "monday": [["10:00", "11:00"]],
+                    "tuesday": [["10:00", "11:00"]], 
                 },
                 "summer": {
-                    "friday": [
-                        ["10:00", "11:00"]
-                    ]
+                    "friday": [["10:00", "11:00"]]
                 }
             },
             "courses_preferences": {
