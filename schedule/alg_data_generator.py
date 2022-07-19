@@ -1,8 +1,10 @@
 import typing
 import json
 import pickle
+from preferences.models import Preferences
 from schedule.Schedule_models import A_Schedule
 from schedule.Schedule_serializers import A_ScheduleSerializer
+from users.models import AppUser
 
 
 def get_historic_course_data() -> typing.Dict[str, str]:
@@ -65,6 +67,53 @@ def calculate_teaching_obligations(faculty_type, sebatical_length):
 
     return teaching_obligations
 
+def update_course_preferences(course_preferences):
+    coursePreferences = []
+    for course, values in course_preferences.items():
+        preference = {}
+        preference['courseCode'] = course
+        preference['enthusiasmScore'] = calculate_enthusiasm_score(values['difficulty'],values['willingness'])
+        coursePreferences.append(preference)
+    return coursePreferences
+
+
+# take into consideration sabattical
+def calculate_teaching_obligations(faculty_type, sebatical_length):
+
+    if faculty_type == 'RP' and sebatical_length == 'FULL':
+        teaching_obligations = 0
+    elif faculty_type == 'RP' and sebatical_length == 'HALF':
+        teaching_obligations = 1
+    elif faculty_type == 'RP' and sebatical_length == 'NONE':
+        teaching_obligations = 3
+    elif faculty_type == 'TP' and sebatical_length == 'FULL':
+        teaching_obligations = 2
+    elif faculty_type == 'TP' and sebatical_length == 'HALF':
+        teaching_obligations = 3
+    elif faculty_type == 'TP' and sebatical_length == 'NONE':
+        teaching_obligations = 6
+
+    return teaching_obligations
+    
+
+def get_professor_dict():
+    preferences: [Preferences] = Preferences.objects.all()
+    professors: [] = []
+    for preference in preferences:
+        appUser: AppUser = preference.professor
+        prof_dict = {}
+        prof_dict["id"] = str(appUser.user.id)
+        prof_dict["name"] = appUser.user.first_name + ' ' + appUser.user.last_name
+        prof_dict["isPeng"] = appUser.is_peng
+        prof_dict["facultyType"] = "RESEARCH" if appUser.prof_type == "RP" else "TEACHING"
+        prof_dict["coursePreferences"] = update_course_preferences(preference.courses_preferences)
+        prof_dict["teachingObligations"] = calculate_teaching_obligations(appUser.prof_type, preference.sabbatical_length)
+        prof_dict["preferredTimes"] = preference.preferred_times
+        prof_dict["preferredNonTeachingSemester"] = preference.preferred_non_teaching_semester.upper()
+        prof_dict["preferredCoursesPerSemester"] = preference.preferred_courses_per_semester
+        prof_dict["preferredCourseDaySpreads"] = preference.preferred_course_day_spreads
+        professors.append(prof_dict)
+    return professors
 
 
 def get_professor_dict_mock():
