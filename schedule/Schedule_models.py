@@ -38,11 +38,13 @@ class A_CourseSection(models.Model):
     capacity = models.PositiveIntegerField(default=0)
     timeSlots = models.ManyToManyField(A_TimeSlot, related_name='courseSections') #to associate multiple TimeSlot objects
 
-    '''def __str__(self):
+    def __str__(self):
         related_timeSlots = [str(slot) for slot in self.timeSlots.all()]
-        prof = str(self.professor['name']) if not None else 'null'
-        return 'Professor: ' + prof + ', Capacity: ' + str(self.capacity) + ', TimeSlots: ' + f'{" ".join(related_timeSlots)}'
-    '''
+        id_str = '#' + str(self.id)  + ') '
+        if self.professor is not None and len(related_timeSlots) != 0:
+            return id_str + 'Professor: ' + str(self.professor['name']) + ', Capacity: ' + str(self.capacity) + ', TimeSlots: ' + f'{" ".join(related_timeSlots)}'
+        
+        return id_str + 'A_Coursection(capacity: ' + str(self.capacity) + ')'
 
 
 '''PRIMARY KEY: code'''
@@ -53,7 +55,7 @@ class A_Course(models.Model):
     yearRequired = models.PositiveIntegerField()
 
     def __str__(self):
-        return str(self.code)
+        return str(self.code) + ' - ' + str(self.title)
 
 
 #one instance of this class should represent a single Course & CourseSection pair

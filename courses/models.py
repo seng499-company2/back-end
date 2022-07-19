@@ -20,6 +20,9 @@ class Course(models.Model):
         managed = True  #auto creates tables
         db_table = 'Courses'
 
+    def __str__(self):
+        return self.course_title + ' - ' + self.course_title
+    
 
 #Algorithm Specific Models
 
