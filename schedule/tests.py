@@ -62,6 +62,7 @@ class ViewTest(TestCase):
             self.course2 = Course.objects.create(**course_attributes)
             alg_course_offering = course_to_course_offering(self.course2)
             add_course_offering_to_schedule(self.course, alg_course_offering)
+    
     def init_prof(self):
         #build AppUser instance
         self.user_attributes = {
