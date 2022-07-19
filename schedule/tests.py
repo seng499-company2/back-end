@@ -11,7 +11,6 @@ from courses.models import Course
 from schedule.alg_data_generator import get_historic_course_data, get_program_enrollment_data, \
     get_schedule, get_professor_dict
 from collections import OrderedDict
-
 from users.models import AppUser
 from users.serializers import AppUserSerializer
 
