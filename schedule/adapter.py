@@ -26,7 +26,11 @@ def course_to_course_offering(course: Course) -> A_CourseOffering:
 
 
 def add_course_offering_to_schedule(course: Course, a_course_offering: A_CourseOffering):
-    schedule, _ = A_Schedule.objects.get_or_create(id=1)
+    schedule = A_Schedule.objects.first()
+    if schedule is None:
+        print("ERROR: NO DATABASE DATA FOUND. HAVE YOU RUN init_db.sh?")
+        return None
+
     if course.fall_offering:
         schedule.fall.add(a_course_offering)
     if course.spring_offering:

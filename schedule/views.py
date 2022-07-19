@@ -25,7 +25,12 @@ class Schedule(APIView):
         # Create params for algorithms packages
         historical_data = get_historic_course_data()
         previous_enrollment = get_program_enrollment_data()
-        schedule = get_schedule()
+        try:
+            schedule = get_schedule()
+        except FileNotFoundError as e:
+            return HttpResponse("Error generating schedule! Did you initialize the database?",
+                                status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
         professors = get_professor_dict_mock()
         professors_company1 = get_professor_object_company1()
 
