@@ -325,19 +325,19 @@ class AdminSidePreferencesRecordViewTest(TestCase):
             "preferred_times": {
                 "fall": {
                     "monday": [
-                        ["8:30", "18:30" ],
+                        ["10:00", "11:00"]
                     ],
                     "tuesday": [
-                        ["8:30", "18:30"]
+                        ["10:00", "11:00"]
                     ],
                     "wednesday": [
-                        ["8:30", "18:30"]
+                        ["10:00", "11:00"]
                     ],
                     "thursday": [
-                        ["8:30", "18:30"]
+                        ["10:00", "11:00"]
                     ],
                     "friday": [
-                        ["8:30", "18:30"]
+                        ["10:00", "11:00"]
                     ]
                 },
                 "spring": {},
@@ -378,21 +378,21 @@ class AdminSidePreferencesRecordViewTest(TestCase):
             'sabbatical_length': 'FULL',
             'sabbatical_start_month': 1,
             "preferred_times": {
-                "fall": {
+                 "fall": {
                     "monday": [
-                        ["8:30", "18:30" ],
+                        ["10:00", "11:00"]
                     ],
                     "tuesday": [
-                        ["8:30", "18:30"]
+                        ["10:00", "11:00"]
                     ],
                     "wednesday": [
-                        ["8:30", "18:30"]
+                        ["10:00", "11:00"]
                     ],
                     "thursday": [
-                        ["8:30", "18:30"]
+                        ["10:00", "11:00"]
                     ],
                     "friday": [
-                        ["8:30", "18:30"]
+                        ["10:00", "11:00"]
                     ]
                 },
                 "spring": {},
@@ -519,24 +519,24 @@ class UserSidePreferencesRecordViewTest(TestCase):
                 "fall": {
                     "monday": [],
                     "tuesday": [
-                        ["8:30", "18:30"]
+                        ["11:00", "12:00"]
                     ],
                     "wednesday": [
-                        ["8:30", "18:30"]
+                        ["11:00", "12:00"]
                     ],
                     "thursday": [],
                     "friday": [
-                        ["8:30", "18:30"]
+                        ["11:00", "12:00"]
                     ]
                 },
                 "spring": {
                     "monday": [
-                        ["8:30", "18:30" ],
+                        ["11:00", "12:00"]
                     ],
                     "tuesday": [],
                     "wednesday": [],
                     "thursday": [
-                        ["8:30", "18:30"]
+                        ["11:00", "12:00"]
                     ],
                     "friday": []   
                 },
@@ -545,7 +545,7 @@ class UserSidePreferencesRecordViewTest(TestCase):
                     "tuesday": [],
                     "wednesday": [],
                     "thursday": [
-                        ["8:30", "18:30"]
+                        ["11:00", "12:00"]
                     ],
                     "friday": []  
                 }
@@ -581,27 +581,27 @@ class UserSidePreferencesRecordViewTest(TestCase):
             'sabbatical_length': 'FULL',
             'sabbatical_start_month': 1,
             "preferred_times": {
-                "fall": {
+               "fall": {
                     "monday": [],
                     "tuesday": [
-                        ["8:30", "18:30"]
+                        ["11:00", "12:00"]
                     ],
                     "wednesday": [
-                        ["8:30", "18:30"]
+                        ["11:00", "12:00"]
                     ],
                     "thursday": [],
                     "friday": [
-                        ["8:30", "18:30"]
+                        ["11:00", "12:00"]
                     ]
                 },
                 "spring": {
                     "monday": [
-                        ["8:30", "18:30" ],
+                        ["11:00", "12:00"]
                     ],
                     "tuesday": [],
                     "wednesday": [],
                     "thursday": [
-                        ["8:30", "18:30"]
+                        ["11:00", "12:00"]
                     ],
                     "friday": []   
                 },
