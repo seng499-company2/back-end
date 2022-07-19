@@ -44,19 +44,19 @@ class PreferencesSerializerTest(TestCase):
             "preferred_times": {
                 "fall": {
                     "monday": [
-                        ["8:30", "18:30" ],
+                        ["10:00", "11:00"]
                     ],
                     "tuesday": [
-                        ["8:30", "18:30"]
+                        ["10:00", "11:00"]
                     ],
                     "wednesday": [
-                        ["8:30", "18:30"]
+                        ["10:00", "11:00"]
                     ],
                     "thursday": [
-                        ["8:30", "18:30"]
+                        ["10:00", "11:00"]
                     ],
                     "friday": [
-                        ["8:30", "18:30"]
+                        ["10:00", "11:00"]
                     ]
                 },
                 "spring":{},
@@ -121,19 +121,19 @@ class PreferencesSerializerTest(TestCase):
             "preferred_times": {
                 "fall": {
                     "monday": [
-                        ["8:30", "18:30" ],
+                        ["10:00", "11:00"]
                     ],
                     "tuesday": [
-                        ["8:30", "18:30"]
+                        ["10:00", "11:00"]
                     ],
                     "wednesday": [
-                        ["8:30", "18:30"]
+                        ["10:00", "11:00"]
                     ],
                     "thursday": [
-                        ["8:30", "18:30"]
+                        ["10:00", "11:00"]
                     ],
                     "friday": [
-                        ["8:30", "18:30"]
+                        ["10:00", "11:00"]
                     ]
                 },
                 "spring": {},
@@ -198,23 +198,25 @@ class PreferencesSerializerTest(TestCase):
             "preferred_times": {
                 "fall": {
                     "monday": [
-                        ["8:30", "18:30" ],
+                        ["10:00", "11:00"]
                     ],
                     "tuesday": [
-                        ["8:30", "18:30"]
+                        ["10:00", "11:00"]
                     ],
-                    "wednesday": [
-                        ["8:30", "18:30"]
-                    ],
-                    "thursday": [
-                        ["8:30", "18:30"]
-                    ],
-                    "friday": [
-                        ["8:30", "18:30"]
-                    ]
                 },
-                "spring": {},
-                "summer": {}
+                "spring": {
+                    "monday": [
+                        ["10:00", "11:00"]
+                    ],
+                    "tuesday": [
+                        ["10:00", "11:00"]
+                    ],    
+                },
+                "summer": {
+                    "friday": [
+                        ["10:00", "11:00"]
+                    ]
+                }
             },
             "courses_preferences": {
                 "CSC 226": {
@@ -378,25 +380,27 @@ class AdminSidePreferencesRecordViewTest(TestCase):
             'sabbatical_length': 'FULL',
             'sabbatical_start_month': 1,
             "preferred_times": {
-                 "fall": {
+                "fall": {
                     "monday": [
                         ["10:00", "11:00"]
                     ],
                     "tuesday": [
                         ["10:00", "11:00"]
                     ],
-                    "wednesday": [
+                },
+                "spring": {
+                    "monday": [
                         ["10:00", "11:00"]
                     ],
-                    "thursday": [
+                    "tuesday": [
                         ["10:00", "11:00"]
-                    ],
+                    ],    
+                },
+                "summer": {
                     "friday": [
                         ["10:00", "11:00"]
                     ]
-                },
-                "spring": {},
-                "summer": {}
+                }
             },
             "courses_preferences": {
                     "CSC 225": {
@@ -517,37 +521,25 @@ class UserSidePreferencesRecordViewTest(TestCase):
             "sabbatical_start_month": 1,
             "preferred_times": {
                 "fall": {
-                    "monday": [],
+                    "monday": [
+                        ["10:00", "11:00"]
+                    ],
                     "tuesday": [
-                        ["11:00", "12:00"]
+                        ["10:00", "11:00"]
                     ],
-                    "wednesday": [
-                        ["11:00", "12:00"]
-                    ],
-                    "thursday": [],
-                    "friday": [
-                        ["11:00", "12:00"]
-                    ]
                 },
                 "spring": {
                     "monday": [
-                        ["11:00", "12:00"]
+                        ["10:00", "11:00"]
                     ],
-                    "tuesday": [],
-                    "wednesday": [],
-                    "thursday": [
-                        ["11:00", "12:00"]
-                    ],
-                    "friday": []   
+                    "tuesday": [
+                        ["10:00", "11:00"]
+                    ],    
                 },
                 "summer": {
-                    "monday": [],
-                    "tuesday": [],
-                    "wednesday": [],
-                    "thursday": [
-                        ["11:00", "12:00"]
-                    ],
-                    "friday": []  
+                    "friday": [
+                        ["10:00", "11:00"]
+                    ]
                 }
             },
             "courses_preferences": {
@@ -581,31 +573,27 @@ class UserSidePreferencesRecordViewTest(TestCase):
             'sabbatical_length': 'FULL',
             'sabbatical_start_month': 1,
             "preferred_times": {
-               "fall": {
-                    "monday": [],
+                "fall": {
+                    "monday": [
+                        ["10:00", "11:00"]
+                    ],
                     "tuesday": [
-                        ["11:00", "12:00"]
+                        ["10:00", "11:00"]
                     ],
-                    "wednesday": [
-                        ["11:00", "12:00"]
-                    ],
-                    "thursday": [],
-                    "friday": [
-                        ["11:00", "12:00"]
-                    ]
                 },
                 "spring": {
                     "monday": [
-                        ["11:00", "12:00"]
+                        ["10:00", "11:00"]
                     ],
-                    "tuesday": [],
-                    "wednesday": [],
-                    "thursday": [
-                        ["11:00", "12:00"]
-                    ],
-                    "friday": []   
+                    "tuesday": [
+                        ["10:00", "11:00"]
+                    ],    
                 },
-                "summer": {}
+                "summer": {
+                    "friday": [
+                        ["10:00", "11:00"]
+                    ]
+                }
             },
             "courses_preferences": {
                 "CSC 225": {
