@@ -14,6 +14,7 @@ from schedule.alg_data_generator import get_historic_course_data, get_schedule, 
 
 import traceback
 import json
+import logging
 
 
 class Schedule(APIView):
@@ -24,7 +25,12 @@ class Schedule(APIView):
         # Create params for algorithms packages
         historical_data = get_historic_course_data()
         previous_enrollment = get_program_enrollment_data()
-        schedule = get_schedule()
+        try:
+            schedule = get_schedule()
+        except FileNotFoundError as e:
+            return HttpResponse("Error generating schedule! Did you initialize the database?",
+                                status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
         professors = get_professor_dict_mock()
         professors_company1 = get_professor_object_company1()
 
@@ -35,7 +41,7 @@ class Schedule(APIView):
 
         try:
             alg_2_output = c1alg2(historical_data, previous_enrollment, schedule) if requested_company_alg == 1 \
-                 else c2alg2(historical_data, previous_enrollment, schedule)
+                 else c2alg2(historical_data, previous_enrollment, schedule, 2, logging.DEBUG)
             if requested_company_alg == 1:
                 schedule, error = c1alg1.generate_schedule(professors_company1, alg_2_output)
             else:

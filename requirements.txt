@@ -11,7 +11,7 @@ pyjwt==2.4.0
 
 # algorithms
 coursescheduler==0.0.6 #Company 2 alg 1
-c1algo1==2.0.3 # Company 1 alg 1
+c1algo1==2.0.7 # Company 1 alg 1
 
 # dependencies from c1algo2
 numpy

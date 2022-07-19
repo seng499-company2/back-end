@@ -16,10 +16,14 @@ def get_program_enrollment_data() -> typing.Dict[str, str]:
 
 
 def get_schedule():
-    schedule, _ = A_Schedule.objects.get_or_create(id=0)
+    schedule = A_Schedule.objects.first()
+    if schedule is None:
+        print("ERROR: NO DATABASE DATA FOUND. HAVE YOU RUN init_db.sh?")
+        raise FileNotFoundError
     schedule_serializer = A_ScheduleSerializer(instance=schedule)
     data = schedule_serializer.data
     return json.loads(json.dumps(data))
+
 
 #difficulty: 1 = able, 2 = with effort, 0 = no selection
 #willingness: 1 = unwilling, 2 = willing, 3 = very willing, 0 = no selection

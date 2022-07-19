@@ -4,3 +4,4 @@ data/
 .idea/
 .env.*
 /schedule.json
+/.db_init_done
