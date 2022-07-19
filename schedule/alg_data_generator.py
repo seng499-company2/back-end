@@ -68,8 +68,7 @@ def update_course_preferences(course_preferences):
     for course, values in course_preferences.items():
         preference = {}
         preference['courseCode'] = course
-        enthusiasmScore = calculate_enthusiasm_score(values['difficulty'],values['willingness'])
-        preference['enthusiasmScore'] = enthusiasmScore
+        preference['enthusiasmScore'] = calculate_enthusiasm_score(values['difficulty'],values['willingness'])
         coursePreferences.append(preference)
     return coursePreferences
 
