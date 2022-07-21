@@ -28,7 +28,7 @@ def course_to_course_offering(course: Course) -> A_CourseOffering:
 def add_course_offering_to_schedule(course: Course, a_course_offering: A_CourseOffering):
     schedule = A_Schedule.objects.first()
     if schedule is None:
-        print("ERROR: NO DATABASE DATA FOUND. HAVE YOU RUN init_db.sh?")
+        print("Adapter ERROR: NO DATABASE DATA FOUND. HAVE YOU RUN init_db.sh?")
         return None
 
     if course.fall_offering:

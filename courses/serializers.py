@@ -16,10 +16,11 @@ class CourseSerializer(serializers.ModelSerializer):
     summer_offering = serializers.BooleanField()
     pengRequired = serializers.JSONField()
     yearRequired = serializers.IntegerField()
+    max_capacity = serializers.IntegerField()
 
     class Meta:
         model = Course
-        fields = ('course_code', 'num_sections', 'course_title', 'fall_offering', 'spring_offering', 'summer_offering', 'pengRequired', 'yearRequired')
+        fields = ('course_code', 'num_sections', 'course_title', 'fall_offering', 'spring_offering', 'summer_offering', 'pengRequired', 'yearRequired', 'max_capacity')
     
     def create(self, validated_data):
         try:
