@@ -14,7 +14,7 @@ class A_CourseSectionSerializer(serializers.ModelSerializer):
     timeSlots = A_TimeSlotSerializer(many=True, read_only=True)     #nested & many-to-many
     class Meta:
         model = A_CourseSection
-        fields = ['professor', 'capacity', 'timeSlots']
+        fields = ['professor', 'capacity', 'max_capacity', 'timeSlots']
 
 
 class A_CourseSerializer(serializers.ModelSerializer):
