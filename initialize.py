@@ -206,14 +206,10 @@ def parse_schedules_data(csv_file):
             num_sections = int(row[CSV_COLUMNS.NUM_SECTIONS.value])
 
             #create Course models & store to DB
-            #** assign .offering flags later, when scanning for CourseOfferings
             _, _ = Course.objects.get_or_create(
                 course_code=course_code,
-                num_sections=num_sections,
+                num_sections=num_sections, #TODO:remove field
                 course_title=title,
-                fall_offering=False,
-                spring_offering=False,
-                summer_offering=False, 
                 pengRequired=peng_required,
                 yearRequired=year_required
             )
@@ -264,7 +260,7 @@ def parse_schedules_data(csv_file):
             course_sections_list.append(courseSection1)'''
             
             #handling of all N Sections, as long as each exists
-            if row[CSV_COLUMNS.NUM_SECTIONS.value]:
+            if row[CSV_COLUMNS.NUM_SECTIONS.value] > 0:
                 #loop through the all NUM_SECTIONS CourseSection entries in the row
                 for i in range(0, int(row[CSV_COLUMNS.NUM_SECTIONS.value])):
                     if row[CSV_COLUMNS.SECTION1_PROF_ID.value + i*5]:
@@ -306,7 +302,7 @@ def parse_schedules_data(csv_file):
                     course_sections_list.append(courseSectionObj)
         
 
-        #Step 4 - build CourseOffering objects
+        #Step 4 - build CourseOffering objects & Handle associating FE-Course objects to their A_CourseSections
         fall_offerings = []
         spring_offerings = []
         summer_offerings = []
@@ -316,11 +312,11 @@ def parse_schedules_data(csv_file):
         for row in csv_list:
             #get associated Course object foreign key to create CourseOffering, then save to DB
             course_code = row[CSV_COLUMNS.CODE.value]
-            course_obj = A_Course.objects.get(code=course_code)
+            algs_course_obj = A_Course.objects.get(code=course_code)
             frontend_course_obj = Course.objects.get(course_code=course_code)
 
-            if row[CSV_COLUMNS.CODE.value] and course_obj is not None:
-                courseOffering = A_CourseOffering.objects.create(course=course_obj)
+            if row[CSV_COLUMNS.CODE.value] and algs_course_obj is not None:
+                courseOffering = A_CourseOffering.objects.create(course=algs_course_obj)
                 courseOffering.save()
 
                 '''#get the associated CourseSection(s) for many-to-many (in memory)
@@ -332,24 +328,27 @@ def parse_schedules_data(csv_file):
                 #add all associated CourseSections to the CourseOffering object
                 for i in range(0, int(row[CSV_COLUMNS.NUM_SECTIONS.value])):
                     courseOffering.sections.add(course_sections_list[section_index])
+
+                    #associate the CourseSection object to the correct semester relationship
+                    if row[CSV_COLUMNS.SEMESTER.value] == 'fall':
+                        frontend_course_obj.fall_sections.add(course_sections_list[section_index])
+                    elif row[CSV_COLUMNS.SEMESTER.value] == 'spring':
+                        frontend_course_obj.spring_sections.add(course_sections_list[section_index])
+                    elif row[CSV_COLUMNS.SEMESTER.value] == 'summer':
+                        frontend_course_obj.summer_sections.add(course_sections_list[section_index])
+
                     section_index += 1
+                frontend_course_obj.save()
 
                 #finally, save the CourseOffering in memory to the correct semester
-                # **assign FE Course.offering flags here **
                 if row[CSV_COLUMNS.SEMESTER.value] == 'fall':
                     fall_offerings.append(courseOffering)
-                    frontend_course_obj.fall_offering = True
-                    frontend_course_obj.save()
 
                 elif row[CSV_COLUMNS.SEMESTER.value] == 'spring':
                     spring_offerings.append(courseOffering)
-                    frontend_course_obj.spring_offering = True
-                    frontend_course_obj.save()
 
                 elif row[CSV_COLUMNS.SEMESTER.value] == 'summer':
                     summer_offerings.append(courseOffering)
-                    frontend_course_obj.summer_offering = True
-                    frontend_course_obj.save()
 
 
         #Step 5 - build the final Schedule object
