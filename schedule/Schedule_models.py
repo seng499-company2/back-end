@@ -36,7 +36,7 @@ class A_TimeSlot(models.Model):
 class A_CourseSection(models.Model):
     professor = models.JSONField(null=True, blank=True)  #{"id": <int>, "name": AppUser.user.first_name + AppUser.user.last_name}
     capacity = models.PositiveIntegerField(default=0)
-    max_capacity = models.PositiveIntegerField(default=0)
+    maxCapacity = models.PositiveIntegerField(default=0)
     timeSlots = models.ManyToManyField(A_TimeSlot, related_name='courseSections') #to associate multiple TimeSlot objects
 
     def __str__(self):
