@@ -18,13 +18,12 @@ def course_to_alg_course(course: Course) -> A_Course:
 def course_to_course_offering(course: Course) -> A_CourseOffering:
     a_course = course_to_alg_course(course)
     course_offering, _ = A_CourseOffering.objects.get_or_create(course=a_course)
-    if len(course_offering.sections.all()) == 0:
-        course_offering.save()
-        a01 = create_default_section()
-        a01.save()
-        a02 = create_default_section()
-        a02.save()
-        course_offering.sections.set([a01, a02])
+    if len(course_offering.sections.all()) != course.num_sections:
+        for i in range(1, course.num_sections):
+            course_offering.save()
+            section = create_default_section()
+            section.save()
+            course_offering.sections.add(section)
     return course_offering
 
 
