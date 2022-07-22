@@ -39,7 +39,10 @@ class CourseSerializerTest(TestCase):
             'summer_offering',
             'pengRequired',
             'yearRequired', 
-            'max_capacity'
+            'max_capacity',
+            'spring_sections',
+            'summer_sections',
+            'fall_sections'
         ]))
 
     

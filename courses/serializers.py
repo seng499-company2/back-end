@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from .models import Course
-from rest_framework import viewsets
 from django.core.exceptions import ValidationError
+from schedule.Schedule_serializers import A_CourseSectionSerializer
 
 import uuid
 
@@ -17,11 +17,21 @@ class CourseSerializer(serializers.ModelSerializer):
     pengRequired = serializers.JSONField()
     yearRequired = serializers.IntegerField()
     max_capacity = serializers.IntegerField()
+    fall_sections = A_CourseSectionSerializer(many=True, read_only=True) #nested & many-to-many
+    spring_sections = A_CourseSectionSerializer(many=True, read_only=True) #nested & many-to-many
+    summer_sections = A_CourseSectionSerializer(many=True, read_only=True) #nested & many-to-many
 
     class Meta:
         model = Course
-        fields = ('course_code', 'num_sections', 'course_title', 'fall_offering', 'spring_offering', 'summer_offering', 'pengRequired', 'yearRequired', 'max_capacity')
-    
+        fields = ('course_code', 'num_sections', 'course_title', 'fall_offering', 'spring_offering', 'summer_offering',
+                  'pengRequired', 'yearRequired', 'max_capacity', 'fall_sections', 'spring_sections',
+                  'summer_sections')
+        extra_kwargs = {
+            'fall_sections': {'write_only': False, 'required': False},
+            'spring_sections': {'write_only': False, 'required': False},
+            'summer_sections': {'write_only': False, 'required': False}
+        }
+
     def create(self, validated_data):
         try:
             course = Course.objects.create(**validated_data)
