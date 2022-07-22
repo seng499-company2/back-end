@@ -1,13 +1,16 @@
 from courses.models import Course
-from schedule.Schedule_models import A_Course, A_CourseOffering, A_CourseSection, A_Schedule
+from schedule.Schedule_models import A_Course, A_CourseOffering, A_Schedule
 from schedule.utils import create_default_section
 
 
 def course_to_alg_course(course: Course) -> A_Course:
-    a_course, _ = A_Course.objects.get_or_create(code=course.course_code,
-                                                 title=course.course_title,
-                                                 pengRequired=course.pengRequired,
-                                                 yearRequired=course.yearRequired)
+    try:
+        a_course = A_Course.objects.get(code=course.course_code)
+    except A_Course.DoesNotExist:
+        a_course = A_Course()
+    a_course.title = course.course_title,
+    a_course.pengRequired = course.pengRequired,
+    a_course.yearRequired = course.yearRequired
     a_course.save()
     return a_course
 
@@ -37,4 +40,6 @@ def add_course_offering_to_schedule(course: Course, a_course_offering: A_CourseO
         schedule.spring.add(a_course_offering)
     if course.summer_offering:
         schedule.summer.add(a_course_offering)
+    # TODO: if not course.fall_offering:
+    #   schedule.fall.remove(a_course_offering)
     schedule.save()
