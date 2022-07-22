@@ -67,14 +67,16 @@ class CSV_COLUMNS(Enum):
     SECTION1_PROF_ID = 8
     SECTION1_PROF_NAME = 9
     SECTION1_CAPACITY = 10
-    SECTION1_DAYS_OF_WEEK = 11
-    SECTION1_TIME_RANGE = 12
+    SECTION1_MAX_CAPACITY = 11
+    SECTION1_DAYS_OF_WEEK = 12
+    SECTION1_TIME_RANGE = 13
 
-    SECTION2_PROF_ID = 13
-    SECTION2_PROF_NAME = 14
-    SECTION2_CAPACITY = 15
-    SECTION2_DAYS_OF_WEEK = 16
-    SECTION2_TIME_RANGE = 17
+    SECTION2_PROF_ID = 14
+    SECTION2_PROF_NAME = 15
+    SECTION2_CAPACITY = 16
+    SECTION2_MAX_CAPACITY = 17
+    SECTION2_DAYS_OF_WEEK = 18
+    SECTION2_TIME_RANGE = 19
 
 class PROF_CSV_COLUMNS(Enum):
     ID = 0
@@ -169,11 +171,11 @@ def parse_schedules_data(csv_file):
             if row[CSV_COLUMNS.NUM_SECTIONS.value]:
                 #loop through all NUM_SECTIONS CourseSection entries in the row
                 for i in range(0, int(row[CSV_COLUMNS.NUM_SECTIONS.value])):
-                    if row[CSV_COLUMNS.SECTION1_TIME_RANGE.value + i*5]:
+                    if row[CSV_COLUMNS.SECTION1_TIME_RANGE.value + i*6]:
                         
                         #parse the DaysOfTheWeek CSV string into distinct enum values + TimeRange splittings
-                        days_list = get_days_of_the_week(row[CSV_COLUMNS.SECTION1_DAYS_OF_WEEK.value + i*5])
-                        time_range = str(row[CSV_COLUMNS.SECTION1_TIME_RANGE.value + i*5]).split('~')
+                        days_list = get_days_of_the_week(row[CSV_COLUMNS.SECTION1_DAYS_OF_WEEK.value + i*6])
+                        time_range = str(row[CSV_COLUMNS.SECTION1_TIME_RANGE.value + i*6]).split('~')
 
                         #create Django models & store to DB
                         #using try-except here as we cannot guarantee that all fields will be unique for the same course!
@@ -203,12 +205,9 @@ def parse_schedules_data(csv_file):
                 yearRequired=year_required
             )
 
-            num_sections = int(row[CSV_COLUMNS.NUM_SECTIONS.value])
-
-            #create Course models & store to DB
+            #create Course models & store to DB (avoids duplicates)
             _, _ = Course.objects.get_or_create(
                 course_code=course_code,
-                num_sections=num_sections, #TODO:remove field
                 course_title=title,
                 pengRequired=peng_required,
                 yearRequired=year_required
@@ -260,33 +259,39 @@ def parse_schedules_data(csv_file):
             course_sections_list.append(courseSection1)'''
             
             #handling of all N Sections, as long as each exists
-            if row[CSV_COLUMNS.NUM_SECTIONS.value] > 0:
+            if int(row[CSV_COLUMNS.NUM_SECTIONS.value]) > 0:
                 #loop through the all NUM_SECTIONS CourseSection entries in the row
                 for i in range(0, int(row[CSV_COLUMNS.NUM_SECTIONS.value])):
-                    if row[CSV_COLUMNS.SECTION1_PROF_ID.value + i*5]:
+                    if row[CSV_COLUMNS.SECTION1_PROF_ID.value + i*6]:
                         professor = {
-                            "id" : row[CSV_COLUMNS.SECTION1_PROF_ID.value + i*5] ,
-                            "name" : row[CSV_COLUMNS.SECTION1_PROF_NAME.value + i*5]
+                            "id" : row[CSV_COLUMNS.SECTION1_PROF_ID.value + i*6] ,
+                            "name" : row[CSV_COLUMNS.SECTION1_PROF_NAME.value + i*6]
                         }
                     else:
                         professor = None
                     
-                    if row[CSV_COLUMNS.SECTION1_CAPACITY.value + i*5]:
-                        capacity = int(row[CSV_COLUMNS.SECTION1_CAPACITY.value + i*5])
+                    if row[CSV_COLUMNS.SECTION1_CAPACITY.value + i*6]:
+                        capacity = int(row[CSV_COLUMNS.SECTION1_CAPACITY.value + i*6])
                     else:
                         capacity = 0
+                    
+                    if row[CSV_COLUMNS.SECTION1_MAX_CAPACITY.value + i*6]:
+                        max_capacity = int(row[CSV_COLUMNS.SECTION1_MAX_CAPACITY.value + i*6])
+                    else:
+                        max_capacity = 0
 
                     #forced creation of Django model & store to DB
                     courseSectionObj = A_CourseSection.objects.create(
                         professor=professor,
-                        capacity=capacity
+                        capacity=capacity,
+                        maxCapacity=max_capacity
                     )
                     courseSectionObj.save()
 
                     #create the TimeSlots many-to-many relationship, if exists
-                    if row[CSV_COLUMNS.SECTION1_DAYS_OF_WEEK.value + i*5] and row[CSV_COLUMNS.SECTION1_TIME_RANGE.value + i*5]:
-                        days_list = get_days_of_the_week(row[CSV_COLUMNS.SECTION1_DAYS_OF_WEEK.value + i*5])
-                        time_range = str(row[CSV_COLUMNS.SECTION1_TIME_RANGE.value + i*5]).split('~')
+                    if row[CSV_COLUMNS.SECTION1_DAYS_OF_WEEK.value + i*6] and row[CSV_COLUMNS.SECTION1_TIME_RANGE.value + i*6]:
+                        days_list = get_days_of_the_week(row[CSV_COLUMNS.SECTION1_DAYS_OF_WEEK.value + i*6])
+                        time_range = str(row[CSV_COLUMNS.SECTION1_TIME_RANGE.value + i*6]).split('~')
                         time_slots = []
                         for day in days_list:
                             #get TimeSlot obj
