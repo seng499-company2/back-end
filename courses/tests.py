@@ -19,7 +19,8 @@ class CourseSerializerTest(TestCase):
             "spring_offering": True,
             "summer_offering": False,
             "pengRequired": {"fall": False, "spring": True, "summer": True},
-            "yearRequired": 4
+            "yearRequired": 4, 
+            "max_capacity": 100
         }
 
         # serialize into a Course object
@@ -37,7 +38,8 @@ class CourseSerializerTest(TestCase):
             'spring_offering',
             'summer_offering',
             'pengRequired',
-            'yearRequired'
+            'yearRequired', 
+            'max_capacity'
         ]))
 
     
@@ -50,7 +52,8 @@ class CourseSerializerTest(TestCase):
             "spring_offering": True,
             "summer_offering": False,
             "pengRequired": {"fall": False, "spring": True, "summer": True},
-            "yearRequired": 4
+            "yearRequired": 4,
+            "max_capacity": 100
         }
 
         serializer = CourseSerializer(data=serialized_data)
@@ -66,7 +69,8 @@ class CourseSerializerTest(TestCase):
             "spring_offering": True,
             "summer_offering": False,
             "pengRequired": {"fall": False, "spring": True, "summer": True},
-            "yearRequired": 4
+            "yearRequired": 4,
+            "max_capacity": 100
         }
 
         serializer = CourseSerializer(data=serialized_data)
@@ -92,7 +96,8 @@ class CourseSerializerTest(TestCase):
             "spring_offering": False, #updated
             "summer_offering": False,
             "pengRequired": {"fall": False, "spring": True, "summer": True},
-            "yearRequired": 4
+            "yearRequired": 4,
+            "max_capacity": 100
         }
         serializer = CourseSerializer(instance=course_object, data=new_serialized_data)
         self.assertTrue(serializer.is_valid())

@@ -15,6 +15,7 @@ class Course(models.Model):
     summer_offering = models.BooleanField(default=False)
     pengRequired = models.JSONField(default=dict) #Ex: {"fall": true, "spring": false, "summer": true}
     yearRequired = models.IntegerField(default=4)
+    max_capacity = models.IntegerField(default=None, null=True)
 
     class Meta:
         managed = True  #auto creates tables
@@ -23,31 +24,3 @@ class Course(models.Model):
     def __str__(self):
         return self.course_title + ' - ' + self.course_title
     
-
-#Algorithm Specific Models
-
-
-
-# class CourseSection(models.Model):
-#     section_id = models.CharField(primarykeey=True, max_length=5)
-#     professor = models.OneToOneField(AppUser)
-#     capacity = models.IntegerField()
-
-#     class Meta:
-#         managed = True
-#         db_table = "CourseSection"
-
-
-
-
-
-# class CourseOffering(models.Model):
-    
-    
-#     course = models.ManyToManyField(
-#         Course, 
-#         on_delete=models.CASCADE,
-#         primary_key=True
-#     )
-
-#     sections = 

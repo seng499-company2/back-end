@@ -20,7 +20,7 @@ def get_program_enrollment_data() -> typing.Dict[str, str]:
 def get_schedule():
     schedule = A_Schedule.objects.first()
     if schedule is None:
-        print("ERROR: NO DATABASE DATA FOUND. HAVE YOU RUN init_db.sh?")
+        print("Alg Generator ERROR: NO DATABASE DATA FOUND. HAVE YOU RUN init_db.sh?")
         raise FileNotFoundError
     schedule_serializer = A_ScheduleSerializer(instance=schedule)
     data = schedule_serializer.data
