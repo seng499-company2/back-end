@@ -9,22 +9,16 @@ import uuid
 
 class CourseSerializer(serializers.ModelSerializer):
     course_code = serializers.CharField(required=True)
-    num_sections = serializers.IntegerField(max_value=None, min_value=0)
     course_title = serializers.CharField()
-    fall_offering = serializers.BooleanField()
-    spring_offering = serializers.BooleanField()
-    summer_offering = serializers.BooleanField()
     pengRequired = serializers.JSONField()
     yearRequired = serializers.IntegerField()
-    max_capacity = serializers.IntegerField()
     fall_sections = A_CourseSectionSerializer(many=True, read_only=True) #nested & many-to-many
     spring_sections = A_CourseSectionSerializer(many=True, read_only=True) #nested & many-to-many
     summer_sections = A_CourseSectionSerializer(many=True, read_only=True) #nested & many-to-many
 
     class Meta:
         model = Course
-        fields = ('course_code', 'num_sections', 'course_title', 'fall_offering', 'spring_offering', 'summer_offering',
-                  'pengRequired', 'yearRequired', 'max_capacity', 'fall_sections', 'spring_sections',
+        fields = ('course_code', 'course_title', 'pengRequired', 'yearRequired', 'fall_sections', 'spring_sections',
                   'summer_sections')
         extra_kwargs = {
             'fall_sections': {'write_only': False, 'required': False},
