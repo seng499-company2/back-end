@@ -4,13 +4,14 @@ from rest_framework.test import APIClient
 from preferences.models import Preferences
 from rest_framework_simplejwt.tokens import SlidingToken
 from django.contrib.auth.models import User
-from schedule.adapter import add_course_offering_to_schedule, course_to_course_offering
+from schedule.adapter import add_course_offering_to_schedule, \
+    course_to_fall_course_offering, course_to_spring_course_offering, course_to_summer_course_offering
 from courses.models import Course
 from schedule.alg_data_generator import get_historic_course_data, get_program_enrollment_data, \
     get_schedule, get_professor_dict
-from collections import OrderedDict
 from users.models import AppUser
 from users.serializers import AppUserSerializer
+from schedule.Schedule_models import A_CourseSection
 
 quick_test_mode = False
 
@@ -22,6 +23,14 @@ class ViewTest(TestCase):
         token = SlidingToken.for_user(user)
         self.client.credentials(HTTP_AUTHORIZATION=f'Bearer {token}')
         self.maxDiff = None
+
+    def get_default_section(self):
+        section = A_CourseSection()
+        section.professor = {"name": "professor professorPants"}
+        section.capacity = 150
+        section.maxCapacity = 200
+        section.save()
+        return section
 
     def init_course1(self):
         try:
@@ -35,12 +44,19 @@ class ViewTest(TestCase):
             }
             self.course = Course.objects.create(**course_attributes)
             self.course.save()
-        alg_course_offering = course_to_course_offering(self.course)
-        add_course_offering_to_schedule(self.course, alg_course_offering)
+            self.course.fall_sections.add(self.get_default_section())
+            self.course.spring_sections.add(self.get_default_section())
+            self.course.summer_sections.add(self.get_default_section())
+        alg_course_offering = course_to_fall_course_offering(self.course)
+        add_course_offering_to_schedule(alg_course_offering, "fall")
+        alg_course_offering = course_to_spring_course_offering(self.course)
+        add_course_offering_to_schedule(alg_course_offering, "spring")
+        alg_course_offering = course_to_summer_course_offering(self.course)
+        add_course_offering_to_schedule(alg_course_offering, "summer")
 
     def init_course2(self):
         try:
-            self.course = Course.objects.get(course_code="SENG321")
+            self.course2 = Course.objects.get(course_code="SENG321")
         except Course.DoesNotExist:
             course_attributes = {
                 "course_code": "SENG321",
@@ -49,8 +65,16 @@ class ViewTest(TestCase):
                 "yearRequired": 3
             }
             self.course2 = Course.objects.create(**course_attributes)
-            alg_course_offering = course_to_course_offering(self.course2)
-            add_course_offering_to_schedule(self.course, alg_course_offering)
+            self.course2.save()
+            self.course2.spring_sections.add(self.get_default_section())
+            self.course2.spring_sections.add(self.get_default_section())
+            self.course2.spring_sections.add(self.get_default_section())
+        alg_course_offering = course_to_fall_course_offering(self.course2)
+        add_course_offering_to_schedule(alg_course_offering, "fall")
+        alg_course_offering = course_to_spring_course_offering(self.course2)
+        add_course_offering_to_schedule(alg_course_offering, "spring")
+        alg_course_offering = course_to_summer_course_offering(self.course2)
+        add_course_offering_to_schedule(alg_course_offering, "summer")
 
     def init_prof(self):
         #build AppUser instance

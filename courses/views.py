@@ -14,7 +14,8 @@ from rest_framework import status
 from .permissions import IsAdmin
 from rest_framework.permissions import IsAuthenticated
 
-from schedule.adapter import course_to_course_offering, add_course_offering_to_schedule
+from schedule.adapter import add_course_offering_to_schedule, \
+    course_to_summer_course_offering, course_to_spring_course_offering, course_to_fall_course_offering
 
 from users.models import AppUser
 from preferences.models import Preferences
@@ -43,12 +44,22 @@ class AllCoursesView(APIView):
         
         if serializer.is_valid():
             course = serializer.create(serializer.validated_data)
-            course_offering = course_to_course_offering(course)
-            course_offering.save()
-            add_course_offering_to_schedule(course, course_offering)
+            align_course_models(course)
             return HttpResponse(json.dumps(serializer.data), status=status.HTTP_200_OK)
         
         return HttpResponse(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+def align_course_models(course):
+    alg_course_offering_fall = course_to_fall_course_offering(course)
+    alg_course_offering_fall.save()
+    alg_course_offering_spring = course_to_spring_course_offering(course)
+    alg_course_offering_spring.save()
+    alg_course_offering_summer = course_to_summer_course_offering(course)
+    alg_course_offering_summer.save()
+    add_course_offering_to_schedule(alg_course_offering_fall, "fall")
+    add_course_offering_to_schedule(alg_course_offering_spring, "spring")
+    add_course_offering_to_schedule(alg_course_offering_summer, "summer")
 
 
 class CourseView(APIView):
@@ -105,9 +116,7 @@ class CourseView(APIView):
         serializer = CourseSerializer(course, data=request_data)
         if serializer.is_valid():
             course = serializer.update(course, serializer.validated_data)
-            alg_course_offering = course_to_course_offering(course)
-            alg_course_offering.save()
-            add_course_offering_to_schedule(course, alg_course_offering)
+            align_course_models(course)
             return HttpResponse(json.dumps(serializer.data), status=status.HTTP_200_OK)
         return HttpResponse(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
@@ -119,7 +128,11 @@ class CourseView(APIView):
             course = Course.objects.get(course_code=course_code)
         except courses.models.Course.DoesNotExist:
             return HttpResponse(status=status.HTTP_404_NOT_FOUND)
-        alg_course_offering = course_to_course_offering(course)
-        course.delete()
+        alg_course_offering = course_to_fall_course_offering(course)
         alg_course_offering.delete()
+        alg_course_offering = course_to_spring_course_offering(course)
+        alg_course_offering.delete()
+        alg_course_offering = course_to_summer_course_offering(course)
+        alg_course_offering.delete()
+        course.delete()
         return HttpResponse(status=status.HTTP_204_NO_CONTENT)

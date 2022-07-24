@@ -1,6 +1,5 @@
 from courses.models import Course
 from schedule.Schedule_models import A_Course, A_CourseOffering, A_Schedule
-from schedule.utils import create_default_section
 
 
 def course_to_alg_course(course: Course) -> A_Course:
@@ -15,31 +14,76 @@ def course_to_alg_course(course: Course) -> A_Course:
     return a_course
 
 
-def course_to_course_offering(course: Course) -> A_CourseOffering:
+def course_to_fall_course_offering(course: Course) -> A_CourseOffering:
     a_course = course_to_alg_course(course)
-    course_offering, _ = A_CourseOffering.objects.get_or_create(course=a_course)
-    # if len(course_offering.sections.all()) != course.num_sections:
-    #     for i in range(1, course.num_sections):
-    # TODO: Course sections dynamically
+    sections = course.fall_sections
+    return get_course_offering_for_sections(sections, a_course)
+
+
+def course_to_spring_course_offering(course: Course) -> A_CourseOffering:
+    a_course = course_to_alg_course(course)
+    sections = course.spring_sections
+    return get_course_offering_for_sections(sections, a_course)
+
+
+def course_to_summer_course_offering(course: Course):
+    a_course = course_to_alg_course(course)
+    sections = course.summer_sections
+    return get_course_offering_for_sections(sections, a_course)
+
+
+def get_course_offering_for_sections(sections, a_course: A_Course):
+    if not sections.all():
+        # Course isn't scheduled in the given semester
+        # Creating an object with no sections
+        course_offering, _ = A_CourseOffering.objects.get_or_create(course=a_course, sections__in=[])
+        course_offering.save()
+        return course_offering
+
+    try:
+        course_offering = A_CourseOffering.objects.filter(course=a_course, sections__in=sections.all()).first()
+        if course_offering is None:
+            raise A_CourseOffering.DoesNotExist
+    except A_CourseOffering.DoesNotExist:
+        course_offering = A_CourseOffering()
+        course_offering.course = a_course
+        course_offering.save()
+        course_offering.sections.set(sections.all())
     course_offering.save()
-    section = create_default_section()
-    section.save()
-    course_offering.sections.add(section)
     return course_offering
 
 
-def add_course_offering_to_schedule(course: Course, a_course_offering: A_CourseOffering):
-    schedule = A_Schedule.objects.first()
+def add_course_offering_to_schedule(a_course_offering: A_CourseOffering, semester: str):
+    schedule: A_Schedule = A_Schedule.objects.first()
     if schedule is None:
         print("Adapter ERROR: NO DATABASE DATA FOUND. HAVE YOU RUN init_db.sh?")
         return None
 
-    # if course.fall_offering:
-    #     schedule.fall.add(a_course_offering)
-    # if course.spring_offering:
-    #     schedule.spring.add(a_course_offering)
-    # if course.summer_offering:
-    #     schedule.summer.add(a_course_offering)
-    # TODO: if not course.fall_offering:
-    #   schedule.fall.remove(a_course_offering)
+    if semester not in ["fall", "spring", "summer"]:
+        raise NotImplementedError("cannot add a course offering in the semester '" + semester + "'")
+
+    if "fall" == semester:
+        # remove any old course offerings with old data
+        fall_course_offerings = schedule.fall.all()
+        for old_course_offering in fall_course_offerings:
+            if old_course_offering.course == a_course_offering.course:
+                schedule.fall.remove(old_course_offering)
+        schedule.fall.add(a_course_offering)
+
+    if "spring" == semester:
+        # remove any old course offerings with old data
+        spring_course_offerings = schedule.spring.all()
+        for old_course_offering in spring_course_offerings:
+            if old_course_offering.course == a_course_offering.course:
+                schedule.spring.remove(old_course_offering)
+        schedule.spring.add(a_course_offering)
+
+    if "summer" == semester:
+        # remove any old course offerings with old data
+        summer_course_offerings = schedule.summer.all()
+        for old_course_offering in summer_course_offerings:
+            if old_course_offering.course == a_course_offering.course:
+                schedule.summer.remove(old_course_offering)
+        schedule.summer.add(a_course_offering)
+
     schedule.save()
