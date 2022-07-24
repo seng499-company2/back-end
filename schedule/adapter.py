@@ -18,12 +18,13 @@ def course_to_alg_course(course: Course) -> A_Course:
 def course_to_course_offering(course: Course) -> A_CourseOffering:
     a_course = course_to_alg_course(course)
     course_offering, _ = A_CourseOffering.objects.get_or_create(course=a_course)
-    if len(course_offering.sections.all()) != course.num_sections:
-        for i in range(1, course.num_sections):
-            course_offering.save()
-            section = create_default_section()
-            section.save()
-            course_offering.sections.add(section)
+    # if len(course_offering.sections.all()) != course.num_sections:
+    #     for i in range(1, course.num_sections):
+    # TODO: Course sections dynamically
+    course_offering.save()
+    section = create_default_section()
+    section.save()
+    course_offering.sections.add(section)
     return course_offering
 
 
@@ -33,12 +34,12 @@ def add_course_offering_to_schedule(course: Course, a_course_offering: A_CourseO
         print("Adapter ERROR: NO DATABASE DATA FOUND. HAVE YOU RUN init_db.sh?")
         return None
 
-    if course.fall_offering:
-        schedule.fall.add(a_course_offering)
-    if course.spring_offering:
-        schedule.spring.add(a_course_offering)
-    if course.summer_offering:
-        schedule.summer.add(a_course_offering)
+    # if course.fall_offering:
+    #     schedule.fall.add(a_course_offering)
+    # if course.spring_offering:
+    #     schedule.spring.add(a_course_offering)
+    # if course.summer_offering:
+    #     schedule.summer.add(a_course_offering)
     # TODO: if not course.fall_offering:
     #   schedule.fall.remove(a_course_offering)
     schedule.save()

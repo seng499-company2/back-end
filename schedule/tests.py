@@ -1,5 +1,3 @@
-import typing
-
 from django.test import TestCase
 from rest_framework import status
 from rest_framework.test import APIClient
@@ -31,11 +29,7 @@ class ViewTest(TestCase):
         except Course.DoesNotExist:
             course_attributes = {
                 "course_code": "SENG499",
-                "num_sections": 2,
                 "course_title": "Design Project 2",
-                "fall_offering": True,
-                "spring_offering": True,
-                "summer_offering": True,
                 "pengRequired": {"fall": True, "spring": True, "summer": True},
                 "yearRequired": 4
             }
@@ -50,11 +44,7 @@ class ViewTest(TestCase):
         except Course.DoesNotExist:
             course_attributes = {
                 "course_code": "SENG321",
-                "num_sections": 2,
                 "course_title": "Requirements Engineering",
-                "fall_offering": True,
-                "spring_offering": True,
-                "summer_offering": True,
                 "pengRequired": {"fall": False, "spring": False, "summer": False},
                 "yearRequired": 3
             }
