@@ -7,6 +7,7 @@ class A_TimeSlotSerializer(serializers.ModelSerializer):
         model = A_TimeSlot
         fields = ['dayOfWeek', 'timeRange']
 
+
 class A_CourseSectionSerializer(serializers.ModelSerializer):
     professor = serializers.JSONField(allow_null=True) #Ex: #{"id": <int>, "name": Mike Zastre}
     capacity = serializers.IntegerField(max_value=None, min_value=0)

@@ -89,7 +89,7 @@ class CourseView(APIView):
 
                 very_willing_json = {}
                 very_willing_json["username"] = obj2.professor.user.username
-                very_willing_json["name"] = obj2.professor.user.first_name + ' ' + obj1.professor.user.last_name
+                very_willing_json["name"] = obj2.professor.user.first_name + ' ' + obj2.professor.user.last_name
                 very_willing_json["willingness"] = 3
                 preferences_data[obj2.professor.user.id] = very_willing_json
 
