@@ -92,6 +92,8 @@ def get_professor_dict():
         prof_dict["teachingObligations"] = calculate_teaching_obligations(appUser.prof_type, preference.sabbatical_length)
         prof_dict["preferredTimes"] = preference.preferred_times
         prof_dict["preferredNonTeachingSemester"] = preference.preferred_non_teaching_semester.upper()
+        if prof_dict["preferredNonTeachingSemester"] == "":
+            prof_dict["preferredNonTeachingSemester"] = None
         prof_dict["preferredCoursesPerSemester"] = preference.preferred_courses_per_semester
         prof_dict["preferredCourseDaySpreads"] = preference.preferred_course_day_spreads
         professors.append(prof_dict)

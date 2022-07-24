@@ -10,8 +10,8 @@ django-cors-headers==3.13.0
 pyjwt==2.4.0
 
 # algorithms
-coursescheduler==0.1.0 #Company 2 alg 1
-c1algo1==2.0.13 # Company 1 alg 1
+coursescheduler==0.1.1 #Company 2 alg 1
+c1algo1==2.0.15 # Company 1 alg 1
 
 # dependencies from c1algo2
 numpy
