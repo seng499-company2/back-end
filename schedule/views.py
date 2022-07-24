@@ -26,7 +26,7 @@ class Schedule(APIView):
         historical_data = get_historic_course_data()
         previous_enrollment = get_program_enrollment_data()
         try:
-            schedule = get_schedule()
+            schedule = get_schedule(requested_company_alg)
         except FileNotFoundError as e:
             return HttpResponse("Error generating schedule! Did you initialize the database?",
                                 status=status.HTTP_500_INTERNAL_SERVER_ERROR)

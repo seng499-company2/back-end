@@ -197,21 +197,6 @@ class ViewTest(TestCase):
 
         Preferences.objects.update(**self.preferences_attributes)
 
-    def get_course1_ordered_dict(self):
-        expected = OrderedDict()
-        expected_course = OrderedDict()
-        expected_course["code"] = "SENG499"
-        expected_course["title"] = "Design Project 2"
-        expected_course["pengRequired"] = {"fall": True, "spring": True, "summer": True}
-        expected_course["yearRequired"] = 4
-        expected_section1 = OrderedDict()
-        expected_section1["professor"] = ""
-        expected_section1["capacity"] = 0
-        expected_section1["timeSlots"] = []
-        expected["course"] = expected_course
-        expected["sections"] = [expected_section1, expected_section1]
-        return expected
-
     def get_course1_dict(self):
         expected = \
             {"course":
@@ -305,7 +290,7 @@ class ViewTest(TestCase):
 
     def test_get_schedule_no_courses(self):
         try:
-            schedule = get_schedule()
+            schedule = get_schedule(2)
             self.fail()  # Should have thrown an error
         except FileNotFoundError:
             pass  # expected behaviour

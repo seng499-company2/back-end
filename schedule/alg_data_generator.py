@@ -3,7 +3,7 @@ import json
 import pickle
 from preferences.models import Preferences
 from schedule.Schedule_models import A_Schedule
-from schedule.Schedule_serializers import A_ScheduleSerializer
+from schedule.Schedule_serializers import A_ScheduleSerializer, A_Company1ScheduleSerializer
 from users.models import AppUser
 
 
@@ -17,18 +17,19 @@ def get_program_enrollment_data() -> typing.Dict[str, str]:
         return json.load(json_file)
 
 
-def get_schedule():
+def get_schedule(company: int):
     schedule = A_Schedule.objects.first()
     if schedule is None:
         print("Alg Generator ERROR: NO DATABASE DATA FOUND. HAVE YOU RUN init_db.sh?")
         raise FileNotFoundError
-    schedule_serializer = A_ScheduleSerializer(instance=schedule)
+    schedule_serializer = A_Company1ScheduleSerializer(instance=schedule) if company == 1 \
+        else A_ScheduleSerializer(instance=schedule)
     data = schedule_serializer.data
     return json.loads(json.dumps(data))
 
 
-#difficulty: 1 = able, 2 = with effort, 0 = no selection
-#willingness: 1 = unwilling, 2 = willing, 3 = very willing, 0 = no selection
+# difficulty: 1 = able, 2 = with effort, 0 = no selection
+# willingness: 1 = unwilling, 2 = willing, 3 = very willing, 0 = no selection
 
 def calculate_enthusiasm_score(difficulty, willingness):
 
