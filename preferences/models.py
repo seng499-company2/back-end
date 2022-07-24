@@ -32,7 +32,7 @@ class Preferences(models.Model):
     preferred_course_day_spreads = ArrayField(models.CharField(max_length=5, blank=False), default=list)
     
     def __str__(self):
-        return self.professor.first_name + ' ' + self.professor.last_name
+        return self.professor.user.first_name + ' ' + self.professor.user.last_name
 
    
     class Meta:
