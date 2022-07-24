@@ -76,6 +76,39 @@ def update_course_preferences(course_preferences):
         preference['enthusiasmScore'] = calculate_enthusiasm_score(values['difficulty'],values['willingness'])
         coursePreferences.append(preference)
     return coursePreferences
+
+
+#merges Preferences.preferredTimes time intervals by joining distinct tuples on their boundaries
+def merge_preferred_times(unmerged_preferred_times):
+    merged_times = {
+        "fall": {},
+        "spring": {},
+        "summer": {}
+    }
+    for semester in unmerged_preferred_times:
+        for key in unmerged_preferred_times[semester]:
+            unmerged_list = unmerged_preferred_times[semester][key]
+
+            #merge all timeranges for the weekday
+            i = 0
+            while i < len(unmerged_list) - 1:
+                t1start, t1end = unmerged_list[i]
+                j = i+1
+                while j < len(unmerged_list):
+                    t2start, t2end = unmerged_list[j]
+                    if t1end == t2start:
+                        unmerged_list[i] = [t1start, t2end]
+                        t1end = t2end
+                        unmerged_list.pop(j)
+                    else:
+                        j += 1
+                i += 1
+
+            #set the merged timeranges as the value of the dict key
+            merged_list = unmerged_list
+            merged_times[semester][key] = merged_list
+
+    return merged_times
     
 
 def get_professor_dict():
@@ -90,7 +123,9 @@ def get_professor_dict():
         prof_dict["facultyType"] = "RESEARCH" if appUser.prof_type == "RP" else "TEACHING"
         prof_dict["coursePreferences"] = update_course_preferences(preference.courses_preferences)
         prof_dict["teachingObligations"] = calculate_teaching_obligations(appUser.prof_type, preference.sabbatical_length)
-        prof_dict["preferredTimes"] = preference.preferred_times
+
+        #merge the preferredTimes prior to setting it in the Preferences object, for the Algorithms teams
+        prof_dict["preferredTimes"] = merge_preferred_times(preference.preferred_times)
         prof_dict["preferredNonTeachingSemester"] = preference.preferred_non_teaching_semester.upper()
         prof_dict["preferredCoursesPerSemester"] = preference.preferred_courses_per_semester
         prof_dict["preferredCourseDaySpreads"] = preference.preferred_course_day_spreads
