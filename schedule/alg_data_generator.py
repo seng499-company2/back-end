@@ -127,6 +127,8 @@ def get_professor_dict():
         #merge the preferredTimes prior to setting it in the Preferences object, for the Algorithms teams
         prof_dict["preferredTimes"] = merge_preferred_times(preference.preferred_times)
         prof_dict["preferredNonTeachingSemester"] = preference.preferred_non_teaching_semester.upper()
+        if prof_dict["preferredNonTeachingSemester"] == "":
+            prof_dict["preferredNonTeachingSemester"] = None
         prof_dict["preferredCoursesPerSemester"] = preference.preferred_courses_per_semester
         prof_dict["preferredCourseDaySpreads"] = preference.preferred_course_day_spreads
         professors.append(prof_dict)
