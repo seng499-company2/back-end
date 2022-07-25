@@ -446,8 +446,10 @@ def get_preferences_record_fields(csv_row):
     #build preferred nonteaching sem
     preferred_non_teaching_semester = semester_map[csv_row[PROF_CSV_COLUMNS.PREFERRED_NON_TEACHING_SEMESTER.value]]
 
-    #build preferred course day spreads
+    #build preferred course day spreads - force to an empty list if None exist 
     preferred_course_day_spreads = csv_row[PROF_CSV_COLUMNS.PREFERRED_COURSE_DAY_SPREADS.value].split('&')
+    if all('' == s or s.isspace() for s in preferred_course_day_spreads):
+        preferred_course_day_spreads = []
 
     #TODO: figure out the following Preferences fields: taking_sabbatical, sabbatical_length, sabbatical_start_month, courses_preferences
     #
