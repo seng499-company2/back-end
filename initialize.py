@@ -153,20 +153,6 @@ def parse_schedules_data(csv_file):
 
         #Step 1 - build TimeSlot objects
         for row in csv_list:
-            '''#handling TimeSlots for course with 1 section
-            if row[CSV_COLUMNS.SECTION1_TIME_RANGE.value]:
-                
-                #parse the DaysOfTheWeek CSV string into distinct enum values + TimeRange splittings
-                days_list = get_days_of_the_week(row[CSV_COLUMNS.SECTION1_DAYS_OF_WEEK.value])
-                time_range = str(row[CSV_COLUMNS.SECTION1_TIME_RANGE.value]).split('~')
-
-                #create Django models & store to DB
-                for day in days_list:
-                    _, _ = A_TimeSlot.objects.get_or_create(
-                        dayOfWeek=day,
-                        timeRange=time_range
-                    )'''
-
             #handling TimeSlots for course with *1 to N* sections
             if row[CSV_COLUMNS.NUM_SECTIONS.value]:
                 #loop through all NUM_SECTIONS CourseSection entries in the row
@@ -219,45 +205,6 @@ def parse_schedules_data(csv_file):
         course_sections_list = []
 
         for row in csv_list:
-            '''#handling of Section 1                
-            if row[CSV_COLUMNS.SECTION1_PROF_ID.value]:
-                professor = {
-                    "id" : row[CSV_COLUMNS.SECTION1_PROF_ID.value] ,
-                    "name" : row[CSV_COLUMNS.SECTION1_PROF_NAME.value]
-                }
-            else:
-                professor = None
-            
-            if row[CSV_COLUMNS.SECTION1_CAPACITY.value]:
-                capacity = int(row[CSV_COLUMNS.SECTION1_CAPACITY.value])
-            else:
-                capacity = 0
-
-            #forced creation of Django model & store to DB
-            courseSection1 = A_CourseSection.objects.create(
-                professor=professor,
-                capacity=capacity
-            )
-            courseSection1.save()
-
-            #create the TimeSlots many-to-many relationship, if exists
-            if row[CSV_COLUMNS.SECTION1_DAYS_OF_WEEK.value] and row[CSV_COLUMNS.SECTION1_TIME_RANGE.value]:
-                days_list = get_days_of_the_week(row[CSV_COLUMNS.SECTION1_DAYS_OF_WEEK.value])
-                time_range = str(row[CSV_COLUMNS.SECTION1_TIME_RANGE.value]).split('~')
-                time_slots = []
-                for day in days_list:
-                    #get TimeSlot obj
-                    obj, _ = A_TimeSlot.objects.get_or_create(
-                        dayOfWeek=day,
-                        timeRange=time_range
-                    )
-
-                    #associate the TimeSlot
-                    time_slots.append(obj)
-
-                courseSection1.timeSlots.set(time_slots)
-            course_sections_list.append(courseSection1)'''
-            
             #handling of all N Sections, as long as each exists
             if int(row[CSV_COLUMNS.NUM_SECTIONS.value]) > 0:
                 #loop through the all NUM_SECTIONS CourseSection entries in the row
@@ -324,12 +271,6 @@ def parse_schedules_data(csv_file):
                 courseOffering = A_CourseOffering.objects.create(course=algs_course_obj)
                 courseOffering.save()
 
-                '''#get the associated CourseSection(s) for many-to-many (in memory)
-                courseOffering.sections.add(course_sections_list[i])
-                i += 1
-                if int(row[CSV_COLUMNS.NUM_SECTIONS.value]) == 2:
-                    courseOffering.sections.add(course_sections_list[i])
-                    i += 1'''
                 #add all associated CourseSections to the CourseOffering object
                 for i in range(0, int(row[CSV_COLUMNS.NUM_SECTIONS.value])):
                     courseOffering.sections.add(course_sections_list[section_index])
@@ -505,8 +446,10 @@ def get_preferences_record_fields(csv_row):
     #build preferred nonteaching sem
     preferred_non_teaching_semester = semester_map[csv_row[PROF_CSV_COLUMNS.PREFERRED_NON_TEACHING_SEMESTER.value]]
 
-    #build preferred course day spreads
+    #build preferred course day spreads - force to an empty list if None exist 
     preferred_course_day_spreads = csv_row[PROF_CSV_COLUMNS.PREFERRED_COURSE_DAY_SPREADS.value].split('&')
+    if all('' == s or s.isspace() for s in preferred_course_day_spreads):
+        preferred_course_day_spreads = []
 
     #TODO: figure out the following Preferences fields: taking_sabbatical, sabbatical_length, sabbatical_start_month, courses_preferences
     #
