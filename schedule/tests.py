@@ -1,18 +1,17 @@
-import typing
-
 from django.test import TestCase
 from rest_framework import status
 from rest_framework.test import APIClient
 from preferences.models import Preferences
 from rest_framework_simplejwt.tokens import SlidingToken
 from django.contrib.auth.models import User
-from schedule.adapter import add_course_offering_to_schedule, course_to_course_offering
+from schedule.adapter import add_course_offering_to_schedule, \
+    course_to_fall_course_offering, course_to_spring_course_offering, course_to_summer_course_offering
 from courses.models import Course
 from schedule.alg_data_generator import get_historic_course_data, get_program_enrollment_data, \
     get_schedule, get_professor_dict
-from collections import OrderedDict
 from users.models import AppUser
 from users.serializers import AppUserSerializer
+from schedule.Schedule_models import A_CourseSection
 
 quick_test_mode = False
 
@@ -25,42 +24,57 @@ class ViewTest(TestCase):
         self.client.credentials(HTTP_AUTHORIZATION=f'Bearer {token}')
         self.maxDiff = None
 
+    def get_default_section(self):
+        section = A_CourseSection()
+        section.professor = {"name": "professor professorPants"}
+        section.capacity = 150
+        section.maxCapacity = 200
+        section.save()
+        return section
+
     def init_course1(self):
         try:
             self.course = Course.objects.get(course_code="SENG499")
         except Course.DoesNotExist:
             course_attributes = {
                 "course_code": "SENG499",
-                "num_sections": 2,
                 "course_title": "Design Project 2",
-                "fall_offering": True,
-                "spring_offering": True,
-                "summer_offering": True,
                 "pengRequired": {"fall": True, "spring": True, "summer": True},
                 "yearRequired": 4
             }
             self.course = Course.objects.create(**course_attributes)
             self.course.save()
-        alg_course_offering = course_to_course_offering(self.course)
-        add_course_offering_to_schedule(self.course, alg_course_offering)
+            self.course.fall_sections.add(self.get_default_section())
+            self.course.spring_sections.add(self.get_default_section())
+            self.course.summer_sections.add(self.get_default_section())
+        alg_course_offering = course_to_fall_course_offering(self.course)
+        add_course_offering_to_schedule(alg_course_offering, "fall")
+        alg_course_offering = course_to_spring_course_offering(self.course)
+        add_course_offering_to_schedule(alg_course_offering, "spring")
+        alg_course_offering = course_to_summer_course_offering(self.course)
+        add_course_offering_to_schedule(alg_course_offering, "summer")
 
     def init_course2(self):
         try:
-            self.course = Course.objects.get(course_code="SENG321")
+            self.course2 = Course.objects.get(course_code="SENG321")
         except Course.DoesNotExist:
             course_attributes = {
                 "course_code": "SENG321",
-                "num_sections": 2,
                 "course_title": "Requirements Engineering",
-                "fall_offering": True,
-                "spring_offering": True,
-                "summer_offering": True,
                 "pengRequired": {"fall": False, "spring": False, "summer": False},
                 "yearRequired": 3
             }
             self.course2 = Course.objects.create(**course_attributes)
-            alg_course_offering = course_to_course_offering(self.course2)
-            add_course_offering_to_schedule(self.course, alg_course_offering)
+            self.course2.save()
+            self.course2.spring_sections.add(self.get_default_section())
+            self.course2.spring_sections.add(self.get_default_section())
+            self.course2.spring_sections.add(self.get_default_section())
+        alg_course_offering = course_to_fall_course_offering(self.course2)
+        add_course_offering_to_schedule(alg_course_offering, "fall")
+        alg_course_offering = course_to_spring_course_offering(self.course2)
+        add_course_offering_to_schedule(alg_course_offering, "spring")
+        alg_course_offering = course_to_summer_course_offering(self.course2)
+        add_course_offering_to_schedule(alg_course_offering, "summer")
 
     def init_prof(self):
         #build AppUser instance
@@ -207,21 +221,6 @@ class ViewTest(TestCase):
 
         Preferences.objects.update(**self.preferences_attributes)
 
-    def get_course1_ordered_dict(self):
-        expected = OrderedDict()
-        expected_course = OrderedDict()
-        expected_course["code"] = "SENG499"
-        expected_course["title"] = "Design Project 2"
-        expected_course["pengRequired"] = {"fall": True, "spring": True, "summer": True}
-        expected_course["yearRequired"] = 4
-        expected_section1 = OrderedDict()
-        expected_section1["professor"] = ""
-        expected_section1["capacity"] = 0
-        expected_section1["timeSlots"] = []
-        expected["course"] = expected_course
-        expected["sections"] = [expected_section1, expected_section1]
-        return expected
-
     def get_course1_dict(self):
         expected = \
             {"course":
@@ -315,7 +314,7 @@ class ViewTest(TestCase):
 
     def test_get_schedule_no_courses(self):
         try:
-            schedule = get_schedule()
+            schedule = get_schedule(2)
             self.fail()  # Should have thrown an error
         except FileNotFoundError:
             pass  # expected behaviour
@@ -323,6 +322,8 @@ class ViewTest(TestCase):
     def test_get_professor_dict(self):
         self.init_prof()
         result = get_professor_dict()
+
+        #preferredTimes must now be merged correctly
         expected = [{
             "id": str(self.user.id),
             "name": "John Doe",
@@ -342,94 +343,26 @@ class ViewTest(TestCase):
             "preferredTimes":
                 {"fall":
                     {"friday":
-                        [["10:00", "11:00"],
-                        ["11:00", "12:00"],
-                        ["12:00", "13:00"],
-                        ["13:00", "14:00"],
-                        ["14:00", "15:00"],
-                        ["15:00", "16:00"],
-                        ["16:00", "17:00"]],
+                        [["10:00", "17:00"]],
                     "monday":
-                        [["10:00", "11:00"],
-                        ["11:00", "12:00"],
-                        ["12:00", "13:00"],
-                        ["13:00", "14:00"],
-                        ["14:00", "15:00"],
-                        ["15:00", "16:00"],
-                        ["16:00", "17:00"]],
+                        [["10:00", "17:00"]],
                     "tuesday":
-                        [["10:00", "11:00"],
-                        ["11:00", "12:00"],
-                        ["12:00", "13:00"],
-                        ["13:00", "14:00"],
-                        ["14:00", "15:00"],
-                        ["15:00", "16:00"],
-                        ["16:00", "17:00"]],
+                        [["10:00", "17:00"]],
                     "thursday":
-                        [["10:00", "11:00"],
-                        ["11:00", "12:00"],
-                        ["12:00", "13:00"],
-                        ["13:00", "14:00"],
-                        ["14:00", "15:00"],
-                        ["15:00", "16:00"],
-                        ["16:00", "17:00"]],
+                        [["10:00", "17:00"]],
                     "wednesday":
-                        [["10:00", "11:00"],
-                        ["11:00", "12:00"],
-                        ["12:00", "13:00"],
-                        ["13:00", "14:00"],
-                        ["14:00", "15:00"],
-                        ["15:00", "16:00"],
-                        ["16:00", "17:00"]]},
+                        [["10:00", "17:00"]]},
                 "spring":
                     {"friday":
-                        [["9:00", "10:00"],
-                        ["10:00", "11:00"],
-                        ["11:00", "12:00"],
-                        ["12:00", "13:00"],
-                        ["13:00", "14:00"],
-                        ["14:00", "15:00"],
-                        ["15:00", "16:00"],
-                        ["16:00", "17:00"],
-                        ["17:00", "18:00"],
-                        ["18:00", "19:00"]],
+                        [["9:00", "19:00"]],
                     "monday":
-                        [["10:00", "11:00"],
-                        ["11:00", "12:00"],
-                        ["12:00", "13:00"],
-                        ["13:00", "14:00"],
-                        ["14:00", "15:00"],
-                        ["15:00", "16:00"],
-                        ["16:00", "17:00"],
-                        ["17:00", "18:00"],
-                        ["18:00", "19:00"]],
+                        [["10:00", "19:00"]],
                     "tuesday":
-                        [["10:00", "11:00"],
-                        ["11:00", "12:00"],
-                        ["12:00", "13:00"],
-                        ["13:00", "14:00"],
-                        ["14:00", "15:00"],
-                        ["15:00", "16:00"],
-                        ["16:00", "17:00"],
-                        ["17:00", "18:00"],
-                        ["18:00", "19:00"]],
+                        [["10:00", "19:00"]],
                     "thursday":
-                        [["10:00", "11:00"],
-                        ["11:00", "12:00"],
-                        ["12:00", "13:00"],
-                        ["13:00", "14:00"],
-                        ["14:00", "15:00"],
-                        ["15:00", "16:00"]],
+                        [["10:00", "16:00"]],
                     "wednesday":
-                        [["10:00", "11:00"],
-                        ["11:00", "12:00"],
-                        ["12:00", "13:00"],
-                        ["13:00", "14:00"],
-                        ["14:00", "15:00"],
-                        ["15:00", "16:00"],
-                        ["16:00", "17:00"],
-                        ["17:00", "18:00"],
-                        ["18:00", "19:00"]]},
+                        [["10:00", "19:00"]]},
                 "summer": {}
             },
             "preferredCoursesPerSemester": {

@@ -15,7 +15,9 @@ from schedule.alg_data_generator import get_historic_course_data, get_schedule, 
 import traceback
 import json
 import logging
+import pickle
 
+debugging = False
 
 class Schedule(APIView):
     # GET / schedule / {year - semester}
@@ -26,7 +28,7 @@ class Schedule(APIView):
         historical_data = get_historic_course_data()
         previous_enrollment = get_program_enrollment_data()
         try:
-            schedule = get_schedule()
+            schedule = get_schedule(requested_company_alg)
         except FileNotFoundError as e:
             return HttpResponse("Error generating schedule! Did you initialize the database?",
                                 status=status.HTTP_500_INTERNAL_SERVER_ERROR)
@@ -41,8 +43,22 @@ class Schedule(APIView):
             alg_2_output = c1alg2(historical_data, previous_enrollment, schedule) if requested_company_alg == 1 \
                  else c2alg2(historical_data, previous_enrollment, schedule, 2, logging.DEBUG)
             if requested_company_alg == 1:
+                if debugging:
+                    profs_pickle = open('profs_c1.pickle', 'wb')
+                    pickle.dump(professors, profs_pickle)
+                    profs_pickle.close()
+                    schedule_pickle = open('schedule_c1.pickle', 'wb')
+                    pickle.dump(alg_2_output, schedule_pickle)
+                    schedule_pickle.close()
                 schedule, error = c1alg1.generate_schedule(professors, alg_2_output)
             else:
+                if debugging:
+                    profs_pickle = open('profs_c2.pickle', 'wb')
+                    pickle.dump(professors, profs_pickle)
+                    profs_pickle.close()
+                    schedule_pickle = open('schedule_c2.pickle', 'wb')
+                    pickle.dump(alg_2_output, schedule_pickle)
+                    schedule_pickle.close()
                 schedule, error = c2alg1(professors, alg_2_output, False)
             if error is not None and error != "":
                 return HttpResponse("ERROR WITH ALGORITHMS: " + error, status=status.HTTP_500_INTERNAL_SERVER_ERROR)

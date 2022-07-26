@@ -3,7 +3,7 @@ import json
 import pickle
 from preferences.models import Preferences
 from schedule.Schedule_models import A_Schedule
-from schedule.Schedule_serializers import A_ScheduleSerializer
+from schedule.Schedule_serializers import A_ScheduleSerializer, A_Company1ScheduleSerializer
 from users.models import AppUser
 
 
@@ -17,18 +17,19 @@ def get_program_enrollment_data() -> typing.Dict[str, str]:
         return json.load(json_file)
 
 
-def get_schedule():
+def get_schedule(company: int):
     schedule = A_Schedule.objects.first()
     if schedule is None:
-        print("ERROR: NO DATABASE DATA FOUND. HAVE YOU RUN init_db.sh?")
+        print("Alg Generator ERROR: NO DATABASE DATA FOUND. HAVE YOU RUN init_db.sh?")
         raise FileNotFoundError
-    schedule_serializer = A_ScheduleSerializer(instance=schedule)
+    schedule_serializer = A_Company1ScheduleSerializer(instance=schedule) if company == 1 \
+        else A_ScheduleSerializer(instance=schedule)
     data = schedule_serializer.data
     return json.loads(json.dumps(data))
 
 
-#difficulty: 1 = able, 2 = with effort, 0 = no selection
-#willingness: 1 = unwilling, 2 = willing, 3 = very willing, 0 = no selection
+# difficulty: 1 = able, 2 = with effort, 0 = no selection
+# willingness: 1 = unwilling, 2 = willing, 3 = very willing, 0 = no selection
 
 def calculate_enthusiasm_score(difficulty, willingness):
 
@@ -75,6 +76,39 @@ def update_course_preferences(course_preferences):
         preference['enthusiasmScore'] = calculate_enthusiasm_score(values['difficulty'],values['willingness'])
         coursePreferences.append(preference)
     return coursePreferences
+
+
+#merges Preferences.preferredTimes time intervals by joining distinct tuples on their boundaries
+def merge_preferred_times(unmerged_preferred_times):
+    merged_times = {
+        "fall": {},
+        "spring": {},
+        "summer": {}
+    }
+    for semester in unmerged_preferred_times:
+        for key in unmerged_preferred_times[semester]:
+            unmerged_list = unmerged_preferred_times[semester][key]
+
+            #merge all timeranges for the weekday
+            i = 0
+            while i < len(unmerged_list) - 1:
+                t1start, t1end = unmerged_list[i]
+                j = i+1
+                while j < len(unmerged_list):
+                    t2start, t2end = unmerged_list[j]
+                    if t1end == t2start:
+                        unmerged_list[i] = [t1start, t2end]
+                        t1end = t2end
+                        unmerged_list.pop(j)
+                    else:
+                        j += 1
+                i += 1
+
+            #set the merged timeranges as the value of the dict key
+            merged_list = unmerged_list
+            merged_times[semester][key] = merged_list
+
+    return merged_times
     
 
 def get_professor_dict():
@@ -89,8 +123,12 @@ def get_professor_dict():
         prof_dict["facultyType"] = "RESEARCH" if appUser.prof_type == "RP" else "TEACHING"
         prof_dict["coursePreferences"] = update_course_preferences(preference.courses_preferences)
         prof_dict["teachingObligations"] = calculate_teaching_obligations(appUser.prof_type, preference.sabbatical_length)
-        prof_dict["preferredTimes"] = preference.preferred_times
+
+        #merge the preferredTimes prior to setting it in the Preferences object, for the Algorithms teams
+        prof_dict["preferredTimes"] = merge_preferred_times(preference.preferred_times)
         prof_dict["preferredNonTeachingSemester"] = preference.preferred_non_teaching_semester.upper()
+        if prof_dict["preferredNonTeachingSemester"] == "":
+            prof_dict["preferredNonTeachingSemester"] = None
         prof_dict["preferredCoursesPerSemester"] = preference.preferred_courses_per_semester
         prof_dict["preferredCourseDaySpreads"] = preference.preferred_course_day_spreads
         professors.append(prof_dict)
