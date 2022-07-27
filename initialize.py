@@ -501,7 +501,7 @@ def parse_professors_data(csv_file):
                     'user': user,
                     'prof_type': FACULTY_TYPE_MAP[row[PROF_CSV_COLUMNS.FACULTY_TYPE.value]],
                     'is_peng': BOOLEAN_MAP[row[PROF_CSV_COLUMNS.IS_PENG.value]],
-                    'is_form_submitted': False
+                    'is_form_submitted': True
                 }
                 appuser = AppUser.objects.create(**appuser_attributes)
 
@@ -520,7 +520,7 @@ def parse_professors_data(csv_file):
 
                 #assigns attributes & save to DB
                 preferences_record.professor = appuser
-                preferences_record.is_submitted = False
+                preferences_record.is_submitted = True
                 preferences_record.taking_sabbatical = taking_sabbatical
                 preferences_record.sabbatical_length = sabbatical_length
                 preferences_record.sabbatical_start_month = sabbatical_start_month
