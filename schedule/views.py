@@ -61,7 +61,7 @@ class Schedule(APIView):
                     schedule_pickle.close()
                 schedule, error = c2alg1(professors, alg_2_output, False)
             if error is not None and error != "":
-                return HttpResponse("ERROR WITH ALGORITHMS: " + error, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+                return HttpResponse(error, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
             return HttpResponse(json.dumps(schedule), status=status.HTTP_200_OK)
         except Exception as err:
             print(traceback.format_exception(err))
