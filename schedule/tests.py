@@ -363,7 +363,7 @@ class ViewTest(TestCase):
                         [["10:00", "16:00"]],
                     "wednesday":
                         [["10:00", "19:00"]]},
-                "summer": {}
+                "summer": None
             },
             "preferredCoursesPerSemester": {
                   "fall": 2,
