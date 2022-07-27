@@ -13,7 +13,6 @@ Do not use the jmeter GUI, it slows down the test and adds noise to the results.
 # How to glean data from the performance tests: 
 1. Open jmeter
 2. navigate to:  tools -> generate html report -> select test_results.jtl
-  2.1 This is also found in the output folder if you don't want to generate it
 3. Use your browser to look at all the pretty charts and statistics!
 4. Go to PerfMon Metrics Collector and select pm_results.jtl for the filename
 5. See a nice graph of how the resources were used!
