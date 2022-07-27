@@ -85,7 +85,13 @@ def merge_preferred_times(unmerged_preferred_times):
         "spring": {},
         "summer": {}
     }
+
     for semester in unmerged_preferred_times:
+        #handle edge case where some semester may not have any preferredTimes - must set to None
+        if not unmerged_preferred_times[semester]:
+            merged_times[semester] = None
+            continue
+
         for key in unmerged_preferred_times[semester]:
             unmerged_list = unmerged_preferred_times[semester][key]
 
