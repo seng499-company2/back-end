@@ -88,7 +88,7 @@ def merge_preferred_times(unmerged_preferred_times):
 
     for semester in unmerged_preferred_times:
         #handle edge case where some semester may not have any preferredTimes - must set to None
-        if unmerged_preferred_times[semester] == 'null':
+        if not unmerged_preferred_times[semester]:
             merged_times[semester] = None
             continue
 
