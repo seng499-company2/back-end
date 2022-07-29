@@ -7,10 +7,11 @@ def course_to_alg_course(course: Course) -> A_Course:
         a_course = A_Course.objects.get(code=course.course_code)
     except A_Course.DoesNotExist:
         a_course = A_Course()
-    a_course.title = course.course_title,
-    a_course.pengRequired = course.pengRequired,
-    a_course.yearRequired = course.yearRequired
-    a_course.save()
+        a_course.code = course.course_code
+        a_course.title = course.course_title
+        a_course.pengRequired = course.pengRequired
+        a_course.yearRequired = course.yearRequired
+        a_course.save()
     return a_course
 
 
@@ -34,12 +35,10 @@ def course_to_summer_course_offering(course: Course):
 
 def get_course_offering_for_sections(sections, a_course: A_Course):
     if not sections.all():
-        # Course isn't scheduled in the given semester
-        # Creating an object with no sections
-        course_offering, _ = A_CourseOffering.objects.get_or_create(course=a_course, sections__in=[])
-        course_offering.save()
-        return course_offering
+        # Course isn't scheduled in the given semester, so return a falsy value to be checked at the caller
+        return None
 
+    #get the CourseOffering associated with the queried CourseSections
     try:
         course_offering = A_CourseOffering.objects.filter(course=a_course, sections__in=sections.all()).first()
         if course_offering is None:
@@ -68,6 +67,7 @@ def add_course_offering_to_schedule(a_course_offering: A_CourseOffering, semeste
         for old_course_offering in fall_course_offerings:
             if old_course_offering.course == a_course_offering.course:
                 schedule.fall.remove(old_course_offering)
+                old_course_offering.delete()
         schedule.fall.add(a_course_offering)
 
     if "spring" == semester:
@@ -76,6 +76,7 @@ def add_course_offering_to_schedule(a_course_offering: A_CourseOffering, semeste
         for old_course_offering in spring_course_offerings:
             if old_course_offering.course == a_course_offering.course:
                 schedule.spring.remove(old_course_offering)
+                old_course_offering.delete()
         schedule.spring.add(a_course_offering)
 
     if "summer" == semester:
@@ -84,6 +85,7 @@ def add_course_offering_to_schedule(a_course_offering: A_CourseOffering, semeste
         for old_course_offering in summer_course_offerings:
             if old_course_offering.course == a_course_offering.course:
                 schedule.summer.remove(old_course_offering)
+                old_course_offering.delete()
         schedule.summer.add(a_course_offering)
 
     schedule.save()
