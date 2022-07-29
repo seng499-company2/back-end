@@ -4,6 +4,7 @@ import pickle
 from preferences.models import Preferences
 from schedule.Schedule_models import A_Schedule
 from schedule.Schedule_serializers import A_ScheduleSerializer, A_Company1ScheduleSerializer
+from django.core.exceptions import ValidationError
 from users.models import AppUser
 
 
@@ -121,23 +122,24 @@ def get_professor_dict():
     preferences: [Preferences] = Preferences.objects.all()
     professors: [] = []
     for preference in preferences:
-        appUser: AppUser = preference.professor
-        prof_dict = {}
-        prof_dict["id"] = str(appUser.user.id)
-        prof_dict["name"] = appUser.user.first_name + ' ' + appUser.user.last_name
-        prof_dict["isPeng"] = appUser.is_peng
-        prof_dict["facultyType"] = "RESEARCH" if appUser.prof_type == "RP" else "TEACHING"
-        prof_dict["coursePreferences"] = update_course_preferences(preference.courses_preferences)
-        prof_dict["teachingObligations"] = calculate_teaching_obligations(appUser.prof_type, preference.sabbatical_length)
+        if preference.is_submitted:
+            appUser: AppUser = preference.professor
+            prof_dict = {}
+            prof_dict["id"] = str(appUser.user.id)
+            prof_dict["name"] = appUser.user.first_name + ' ' + appUser.user.last_name
+            prof_dict["isPeng"] = appUser.is_peng
+            prof_dict["facultyType"] = "RESEARCH" if appUser.prof_type == "RP" else "TEACHING"
+            prof_dict["coursePreferences"] = update_course_preferences(preference.courses_preferences)
+            prof_dict["teachingObligations"] = calculate_teaching_obligations(appUser.prof_type, preference.sabbatical_length)
 
-        #merge the preferredTimes prior to setting it in the Preferences object, for the Algorithms teams
-        prof_dict["preferredTimes"] = merge_preferred_times(preference.preferred_times)
-        prof_dict["preferredNonTeachingSemester"] = preference.preferred_non_teaching_semester.upper()
-        if prof_dict["preferredNonTeachingSemester"] == "":
-            prof_dict["preferredNonTeachingSemester"] = None
-        prof_dict["preferredCoursesPerSemester"] = preference.preferred_courses_per_semester
-        prof_dict["preferredCourseDaySpreads"] = preference.preferred_course_day_spreads
-        professors.append(prof_dict)
+            #merge the preferredTimes prior to setting it in the Preferences object, for the Algorithms teams
+            prof_dict["preferredTimes"] = merge_preferred_times(preference.preferred_times)
+            prof_dict["preferredNonTeachingSemester"] = preference.preferred_non_teaching_semester.upper()
+            if prof_dict["preferredNonTeachingSemester"] == "":
+                prof_dict["preferredNonTeachingSemester"] = None
+            prof_dict["preferredCoursesPerSemester"] = preference.preferred_courses_per_semester
+            prof_dict["preferredCourseDaySpreads"] = preference.preferred_course_day_spreads
+            professors.append(prof_dict)
     return professors
 
 

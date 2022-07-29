@@ -158,6 +158,7 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.BasicAuthentication',
     ),
+    'EXCEPTION_HANDLER': 'scheduler.exceptions.django_error_handler'
 }
 
 SIMPLE_JWT = {
