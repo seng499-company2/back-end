@@ -39,7 +39,7 @@ class PreferencesSerializerTest(TestCase):
             "professor": self.app_user,
             "is_submitted": True,
             "taking_sabbatical": True,
-            "sabbatical_length": "FULL",
+            "sabbatical_length": "HALF",
             "sabbatical_start_month": 1,
             "preferred_times": {
                 "fall": {
@@ -64,11 +64,11 @@ class PreferencesSerializerTest(TestCase):
                     "difficulty": 2
                 }
            },
-           "preferred_non_teaching_semester": "fall",
+           "preferred_non_teaching_semester": "",
            "preferred_courses_per_semester": {
                 "fall": "1",
-                "spring": "2",
-                "summer": "3"
+                "spring": "0",
+                "summer": "0"
             },
            "preferred_course_day_spreads": [
                 "TWF",
@@ -107,7 +107,7 @@ class PreferencesSerializerTest(TestCase):
             "professor": "johnd1",
             "is_submitted": True,
             "taking_sabbatical": True,
-            "sabbatical_length": "FULL",
+            "sabbatical_length": "HALF",
             "sabbatical_start_month": 1,
             "preferred_times": {
                 "fall": {
@@ -123,11 +123,11 @@ class PreferencesSerializerTest(TestCase):
                     "difficulty": 1
                 },
             },
-            "preferred_non_teaching_semester": "fall",
+            "preferred_non_teaching_semester": "",
             "preferred_courses_per_semester": {
                 "fall": "1",
-                "spring": "2",
-                "summer": "3"
+                "spring": "0",
+                "summer": "0"
             },
            "preferred_course_day_spreads": [
                 "TWF",
@@ -171,7 +171,7 @@ class PreferencesSerializerTest(TestCase):
             "professor": "julia2",
             "is_submitted": True,
             "taking_sabbatical": True,
-            "sabbatical_length": "FULL",
+            "sabbatical_length": "HALF",
             "sabbatical_start_month": 1,
             "preferred_times": {
                 "fall": {
@@ -187,7 +187,7 @@ class PreferencesSerializerTest(TestCase):
                     "difficulty": 2
                 },
             },
-            "preferred_non_teaching_semester": "fall",
+            "preferred_non_teaching_semester": "",
             "preferred_courses_per_semester": {
                 "fall": "1",
                 "spring": "0",
@@ -218,7 +218,7 @@ class PreferencesSerializerTest(TestCase):
             "professor": "johnd1",
             "is_submitted": False,      #updated
             "taking_sabbatical": True,
-            "sabbatical_length": "HALF", #updated
+            "sabbatical_length": "FULL", #updated
             "sabbatical_start_month": 1,
             "preferred_times": {        #updated
                 "fall": {},
@@ -235,11 +235,11 @@ class PreferencesSerializerTest(TestCase):
                         "difficulty": 2
                     }
             },
-            "preferred_non_teaching_semester": "fall",
-            "preferred_courses_per_semester": {
-                    "fall": "1",
-                    "spring": "2",
-                    "summer": "3"
+            "preferred_non_teaching_semester": "",
+            "preferred_courses_per_semester": {  #updated
+                    "fall": "0",
+                    "spring": "0",
+                    "summer": "0"
                 },
             "preferred_course_day_spreads": [
                     "TWF",
@@ -256,6 +256,8 @@ class PreferencesSerializerTest(TestCase):
         self.assertEquals(Preferences.objects.get(pk=obj_key).is_submitted, updated_serialized_data['is_submitted'])
         self.assertEquals(Preferences.objects.get(pk=obj_key).sabbatical_length, updated_serialized_data['sabbatical_length'])
         self.assertEquals(Preferences.objects.get(pk=obj_key).preferred_times, updated_serialized_data['preferred_times'])
+        self.assertEquals(Preferences.objects.get(pk=obj_key).preferred_courses_per_semester, updated_serialized_data['preferred_courses_per_semester'])
+
 
 
 class AdminSidePreferencesRecordViewTest(TestCase):
@@ -274,7 +276,7 @@ class AdminSidePreferencesRecordViewTest(TestCase):
 
         self.app_user_attributes = {
             'user': self.user,
-            'prof_type': 'RP',
+            'prof_type': 'TP',
             'is_peng': True
         }
         self.app_user = AppUser.objects.create(**self.app_user_attributes)
@@ -284,9 +286,9 @@ class AdminSidePreferencesRecordViewTest(TestCase):
         self.preferences_attributes = {
             "professor": self.app_user,
             "is_submitted": True,
-            "taking_sabbatical": True,
-            "sabbatical_length": "FULL",
-            "sabbatical_start_month": 1,
+            "taking_sabbatical": False,
+            "sabbatical_length": "NONE",
+            "sabbatical_start_month": 0,
             "preferred_times": {
                 "fall": {
                     "monday": [["10:00", "11:00"]],
@@ -310,7 +312,7 @@ class AdminSidePreferencesRecordViewTest(TestCase):
                         "difficulty": 2
                     }
             },
-            "preferred_non_teaching_semester": "fall",
+            "preferred_non_teaching_semester": "FALL",
             "preferred_courses_per_semester": {
                     "fall": "1",
                     "spring": "2",
@@ -331,9 +333,9 @@ class AdminSidePreferencesRecordViewTest(TestCase):
         self.default_serializer_data = {
             'professor': 'johnd1',
             'is_submitted': True,
-            'taking_sabbatical': True,
-            'sabbatical_length': 'FULL',
-            'sabbatical_start_month': 1,
+            'taking_sabbatical': False,
+            'sabbatical_length': 'NONE',
+            'sabbatical_start_month': 0,
             "preferred_times": {
                 "fall": {
                     "monday": [["10:00", "11:00"]],
@@ -400,8 +402,12 @@ class AdminSidePreferencesRecordViewTest(TestCase):
         #self.save_preferences_record()
         #update some fields
         self.default_serializer_data['is_submitted'] = False
+        self.default_serializer_data['taking_sabbatical'] = True
         self.default_serializer_data['sabbatical_length'] = 'HALF'
-        self.default_serializer_data['preferred_times'] = [ {"fall": [],"spring": [],"summer": []}]
+        self.default_serializer_data['sabbatical_start_month'] = 1
+        self.default_serializer_data['preferred_times'] = {"fall": [], "spring": None,"summer": []}
+        self.default_serializer_data['preferred_courses_per_semester'] = {"fall": "1", "spring": '0',"summer": "3"}
+        self.default_serializer_data['preferred_non_teaching_semester'] = ""
 
         request_factory = APIRequestFactory()
         request = request_factory.post('/preferences/johnd1/', data=self.default_serializer_data, format='json')
@@ -423,6 +429,7 @@ class AdminSidePreferencesRecordViewTest(TestCase):
 
     def test_preferences_record_update_POST__bad_request(self):
         #modify the Preferences data to have some invalid fields
+        self.default_serializer_data['taking_sabbatical'] = True
         self.default_serializer_data['sabbatical_start_month'] = -5
         self.default_serializer_data['sabbatical_length'] = 'Six'
 
@@ -450,7 +457,7 @@ class UserSidePreferencesRecordViewTest(TestCase):
 
         self.app_user_attributes = {
             'user': self.user,
-            'prof_type': 'RP',
+            'prof_type': 'TP',
             'is_peng': True,
             'is_form_submitted': False
         }
@@ -462,8 +469,8 @@ class UserSidePreferencesRecordViewTest(TestCase):
             "professor": self.app_user,
             "is_submitted": True,
             "taking_sabbatical": True,
-            "sabbatical_length": "FULL",
-            "sabbatical_start_month": 1,
+            "sabbatical_length": "HALF",
+            "sabbatical_start_month": 9,
             "preferred_times": {
                 "fall": {
                     "monday": [["10:00", "11:00"]],
@@ -487,7 +494,7 @@ class UserSidePreferencesRecordViewTest(TestCase):
                         "difficulty": 2
                     }
             },
-            "preferred_non_teaching_semester": "fall",
+            "preferred_non_teaching_semester": "",
             "preferred_courses_per_semester": {
                     "fall": "1",
                     "spring": "2",
@@ -505,13 +512,10 @@ class UserSidePreferencesRecordViewTest(TestCase):
             'professor': 'johnd1',
             'is_submitted': True,
             'taking_sabbatical': True,
-            'sabbatical_length': 'FULL',
-            'sabbatical_start_month': 1,
+            'sabbatical_length': 'HALF',
+            'sabbatical_start_month': 9,
             "preferred_times": {
-                "fall": {
-                    "monday": [["10:00", "11:00"]],
-                    "tuesday": [["10:00", "11:00"]],
-                },
+                "fall": None,
                 "spring": {
                     "monday": [["10:00", "11:00"]],
                     "tuesday": [["10:00", "11:00"]], 
@@ -530,9 +534,9 @@ class UserSidePreferencesRecordViewTest(TestCase):
                     "difficulty": 2
                 }
             },
-            "preferred_non_teaching_semester": "fall",
+            "preferred_non_teaching_semester": "",
             "preferred_courses_per_semester": {
-            "fall": "1",
+            "fall": "0",
             "spring": "2",
             "summer": "3"
         },
