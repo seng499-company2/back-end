@@ -41,7 +41,7 @@ class Schedule(APIView):
 
         try:
             alg_2_output = c1alg2(historical_data, previous_enrollment, schedule) if requested_company_alg == 1 \
-                 else c2alg2(historical_data, previous_enrollment, schedule, 2, logging.DEBUG)
+                 else c2alg2(historical_data, previous_enrollment, schedule, 2, logging.INFO)
             if requested_company_alg == 1:
                 if debugging:
                     profs_pickle = open('profs_c1.pickle', 'wb')
@@ -59,6 +59,13 @@ class Schedule(APIView):
                     schedule_pickle = open('schedule_c2.pickle', 'wb')
                     pickle.dump(alg_2_output, schedule_pickle)
                     schedule_pickle.close()
+                #print Alg2 output to file
+                with open('input_sched.json', 'w') as f:
+                    f.write(json.dumps(alg_2_output))
+
+                with open('input_profs.json', 'w') as f:
+                    f.write(json.dumps(professors))
+
                 schedule, error = c2alg1(professors, alg_2_output, False)
             if error is not None and error != "":
                 return HttpResponse(error, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
