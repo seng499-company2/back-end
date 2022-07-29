@@ -27,8 +27,8 @@ class ProfessorsList(APIView):
         if request.method != "GET":
             return HttpResponse(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
-        # get all non-admin AppUsers **may have to also fetch User parent class + concatenate fields**
-        profs_list = AppUser.objects.filter(user__is_superuser=False)
+        # get all prof AppUsers **may have to also fetch User parent class + concatenate fields**
+        profs_list = AppUser.objects.exclude(prof_type=AppUser.TeachingType.OTHER)
         serializer = AppUserSerializer(profs_list, many=True)
         return HttpResponse(json.dumps(serializer.data), status=status.HTTP_200_OK)
 

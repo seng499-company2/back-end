@@ -15,7 +15,7 @@ from .permissions import IsAdmin
 from rest_framework.permissions import IsAuthenticated
 
 from schedule.adapter import add_course_offering_to_schedule, \
-    course_to_summer_course_offering, course_to_spring_course_offering, course_to_fall_course_offering
+    course_to_summer_course_offering, course_to_spring_course_offering, course_to_fall_course_offering, course_to_alg_course
 
 from users.models import AppUser
 from preferences.models import Preferences
@@ -51,15 +51,19 @@ class AllCoursesView(APIView):
 
 
 def align_course_models(course):
+    #assign course offerings if a truthy value is returned
     alg_course_offering_fall = course_to_fall_course_offering(course)
-    alg_course_offering_fall.save()
+    if alg_course_offering_fall:
+        alg_course_offering_fall.save()
+        add_course_offering_to_schedule(alg_course_offering_fall, "fall")
     alg_course_offering_spring = course_to_spring_course_offering(course)
-    alg_course_offering_spring.save()
+    if alg_course_offering_spring:
+        alg_course_offering_spring.save()
+        add_course_offering_to_schedule(alg_course_offering_spring, "spring")
     alg_course_offering_summer = course_to_summer_course_offering(course)
-    alg_course_offering_summer.save()
-    add_course_offering_to_schedule(alg_course_offering_fall, "fall")
-    add_course_offering_to_schedule(alg_course_offering_spring, "spring")
-    add_course_offering_to_schedule(alg_course_offering_summer, "summer")
+    if alg_course_offering_summer:
+        alg_course_offering_summer.save()
+        add_course_offering_to_schedule(alg_course_offering_summer, "summer")
 
 
 class CourseView(APIView):
@@ -129,10 +133,17 @@ class CourseView(APIView):
         except courses.models.Course.DoesNotExist:
             return HttpResponse(status=status.HTTP_404_NOT_FOUND)
         alg_course_offering = course_to_fall_course_offering(course)
-        alg_course_offering.delete()
+        if alg_course_offering:
+            alg_course_offering.delete()
         alg_course_offering = course_to_spring_course_offering(course)
-        alg_course_offering.delete()
+        if alg_course_offering:
+            alg_course_offering.delete()
         alg_course_offering = course_to_summer_course_offering(course)
-        alg_course_offering.delete()
+        if alg_course_offering:
+            alg_course_offering.delete()
+            
+        alg_course = course_to_alg_course(course)
+        alg_course.delete()
         course.delete()
+        course
         return HttpResponse(status=status.HTTP_204_NO_CONTENT)
