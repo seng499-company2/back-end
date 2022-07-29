@@ -71,7 +71,7 @@ class Preferences(models.Model):
                     else:
                         raise ValidationError({"Error": f'Sabbatical must start in January, May, or September. Month {self.sabbatical_start_month} invalid'})
                 if self.preferred_non_teaching_semester:
-                        raise ValidationError({ "Error": "Professor is on leave. No non-teaching semester allowed"})
+                        raise ValidationError({ "Error": "Professor is on leave. non-teaching semester must be empty"})
 
             elif 'RP' == self.professor.prof_type:
                 if 'FULL' == self.sabbatical_length:
@@ -96,7 +96,7 @@ class Preferences(models.Model):
                     else:
                         raise ValidationError({"Error": f'Sabbatical must start in January or July. Month {self.sabbatical_start_month} invalid'})
                 if self.preferred_non_teaching_semester:
-                        raise ValidationError({ "Error": "Professor is on leave. No non-teaching semester allowed"})
+                        raise ValidationError({ "Error": "Professor is on leave. non-teaching semester must be empty"})
 
     # override save method to call clean
     def save(self, *args, **kwargs):
