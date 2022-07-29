@@ -37,6 +37,8 @@ class Preferences(models.Model):
         return self.professor.user.first_name + ' ' + self.professor.user.last_name
     
     # Will clean up the data before adding/updating the object to the database
+    # In this case will ensure that the preferred courses per semester and preferred times
+    # are set to the correct values when a professor in on sabbitical
     def clean(self):
         if self.taking_sabbatical:
             if 'TP' == self.professor.prof_type:

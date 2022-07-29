@@ -9,8 +9,6 @@ def django_error_handler(exc, context):
     # Call REST framework's default exception handler first,
     # to get the standard error response.
     response = exception_handler(exc, context)
-    print(exc)
     if response is None and isinstance(exc, ValidationError):
-        print("in here")
         return Response(status=400, data=exc.message_dict)
     return response
