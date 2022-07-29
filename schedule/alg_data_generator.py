@@ -4,7 +4,6 @@ import pickle
 from preferences.models import Preferences
 from schedule.Schedule_models import A_Schedule
 from schedule.Schedule_serializers import A_ScheduleSerializer, A_Company1ScheduleSerializer
-from django.core.exceptions import ValidationError
 from users.models import AppUser
 
 
