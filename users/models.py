@@ -53,7 +53,7 @@ def post_delete_user(sender, instance, **kwargs):
 # Use Django signals to create an associated preference when a prof AppUser is created 
 @receiver(post_save, sender=AppUser)
 def create_app_user_preferences(sender, instance, created, **kwargs):
-    if created and instance.user.is_superuser == False:
+    if created and instance.prof_type != AppUser.TeachingType.OTHER:
         Preferences.objects.create(professor=instance)
     
 '''#methods use Django signals to create/update AppUser instances when auth.User instances are created/updated
