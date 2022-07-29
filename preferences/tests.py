@@ -776,9 +776,13 @@ class AdminProfPreferencesRecordViewTest(TestCase):
 
     def test_preferences_record_update_POST(self):
         #update some fields
-        self.default_serializer_data['is_submitted'] = False
+        self.default_serializer_data['is_submitted'] = True
+        self.default_serializer_data['taking_sabbatical'] = True
         self.default_serializer_data['sabbatical_length'] = 'HALF'
-        self.default_serializer_data['preferred_times'] = [ {"fall": [],"spring": [],"summer": []}]
+        self.default_serializer_data['sabbatical_start_month'] = 1
+        self.default_serializer_data['preferred_times'] = {"fall": [], "spring": None,"summer": []}
+        self.default_serializer_data['preferred_courses_per_semester'] = {"fall": "1", "spring": '0',"summer": "3"}
+        self.default_serializer_data['preferred_non_teaching_semester'] = ""
 
         request_factory = APIRequestFactory()
         request = request_factory.post('/preferences/adminprof/', data=self.default_serializer_data, format='json')
@@ -789,9 +793,13 @@ class AdminProfPreferencesRecordViewTest(TestCase):
         
     def test_preferences_record_update_POST__user_side(self):
         #update some fields
-        self.default_serializer_data['is_submitted'] = False
+        self.default_serializer_data['is_submitted'] = True
+        self.default_serializer_data['taking_sabbatical'] = True
         self.default_serializer_data['sabbatical_length'] = 'HALF'
-        self.default_serializer_data['preferred_times'] = [ {"fall": [],"spring": [],"summer": []}]
+        self.default_serializer_data['sabbatical_start_month'] = 1
+        self.default_serializer_data['preferred_times'] = {"fall": [], "spring": None,"summer": []}
+        self.default_serializer_data['preferred_courses_per_semester'] = {"fall": "1", "spring": '0',"summer": "3"}
+        self.default_serializer_data['preferred_non_teaching_semester'] = ""
 
         request_factory = APIRequestFactory()
         request = request_factory.post('/preferences/', data=self.default_serializer_data, format='json')
