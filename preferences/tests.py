@@ -432,165 +432,6 @@ class AdminSidePreferencesRecordViewTest(TestCase):
         response = PreferencesRecord().post(request, professor_id='johnd1')
         self.assertIsNotNone(response)
         self.assertEqual(status.HTTP_400_BAD_REQUEST, response.status_code)
-        
-class AdminProfPreferencesRecordViewTest(TestCase):
-    @classmethod
-    def setUp(self):
-        #build AppUser instance who is both an admin and prof
-        self.user_attributes = {
-            'username': 'adminprof',
-            'password': 'securepass2',
-            'first_name': 'Admin',
-            'last_name': 'Prof',
-            'email': 'adminprof@uvic.ca',
-            'is_superuser': True
-        }
-        self.user = User.objects.create_user(**self.user_attributes)
-
-        self.app_user_attributes = {
-            'user': self.user,
-            'prof_type': 'RP',
-            'is_peng': True
-        }
-        self.app_user = AppUser.objects.create(**self.app_user_attributes)
-        self.app_user_serializer = AppUserSerializer(instance=self.app_user)
-
-        # create associated Preferences record
-        self.preferences_attributes = {
-            "professor": self.app_user,
-            "is_submitted": True,
-            "taking_sabbatical": False,
-            "sabbatical_length": "NONE",
-            "sabbatical_start_month": 0,
-            "preferred_times": {
-                "fall": {
-                    "monday": [["10:00", "11:00"]],
-                    "tuesday": [["10:00", "11:00"]],
-                },
-                "spring": {
-                    "monday": [["10:00", "11:00"]],
-                    "tuesday": [["10:00", "11:00"]], 
-                },
-                "summer": {
-                    "friday": [["10:00", "11:00"]]
-                }
-            },
-            "courses_preferences": {
-                    "CSC 225": {
-                        "willingness": 1,
-                        "difficulty": 1
-                    },
-                    "CSC 226": {
-                        "willingness": 2,
-                        "difficulty": 2
-                    }
-            },
-            "preferred_non_teaching_semester": "fall",
-            "preferred_courses_per_semester": {
-                    "fall": "1",
-                    "spring": "2",
-                    "summer": "3"
-                },
-            "preferred_course_day_spreads": [
-                    "TWF",
-                    "Th"
-                ],
-        }
-        
-        # Update default preference data with above
-        Preferences.objects.update(**self.preferences_attributes)
-        self.preferences_record = Preferences.objects.get(professor__user__username=self.app_user.user.username)
-        self.serializer = PreferencesSerializer(instance=self.preferences_record, data=self.preferences_record)
-
-        #provide some default Preferences data to be used as a request body
-        self.default_serializer_data = {
-            'professor': 'adminprof',
-            'is_submitted': True,
-            'taking_sabbatical': True,
-            'sabbatical_length': 'FULL',
-            'sabbatical_start_month': 1,
-            "preferred_times": {
-                "fall": {
-                    "monday": [["10:00", "11:00"]],
-                    "tuesday": [["10:00", "11:00"]],
-                },
-                "spring": {
-                    "monday": [["10:00", "11:00"]],
-                    "tuesday": [["10:00", "11:00"]], 
-                },
-                "summer": {
-                    "friday": [["10:00", "11:00"]]
-                }
-            },
-            "courses_preferences": {
-                    "CSC 225": {
-                        "willingness": 1,
-                        "difficulty": 1
-                    },
-                    "CSC 226": {
-                        "willingness": 2,
-                        "difficulty": 2
-                    }
-            },
-            "preferred_non_teaching_semester": "fall",
-            "preferred_courses_per_semester": {
-                    "fall": "1",
-                    "spring": "2",
-                    "summer": "3"
-                },
-            "preferred_course_day_spreads": [
-                    "TWF",
-                    "Th"
-                ],
-        }
-
-    def test_preferences_record_GET(self):
-        request_factory = APIRequestFactory()
-        request = request_factory.get('/preferences/adminprof/')
-        request.user = self.user
-        response: HttpResponse = PreferencesRecord().get(request, professor_id='adminprof')
-        self.assertIsNotNone(response)
-        self.assertEqual(status.HTTP_200_OK, response.status_code)
-        self.assertContains(response, "{\"professor\": \"adminprof\", \"is_submitted\": true")
-        self.assertContains(response, "\"course_codes\": [")
-
-    def test_preferences_record_GET__user_side(self):
-        request_factory = APIRequestFactory()
-        request = request_factory.get('/preferences/')
-        request.user = self.user
-        response: HttpResponse = PreferencesRecord().get(request, professor_id='adminprof')
-        self.assertIsNotNone(response)
-        self.assertEqual(status.HTTP_200_OK, response.status_code)
-        self.assertContains(response, "{\"professor\": \"adminprof\", \"is_submitted\": true")
-        self.assertContains(response, "\"course_codes\": [")
-
-
-    def test_preferences_record_update_POST(self):
-        #update some fields
-        self.default_serializer_data['is_submitted'] = False
-        self.default_serializer_data['sabbatical_length'] = 'HALF'
-        self.default_serializer_data['preferred_times'] = [ {"fall": [],"spring": [],"summer": []}]
-
-        request_factory = APIRequestFactory()
-        request = request_factory.post('/preferences/adminprof/', data=self.default_serializer_data, format='json')
-        request.user = self.user
-        response = PreferencesRecord().post(request, professor_id='adminprof')
-        self.assertIsNotNone(response)
-        self.assertEqual(status.HTTP_200_OK, response.status_code)
-        
-    def test_preferences_record_update_POST__user_side(self):
-        #update some fields
-        self.default_serializer_data['is_submitted'] = False
-        self.default_serializer_data['sabbatical_length'] = 'HALF'
-        self.default_serializer_data['preferred_times'] = [ {"fall": [],"spring": [],"summer": []}]
-
-        request_factory = APIRequestFactory()
-        request = request_factory.post('/preferences/', data=self.default_serializer_data, format='json')
-        request.user = self.user
-        response = PreferencesRecord().post(request, professor_id='adminprof')
-        self.assertIsNotNone(response)
-        self.assertEqual(status.HTTP_200_OK, response.status_code)
-        
 
 
 class UserSidePreferencesRecordViewTest(TestCase):
@@ -796,4 +637,161 @@ class UserSidePreferencesRecordViewTest(TestCase):
         response: HttpResponse = self.post_malicious()
         self.assertIsNotNone(response)
         self.assertEquals(status.HTTP_401_UNAUTHORIZED, response.status_code)
+
+class AdminProfPreferencesRecordViewTest(TestCase):
+    @classmethod
+    def setUp(self):
+        #build AppUser instance who is both an admin and prof
+        self.user_attributes = {
+            'username': 'adminprof',
+            'password': 'securepass2',
+            'first_name': 'Admin',
+            'last_name': 'Prof',
+            'email': 'adminprof@uvic.ca',
+            'is_superuser': True
+        }
+        self.user = User.objects.create_user(**self.user_attributes)
+
+        self.app_user_attributes = {
+            'user': self.user,
+            'prof_type': 'RP',
+            'is_peng': True
+        }
+        self.app_user = AppUser.objects.create(**self.app_user_attributes)
+        self.app_user_serializer = AppUserSerializer(instance=self.app_user)
+
+        # create associated Preferences record
+        self.preferences_attributes = {
+            "professor": self.app_user,
+            "is_submitted": True,
+            "taking_sabbatical": False,
+            "sabbatical_length": "NONE",
+            "sabbatical_start_month": 0,
+            "preferred_times": {
+                "fall": {
+                    "monday": [["10:00", "11:00"]],
+                    "tuesday": [["10:00", "11:00"]],
+                },
+                "spring": {
+                    "monday": [["10:00", "11:00"]],
+                    "tuesday": [["10:00", "11:00"]], 
+                },
+                "summer": {
+                    "friday": [["10:00", "11:00"]]
+                }
+            },
+            "courses_preferences": {
+                    "CSC 225": {
+                        "willingness": 1,
+                        "difficulty": 1
+                    },
+                    "CSC 226": {
+                        "willingness": 2,
+                        "difficulty": 2
+                    }
+            },
+            "preferred_non_teaching_semester": "fall",
+            "preferred_courses_per_semester": {
+                    "fall": "1",
+                    "spring": "2",
+                    "summer": "3"
+                },
+            "preferred_course_day_spreads": [
+                    "TWF",
+                    "Th"
+                ],
+        }
         
+        # Update default preference data with above
+        Preferences.objects.update(**self.preferences_attributes)
+        self.preferences_record = Preferences.objects.get(professor__user__username=self.app_user.user.username)
+        self.serializer = PreferencesSerializer(instance=self.preferences_record, data=self.preferences_record)
+
+        #provide some default Preferences data to be used as a request body
+        self.default_serializer_data = {
+            'professor': 'adminprof',
+            'is_submitted': True,
+            'taking_sabbatical': True,
+            'sabbatical_length': 'FULL',
+            'sabbatical_start_month': 1,
+            "preferred_times": {
+                "fall": {
+                    "monday": [["10:00", "11:00"]],
+                    "tuesday": [["10:00", "11:00"]],
+                },
+                "spring": {
+                    "monday": [["10:00", "11:00"]],
+                    "tuesday": [["10:00", "11:00"]], 
+                },
+                "summer": {
+                    "friday": [["10:00", "11:00"]]
+                }
+            },
+            "courses_preferences": {
+                    "CSC 225": {
+                        "willingness": 1,
+                        "difficulty": 1
+                    },
+                    "CSC 226": {
+                        "willingness": 2,
+                        "difficulty": 2
+                    }
+            },
+            "preferred_non_teaching_semester": "fall",
+            "preferred_courses_per_semester": {
+                    "fall": "1",
+                    "spring": "2",
+                    "summer": "3"
+                },
+            "preferred_course_day_spreads": [
+                    "TWF",
+                    "Th"
+                ],
+        }
+
+    def test_preferences_record_GET(self):
+        request_factory = APIRequestFactory()
+        request = request_factory.get('/preferences/adminprof/')
+        request.user = self.user
+        response: HttpResponse = PreferencesRecord().get(request, professor_id='adminprof')
+        self.assertIsNotNone(response)
+        self.assertEqual(status.HTTP_200_OK, response.status_code)
+        self.assertContains(response, "{\"professor\": \"adminprof\", \"is_submitted\": true")
+        self.assertContains(response, "\"course_codes\": [")
+
+    def test_preferences_record_GET__user_side(self):
+        request_factory = APIRequestFactory()
+        request = request_factory.get('/preferences/')
+        request.user = self.user
+        response: HttpResponse = PreferencesRecord().get(request, professor_id='adminprof')
+        self.assertIsNotNone(response)
+        self.assertEqual(status.HTTP_200_OK, response.status_code)
+        self.assertContains(response, "{\"professor\": \"adminprof\", \"is_submitted\": true")
+        self.assertContains(response, "\"course_codes\": [")
+
+
+    def test_preferences_record_update_POST(self):
+        #update some fields
+        self.default_serializer_data['is_submitted'] = False
+        self.default_serializer_data['sabbatical_length'] = 'HALF'
+        self.default_serializer_data['preferred_times'] = [ {"fall": [],"spring": [],"summer": []}]
+
+        request_factory = APIRequestFactory()
+        request = request_factory.post('/preferences/adminprof/', data=self.default_serializer_data, format='json')
+        request.user = self.user
+        response = PreferencesRecord().post(request, professor_id='adminprof')
+        self.assertIsNotNone(response)
+        self.assertEqual(status.HTTP_200_OK, response.status_code)
+        
+    def test_preferences_record_update_POST__user_side(self):
+        #update some fields
+        self.default_serializer_data['is_submitted'] = False
+        self.default_serializer_data['sabbatical_length'] = 'HALF'
+        self.default_serializer_data['preferred_times'] = [ {"fall": [],"spring": [],"summer": []}]
+
+        request_factory = APIRequestFactory()
+        request = request_factory.post('/preferences/', data=self.default_serializer_data, format='json')
+        request.user = self.user
+        response = PreferencesRecord().post(request, professor_id='adminprof')
+        self.assertIsNotNone(response)
+        self.assertEqual(status.HTTP_200_OK, response.status_code)
