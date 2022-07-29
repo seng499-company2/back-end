@@ -1,4 +1,3 @@
-from nis import match
 from django.db import models
 from django.contrib.postgres.fields import ArrayField
 from django.core.exceptions import ValidationError
