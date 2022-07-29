@@ -547,7 +547,7 @@ class AdminProfPreferencesRecordViewTest(TestCase):
     def test_preferences_record_GET(self):
         request_factory = APIRequestFactory()
         request = request_factory.get('/preferences/adminprof/')
-        request.user = User.objects.create_user("admin", is_superuser=True)
+        request.user = self.user
         response: HttpResponse = PreferencesRecord().get(request, professor_id='adminprof')
         self.assertIsNotNone(response)
         self.assertEqual(status.HTTP_200_OK, response.status_code)
@@ -573,7 +573,7 @@ class AdminProfPreferencesRecordViewTest(TestCase):
 
         request_factory = APIRequestFactory()
         request = request_factory.post('/preferences/adminprof/', data=self.default_serializer_data, format='json')
-        request.user = User.objects.create_user("admin", is_superuser=True)
+        request.user = self.user
         response = PreferencesRecord().post(request, professor_id='adminprof')
         self.assertIsNotNone(response)
         self.assertEqual(status.HTTP_200_OK, response.status_code)
